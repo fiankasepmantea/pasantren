@@ -21,6 +21,7 @@ const Register = () => import('../components/pages/Register')
 
 // Master Data
 const Bank = () => import('../components/master/Banks')
+const Users = () => import('../components/master/Users')
 
 Vue.use(Router)
 
@@ -73,58 +74,6 @@ function configRoutes() {
       ]
     },
 
-    // PRODUCTIONS
-    {
-      path: '/productions',
-      redirect: '/productions',
-      name: 'Productions',
-      component: TheContainer,
-      children: [
-        {
-          path: 'sales-order',
-          name: 'SalesOrder',
-          component: SalesOrder,
-          meta: { title: 'Sales Order', auth: true }
-        },
-        {
-          path: 'ppc',
-          name: 'PPC',
-          component: PPC,
-          meta: { title: 'PPC', auth: true }
-        },
-        {
-          path: 'om',
-          name: 'om',
-          component: OM,
-          meta: { title: 'OM', auth: true }
-        },
-        {
-          path: 'cutting',
-          name: 'cutting',
-          component: Cutting,
-          meta: { title: 'Cutting', auth: true }
-        },
-        {
-          path: 'fitting',
-          name: 'fitting',
-          component: Fitting,
-          meta: { title: 'Perlengkapan', auth: true }
-        },
-        {
-          path: 'sewing',
-          name: 'sewing',
-          component: Sewing,
-          meta: { title: 'Jahit', auth: true }
-        },
-        {
-          path: 'packing',
-          name: 'packing',
-          component: Packing,
-          meta: { title: 'Packing', auth: true }
-        }
-      ]
-    },
-   
     //Dashboard
     {
       path: '/',
