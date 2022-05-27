@@ -899,47 +899,15 @@ __webpack_require__.r(__webpack_exports__);
     }, {
       name: 'Jenis Bahan',
       to: '/master/materials'
-    }, // {
-    //   name: 'Satuan',
-    //   to: '/master/pieces'
-    // },
-    {
+    }, {
       name: 'Kategori',
       to: '/master/categories'
     }, {
       name: 'Model',
       to: '/master/clothing-models'
     }, {
-      name: 'Warna',
-      to: '/master/colors'
-    }, {
-      name: 'Size',
-      to: '/master/sizes'
-    }, {
-      name: 'Label',
-      to: '/master/labels'
-    }, {
-      name: 'Aksesoris',
-      to: '/master/accessories'
-    }, // {
-    //   name: 'Supplier',
-    //   to: '/master/suppliers'
-    // },
-    {
       name: 'User',
       to: '/master/users'
-    }, {
-      name: 'Pelanggan',
-      to: '/master/customers'
-    }, {
-      name: 'Penjahit',
-      to: '/master/tailors'
-    }, {
-      name: 'Bank',
-      to: '/master/banks'
-    }, {
-      name: 'Maklon',
-      to: '/master/maklons'
     }]
   }, {
     _name: 'CSidebarNavTitle',
@@ -958,21 +926,6 @@ __webpack_require__.r(__webpack_exports__);
     items: [{
       name: 'PPC',
       to: '/productions/ppc'
-    }, {
-      name: 'OM',
-      to: '/productions/om'
-    }, {
-      name: 'Cutting',
-      to: '/productions/cutting'
-    }, {
-      name: 'Perlengkapan',
-      to: '/productions/fitting'
-    }, {
-      name: 'Jahit',
-      to: '/productions/sewing'
-    }, {
-      name: 'Packing',
-      to: '/productions/packing'
     }]
   }, {
     _name: 'CSidebarNavDropdown',

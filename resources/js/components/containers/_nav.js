@@ -36,10 +36,7 @@ export default [
             name: 'Jenis Bahan',
             to: '/master/materials'
           },
-          // {
-          //   name: 'Satuan',
-          //   to: '/master/pieces'
-          // },
+  
           {
             name: 'Kategori',
             to: '/master/categories'
@@ -49,47 +46,9 @@ export default [
             to: '/master/clothing-models'
           },
           {
-            name: 'Warna',
-            to: '/master/colors'
-          },
-          {
-            name: 'Size',
-            to: '/master/sizes'
-          },
-          {
-            name: 'Label',
-            to: '/master/labels'
-          },
-          {
-            name: 'Aksesoris',
-            to: '/master/accessories'
-          },
-          // {
-          //   name: 'Supplier',
-          //   to: '/master/suppliers'
-          // },
-          {
             name: 'User',
             to: '/master/users'
-          },
-          {
-            name: 'Pelanggan',
-            to: '/master/customers'
-          },
-          {
-            name: 'Penjahit',
-            to: '/master/tailors'
-          },
-          {
-            name: 'Bank',
-            to: '/master/banks'
-          },
-          {
-            name: 'Maklon',
-            to: '/master/maklons'
-          },
-          
-          
+          },          
         ]
       },
       {
@@ -112,26 +71,6 @@ export default [
             name: 'PPC',
             to: '/productions/ppc',
           },
-          {
-            name: 'OM',
-            to: '/productions/om'
-          },
-          {
-            name: 'Cutting',
-            to: '/productions/cutting'
-          },
-          {
-            name: 'Perlengkapan',
-            to: '/productions/fitting'
-          },
-          {
-            name: 'Jahit',
-            to: '/productions/sewing'
-          },
-          {
-            name: 'Packing',
-            to: '/productions/packing'
-          }
         ]
       },
       {
