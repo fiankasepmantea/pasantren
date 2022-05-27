@@ -7,7 +7,11 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Arr;
 
 
-class santri extends Model
+class Santri extends Model
 {
-    //
+    use SoftDeletes;
+
+    protected $table = 'santris';
+    protected $primaryKey = 'id';
+    protected $guarded = [];
 }

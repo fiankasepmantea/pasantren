@@ -25,13 +25,13 @@
     <CSidebarBrand class="d-md-down-note" to="/">
     <CImg
       class="c-sidebar-brand-full"
-      src="/assets/images/pasantren.png"
+      src="/assets/images/pesantren.png"
       :height="56"
     >
     </CImg>
     <CImg
       class="c-sidebar-brand-minimized"
-      src="/assets/images/pasantren.png"
+      src="/assets/images/pesantren.png"
       :height="56"
     >
     </CImg>

@@ -4,14 +4,14 @@
     <CHeaderBrand class="flex-start" to="/">
     <CImg
       class="c-sidebar-brand-full"
-      src="/assets/images/pasantren.png"
+      src="/assets/images/pesantren.png"
       :height="56"
     >
     </CImg>
     </CHeaderBrand>
     <CHeaderNav class="ml-auto">
       <CHeaderNavItem class="px-3 pt-2">
-        <h5>PASANTREN</h5>
+        <h5>PESANTREN</h5>
       </CHeaderNavItem>
     </CHeaderNav>
   </CHeader>

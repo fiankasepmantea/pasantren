@@ -27,8 +27,8 @@ class UsersTableSeeder extends Seeder
             ],
             [
                 'name' => 'muhaffizh',
-                'username' => 'admin',
-                'password' => bcrypt('admin'),
+                'username' => 'muhaffizh',
+                'password' => bcrypt('muhaffizh'),
                 'role' => 3
             ],
             [

@@ -14,7 +14,7 @@ class CreateLevelSantrisTable extends Migration
     public function up()
     {
         Schema::create('level_santris', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->enum('level', ['1', '2','3','4','5']);
             $table->timestamps();
             $table->softDeletes('deleted_at', 0);

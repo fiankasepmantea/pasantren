@@ -13,14 +13,14 @@
     <CHeaderBrand class="mx-auto d-lg-none" to="/">
     <CImg
       class="c-sidebar-brand-full"
-      src="/assets/images/pasantren.png"
+      src="/assets/images/pesantren.png"
       :height="56"
     >
     </CImg>
     </CHeaderBrand>
     <CHeaderNav class="d-md-down-none mr-auto">
       <CHeaderNavItem class="px-3 pt-2">
-        <h5>PASANTREN</h5>
+        <h5>PESANTREN</h5>
       </CHeaderNavItem>
     </CHeaderNav>
     <CHeaderNav class="d-md-down-none flex-end">

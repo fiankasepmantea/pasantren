@@ -7,7 +7,7 @@
             <CCardBody>
               <CForm class="text-center" @submit.prevent="postLogin">
                 <h2 class="text-muted">LOGIN</h2>
-                <h3 class="mb-4">PASANTREN</h3>
+                <h3 class="mb-4">PESANTREN</h3>
                 <CInput
                   placeholder="Username"
                   autocomplete="username"

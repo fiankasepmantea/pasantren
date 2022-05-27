@@ -430,7 +430,7 @@ var render = function() {
         [
           _c("CImg", {
             staticClass: "c-sidebar-brand-full",
-            attrs: { src: "/assets/images/pasantren.png", height: 56 }
+            attrs: { src: "/assets/images/pesantren.png", height: 56 }
           })
         ],
         1
@@ -441,7 +441,7 @@ var render = function() {
         { staticClass: "d-md-down-none mr-auto" },
         [
           _c("CHeaderNavItem", { staticClass: "px-3 pt-2" }, [
-            _c("h5", [_vm._v("PASANTREN")])
+            _c("h5", [_vm._v("PESANTREN")])
           ])
         ],
         1
@@ -531,12 +531,12 @@ var render = function() {
         [
           _c("CImg", {
             staticClass: "c-sidebar-brand-full",
-            attrs: { src: "/assets/images/pasantren.png", height: 56 }
+            attrs: { src: "/assets/images/pesantren.png", height: 56 }
           }),
           _vm._v(" "),
           _c("CImg", {
             staticClass: "c-sidebar-brand-minimized",
-            attrs: { src: "/assets/images/pasantren.png", height: 56 }
+            attrs: { src: "/assets/images/pesantren.png", height: 56 }
           })
         ],
         1

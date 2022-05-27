@@ -14,7 +14,7 @@ class CreateLevelsTable extends Migration
     public function up()
     {
         Schema::create('levels', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->string('nama');
             $table->timestamps();
             $table->softDeletes('deleted_at', 0);
