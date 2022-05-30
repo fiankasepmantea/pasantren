@@ -20,7 +20,8 @@ const Login = () => import('../components/pages/Login')
 const Register = () => import('../components/pages/Register')
 
 // Master Data
-const Bank = () => import('../components/master/Banks')
+const Group = () => import('../components/master/Groups')
+const Unit = () => import('../components/master/Units')
 const Users = () => import('../components/master/Users')
 
 Vue.use(Router)
@@ -66,10 +67,16 @@ function configRoutes() {
           meta: { title: 'User', auth: true }
         },
         {
-          path: 'Banks',
-          name: 'Banks',
-          component: Bank,
-          meta: { title: 'Bank', auth: true }
+          path: 'Groups',
+          name: 'Groups',
+          component: Group,
+          meta: { title: 'Grup/Halaqoh', auth: true }
+        },
+        {
+          path: 'Units',
+          name: 'Units',
+          component: Unit,
+          meta: { title: 'Unit', auth: true }
         },
       ]
     },

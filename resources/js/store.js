@@ -2,8 +2,9 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 
 import auth from './stores/auth.js'
-import bank from './stores/bank.js'
 import user from './stores/user.js'
+import group from './stores/group.js'
+import unit from './stores/unit.js'
 
 Vue.use(Vuex)
 
@@ -12,8 +13,9 @@ const store = new Vuex.Store({
     //SEMUA MODULE YANG DIBUAT AKAN DITEPATKAN DIDALAM BAGIAN INI DAN DIPISAHKAN DENGAN KOMA UNTUK SETIAP MODULE-NYA
     modules: {
         auth,
-        bank,
-        user
+        user,
+        group,
+        unit,
     },
   	//STATE HAMPIR SERUPA DENGAN PROPERTY DATA DARI COMPONENT HANYA SAJA DAPAT DIGUNAKAN SECARA GLOBAL
     state: {

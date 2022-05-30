@@ -894,20 +894,14 @@ __webpack_require__.r(__webpack_exports__);
     route: '/master',
     icon: 'cil-puzzle',
     items: [{
-      name: 'Departemen',
-      to: '/master/departments'
-    }, {
-      name: 'Jenis Bahan',
-      to: '/master/materials'
-    }, {
-      name: 'Kategori',
-      to: '/master/categories'
-    }, {
-      name: 'Model',
-      to: '/master/clothing-models'
-    }, {
       name: 'User',
       to: '/master/users'
+    }, {
+      name: 'Unit',
+      to: '/master/units'
+    }, {
+      name: 'Grup',
+      to: '/master/groups'
     }]
   }, {
     _name: 'CSidebarNavTitle',

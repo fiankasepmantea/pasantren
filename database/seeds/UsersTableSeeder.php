@@ -13,38 +13,12 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         $models = [
-            [
+            $model = [
                 'name' => 'admin',
                 'username' => 'admin',
                 'password' => bcrypt('admin'),
                 'role' => 1
-            ],
-            [
-                'name' => 'manajemen',
-                'username' => 'manajemen',
-                'password' => bcrypt('manajemen'),
-                'role' => 2
-            ],
-            [
-                'name' => 'muhaffizh',
-                'username' => 'muhaffizh',
-                'password' => bcrypt('muhaffizh'),
-                'role' => 3
-            ],
-            [
-                'name' => 'walisantri',
-                'username' => 'walisantri',
-                'password' => bcrypt('walisantri'),
-                'role' => 4
-            ],
-            [
-                'name' => 'santri',
-                'username' => 'santri',
-                'password' => bcrypt('santri'),
-                'role' => 5
-            ],
-
-           
+            ]
         ];
 
         foreach ($models as $model) {

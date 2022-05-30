@@ -30,7 +30,8 @@ Route::group(['namespace' => 'Api'], function () {
         Route::get('/user/user_level', 'UserController@getLevel');
         Route::get('/user/departement_name', 'UserController@getDepartementName');
         
-        Route::apiResources(['bank' => 'BankController']);
+        Route::apiResources(['group' => 'GroupController']);
+        Route::apiResources(['unit' => 'UnitController']);
         Route::apiResources(['user' => 'UserController']);
 
     });
