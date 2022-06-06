@@ -15,7 +15,7 @@ class CreateGradesTable extends Migration
     {
         Schema::create('grades', function (Blueprint $table) {
             $table->id();
-            $table->enum('grade', ['A', 'B','C']);
+            $table->enum('grade', ['A', 'B','C','D']);
             $table->timestamps();
             $table->softDeletes('deleted_at', 0);
         });

@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use App\User as Model;
 use App\Http\Requests\UserRequest as ModelRequest;
 use App\Http\Resources\UserResource as ModelResource;
-use App\Models\Department;
 use App\Models\Level;
 class UserController extends Controller
 {
@@ -47,11 +46,7 @@ class UserController extends Controller
             return response()->json(['error' => $e->getMessage()], 403);
         }
     }
-    public function getDepartementName()
-    {
-        $departements = Department::orderBy('nama', 'ASC')->get(); 
-        return response()->json(['status' => 'success', 'data' => $departements]);
-    }
+
     public function getLevel()
     {
         $level = Level::orderBy('nama', 'ASC')->get(); 

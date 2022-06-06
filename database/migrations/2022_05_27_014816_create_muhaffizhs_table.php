@@ -21,6 +21,7 @@ class CreateMuhaffizhsTable extends Migration
             $table->string('tempat_lahir');
             $table->date('tanggal_lahir');
             $table->string('no_hp');
+            $table->enum('pendidikan_terakhir',['D3','S1','S2','S3']);
             $table->date('mulai_bertugas');
             $table->string('angkatan_kelas');
             $table->enum('status',['Aktif','Tidak Aktif']);

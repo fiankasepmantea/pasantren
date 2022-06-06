@@ -8,9 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Arr;
-use App\Models\Department;
 use App\Models\Level;
-use App\Models\OM;
 use Illuminate\Database\Eloquent\Builder;
 class User extends Authenticatable implements JWTSubject
 {
@@ -79,17 +77,12 @@ class User extends Authenticatable implements JWTSubject
     {
         $model = [];
         
-        $model['departement_id'] = $data['departement_id'];
         $model['name'] = ucwords($data['name']);
         $model['username'] = $data['username'];
         $model['level_id'] = ucwords($data['level_id']);
-        $model['nik'] = $data['nik'];
         $model['password'] = bcrypt($data['password']);
 
         return $is_update ? $this->update($model) : $this->create($model);
-    }
-    public function departement(){
-        return $this->belongsTo(Department::class,'departement_id','id');
     }
     public function userLevel(){
         return $this->belongsTo(Level::class,'level_id','id');

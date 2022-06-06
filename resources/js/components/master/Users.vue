@@ -64,7 +64,7 @@
       
       <b-modal
       v-model="createModal"
-      title="Tambah data user"
+      title="Tambah Data User"
       @ok="handleSubmit"
       no-close-on-backdrop
       no-close-on-esc
@@ -74,7 +74,7 @@
       </b-modal>
 
       <b-modal
-      title="Ubah data user"
+      title="Ubah Data User"
       v-model="editModal"
       @ok="handleUpdate"
       no-close-on-backdrop
@@ -113,13 +113,13 @@ export default {
       pageOptions: [10, 20, 50, 100],
       header: [
         {
-          key: 'depar.nama',
-          label: 'Departemen',
+          key: "name",
+          label: "Nama",
           
         },
         {
-          key: "name",
-          label: "Nama",
+          key: "username",
+          label: "Username",
           
         },
         {

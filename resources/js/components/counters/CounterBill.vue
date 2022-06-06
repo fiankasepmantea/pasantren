@@ -153,7 +153,7 @@ import Form from './Forms/Form'
           {
             countersales_date: '2020-10-19',
             countersales_no: 'BON/20201019/001',
-            sales: 'Naruto',
+            sales: 'Didin',
             customer: 'Asfi'
           }
         ]

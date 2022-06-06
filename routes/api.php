@@ -27,12 +27,18 @@ Route::group(['namespace' => 'Api'], function () {
         Route::post('auth/refresh', 'AuthController@refresh');
         Route::post('auth/user', 'AuthController@user');
 
-        Route::get('/user/user_level', 'UserController@getLevel');
-        Route::get('/user/departement_name', 'UserController@getDepartementName');
-        
+        Route::apiResources(['user' => 'UserController']);
+        Route::get('/user/userlevel', 'UserController@getLevel');
         Route::apiResources(['group' => 'GroupController']);
         Route::apiResources(['unit' => 'UnitController']);
-        Route::apiResources(['user' => 'UserController']);
-
+        Route::apiResources(['muhaffizh' => 'MuhaffizhController']);
+        Route::get('/muhaffizh/muhaffizhgroup', 'MuhaffizhController@getMuhaffizhGroup');
+        Route::get('/muhaffizh/muhaffizhunit', 'MuhaffizhController@getMuhaffizhUnit');
+        Route::apiResources(['santri' => 'SantriController']);
+        Route::get('/santri/santrigroup', 'SantriController@getSantriGroup');
+        Route::get('/santri/santriunit', 'SantriController@getSantriUnit');
+        Route::get('/santri/santrigrade', 'SantriController@getSantriGrade');
+        Route::get('/santri/santrilevel', 'SantriController@getSantriLevel');
+       
     });
 });

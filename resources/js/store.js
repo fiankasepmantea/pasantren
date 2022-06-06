@@ -1,10 +1,12 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
-import auth from './stores/auth.js'
-import user from './stores/user.js'
-import group from './stores/group.js'
-import unit from './stores/unit.js'
+import auth from './stores/auth'
+import user from './stores/user'
+import group from './stores/group'
+import unit from './stores/unit'
+import muhaffizh from './stores/muhaffizh'
+import santri from './stores/santri'
 
 Vue.use(Vuex)
 
@@ -16,6 +18,8 @@ const store = new Vuex.Store({
         user,
         group,
         unit,
+        muhaffizh,
+        santri
     },
   	//STATE HAMPIR SERUPA DENGAN PROPERTY DATA DARI COMPONENT HANYA SAJA DAPAT DIGUNAKAN SECARA GLOBAL
     state: {

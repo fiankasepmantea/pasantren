@@ -20,9 +20,11 @@ const Login = () => import('../components/pages/Login')
 const Register = () => import('../components/pages/Register')
 
 // Master Data
+const Users = () => import('../components/master/Users')
 const Group = () => import('../components/master/Groups')
 const Unit = () => import('../components/master/Units')
-const Users = () => import('../components/master/Users')
+const Muhaffizh = () => import('../components/master/Muhaffizhs')
+const Santri = () => import('../components/master/Santris')
 
 Vue.use(Router)
 
@@ -64,7 +66,7 @@ function configRoutes() {
           path: 'users',
           name: 'Users',
           component: Users,
-          meta: { title: 'User', auth: true }
+          meta: { title: 'Role', auth: true }
         },
         {
           path: 'Groups',
@@ -77,6 +79,18 @@ function configRoutes() {
           name: 'Units',
           component: Unit,
           meta: { title: 'Unit', auth: true }
+        },
+        {
+          path: 'Muhaffizhs',
+          name: 'Muhaffizhs',
+          component: Muhaffizh,
+          meta: { title: 'Muhaffizh', auth: true }
+        },
+        {
+          path: 'Santris',
+          name: 'Santris',
+          component: Santri,
+          meta: { title: 'Santri', auth: true }
         },
       ]
     },
@@ -94,7 +108,7 @@ function configRoutes() {
           component: DSales,
           meta: {
             auth: true,
-            title: 'Monitor Penjualan'
+            title: 'Muhaffizh/ah'
           }
         },
         {
@@ -103,7 +117,7 @@ function configRoutes() {
           component: DProduction,
           meta: {
             auth: true,
-            title: 'Monitor Produksi'
+            title: 'Santri'
           }
         },
         {

@@ -4,22 +4,35 @@
     <b-row>
       <b-col md="6">
         <b-card 
-        title="Penjualan Marketing"
+        title="Muhaffizh/ah"
         >
         <hr>
-          <div v-for="(marketing, index) in marketings" :key="index"  class="d-flex justify-content-between">
-            <b-card-text class="card-text">{{ marketing.name }}</b-card-text>
-            <b-card-text class="card-text">Rp. {{ marketing.revenue }}</b-card-text>
+          <div v-for="(muhaffizh, index) in muhaffizhs" :key="index"  class="d-flex justify-content-between">
+            <b-card-text class="card-text">{{ muhaffizh.name }}</b-card-text>
+            <b-card-text class="card-text">{{ muhaffizh.revenue }}</b-card-text>
           </div>
+          
+           <div class="d-flex justify-content-between">
+              <b-card-text class="card-text">Total</b-card-text>
+              <b-card-text class="card-text">{{ totalJuzMuhaffizh }}</b-card-text>
+           </div>
+         
         </b-card>
       </b-col>
       <b-col md="6">
-        <b-card
-          title="Pendapatan"
+        <b-card 
+        title="Santri"
         >
-        <b-card-text class="card-text">01 Agustus - 30 September</b-card-text>
-
-        <h4 class="d-flex justify-content-end">{{ totalIncome }}</h4>
+        <hr>
+          <div v-for="(santri, index) in santris" :key="index"  class="d-flex justify-content-between">
+            <b-card-text class="card-text">{{ santri.name }}</b-card-text>
+            <b-card-text class="card-text">{{ santri.revenue }}</b-card-text>
+          </div>
+          <div class="d-flex justify-content-between">
+              <b-card-text class="card-text">Total</b-card-text>
+              <b-card-text class="card-text">{{ totalJuzSantri }}</b-card-text>
+          </div>
+         
         </b-card>
       </b-col>
     </b-row>
@@ -69,29 +82,38 @@ export default {
   },
   data() {
     return {
-      marketings: [
+      muhaffizhs: [
         {
-          name: 'Naruto',
-          revenue: '56.000.000'
+          name: 'Didin',
+          revenue: '6 Juz'
         },
         {
-          name: 'Sasuke',
-          revenue: '76.000.000'
+          name: 'Udin',
+          revenue: '2 Juz'
         },
         {
-          name: 'Sakura',
-          revenue: '56.000.000'
+          name: 'Maman',
+          revenue: '4 Juz'
         },
-        {
-          name: 'Sai',
-          revenue: '15.000.000'
-        },
-        {
-          name: 'Kakashi',
-          revenue: '6.000.000'
-        },
+      
       ],
-      totalIncome: '999.999.999.999'
+       santris: [
+        {
+          name: 'Ciro',
+          revenue: '3 Juz'
+        },
+        {
+          name: 'David',
+          revenue: '2 Juz'
+        },
+        {
+          name: 'Klok',
+          revenue: '1 Juz'
+        },
+      
+      ],
+      totalJuzMuhaffizh: '12 Juz',
+      totalJuzSantri: '6 Juz'
     }
   }
 }

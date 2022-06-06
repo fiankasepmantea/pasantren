@@ -78,7 +78,11 @@ body {
 [tabindex="-1"]:focus:not(:focus-visible) {
   outline: 0 !important;
 }
-
+.custom-sidebar{
+  color: #fff;
+  background: #2b5516;
+  z-index: 99;
+}
 hr {
   box-sizing: content-box;
   height: 0;
@@ -170,13 +174,13 @@ sup {
 }
 
 a {
-  color: #3490dc;
+  color: #29561c;
   text-decoration: none;
   background-color: transparent;
 }
 
 a:hover {
-  color: #1d68a7;
+  color: #29561c;
   text-decoration: underline;
 }
 
