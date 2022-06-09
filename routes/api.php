@@ -27,18 +27,29 @@ Route::group(['namespace' => 'Api'], function () {
         Route::post('auth/refresh', 'AuthController@refresh');
         Route::post('auth/user', 'AuthController@user');
 
-        Route::apiResources(['user' => 'UserController']);
         Route::get('/user/userlevel', 'UserController@getLevel');
-        Route::apiResources(['group' => 'GroupController']);
-        Route::apiResources(['unit' => 'UnitController']);
-        Route::apiResources(['muhaffizh' => 'MuhaffizhController']);
         Route::get('/muhaffizh/muhaffizhgroup', 'MuhaffizhController@getMuhaffizhGroup');
         Route::get('/muhaffizh/muhaffizhunit', 'MuhaffizhController@getMuhaffizhUnit');
-        Route::apiResources(['santri' => 'SantriController']);
         Route::get('/santri/santrigroup', 'SantriController@getSantriGroup');
         Route::get('/santri/santriunit', 'SantriController@getSantriUnit');
         Route::get('/santri/santrigrade', 'SantriController@getSantriGrade');
         Route::get('/santri/santrilevel', 'SantriController@getSantriLevel');
+        Route::get('/mutqin/mutqingroup', 'MutqinController@getMutqinGroup');
+        Route::get('/mutqin/mutqinunit', 'MutqinController@getMutqinUnit');
+        Route::get('/mutqin/mutqinsantri', 'MutqinController@getMutqinSantri');
+        Route::get('/mutqin/mutqinmuhaffizh', 'MutqinController@getMutqinMuhaffizh');
+        Route::get('/setoran/setorangroup', 'SetoranController@getSetoranGroup');
+        Route::get('/setoran/setoranunit', 'SetoranController@getSetoranUnit');
+        Route::get('/setoran/setoransantri', 'SetoranController@getSetoranSantri');
+        Route::get('/setoran/setoranmuhaffizh', 'SetoranController@getSetoranMuhaffizh');
+
+        Route::apiResources(['user' => 'UserController']);
+        Route::apiResources(['group' => 'GroupController']);
+        Route::apiResources(['unit' => 'UnitController']);
+        Route::apiResources(['muhaffizh' => 'MuhaffizhController']);
+        Route::apiResources(['santri' => 'SantriController']);
+        Route::apiResources(['mutqin' => 'MutqinController']);
+        Route::apiResources(['setoran' => 'SetoranController']); 
        
     });
 });

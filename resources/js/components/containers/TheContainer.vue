@@ -3,7 +3,7 @@
     <TheSidebar/>
     <CWrapper>
       <TheHeader/>
-      <div class="c-body">
+      <div class="custom-body c-body">
         <main class="c-main">
           <CContainer fluid>
             <transition name="fade">

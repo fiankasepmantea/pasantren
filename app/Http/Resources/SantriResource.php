@@ -30,7 +30,7 @@ class SantriResource extends JsonResource
             'unit_id'               => $this->unit_id,
             'grade_id'              => $this->grade_id,
             'levelsantri_id'        => $this->levelsantri_id,
-            'walisantri_id'         => $this->walisantri_id,
+          
             //from controller
             'relation_unit'         => $this->relationUnit,
             'relation_group'        => $this->relationGroup,

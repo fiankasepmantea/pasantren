@@ -65,13 +65,13 @@ class SantriController extends Controller
 
     public function getSantriGrade()
     {
-        $grade = Grade::orderBy('nama', 'ASC')->get(); 
+        $grade = Grade::orderBy('grade', 'ASC')->get(); 
         return response()->json(['status' => 'success', 'data' => $grade]);
     }
 
     public function getSantriLevel()
     {
-        $level = LevelSantri::orderBy('nama', 'ASC')->get(); 
+        $level = LevelSantri::orderBy('level', 'ASC')->get(); 
         return response()->json(['status' => 'success', 'data' => $level]);
     }
 }

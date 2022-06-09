@@ -7,6 +7,8 @@ import group from './stores/group'
 import unit from './stores/unit'
 import muhaffizh from './stores/muhaffizh'
 import santri from './stores/santri'
+import mutqin from './stores/mutqin'
+import setoran from './stores/setoran'
 
 Vue.use(Vuex)
 
@@ -19,7 +21,9 @@ const store = new Vuex.Store({
         group,
         unit,
         muhaffizh,
-        santri
+        santri,
+        mutqin,
+        setoran
     },
   	//STATE HAMPIR SERUPA DENGAN PROPERTY DATA DARI COMPONENT HANYA SAJA DAPAT DIGUNAKAN SECARA GLOBAL
     state: {

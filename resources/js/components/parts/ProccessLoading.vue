@@ -11,7 +11,7 @@
       <div class="sk-cube sk-cube8"></div>
       <div class="sk-cube sk-cube9"></div>
     </div> -->
-    <img src="/assets/images/run.gif" alt="" width="250">
+    <img src="/assets/images/alquran.gif" alt="" width="80">
   </div>
 </template>
 

@@ -198,7 +198,7 @@ const actions = {
         .then((response) => {
             commit('CLEAR_GRADE') 
             response.data.data.forEach(item=>{
-              commit('APPEND_GRADE', {value:item.id, text:item.nama})              
+              commit('APPEND_GRADE', {value:item.id, text:item.grade})              
             });
             resolve(response.data)
         })
@@ -210,7 +210,7 @@ const actions = {
         .then((response) => {
             commit('CLEAR_LEVEL') 
             response.data.data.forEach(item=>{
-              commit('APPEND_LEVEL', {value:item.id, text:item.nama})              
+              commit('APPEND_LEVEL', {value:item.id, text:item.level})              
             });
             resolve(response.data)
         })

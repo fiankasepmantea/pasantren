@@ -80,8 +80,11 @@ body {
 }
 .custom-sidebar{
   color: #fff;
-  background: #2b5516;
+  background: #2b5516 !important;
   z-index: 99;
+}
+.custom-body{
+  background: lightseagreen !important;
 }
 hr {
   box-sizing: content-box;

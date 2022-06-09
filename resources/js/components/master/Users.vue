@@ -4,7 +4,7 @@
     <CRow>
       <CCardBody style="padding-top:0px;">
       <div class="d-flex justify-content-end">
-        <b-button size="sm" variant="primary" @click="createModal = true">+ Tambah Data</b-button>
+        <b-button size="sm" variant="success" @click="createModal = true">+ Tambah Data</b-button>
       </div>
       <b-form inline>
           <b-form-group
@@ -37,7 +37,7 @@
           show-empty
         >
           <template #cell(actions)="row">
-              <b-button variant="primary" size="sm" @click="handleEdit(row.item.id)">
+              <b-button variant="success" size="sm" @click="handleEdit(row.item.id)">
                 Edit
               </b-button>
               <b-button

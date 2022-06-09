@@ -52,17 +52,15 @@ class Santri extends Model
         $model['tempat_lahir'] = ucwords($data['tempat_lahir']);
         $model['tanggal_lahir'] = $data['tanggal_lahir'];
         $model['no_hp'] = $data['no_hp'];
-        $model['nama_ibu'] = $data['nama_ibu'];
-        $model['nama_ayah'] = $data['nama_ayah'];
+        $model['nama_ibu'] = ucwords($data['nama_ibu']);
+        $model['nama_ayah'] = ucwords($data['nama_ayah']);
         $model['mulai_belajar'] = $data['mulai_belajar'];
         $model['angkatan_kelas'] = $data['angkatan_kelas'];
-        $model['status'] = $data['status'];
-        $model['pendidikan_terakhir'] = $data['pendidikan_terakhir'];
         $model['group_id'] = $data['group_id'];
         $model['unit_id'] = $data['unit_id'];
         $model['grade_id'] = $data['grade_id'];
         $model['levelsantri_id'] = $data['levelsantri_id'];
-        $model['walisantri_id'] = $data['walisantri_id'];
+     
         return $is_update ? $this->update($model) : $this->create($model);
     }   
 
@@ -79,6 +77,12 @@ class Santri extends Model
         return $this->belongsTo(LevelSantri::class,'levelsantri_id','id');
     }
     //list
+    public function relationUnit(){
+        return $this->belongsTo(Unit::class,'unit_id','id');
+    }
+    public function relationGroup(){
+        return $this->belongsTo(Group::class,'group_id','id');
+    }
     public function relationGrade(){
         return $this->belongsTo(Grade::class,'grade_id','id');
     }

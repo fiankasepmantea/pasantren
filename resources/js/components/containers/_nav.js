@@ -48,29 +48,15 @@ export default [
             name: 'Santri',
             to: '/master/santris'
           },     
+          {
+            name: 'Mutqin',
+            to: '/master/mutqins'
+          },  
+          {
+            name: 'Setoran',
+            to: '/master/setorans'
+          },  
         ]
-      },
-      {
-        _name: 'CSidebarNavTitle',
-        _children: ['PRODUCTION CONTROL'] // PRODUCTION CONTROL
-      },
-      {
-        _name: 'CSidebarNavItem',
-        name: 'Mutqin',
-        to: '/productions/sales-order',
-        icon: 'cil-speedometer'
-      },
-      {
-        _name: 'CSidebarNavItem',
-        name: 'Setoran',
-        to: '/stock/opname',
-        icon: 'cil-address-book'
-      },
-      {
-        _name: 'CSidebarNavItem',
-        name: 'Tahsin',
-        to: '/permit/surat-jalan',
-        icon: 'cil-file'
       },
       {
         _name: 'CSidebarNavTitle',
@@ -81,96 +67,25 @@ export default [
         name: 'Laporan',
         route: '/master',
         icon: 'cil-book',
-        items: []
+        items: [
+          {
+            name: 'List Group/Halaqoh',
+            to: '/master/users'
+          },   
+          {
+            name: 'List Muhaffizh',
+            to: '/master/units'
+          },
+          {
+            name: 'List Santri',
+            to: '/master/units'
+          },
+          {
+            name: 'List Data AlQuran Santri',
+            to: '/master/units'
+          },
+        ]
       }
-
-      // {
-      //   _name: 'CSidebarNavDropdown',
-      //   name: 'Icons',
-      //   route: '/icons',
-      //   icon: 'cil-star',
-      //   items: [
-      //     {
-      //       name: 'CoreUI Icons',
-      //       to: '/icons/coreui-icons',
-      //       badge: {
-      //         color: 'info',
-      //         text: 'NEW'
-      //       }
-      //     },
-      //     {
-      //       name: 'Brands',
-      //       to: '/icons/brands'
-      //     },
-      //     {
-      //       name: 'Flags',
-      //       to: '/icons/flags'
-      //     }
-      //   ]
-      // },
-      // {
-      //   _name: 'CSidebarNavDropdown',
-      //   name: 'Notifications',
-      //   route: '/notifications',
-      //   icon: 'cil-bell',
-      //   items: [
-      //     {
-      //       name: 'Alerts',
-      //       to: '/notifications/alerts'
-      //     },
-      //     {
-      //       name: 'Badges',
-      //       to: '/notifications/badges'
-      //     },
-      //     {
-      //       name: 'Modals',
-      //       to: '/notifications/modals'
-      //     }
-      //   ]
-      // },
-      // {
-      //   _name: 'CSidebarNavItem',
-      //   name: 'Widgets',
-      //   to: '/widgets',
-      //   icon: 'cil-calculator',
-      //   badge: {
-      //     color: 'primary',
-      //     text: 'NEW',
-      //     shape: 'pill'
-      //   }
-      // },
-      // {
-      //   _name: 'CSidebarNavDivider',
-      //   _class: 'm-2'
-      // },
-      // {
-      //   _name: 'CSidebarNavTitle',
-      //   _children: ['Extras']
-      // },
-      // {
-      //   _name: 'CSidebarNavDropdown',
-      //   name: 'Pages',
-      //   route: '/pages',
-      //   icon: 'cil-star',
-      //   items: [
-      //     {
-      //       name: 'Login',
-      //       to: '/pages/login'
-      //     },
-      //     {
-      //       name: 'Register',
-      //       to: '/pages/register'
-      //     },
-      //     {
-      //       name: 'Error 404',
-      //       to: '/pages/404'
-      //     },
-      //     {
-      //       name: 'Error 500',
-      //       to: '/pages/500'
-      //     }
-      //   ]
-      // },
     ]
   }
 ]

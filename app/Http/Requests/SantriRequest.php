@@ -31,7 +31,7 @@ class SantriRequest extends FormRequest
             'tempat_lahir'          => ['required'],
             'tanggal_lahir'         => ['required'],
             'no_hp'                 => ['required'],
-            'mulai_bertugas'        => ['required'],
+            'mulai_belajar'         => ['required'],
             'angkatan_kelas'        => ['required'],
             'nama_ibu'              => ['required'],
             'nama_ayah'             => ['required'],

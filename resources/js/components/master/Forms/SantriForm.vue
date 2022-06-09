@@ -102,6 +102,33 @@
         <b-form-invalid-feedback>{{ veeErrors.first('tanggallahir') }}</b-form-invalid-feedback>
       </b-form-group>
 
+       <b-form-group label="Nama Ibu" label-cols="3" label-for="namaibu">
+        <b-form-input
+          id="namaibu"
+          v-model="santri.nama_ibu"
+          placeholder="Masukan Nama Ibu"
+          name="namaibu"
+          v-validate="{ required: true }"
+          :state="validateState('namaibu')"
+          data-vv-as="NamaIbu"
+        >
+        </b-form-input>
+        <b-form-invalid-feedback>{{ veeErrors.first('nama') }}</b-form-invalid-feedback>
+      </b-form-group>
+
+      <b-form-group label="Nama Ayah" label-cols="3" label-for="namaayah">
+        <b-form-input
+          id="namaayah"
+          v-model="santri.nama_ayah"
+          placeholder="Masukan Nama Ayah"
+          name="namaayah"
+          v-validate="{ required: true }"
+          :state="validateState('namaayah')"
+          data-vv-as="NamaAyah"
+        >
+        </b-form-input>
+        <b-form-invalid-feedback>{{ veeErrors.first('namaayah') }}</b-form-invalid-feedback>
+      </b-form-group>
        <b-form-group label="No HP" label-cols="3" label-for="no_hp">
         <b-form-input
           id="no_hp"
@@ -119,7 +146,7 @@
       <b-form-group label="Mulai Belajar" label-cols="3" label-for="mulaibelajar">
         <b-form-input
           id="mulaibelajar"
-          v-model="santri.mulai_bertugas"
+          v-model="santri.mulai_belajar"
           placeholder="Masukan Tanggal Belajar"
           type="date"
           name="mulaibelajar"

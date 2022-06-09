@@ -25,6 +25,8 @@ const Group = () => import('../components/master/Groups')
 const Unit = () => import('../components/master/Units')
 const Muhaffizh = () => import('../components/master/Muhaffizhs')
 const Santri = () => import('../components/master/Santris')
+const Mutqin = () => import('../components/master/Mutqins')
+const Setoran = () => import('../components/master/Setorans')
 
 Vue.use(Router)
 
@@ -91,6 +93,18 @@ function configRoutes() {
           name: 'Santris',
           component: Santri,
           meta: { title: 'Santri', auth: true }
+        },
+        {
+          path: 'Mutqins',
+          name: 'Mutqins',
+          component: Mutqin,
+          meta: { title: 'Mutqin', auth: true }
+        },
+        {
+          path: 'Setorans',
+          name: 'Setorans',
+          component: Setoran,
+          meta: { title: 'Setoran', auth: true }
         },
       ]
     },

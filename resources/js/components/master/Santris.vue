@@ -4,7 +4,7 @@
     <CRow>
       <CCardBody style="padding-top:0px;">
       <div class="d-flex justify-content-end">
-        <b-button size="sm" variant="primary" @click="createModal = true">+ Tambah Santri</b-button>
+        <b-button size="sm" variant="success" @click="createModal = true">+ Tambah Santri</b-button>
       </div>
       <b-form inline>
           <b-form-group
@@ -37,7 +37,7 @@
           show-empty
         >
           <template #cell(actions)="row">
-              <b-button variant="primary" size="sm" @click="handleEdit(row.item.id)">
+              <b-button variant="success" size="sm" @click="handleEdit(row.item.id)">
                 Edit
               </b-button>
               <b-button
@@ -137,8 +137,12 @@ export default {
           
         },
         {
-          key: 'pendidikan_terakhir',
-          label: 'Pendidikan Terakhir'
+          key: 'nama_ibu',
+          label: 'Nama Ibu'
+        },
+         {
+          key: 'nama_ayah',
+          label: 'Nama Ayah'
         },
         {
           key: 'no_hp',
@@ -161,11 +165,11 @@ export default {
           label: 'Unit'
         },
         {
-          key: 'relation_grade.nama',
+          key: 'relation_grade.grade',
           label: 'Grade'
         },
          {
-          key: 'relation_level.nama',
+          key: 'relation_level.level',
           label: 'Level Santri'
         },
         {
