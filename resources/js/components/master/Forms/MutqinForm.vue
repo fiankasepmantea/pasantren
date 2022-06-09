@@ -18,9 +18,10 @@
       </b-form-group>
 
       <b-form-group label="Pilih"  label-cols="3" v-slot="{ ariaDescribedby }">
-        <b-form-radio v-model="selected" :aria-describedby="ariaDescribedby" name="some-radios" value="muhaffizh" class="muhaffizh"  @click="() => {clickMuhaffizh()}">Muhaffizh</b-form-radio>
+        <b-form-radio v-model="selected" :aria-describedby="ariaDescribedby" name="some-radios" value="muhaffizh" class="muhaffizh"  @change="() => {clickMuhaffizh()}">Muhaffizh</b-form-radio>
         <b-form-select
           id="muhaffizh-id"
+        
           v-model="mutqin.muhaffizh_id"
           :options="mutqin_muhaffizh"
           placeholder="Pilih Muhaffizh"
@@ -31,9 +32,10 @@
         </b-form-select>
         <!-- <b-form-invalid-feedback>{{ veeErrors.first('muhaffizh') }}</b-form-invalid-feedback> -->
      
-        <b-form-radio v-model="selected" :aria-describedby="ariaDescribedby" name="some-radios" value="santri" class="santri" @click="() => {clickSantri()}">Santri</b-form-radio>
+        <b-form-radio v-model="selected" :aria-describedby="ariaDescribedby" name="some-radios" value="santri" class="santri" @change="() => {clickSantri()}">Santri</b-form-radio>
           <b-form-select
             id="santri-id"
+          
             v-model="mutqin.santri_id"
             :options="mutqin_santri"
             placeholder="Pilih Santri"
@@ -105,23 +107,20 @@
 </template>
 
 <script>
+
 $(document).ready(function() {
     $("#santri-id").hide();
     $("#muhaffizh-id").hide();
 });
 
-  // $(".muhaffizh").click(function(){
-  //   $("#santri-id").hide();
-  //   $("#muhaffizh-id").show();
-  // })
-  // $(".santri").click(function(){
-  //   $("#santri-id").show();
-  //   $("#muhaffizh-id").hide();
-  // })
 import { mapState, mapMutations, mapActions } from "vuex";
 export default {
   inject: ['validator'],
   name: "mutqinForm",
+  // mounted:({
+  //   this.getMuhaffizh();
+  //   this.getSantri();
+  // }),
   created() {
    
     this.getGroup();
@@ -155,6 +154,12 @@ export default {
     clickSantri(){
       $("#santri-id").show();
       $("#muhaffizh-id").hide();
+    },
+    clearMuhaffizh(){
+      this.CLEAR_MUHAFFIZH();
+    },
+    clearSantri(){
+      this.CLEAR_SANTRI();
     },
     getMuhaffizhName(id){
       this.mutqin.muhaffizh_id = '',

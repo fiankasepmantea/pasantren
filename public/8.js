@@ -122,22 +122,20 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
 $(document).ready(function () {
   $("#santri-id").hide();
   $("#muhaffizh-id").hide();
-}); // $(".muhaffizh").click(function(){
-//   $("#santri-id").hide();
-//   $("#muhaffizh-id").show();
-// })
-// $(".santri").click(function(){
-//   $("#santri-id").show();
-//   $("#muhaffizh-id").hide();
-// })
-
+});
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   inject: ['validator'],
   name: "mutqinForm",
+  // mounted:({
+  //   this.getMuhaffizh();
+  //   this.getSantri();
+  // }),
   created: function created() {
     this.getGroup();
     this.getMuhaffizh();
@@ -174,6 +172,12 @@ $(document).ready(function () {
     clickSantri: function clickSantri() {
       $("#santri-id").show();
       $("#muhaffizh-id").hide();
+    },
+    clearMuhaffizh: function clearMuhaffizh() {
+      this.CLEAR_MUHAFFIZH();
+    },
+    clearSantri: function clearSantri() {
+      this.CLEAR_SANTRI();
     },
     getMuhaffizhName: function getMuhaffizhName(id) {
       this.mutqin.muhaffizh_id = '', this.getMuhaffizh(id);
@@ -592,7 +596,7 @@ var render = function() {
                           value: "muhaffizh"
                         },
                         on: {
-                          click: function() {
+                          change: function() {
                             _vm.clickMuhaffizh()
                           }
                         },
@@ -634,7 +638,7 @@ var render = function() {
                           value: "santri"
                         },
                         on: {
-                          click: function() {
+                          change: function() {
                             _vm.clickSantri()
                           }
                         },
