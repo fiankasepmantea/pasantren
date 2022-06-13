@@ -1,9 +1,9 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[10],{
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/master/Forms/UserForm.vue?vue&type=script&lang=js&":
-/*!********************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/master/Forms/UserForm.vue?vue&type=script&lang=js& ***!
-  \********************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/master/Forms/SantriForm.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/master/Forms/SantriForm.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -80,23 +80,181 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   inject: ['validator'],
-  name: "UserForm",
+  name: "santriForm",
   created: function created() {
+    this.getGroup();
+    this.getMuhaffizh();
+    this.getGrade();
     this.getLevel();
     this.$validator = this.validator;
   },
-  computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(["errors"])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])("user", {
-    user: function user(state) {
-      return state.user;
+  computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(["errors"])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])("santri", {
+    santri: function santri(state) {
+      return state.santri;
     },
-    user_level: function user_level(state) {
-      return state.user_level;
+    santri_muhaffizh: function santri_muhaffizh(state) {
+      return state.santri_muhaffizh;
+    },
+    santri_group: function santri_group(state) {
+      return state.santri_group;
+    },
+    santri_grade: function santri_grade(state) {
+      return state.santri_grade;
+    },
+    santri_level: function santri_level(state) {
+      return state.santri_level;
     }
   })),
-  methods: _objectSpread(_objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapMutations"])("user", ["CLEAR_FORM"])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])("user", ["getLevel"])), {}, {
+  methods: _objectSpread(_objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapMutations"])("santri", ["CLEAR_FORM"])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])("santri", ["getMuhaffizh", "getGroup", "getGrade", "getLevel"])), {}, {
+    getMuhaffizhName: function getMuhaffizhName(id) {
+      this.santri.muhaffizh_id = '', this.getMuhaffizh(id);
+    },
     validateState: function validateState(ref) {
       if (this.veeFields[ref] && (this.veeFields[ref].dirty || this.veeFields[ref].validated)) {
         return !this.veeErrors.has(ref);
@@ -138,17 +296,17 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/master/Users.vue?vue&type=script&lang=js&":
-/*!***********************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/master/Users.vue?vue&type=script&lang=js& ***!
-  \***********************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/master/Santris.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/master/Santris.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _PageTitle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./PageTitle */ "./resources/js/components/master/PageTitle.vue");
-/* harmony import */ var _Forms_UserForm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Forms/UserForm */ "./resources/js/components/master/Forms/UserForm.vue");
+/* harmony import */ var _Forms_SantriForm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Forms/SantriForm */ "./resources/js/components/master/Forms/SantriForm.vue");
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
@@ -251,10 +409,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "Users",
+  name: "Santris",
   components: {
     pagetitle: _PageTitle__WEBPACK_IMPORTED_MODULE_0__["default"],
-    Form: _Forms_UserForm__WEBPACK_IMPORTED_MODULE_1__["default"]
+    Form: _Forms_SantriForm__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   created: function created() {
     this.loadData();
@@ -268,14 +426,26 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       currentPage: 1,
       pageOptions: [10, 20, 50, 100],
       header: [{
-        key: "name",
+        key: "nama",
         label: "Nama"
       }, {
-        key: "username",
-        label: "Username"
+        key: 'alamat',
+        label: 'Alamat'
       }, {
-        key: 'user_level.nama',
-        label: 'User Level'
+        key: 'angkatan_kelas',
+        label: 'Kelas/Angkatan'
+      }, {
+        key: 'list_grade.grade',
+        label: 'Grade'
+      }, {
+        key: 'list_level.level',
+        label: 'Level'
+      }, {
+        key: 'list_group.nama',
+        label: 'Group'
+      }, {
+        key: 'list_muhaffizh.nama',
+        label: 'Muhaffizh'
       }, {
         key: 'actions',
         label: "Aksi",
@@ -291,29 +461,29 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   computed: _objectSpread({
     rows: function rows() {
-      if (this.users && this.users.data) {
-        return this.users.data.length;
+      if (this.santris && this.santris.data) {
+        return this.santris.data.length;
       } else {
         return 0;
       }
     }
-  }, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapState"])('user', {
-    users: function users(state) {
-      return state.users;
+  }, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapState"])('santri', {
+    santris: function santris(state) {
+      return state.santris;
     }
   })),
-  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapActions"])('user', ['getUsers', 'removeUser', 'editUser', 'updateUser', 'submitUser'])), {}, {
+  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapActions"])('santri', ['getSantris', 'removeSantri', 'editSantri', 'updateSantri', 'submitSantri'])), {}, {
     loadData: function loadData() {
       var _this = this;
 
       this.$store.commit('loadingOn');
       setTimeout(function () {
-        _this.getUsers();
+        _this.getSantris();
 
         _this.$store.commit('loadingOff');
       }, 1000);
     },
-    deleteUser: function deleteUser(id) {
+    deleteSantri: function deleteSantri(id) {
       var _this2 = this;
 
       this.$swal({
@@ -322,13 +492,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         showCancelButton: true
       }).then(function (result) {
         if (result.value) {
-          _this2.removeUser(id);
+          _this2.removeSantri(id);
         }
       });
     },
     handleEdit: function handleEdit(id) {
       this.editModal = true;
-      this.editUser(id);
+      this.editSantri(id);
       this.editedId = id;
     },
     handleUpdate: function handleUpdate(bvModalEvt) {
@@ -340,10 +510,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           return;
         }
 
-        _this3.updateUser(_this3.editedId);
+        _this3.updateSantri(_this3.editedId);
 
         _this3.$toasted.global.success_toast({
-          message: 'Data User berhasil diubah..'
+          message: 'Data Santri berhasil diubah..'
         });
 
         _this3.editModal = false;
@@ -351,7 +521,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         _this3.loadData();
       })["catch"](function (err) {
         _this3.$toasted.global.failed_toast({
-          message: 'Data User gagal untuk diubah..'
+          message: 'Data Santri gagal untuk diubah..'
         });
       });
     },
@@ -364,10 +534,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           return;
         }
 
-        _this4.submitUser();
+        _this4.submitSantri();
 
         _this4.$toasted.global.success_toast({
-          message: 'Data User berhasil ditambahkan..'
+          message: 'Data Santri berhasil ditambahkan..'
         });
 
         _this4.createModal = false;
@@ -375,7 +545,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         _this4.loadData();
       })["catch"](function (err) {
         _this4.$toasted.global.failed_toast({
-          message: 'Data User gagal untuk ditambahkan..'
+          message: 'Data Santri gagal untuk ditambahkan..'
         });
       });
     }
@@ -384,10 +554,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/master/Forms/UserForm.vue?vue&type=template&id=8966dd3e&":
-/*!************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/master/Forms/UserForm.vue?vue&type=template&id=8966dd3e& ***!
-  \************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/master/Forms/SantriForm.vue?vue&type=template&id=f3e77e3e&":
+/*!**************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/master/Forms/SantriForm.vue?vue&type=template&id=f3e77e3e& ***!
+  \**************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -416,8 +586,552 @@ var render = function() {
           _c(
             "b-form-group",
             {
+              attrs: { label: "Group", "label-cols": "3", "label-for": "group" }
+            },
+            [
+              _c("b-form-select", {
+                directives: [
+                  {
+                    name: "validate",
+                    rawName: "v-validate",
+                    value: { required: true },
+                    expression: "{ required: true }"
+                  }
+                ],
+                attrs: {
+                  id: "group",
+                  options: _vm.santri_group,
+                  placeholder: "Pilih Group",
+                  name: "group",
+                  state: _vm.validateState("group"),
+                  "data-vv-as": "Group"
+                },
+                on: {
+                  change: function($event) {
+                    return _vm.getMuhaffizhName(_vm.santri.group_id)
+                  }
+                },
+                model: {
+                  value: _vm.santri.group_id,
+                  callback: function($$v) {
+                    _vm.$set(_vm.santri, "group_id", $$v)
+                  },
+                  expression: "santri.group_id"
+                }
+              }),
+              _vm._v(" "),
+              _c("b-form-invalid-feedback", [
+                _vm._v(_vm._s(_vm.veeErrors.first("group")))
+              ])
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "b-form-group",
+            {
               attrs: {
-                label: "User Level",
+                label: "Muhaffizh",
+                "label-cols": "3",
+                "label-for": "muhaffizh"
+              }
+            },
+            [
+              _c("b-form-select", {
+                directives: [
+                  {
+                    name: "validate",
+                    rawName: "v-validate",
+                    value: { required: true },
+                    expression: "{ required: true }"
+                  }
+                ],
+                attrs: {
+                  id: "muhaffizh",
+                  options: _vm.santri_muhaffizh,
+                  placeholder: "Pilih Muhaffizh",
+                  name: "muhaffizh",
+                  state: _vm.validateState("muhaffizh"),
+                  "data-vv-as": "Muhaffizh"
+                },
+                model: {
+                  value: _vm.santri.muhaffizh_id,
+                  callback: function($$v) {
+                    _vm.$set(_vm.santri, "muhaffizh_id", $$v)
+                  },
+                  expression: "santri.muhaffizh_id"
+                }
+              }),
+              _vm._v(" "),
+              _c("b-form-invalid-feedback", [
+                _vm._v(_vm._s(_vm.veeErrors.first("group")))
+              ])
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "b-form-group",
+            {
+              attrs: {
+                label: "Nomor Induk Santri",
+                "label-cols": "3",
+                "label-for": "nomorinduk"
+              }
+            },
+            [
+              _c("b-form-input", {
+                directives: [
+                  {
+                    name: "validate",
+                    rawName: "v-validate",
+                    value: { required: true },
+                    expression: "{ required: true }"
+                  }
+                ],
+                attrs: {
+                  id: "nomorinduk",
+                  placeholder: "Masukan Nomor Induk",
+                  name: "nomorinduk",
+                  state: _vm.validateState("nomorinduk"),
+                  "data-vv-as": "NomorInduk"
+                },
+                model: {
+                  value: _vm.santri.nomor_induk,
+                  callback: function($$v) {
+                    _vm.$set(_vm.santri, "nomor_induk", $$v)
+                  },
+                  expression: "santri.nomor_induk"
+                }
+              }),
+              _vm._v(" "),
+              _c("b-form-invalid-feedback", [
+                _vm._v(_vm._s(_vm.veeErrors.first("nomorinduk")))
+              ])
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "b-form-group",
+            {
+              attrs: {
+                label: "Nama Santri",
+                "label-cols": "3",
+                "label-for": "nama"
+              }
+            },
+            [
+              _c("b-form-input", {
+                directives: [
+                  {
+                    name: "validate",
+                    rawName: "v-validate",
+                    value: { required: true },
+                    expression: "{ required: true }"
+                  }
+                ],
+                attrs: {
+                  id: "nama",
+                  placeholder: "Masukan Nama",
+                  name: "nama",
+                  state: _vm.validateState("nama"),
+                  "data-vv-as": "Nama"
+                },
+                model: {
+                  value: _vm.santri.nama,
+                  callback: function($$v) {
+                    _vm.$set(_vm.santri, "nama", $$v)
+                  },
+                  expression: "santri.nama"
+                }
+              }),
+              _vm._v(" "),
+              _c("b-form-invalid-feedback", [
+                _vm._v(_vm._s(_vm.veeErrors.first("nama")))
+              ])
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "b-form-group",
+            {
+              attrs: {
+                label: "Alamat",
+                "label-cols": "3",
+                "label-for": "alamat"
+              }
+            },
+            [
+              _c("b-form-textarea", {
+                directives: [
+                  {
+                    name: "validate",
+                    rawName: "v-validate",
+                    value: { required: true },
+                    expression: "{ required: true }"
+                  }
+                ],
+                attrs: {
+                  id: "alamat",
+                  placeholder: "Masukan Alamat",
+                  name: "alamat",
+                  state: _vm.validateState("alamat"),
+                  "data-vv-as": "Alamat"
+                },
+                model: {
+                  value: _vm.santri.alamat,
+                  callback: function($$v) {
+                    _vm.$set(_vm.santri, "alamat", $$v)
+                  },
+                  expression: "santri.alamat"
+                }
+              }),
+              _vm._v(" "),
+              _c("b-form-invalid-feedback", [
+                _vm._v(_vm._s(_vm.veeErrors.first("alamat")))
+              ])
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "b-form-group",
+            {
+              attrs: {
+                label: "Tempat Lahir",
+                "label-cols": "3",
+                "label-for": "tempatlahir"
+              }
+            },
+            [
+              _c("b-form-input", {
+                directives: [
+                  {
+                    name: "validate",
+                    rawName: "v-validate",
+                    value: { required: true },
+                    expression: "{ required: true }"
+                  }
+                ],
+                attrs: {
+                  id: "tempatlahir",
+                  placeholder: "Masukan Tempat Lahir",
+                  name: "tempatlahir",
+                  state: _vm.validateState("tempatlahir"),
+                  "data-vv-as": "TempatLahir"
+                },
+                model: {
+                  value: _vm.santri.tempat_lahir,
+                  callback: function($$v) {
+                    _vm.$set(_vm.santri, "tempat_lahir", $$v)
+                  },
+                  expression: "santri.tempat_lahir"
+                }
+              }),
+              _vm._v(" "),
+              _c("b-form-invalid-feedback", [
+                _vm._v(_vm._s(_vm.veeErrors.first("tempatlahir")))
+              ])
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "b-form-group",
+            {
+              attrs: {
+                label: "Tanggal Lahir",
+                "label-cols": "3",
+                "label-for": "tanggallahir"
+              }
+            },
+            [
+              _c("b-form-input", {
+                directives: [
+                  {
+                    name: "validate",
+                    rawName: "v-validate",
+                    value: { required: true },
+                    expression: "{ required: true }"
+                  }
+                ],
+                attrs: {
+                  id: "tanggallahir",
+                  placeholder: "Masukan Tanggal Lahir",
+                  type: "date",
+                  name: "tanggallahir",
+                  state: _vm.validateState("tanggallahir"),
+                  "data-vv-as": "TanggalLahir"
+                },
+                model: {
+                  value: _vm.santri.tanggal_lahir,
+                  callback: function($$v) {
+                    _vm.$set(_vm.santri, "tanggal_lahir", $$v)
+                  },
+                  expression: "santri.tanggal_lahir"
+                }
+              }),
+              _vm._v(" "),
+              _c("b-form-invalid-feedback", [
+                _vm._v(_vm._s(_vm.veeErrors.first("tanggallahir")))
+              ])
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "b-form-group",
+            {
+              attrs: {
+                label: "Nama Ibu",
+                "label-cols": "3",
+                "label-for": "namaibu"
+              }
+            },
+            [
+              _c("b-form-input", {
+                directives: [
+                  {
+                    name: "validate",
+                    rawName: "v-validate",
+                    value: { required: true },
+                    expression: "{ required: true }"
+                  }
+                ],
+                attrs: {
+                  id: "namaibu",
+                  placeholder: "Masukan Nama Ibu",
+                  name: "namaibu",
+                  state: _vm.validateState("namaibu"),
+                  "data-vv-as": "NamaIbu"
+                },
+                model: {
+                  value: _vm.santri.nama_ibu,
+                  callback: function($$v) {
+                    _vm.$set(_vm.santri, "nama_ibu", $$v)
+                  },
+                  expression: "santri.nama_ibu"
+                }
+              }),
+              _vm._v(" "),
+              _c("b-form-invalid-feedback", [
+                _vm._v(_vm._s(_vm.veeErrors.first("nama")))
+              ])
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "b-form-group",
+            {
+              attrs: {
+                label: "Nama Ayah",
+                "label-cols": "3",
+                "label-for": "namaayah"
+              }
+            },
+            [
+              _c("b-form-input", {
+                directives: [
+                  {
+                    name: "validate",
+                    rawName: "v-validate",
+                    value: { required: true },
+                    expression: "{ required: true }"
+                  }
+                ],
+                attrs: {
+                  id: "namaayah",
+                  placeholder: "Masukan Nama Ayah",
+                  name: "namaayah",
+                  state: _vm.validateState("namaayah"),
+                  "data-vv-as": "NamaAyah"
+                },
+                model: {
+                  value: _vm.santri.nama_ayah,
+                  callback: function($$v) {
+                    _vm.$set(_vm.santri, "nama_ayah", $$v)
+                  },
+                  expression: "santri.nama_ayah"
+                }
+              }),
+              _vm._v(" "),
+              _c("b-form-invalid-feedback", [
+                _vm._v(_vm._s(_vm.veeErrors.first("namaayah")))
+              ])
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "b-form-group",
+            {
+              attrs: { label: "No HP", "label-cols": "3", "label-for": "no_hp" }
+            },
+            [
+              _c("b-form-input", {
+                directives: [
+                  {
+                    name: "validate",
+                    rawName: "v-validate",
+                    value: { required: true },
+                    expression: "{ required: true }"
+                  }
+                ],
+                attrs: {
+                  id: "no_hp",
+                  placeholder: "Masukan No HP",
+                  name: "nohp",
+                  state: _vm.validateState("no_hp"),
+                  "data-vv-as": "NoHP"
+                },
+                model: {
+                  value: _vm.santri.no_hp,
+                  callback: function($$v) {
+                    _vm.$set(_vm.santri, "no_hp", $$v)
+                  },
+                  expression: "santri.no_hp"
+                }
+              }),
+              _vm._v(" "),
+              _c("b-form-invalid-feedback", [
+                _vm._v(_vm._s(_vm.veeErrors.first("no_hp")))
+              ])
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "b-form-group",
+            {
+              attrs: {
+                label: "Mulai Belajar",
+                "label-cols": "3",
+                "label-for": "mulaibelajar"
+              }
+            },
+            [
+              _c("b-form-input", {
+                directives: [
+                  {
+                    name: "validate",
+                    rawName: "v-validate",
+                    value: { required: true },
+                    expression: "{ required: true }"
+                  }
+                ],
+                attrs: {
+                  id: "mulaibelajar",
+                  placeholder: "Masukan Tanggal Belajar",
+                  type: "date",
+                  name: "mulaibelajar",
+                  state: _vm.validateState("mulaibelajar"),
+                  "data-vv-as": "MulaiBelajar"
+                },
+                model: {
+                  value: _vm.santri.mulai_belajar,
+                  callback: function($$v) {
+                    _vm.$set(_vm.santri, "mulai_belajar", $$v)
+                  },
+                  expression: "santri.mulai_belajar"
+                }
+              }),
+              _vm._v(" "),
+              _c("b-form-invalid-feedback", [
+                _vm._v(_vm._s(_vm.veeErrors.first("mulaibelajar")))
+              ])
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "b-form-group",
+            {
+              attrs: {
+                label: "Kelas/Angkatan",
+                "label-cols": "3",
+                "label-for": "kelasangkatan"
+              }
+            },
+            [
+              _c("b-form-input", {
+                directives: [
+                  {
+                    name: "validate",
+                    rawName: "v-validate",
+                    value: { required: true },
+                    expression: "{ required: true }"
+                  }
+                ],
+                attrs: {
+                  id: "kelasangkatan",
+                  placeholder: "Masukan Angkatan/Kelas",
+                  name: "kelasangkatan",
+                  state: _vm.validateState("kelasangkatan"),
+                  "data-vv-as": "KelasAngkatan"
+                },
+                model: {
+                  value: _vm.santri.angkatan_kelas,
+                  callback: function($$v) {
+                    _vm.$set(_vm.santri, "angkatan_kelas", $$v)
+                  },
+                  expression: "santri.angkatan_kelas"
+                }
+              }),
+              _vm._v(" "),
+              _c("b-form-invalid-feedback", [
+                _vm._v(_vm._s(_vm.veeErrors.first("kelasangkatan")))
+              ])
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "b-form-group",
+            {
+              attrs: { label: "Grade", "label-cols": "3", "label-for": "grade" }
+            },
+            [
+              _c("b-form-select", {
+                directives: [
+                  {
+                    name: "validate",
+                    rawName: "v-validate",
+                    value: { required: true },
+                    expression: "{ required: true }"
+                  }
+                ],
+                attrs: {
+                  id: "grade",
+                  options: _vm.santri_grade,
+                  placeholder: "Pilih Grade",
+                  name: "grade",
+                  state: _vm.validateState("grade"),
+                  "data-vv-as": "Grade"
+                },
+                model: {
+                  value: _vm.santri.grade_id,
+                  callback: function($$v) {
+                    _vm.$set(_vm.santri, "grade_id", $$v)
+                  },
+                  expression: "santri.grade_id"
+                }
+              }),
+              _vm._v(" "),
+              _c("b-form-invalid-feedback", [
+                _vm._v(_vm._s(_vm.veeErrors.first("grade")))
+              ])
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "b-form-group",
+            {
+              attrs: {
+                label: "Level Santri",
                 "label-cols": "3",
                 "label-for": "level"
               }
@@ -434,146 +1148,23 @@ var render = function() {
                 ],
                 attrs: {
                   id: "level",
-                  options: _vm.user_level,
-                  placeholder: "Pilih User Level",
+                  options: _vm.santri_level,
+                  placeholder: "Pilih Level",
                   name: "level",
                   state: _vm.validateState("level"),
                   "data-vv-as": "Level"
                 },
                 model: {
-                  value: _vm.user.level_id,
+                  value: _vm.santri.levelsantri_id,
                   callback: function($$v) {
-                    _vm.$set(_vm.user, "level_id", $$v)
+                    _vm.$set(_vm.santri, "levelsantri_id", $$v)
                   },
-                  expression: "user.level_id"
+                  expression: "santri.levelsantri_id"
                 }
               }),
               _vm._v(" "),
               _c("b-form-invalid-feedback", [
                 _vm._v(_vm._s(_vm.veeErrors.first("level")))
-              ])
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "b-form-group",
-            {
-              attrs: { label: "Nama", "label-cols": "3", "label-for": "nama" }
-            },
-            [
-              _c("b-form-input", {
-                directives: [
-                  {
-                    name: "validate",
-                    rawName: "v-validate",
-                    value: { required: true },
-                    expression: "{ required: true }"
-                  }
-                ],
-                attrs: {
-                  id: "nama",
-                  placeholder: "Masukan nama user",
-                  name: "nama",
-                  state: _vm.validateState("nama"),
-                  "data-vv-as": "Nama"
-                },
-                model: {
-                  value: _vm.user.name,
-                  callback: function($$v) {
-                    _vm.$set(_vm.user, "name", $$v)
-                  },
-                  expression: "user.name"
-                }
-              }),
-              _vm._v(" "),
-              _c("b-form-invalid-feedback", [
-                _vm._v(_vm._s(_vm.veeErrors.first("nama")))
-              ])
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "b-form-group",
-            {
-              attrs: {
-                label: "Username",
-                "label-cols": "3",
-                "label-for": "username"
-              }
-            },
-            [
-              _c("b-form-input", {
-                directives: [
-                  {
-                    name: "validate",
-                    rawName: "v-validate",
-                    value: { required: true },
-                    expression: "{ required: true }"
-                  }
-                ],
-                attrs: {
-                  id: "username",
-                  placeholder: "Masukan nama username",
-                  name: "username",
-                  state: _vm.validateState("username"),
-                  "data-vv-as": "Username"
-                },
-                model: {
-                  value: _vm.user.username,
-                  callback: function($$v) {
-                    _vm.$set(_vm.user, "username", $$v)
-                  },
-                  expression: "user.username"
-                }
-              }),
-              _vm._v(" "),
-              _c("b-form-invalid-feedback", [
-                _vm._v(_vm._s(_vm.veeErrors.first("username")))
-              ])
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "b-form-group",
-            {
-              attrs: {
-                label: "Password",
-                "label-cols": "3",
-                "label-for": "password"
-              }
-            },
-            [
-              _c("b-form-input", {
-                directives: [
-                  {
-                    name: "validate",
-                    rawName: "v-validate",
-                    value: { required: true },
-                    expression: "{ required: true }"
-                  }
-                ],
-                attrs: {
-                  id: "password",
-                  placeholder: "Masukan Password",
-                  type: "password",
-                  name: "password",
-                  state: _vm.validateState("password"),
-                  "data-vv-as": "password"
-                },
-                model: {
-                  value: _vm.user.password,
-                  callback: function($$v) {
-                    _vm.$set(_vm.user, "password", $$v)
-                  },
-                  expression: "user.password"
-                }
-              }),
-              _vm._v(" "),
-              _c("b-form-invalid-feedback", [
-                _vm._v(_vm._s(_vm.veeErrors.first("password")))
               ])
             ],
             1
@@ -636,10 +1227,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/master/Users.vue?vue&type=template&id=092b1374&":
-/*!***************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/master/Users.vue?vue&type=template&id=092b1374& ***!
-  \***************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/master/Santris.vue?vue&type=template&id=ad4b5274&":
+/*!*****************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/master/Santris.vue?vue&type=template&id=ad4b5274& ***!
+  \*****************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -677,7 +1268,7 @@ var render = function() {
                         }
                       }
                     },
-                    [_vm._v("+ Tambah Data")]
+                    [_vm._v("+ Tambah Santri")]
                   )
                 ],
                 1
@@ -722,7 +1313,7 @@ var render = function() {
               _vm._v(" "),
               _c("b-table", {
                 attrs: {
-                  items: _vm.users.data,
+                  items: _vm.santris.data,
                   fields: _vm.header,
                   "current-page": _vm.currentPage,
                   "per-page": _vm.perPage,
@@ -759,7 +1350,7 @@ var render = function() {
                             attrs: { variant: "danger", size: "sm" },
                             on: {
                               click: function($event) {
-                                return _vm.deleteUser(row.item.id)
+                                return _vm.deleteSantri(row.item.id)
                               }
                             }
                           },
@@ -795,7 +1386,7 @@ var render = function() {
                 "b-modal",
                 {
                   attrs: {
-                    title: "Tambah Data User",
+                    title: "Tambah Data Santri",
                     "no-close-on-backdrop": "",
                     "no-close-on-esc": "",
                     centered: ""
@@ -817,7 +1408,7 @@ var render = function() {
                 "b-modal",
                 {
                   attrs: {
-                    title: "Ubah Data User",
+                    title: "Ubah Data Santri",
                     "no-close-on-backdrop": "",
                     "no-close-on-esc": "",
                     centered: ""
@@ -851,17 +1442,17 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./resources/js/components/master/Forms/UserForm.vue":
-/*!***********************************************************!*\
-  !*** ./resources/js/components/master/Forms/UserForm.vue ***!
-  \***********************************************************/
+/***/ "./resources/js/components/master/Forms/SantriForm.vue":
+/*!*************************************************************!*\
+  !*** ./resources/js/components/master/Forms/SantriForm.vue ***!
+  \*************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _UserForm_vue_vue_type_template_id_8966dd3e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./UserForm.vue?vue&type=template&id=8966dd3e& */ "./resources/js/components/master/Forms/UserForm.vue?vue&type=template&id=8966dd3e&");
-/* harmony import */ var _UserForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./UserForm.vue?vue&type=script&lang=js& */ "./resources/js/components/master/Forms/UserForm.vue?vue&type=script&lang=js&");
+/* harmony import */ var _SantriForm_vue_vue_type_template_id_f3e77e3e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SantriForm.vue?vue&type=template&id=f3e77e3e& */ "./resources/js/components/master/Forms/SantriForm.vue?vue&type=template&id=f3e77e3e&");
+/* harmony import */ var _SantriForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SantriForm.vue?vue&type=script&lang=js& */ "./resources/js/components/master/Forms/SantriForm.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -871,9 +1462,9 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _UserForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _UserForm_vue_vue_type_template_id_8966dd3e___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _UserForm_vue_vue_type_template_id_8966dd3e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _SantriForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _SantriForm_vue_vue_type_template_id_f3e77e3e___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _SantriForm_vue_vue_type_template_id_f3e77e3e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
   null,
@@ -883,38 +1474,38 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/components/master/Forms/UserForm.vue"
+component.options.__file = "resources/js/components/master/Forms/SantriForm.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/components/master/Forms/UserForm.vue?vue&type=script&lang=js&":
-/*!************************************************************************************!*\
-  !*** ./resources/js/components/master/Forms/UserForm.vue?vue&type=script&lang=js& ***!
-  \************************************************************************************/
+/***/ "./resources/js/components/master/Forms/SantriForm.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************!*\
+  !*** ./resources/js/components/master/Forms/SantriForm.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_UserForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./UserForm.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/master/Forms/UserForm.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_UserForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SantriForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./SantriForm.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/master/Forms/SantriForm.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SantriForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
-/***/ "./resources/js/components/master/Forms/UserForm.vue?vue&type=template&id=8966dd3e&":
-/*!******************************************************************************************!*\
-  !*** ./resources/js/components/master/Forms/UserForm.vue?vue&type=template&id=8966dd3e& ***!
-  \******************************************************************************************/
+/***/ "./resources/js/components/master/Forms/SantriForm.vue?vue&type=template&id=f3e77e3e&":
+/*!********************************************************************************************!*\
+  !*** ./resources/js/components/master/Forms/SantriForm.vue?vue&type=template&id=f3e77e3e& ***!
+  \********************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_UserForm_vue_vue_type_template_id_8966dd3e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./UserForm.vue?vue&type=template&id=8966dd3e& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/master/Forms/UserForm.vue?vue&type=template&id=8966dd3e&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_UserForm_vue_vue_type_template_id_8966dd3e___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SantriForm_vue_vue_type_template_id_f3e77e3e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./SantriForm.vue?vue&type=template&id=f3e77e3e& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/master/Forms/SantriForm.vue?vue&type=template&id=f3e77e3e&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SantriForm_vue_vue_type_template_id_f3e77e3e___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_UserForm_vue_vue_type_template_id_8966dd3e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SantriForm_vue_vue_type_template_id_f3e77e3e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
@@ -989,17 +1580,17 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/master/Users.vue":
-/*!**************************************************!*\
-  !*** ./resources/js/components/master/Users.vue ***!
-  \**************************************************/
+/***/ "./resources/js/components/master/Santris.vue":
+/*!****************************************************!*\
+  !*** ./resources/js/components/master/Santris.vue ***!
+  \****************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Users_vue_vue_type_template_id_092b1374___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Users.vue?vue&type=template&id=092b1374& */ "./resources/js/components/master/Users.vue?vue&type=template&id=092b1374&");
-/* harmony import */ var _Users_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Users.vue?vue&type=script&lang=js& */ "./resources/js/components/master/Users.vue?vue&type=script&lang=js&");
+/* harmony import */ var _Santris_vue_vue_type_template_id_ad4b5274___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Santris.vue?vue&type=template&id=ad4b5274& */ "./resources/js/components/master/Santris.vue?vue&type=template&id=ad4b5274&");
+/* harmony import */ var _Santris_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Santris.vue?vue&type=script&lang=js& */ "./resources/js/components/master/Santris.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -1009,9 +1600,9 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _Users_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _Users_vue_vue_type_template_id_092b1374___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _Users_vue_vue_type_template_id_092b1374___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _Santris_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Santris_vue_vue_type_template_id_ad4b5274___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Santris_vue_vue_type_template_id_ad4b5274___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
   null,
@@ -1021,38 +1612,38 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/components/master/Users.vue"
+component.options.__file = "resources/js/components/master/Santris.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/components/master/Users.vue?vue&type=script&lang=js&":
-/*!***************************************************************************!*\
-  !*** ./resources/js/components/master/Users.vue?vue&type=script&lang=js& ***!
-  \***************************************************************************/
+/***/ "./resources/js/components/master/Santris.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************!*\
+  !*** ./resources/js/components/master/Santris.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Users_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./Users.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/master/Users.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Users_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Santris_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./Santris.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/master/Santris.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Santris_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
-/***/ "./resources/js/components/master/Users.vue?vue&type=template&id=092b1374&":
-/*!*********************************************************************************!*\
-  !*** ./resources/js/components/master/Users.vue?vue&type=template&id=092b1374& ***!
-  \*********************************************************************************/
+/***/ "./resources/js/components/master/Santris.vue?vue&type=template&id=ad4b5274&":
+/*!***********************************************************************************!*\
+  !*** ./resources/js/components/master/Santris.vue?vue&type=template&id=ad4b5274& ***!
+  \***********************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Users_vue_vue_type_template_id_092b1374___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./Users.vue?vue&type=template&id=092b1374& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/master/Users.vue?vue&type=template&id=092b1374&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Users_vue_vue_type_template_id_092b1374___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Santris_vue_vue_type_template_id_ad4b5274___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./Santris.vue?vue&type=template&id=ad4b5274& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/master/Santris.vue?vue&type=template&id=ad4b5274&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Santris_vue_vue_type_template_id_ad4b5274___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Users_vue_vue_type_template_id_092b1374___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Santris_vue_vue_type_template_id_ad4b5274___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

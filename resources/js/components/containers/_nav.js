@@ -29,32 +29,36 @@ export default [
         icon: 'cil-puzzle',
         items: [
           {
-            name: 'Role',
-            to: '/master/users'
+            name: 'Manajemen User',
+            to: '/master/user'
           },   
           {
             name: 'Unit',
-            to: '/master/units'
+            to: '/master/unit'
           },
           {
             name: 'Grup',
-            to: '/master/groups'
+            to: '/master/group'
           },
           {
             name: 'Muhaffizh',
-            to: '/master/muhaffizhs'
+            to: '/master/muhaffizh'
           },    
           {
             name: 'Santri',
-            to: '/master/santris'
+            to: '/master/santri'
           },     
           {
             name: 'Mutqin',
-            to: '/master/mutqins'
+            to: '/master/mutqin'
           },  
           {
             name: 'Setoran',
-            to: '/master/setorans'
+            to: '/master/setoran'
+          },  
+          {
+            name: 'Tahsin',
+            to: '/master/tahsin'
           },  
         ]
       },

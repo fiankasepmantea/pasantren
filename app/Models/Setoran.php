@@ -47,7 +47,7 @@ class Setoran extends Model
         $model = [];
 
         $model['santri_id'] = $data['santri_id'];
-        $model['muhaffizh_id'] = ucwords($data['muhaffizh_id']);
+        $model['muhaffizh_id'] = $data['muhaffizh_id'];
         $model['juz'] = $data['juz'];
         $model['halaman'] = ucwords($data['halaman']);
         $model['baris'] = $data['baris'];
@@ -70,13 +70,13 @@ class Setoran extends Model
         return $this->belongsTo(Group::class,'group_id','id');
     }
     //list
-    public function relationGroup(){
+    public function listGroup(){
         return $this->belongsTo(Group::class,'group_id','id');
     }
-    public function relationSantri(){
+    public function listSantri(){
         return $this->belongsTo(Santri::class,'santri_id','id');
     }
-    public function relationMuhaffizh(){
+    public function listMuhaffizh(){
         return $this->belongsTo(Muhaffizh::class,'muhaffizh_id','id');
     }
 

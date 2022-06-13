@@ -4,7 +4,7 @@
     <b-row>
       <b-col md="6">
         <b-card 
-        title="Muhaffizh/ah"
+        title="Muhaffizh/Santri"
         >
         <hr>
           <div v-for="(muhaffizh, index) in muhaffizhs" :key="index"  class="d-flex justify-content-between">

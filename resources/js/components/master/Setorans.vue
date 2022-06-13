@@ -64,7 +64,7 @@
       
       <b-modal
       v-model="createModal"
-      title="Tambah Data setoran"
+      title="Tambah Data Setoran Muhaffizh/Santri"
       @ok="handleSubmit"
       no-close-on-backdrop
       no-close-on-esc
@@ -74,7 +74,7 @@
       </b-modal>
 
       <b-modal
-      title="Ubah Data setoran"
+      title="Ubah Data Setoran Muhaffizh/Santri"
       v-model="editModal"
       @ok="handleUpdate"
       no-close-on-backdrop
@@ -113,18 +113,18 @@ export default {
       pageOptions: [10, 20, 50, 100],
       header: [
         {
-          key: "relation_group.nama",
+          key: "list_group.nama",
           label: "Group",
           
         },
         {
-          key: 'relation_santri.nama',
-          label: 'Santri'
-        },
-        {
-          key: "relation_muhaffizh.nama",
+          key: "list_muhaffizh.nama",
           label: "Muhaffizh",
           
+        },
+        {
+          key: 'list_santri.nama',
+          label: 'Santri'
         },
         {
           key: "juz",

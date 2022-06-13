@@ -6,6 +6,27 @@
       <div class="d-flex justify-content-end">
         <b-button size="sm" variant="success" @click="createModal = true">+ Tambah Mutqin</b-button>
       </div>
+      <b-row>
+          <b-col xl="4" lg="4" md="4" sm="12"
+            ><b-input-group>
+              
+              <b-form-input
+                placeholder="Cari Muhaffizh "
+                v-model="filterModel.muhaffizh_name"
+                size="sm"
+              ></b-form-input> 
+              <b-form-input
+                placeholder="Cari Santri"
+                v-model="filterModel.santri_name"
+                size="sm"
+              ></b-form-input> 
+                <b-input-group-prepend>
+                <b-button size="sm"> <b-icon icon="search" @click="searchMuhaffizhSantri()"></b-icon></b-button>
+                </b-input-group-prepend>
+              </b-input-group
+          ></b-col>
+          
+      </b-row>
       <b-form inline>
           <b-form-group
             label="Show :"
@@ -64,7 +85,7 @@
       
       <b-modal
       v-model="createModal"
-      title="Tambah Data Mutqin"
+      title="Tambah Data Mutqin Muhaffizh/Santri"
       @ok="handleSubmit"
       no-close-on-backdrop
       no-close-on-esc
@@ -111,20 +132,24 @@ export default {
       perPage: 20,
       currentPage: 1,
       pageOptions: [10, 20, 50, 100],
+      filterModel: {
+        muhaffizh_name: null,
+        santri_name: null,
+      },
       header: [
         {
-          key: "relation_group.nama",
+          key: "list_group.nama",
           label: "Group",
           
         },
         {
-          key: 'relation_santri.nama',
-          label: 'Santri'
-        },
-        {
-          key: "relation_muhaffizh.nama",
+          key: "list_muhaffizh.nama",
           label: "Muhaffizh",
           
+        },
+          {
+          key: 'list_santri.nama',
+          label: 'Santri'
         },
         {
           key: "juz",
@@ -177,12 +202,12 @@ export default {
   methods: {
     ...mapActions('mutqin', ['getMutqins', 'removeMutqin', 'editMutqin', 'updateMutqin', 'submitMutqin']),
     
-    loadData() {
+    async loadData(params=null) {
       this.$store.commit('loadingOn')
-      setTimeout(() => {
-        this.getMutqins()
+      // setTimeout(() => {
+        await this.getMutqins(params)
         this.$store.commit('loadingOff')
-      }, 1000);
+      // }, 1000);
     },
 
     deleteMutqin(id) {
@@ -237,6 +262,12 @@ export default {
       })
       })
     }
-  }
+  },
+  async searchMuhaffizhSantri() {
+      this.$store.commit('loadingOn')
+      console.log('fil:',this.filterModel);
+      await this.loadData(this.filterModel)
+      this.$store.commit('loadingOff')
+    }
 };
 </script>

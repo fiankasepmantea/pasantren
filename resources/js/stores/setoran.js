@@ -13,10 +13,8 @@ const state = () => ({
     total_setoran: '',
     santri_id: '',
     muhaffizh_id: '',
-    unit_id: '',
     group_id: '',
   },
-  setoran_unit: [],
   setoran_group: [],
   setoran_muhaffizh: [],
   setoran_santri: [],
@@ -37,7 +35,6 @@ const mutations = {
       total_setoran: payload.total_setoran,
       muhaffizh_id: payload.muhaffizh_id,
       santri_id: payload.santri_id,
-      unit_id: payload.unit_id,
       group_id: payload.group_id,
     }
   },
@@ -50,7 +47,6 @@ const mutations = {
       total_setoran: '',
       muhaffizh_id: '',
       santri_id: '',
-      unit_id: '',
       group_id: '',
     }
   },
@@ -72,16 +68,6 @@ const mutations = {
   },
   CLEAR_SANTRI(state) {
     state.setoran_santri = [];
-  },
-
-  ASSIGN_UNIT(state, payload) {
-    state.setoran_unit = payload
-  },
-  APPEND_UNIT(state, payload){
-    state.setoran_unit.push(payload)
-  },
-  CLEAR_UNIT(state) {
-    state.setoran_unit = [];
   },
 
   ASSIGN_GROUP(state, payload) {
@@ -149,18 +135,6 @@ const actions = {
       })
     })
   },
-  getUnit({ commit }) {
-    return new Promise((resolve, reject) => {
-        $axios.get(`/setoran/setoranunit`)
-        .then((response) => {
-            commit('CLEAR_UNIT') 
-            response.data.data.forEach(item=>{
-              commit('APPEND_UNIT', {value:item.id, text:item.nama})              
-            });
-            resolve(response.data)
-        })
-    })
-  },
   getGroup({ commit }) {
     return new Promise((resolve, reject) => {
         $axios.get(`/setoran/setorangroup`)
@@ -182,7 +156,7 @@ const actions = {
               }
             
             })
-            .then((response) => { console.log('response:',response);
+            .then((response) => { 
             commit('CLEAR_MUHAFFIZH') 
             response.data.data.forEach(item=>{
               commit('APPEND_MUHAFFIZH', {value:item.id, text:item.nama})              

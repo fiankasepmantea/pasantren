@@ -17,12 +17,12 @@ const state = () => ({
     nama_ayah:'',
     mulai_belajar: '',
     angkatan_kelas: '',
-    unit_id: '',
+    muhaffizh_id: '',
     group_id: '',
     grade_id: '',
     levelsantri_id: '',
   },
-  santri_unit: [],
+  santri_muhaffizh: [],
   santri_group: [],
   santri_grade: [],
   santri_level: [],
@@ -47,7 +47,7 @@ const mutations = {
       angkatan_kelas: payload.angkatan_kelas,
       nama_ibu: payload.nama_ibu,
       nama_ayah: payload.nama_ayah,
-      unit_id: payload.unit_id,
+      muhaffizh_id: payload.muhaffizh_id,
       group_id: payload.group_id,
       grade_id: payload.grade_id,
       levelsantri_id: payload.levelsantri_id,
@@ -66,20 +66,11 @@ const mutations = {
       angkatan_kelas: '',
       nama_ibu: '',
       nama_ayah: '',
-      unit_id: '',
+      muhaffizh_id: '',
       group_id: '',
       grade_id: '',
       levelsantri_id: '',
     }
-  },
-  ASSIGN_UNIT(state, payload) {
-    state.santri_unit = payload
-  },
-  APPEND_UNIT(state, payload){
-    state.santri_unit.push(payload)
-  },
-  CLEAR_UNIT(state) {
-    state.santri_unit = [];
   },
 
   ASSIGN_GROUP(state, payload) {
@@ -91,6 +82,17 @@ const mutations = {
   CLEAR_GROUP(state) {
     state.santri_group = [];
   },
+  
+  ASSIGN_MUHAFFIZH(state, payload) {
+    state.santri_muhaffizh = payload
+  },
+  APPEND_MUHAFFIZH(state, payload){
+    state.santri_muhaffizh.push(payload)
+  },
+  CLEAR_MUHAFFIZH(state) {
+    state.santri_muhaffizh = [];
+  },
+
   ASSIGN_GRADE(state, payload) {
     state.santri_grade = payload
   },
@@ -167,18 +169,6 @@ const actions = {
       })
     })
   },
-  getUnit({ commit }) {
-    return new Promise((resolve, reject) => {
-        $axios.get(`/santri/santriunit`)
-        .then((response) => {
-            commit('CLEAR_UNIT') 
-            response.data.data.forEach(item=>{
-              commit('APPEND_UNIT', {value:item.id, text:item.nama})              
-            });
-            resolve(response.data)
-        })
-    })
-  },
   getGroup({ commit }) {
     return new Promise((resolve, reject) => {
         $axios.get(`/santri/santrigroup`)
@@ -191,7 +181,34 @@ const actions = {
         })
     })
   },
-
+  getMuhaffizh({ commit }, payload=null) {
+    return new Promise((resolve, reject) => {
+        if(payload){
+            $axios.get(`/santri/santrimuhaffizh`,{
+              params: {
+                group_id : payload,
+              }
+            })
+            .then((response) => { 
+            commit('CLEAR_MUHAFFIZH') 
+            response.data.data.forEach(item=>{
+              commit('APPEND_MUHAFFIZH', {value:item.id, text:item.nama})              
+            });
+            resolve(response.data)
+          })
+        }else{
+          $axios.get(`/santri/santrimuhaffizh`)
+          .then((response) => {
+              commit('CLEAR_MUHAFFIZH') 
+              response.data.data.forEach(item=>{
+                commit('APPEND_MUHAFFIZH', {value:item.id, text:item.nama})              
+              });
+              resolve(response.data)
+          })
+        }
+        
+    })
+  },
   getGrade({ commit }) {
     return new Promise((resolve, reject) => {
         $axios.get(`/santri/santrigrade`)

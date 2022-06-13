@@ -3,6 +3,7 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use Carbon\Carbon;
 
 class SetoranResource extends JsonResource
 {
@@ -23,11 +24,11 @@ class SetoranResource extends JsonResource
             'baris'                 => $this->baris,
             'total_setoran'         => $this->total_setoran,
             'group_id'              => $this->group_id,
-            'updated_at'            => date('d M Y H:i:s',strtotime($this->updated_at)),
+            'updated_at'            => Carbon::parse($this->updated_at)->format('d, M Y H:i'),
             //from controller
-            'relation_group'        => $this->relationGroup,
-            'relation_santri'       => $this->relationSantri,
-            'relation_muhaffizh'    => $this->relationMuhaffizh
+            'list_group'        => $this->listGroup,
+            'list_santri'       => $this->listSantri,
+            'list_muhaffizh'    => $this->listMuhaffizh
         ];
     }
 }

@@ -8,7 +8,9 @@ const state = () => ({
   group: {
     id: '',
     nama: '',
+    unit_id: '',
   },
+  group_unit: [],
 })
 
 const mutations = {
@@ -21,13 +23,25 @@ const mutations = {
   ASSIGN_FORM(state, payload) {
     state.group = {
       nama: payload.nama,
+      unit_id: payload.unit_id,
     }
   },
   CLEAR_FORM(state) {
     state.group = {
       id: '',
       nama: '',
+      unit_id: '',
     }
+  },
+
+  ASSIGN_UNIT(state, payload) {
+    state.group_unit = payload
+  },
+  APPEND_UNIT(state, payload){
+    state.group_unit.push(payload)
+  },
+  CLEAR_UNIT(state) {
+    state.group_unit = [];
   },
 }
 
@@ -83,6 +97,18 @@ const actions = {
       .then((response) => {
         dispatch('getGroups').then(() => resolve())
       })
+    })
+  },
+  getUnit({ commit }) {
+    return new Promise((resolve, reject) => {
+        $axios.get(`/group/groupunit`)
+        .then((response) => {
+            commit('CLEAR_UNIT') 
+            response.data.data.forEach(item=>{
+              commit('APPEND_UNIT', {value:item.id, text:item.nama})              
+            });
+            resolve(response.data)
+        })
     })
   },
 }

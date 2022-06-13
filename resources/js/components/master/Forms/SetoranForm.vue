@@ -17,34 +17,42 @@
         <b-form-invalid-feedback>{{ veeErrors.first('group') }}</b-form-invalid-feedback>
       </b-form-group>
 
-      <b-form-group label="Pilih"  label-cols="3" v-slot="{ ariaDescribedby }">
-        <b-form-radio v-model="selected" :aria-describedby="ariaDescribedby" name="some-radios" value="muhaffizh" class="muhaffizh"  @click="clickMuhaffizh()">Muhaffizh</b-form-radio>
-        <b-form-select
-          id="muhaffizh-id"
-          v-model="setoran.muhaffizh_id"
-          :options="setoran_muhaffizh"
-          placeholder="Pilih Muhaffizh"
-          name="muhaffizh"
-      
-          data-vv-as="Muhaffizh"
-        >
-        </b-form-select>
-        <!-- <b-form-invalid-feedback>{{ veeErrors.first('muhaffizh') }}</b-form-invalid-feedback> -->
-     
-        <b-form-radio v-model="selected" :aria-describedby="ariaDescribedby" name="some-radios" value="santri" class="santri">Santri</b-form-radio>
+      <b-form-group v-slot="{ ariaDescribedby }">
+        <b-row>
+          <b-col>
+             <b-form-radio v-model="selected" :aria-describedby="ariaDescribedby" name="some-radios" value="muhaffizh" @change="clickMuhaffizh()">Muhaffizh</b-form-radio>
+          </b-col>
+          <b-col>
+             <b-form-radio v-model="selected" :aria-describedby="ariaDescribedby" name="some-radios" value="santri" @change="clickSantri()">Santri</b-form-radio>
+          </b-col>
+        </b-row>
+       <b-row>
+        <b-col>
           <b-form-select
+            id="muhaffizh-id"
+            v-model="setoran.muhaffizh_id"
+            :options="setoran_muhaffizh"
+            placeholder="Pilih Muhaffizh"
+            name="muhaffizh"
+            data-vv-as="Muhaffizh"
+          >
+          </b-form-select>
+          <!-- <b-form-invalid-feedback>{{ veeErrors.first('muhaffizh') }}</b-form-invalid-feedback> -->
+        </b-col>
+        <b-col>
+         <b-form-select
             id="santri-id"
             v-model="setoran.santri_id"
             :options="setoran_santri"
             placeholder="Pilih Santri"
             name="santri"
-          
             data-vv-as="Santri"
           >
           </b-form-select>
           <!-- <b-form-invalid-feedback>{{ veeErrors.first('santri') }}</b-form-invalid-feedback> -->
+        </b-col>
+      </b-row>
       </b-form-group>
-
       <b-form-group label="Juz" label-cols="3" label-for="juz">
         <b-form-input
           id="juz"
@@ -105,19 +113,12 @@
 </template>
 
 <script>
-  $(".muhaffizh").click(function(){
-    $("#santri-id").hide();
-    $("#muhaffizh-id").show();
-  })
-  $(".santri").click(function(){
-    $("#santri-id").show();
-    $("#muhaffizh-id").hide();
-  })
 import { mapState, mapMutations, mapActions } from "vuex";
 export default {
   inject: ['validator'],
   name: "setoranForm",
   created() {
+    this.loadPage();
     this.getGroup();
     this.getMuhaffizh();
     this.getSantri();
@@ -140,11 +141,24 @@ export default {
       }
   },    
   methods: {
-    ...mapMutations("setoran", ["CLEAR_FORM","CLEAR_MUHAFFIZH","CLEAR_SANTRI"]),
+    ...mapMutations("setoran", ["CLEAR_FORM"]),
     ...mapActions("setoran", ["getUnit","getGroup","getMuhaffizh","getSantri"]),
-    // clickMuhaffizh(){
-    //   $("#santri-id").hide();
-    // },
+    loadPage(){
+      $( document ).ready(function() {
+          $("#santri-id").hide();
+          $("#muhaffizh-id").hide();
+      });
+    },
+    clickMuhaffizh(){
+      this.setoran.santri_id= null,
+      $("#santri-id").hide();
+      $("#muhaffizh-id").show();
+    },
+    clickSantri(){
+      this.setoran.muhaffizh_id= null,
+      $("#santri-id").show();
+      $("#muhaffizh-id").hide();
+    },
     getMuhaffizhName(id){
       this.setoran.muhaffizh_id = '',
       this.getMuhaffizh(id)
@@ -166,11 +180,6 @@ export default {
   destroyed() {
     this.CLEAR_FORM();
   },
-  // showMuhaffizh(muhaffizh){
-  //   console.log('m:',showMuhaffizh);
-  //  var muhaffizh = document.getElementById("muhaffizh");
-  //  muhaffizh.display = "none";
-  // },
   data() {
       return {
         selected: 'first',

@@ -1,6 +1,21 @@
 <template>
   <div>
     <b-form @submit.stop.prevent="">
+       <b-form-group label="Unit" label-cols="3" label-for="unit">
+        <b-form-select
+          id="unit"
+          v-model="group.unit_id"
+          :options="group_unit"
+          placeholder="Pilih Unit"
+          name="unit"
+          v-validate="{ required: true }"
+          :state="validateState('unit')"
+          data-vv-as="Unit"
+        >
+        </b-form-select>
+        <b-form-invalid-feedback>{{ veeErrors.first('unit') }}</b-form-invalid-feedback>
+      </b-form-group>
+
       <b-form-group label="Nama Grup" label-for="nama" label-cols="3">
         <b-form-input
           id="nama"
@@ -21,22 +36,25 @@
 </template>
 
 <script>
-import { mapState, mapMutations } from "vuex";
+import { mapState, mapMutations, mapActions } from "vuex";
 
 export default {
   inject: ["validator"],
   name: "GroupForm",
+  created() {
+    this.getUnit();
+    this.$validator = this.validator
+  },
   computed: {
     ...mapState(["errors"]),
     ...mapState("group", {
       group: (state) => state.group,
+      group_unit: (state) => state.group_unit,
     }),
-  },
-  created() {
-    this.$validator = this.validator
   },
   methods: {
     ...mapMutations("group", ["CLEAR_FORM"]),
+    ...mapActions("group", ["getUnit"]),
     validateState(ref) {
       if (
         this.veeFields[ref] &&

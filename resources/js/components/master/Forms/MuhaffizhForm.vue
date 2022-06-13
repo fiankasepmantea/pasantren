@@ -4,6 +4,7 @@
       <b-form-group label="Unit" label-cols="3" label-for="unit">
         <b-form-select
           id="unit"
+          @change="getGroupName(muhaffizh.unit_id)"
           v-model="muhaffizh.unit_id"
           :options="muhaffizh_unit"
           placeholder="Pilih Unit"
@@ -173,9 +174,18 @@ export default {
       muhaffizh_group: (state) => state.muhaffizh_group,
     }),
   },
+  watch: {
+      return(){
+        this.getUnit();
+      }
+  },    
   methods: {
     ...mapMutations("muhaffizh", ["CLEAR_FORM"]),
     ...mapActions("muhaffizh", ["getUnit","getGroup"]),
+    getGroupName(id){
+      this.muhaffizh.group_id = '',
+      this.getGroup(id)
+    },
     validateState(ref) {
       if(
       this.veeFields[ref] &&

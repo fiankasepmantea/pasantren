@@ -84,7 +84,6 @@ const mutations = {
     state.muhaffizh_group = [];
   },
 
-
 }
 
 const actions = {
@@ -153,16 +152,33 @@ const actions = {
         })
     })
   },
-  getGroup({ commit }) {
+
+  getGroup({ commit }, payload=null) {
     return new Promise((resolve, reject) => {
-        $axios.get(`/muhaffizh/muhaffizhgroup`)
-        .then((response) => {
+        if(payload){
+            $axios.get(`/muhaffizh/muhaffizhgroup`,{
+              params: {
+                unit_id : payload,
+              }
+            })
+            .then((response) => { 
             commit('CLEAR_GROUP') 
             response.data.data.forEach(item=>{
               commit('APPEND_GROUP', {value:item.id, text:item.nama})              
             });
             resolve(response.data)
-        })
+          })
+        }else{
+          $axios.get(`/muhaffizh/muhaffizhgroup`)
+          .then((response) => {
+              commit('CLEAR_GROUP') 
+              response.data.data.forEach(item=>{
+                commit('APPEND_GROUP', {value:item.id, text:item.nama})              
+              });
+              resolve(response.data)
+          })
+        }
+        
     })
   },
 }

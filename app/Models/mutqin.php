@@ -25,8 +25,10 @@ class Mutqin extends Model
     {
         $modelQuery = static::query();
 
-        if (($filter_name = Arr::get($params, 'nama', false))) {
-            $modelQuery->where('nama', 'LIKE', '%' . $filter_name . '%');
+        if ( ($filter_muhaffizh = Arr::get($params, 'filter_muhaffizh', false)) ) {
+            $modelQuery->whereHas('filterMuhaffizh', function (Builder $query) use ($filter_muhaffizh) {
+                $query->where('nama', 'LIKE', '%' . $filter_muhaffizh . '%');
+            });
         }
         // DEFAULT ORDERING DATA
         $modelQuery->orderBy('created_at', 'desc');
@@ -47,7 +49,7 @@ class Mutqin extends Model
         $model = [];
 
         $model['santri_id'] = $data['santri_id'];
-        $model['muhaffizh_id'] = ucwords($data['muhaffizh_id']);
+        $model['muhaffizh_id'] = $data['muhaffizh_id'];
         $model['juz'] = $data['juz'];
         $model['halaman'] = ucwords($data['halaman']);
         $model['baris'] = $data['baris'];
@@ -70,13 +72,17 @@ class Mutqin extends Model
         return $this->belongsTo(Group::class,'group_id','id');
     }
     //list
-    public function relationGroup(){
+    public function listGroup(){
         return $this->belongsTo(Group::class,'group_id','id');
     }
-    public function relationSantri(){
+    public function listSantri(){
         return $this->belongsTo(Santri::class,'santri_id','id');
     }
-    public function relationMuhaffizh(){
+    public function listMuhaffizh(){
+        return $this->belongsTo(Muhaffizh::class,'muhaffizh_id','id');
+    }
+    //filter
+    public function filterMuhaffizh(){
         return $this->belongsTo(Muhaffizh::class,'muhaffizh_id','id');
     }
 }

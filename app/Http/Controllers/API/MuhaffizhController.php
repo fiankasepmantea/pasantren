@@ -48,16 +48,22 @@ class MuhaffizhController extends Controller
             return response()->json(['error' => $e->getMessage()], 403);
         }
     }
-
-    public function getMuhaffizhGroup()
-    {
-        $group = Group::orderBy('nama', 'ASC')->get(); 
-        return response()->json(['status' => 'success', 'data' => $group]);
-    }
-
     public function getMuhaffizhUnit()
     {
         $unit = Unit::orderBy('nama', 'ASC')->get(); 
         return response()->json(['status' => 'success', 'data' => $unit]);
     }
+    
+    public function getMuhaffizhGroup(Request $request)
+    {  
+        if(isset($request->unit_id)){
+            $group = Group::where('unit_id',$request->unit_id)->orderBy('nama', 'ASC')->get();
+        }else{
+            $group = Group::orderBy('nama', 'ASC')->get();;
+        }
+        
+        return response()->json(['status' => 'success', 'data' => $group]);
+    }
+
+    
 }

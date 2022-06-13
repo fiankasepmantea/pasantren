@@ -67,10 +67,10 @@ class Muhaffizh extends Model
         return $this->belongsTo(Group::class,'group_id','id');
     }
     // list
-    public function relationUnit(){
+    public function listUnit(){
         return $this->belongsTo(Unit::class,'unit_id','id');
     }
-    public function relationGroup(){
+    public function listGroup(){
         return $this->belongsTo(Group::class,'group_id','id');
     }
 }

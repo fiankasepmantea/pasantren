@@ -28,10 +28,11 @@ Route::group(['namespace' => 'Api'], function () {
         Route::post('auth/user', 'AuthController@user');
 
         Route::get('/user/userlevel', 'UserController@getLevel');
+        Route::get('/group/groupunit', 'GroupController@getGroupUnit');
         Route::get('/muhaffizh/muhaffizhgroup', 'MuhaffizhController@getMuhaffizhGroup');
         Route::get('/muhaffizh/muhaffizhunit', 'MuhaffizhController@getMuhaffizhUnit');
         Route::get('/santri/santrigroup', 'SantriController@getSantriGroup');
-        Route::get('/santri/santriunit', 'SantriController@getSantriUnit');
+        Route::get('/santri/santrimuhaffizh', 'SantriController@getSantriMuhaffizh');
         Route::get('/santri/santrigrade', 'SantriController@getSantriGrade');
         Route::get('/santri/santrilevel', 'SantriController@getSantriLevel');
         Route::get('/mutqin/mutqingroup', 'MutqinController@getMutqinGroup');
@@ -42,7 +43,11 @@ Route::group(['namespace' => 'Api'], function () {
         Route::get('/setoran/setoranunit', 'SetoranController@getSetoranUnit');
         Route::get('/setoran/setoransantri', 'SetoranController@getSetoranSantri');
         Route::get('/setoran/setoranmuhaffizh', 'SetoranController@getSetoranMuhaffizh');
-
+        Route::get('/tahsin/tahsingroup', 'TahsinController@getTahsinGroup');
+        Route::get('/tahsin/tahsinunit', 'TahsinController@getTahsinUnit');
+        Route::get('/tahsin/tahsinsantri', 'TahsinController@getTahsinSantri');
+        Route::get('/tahsin/tahsinmuhaffizh', 'TahsinController@getTahsinMuhaffizh');
+        
         Route::apiResources(['user' => 'UserController']);
         Route::apiResources(['group' => 'GroupController']);
         Route::apiResources(['unit' => 'UnitController']);
@@ -50,6 +55,6 @@ Route::group(['namespace' => 'Api'], function () {
         Route::apiResources(['santri' => 'SantriController']);
         Route::apiResources(['mutqin' => 'MutqinController']);
         Route::apiResources(['setoran' => 'SetoranController']); 
-       
-    });
+        Route::apiResources(['tahsin' => 'TahsinController']); 
+    }); 
 });

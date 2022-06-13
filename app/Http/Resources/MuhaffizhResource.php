@@ -29,8 +29,8 @@ class MuhaffizhResource extends JsonResource
             'group_id'              => $this->group_id,
             'unit_id'               => $this->unit_id,
             //from controller
-            'relation_unit'         => $this->relationUnit,
-            'relation_group'        => $this->relationGroup
+            'list_unit'         => $this->listUnit,
+            'list_group'        => $this->listGroup
         ];
     }
 }

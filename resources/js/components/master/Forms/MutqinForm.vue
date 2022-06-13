@@ -16,37 +16,44 @@
         </b-form-select>
         <b-form-invalid-feedback>{{ veeErrors.first('group') }}</b-form-invalid-feedback>
       </b-form-group>
-
-      <b-form-group label="Pilih"  label-cols="3" v-slot="{ ariaDescribedby }">
-        <b-form-radio v-model="selected" :aria-describedby="ariaDescribedby" name="some-radios" value="muhaffizh" class="muhaffizh"  @change="() => {clickMuhaffizh()}">Muhaffizh</b-form-radio>
-        <b-form-select
-          id="muhaffizh-id"
-        
-          v-model="mutqin.muhaffizh_id"
-          :options="mutqin_muhaffizh"
-          placeholder="Pilih Muhaffizh"
-          name="muhaffizh"
-        
-          data-vv-as="Muhaffizh"
-        >
-        </b-form-select>
-        <!-- <b-form-invalid-feedback>{{ veeErrors.first('muhaffizh') }}</b-form-invalid-feedback> -->
-     
-        <b-form-radio v-model="selected" :aria-describedby="ariaDescribedby" name="some-radios" value="santri" class="santri" @change="() => {clickSantri()}">Santri</b-form-radio>
+      
+      <b-form-group v-slot="{ ariaDescribedby }">
+        <b-row>
+          <b-col>
+             <b-form-radio v-model="selected" :aria-describedby="ariaDescribedby" name="some-radios" value="muhaffizh" @change="clickMuhaffizh()">Muhaffizh</b-form-radio>
+          </b-col>
+          <b-col>
+             <b-form-radio v-model="selected" :aria-describedby="ariaDescribedby" name="some-radios" value="santri" @change="clickSantri()">Santri</b-form-radio>
+          </b-col>
+        </b-row>
+       <b-row>
+        <b-col>
           <b-form-select
+            id="muhaffizh-id"
+            v-model="mutqin.muhaffizh_id"
+            :options="mutqin_muhaffizh"
+            placeholder="Pilih Muhaffizh"
+            name="muhaffizh"
+            data-vv-as="Muhaffizh"
+          >
+          </b-form-select>
+          <!-- <b-form-invalid-feedback>{{ veeErrors.first('muhaffizh') }}</b-form-invalid-feedback> -->
+        </b-col>
+        <b-col>
+         <b-form-select
             id="santri-id"
-          
             v-model="mutqin.santri_id"
             :options="mutqin_santri"
             placeholder="Pilih Santri"
             name="santri"
-          
             data-vv-as="Santri"
           >
           </b-form-select>
           <!-- <b-form-invalid-feedback>{{ veeErrors.first('santri') }}</b-form-invalid-feedback> -->
+        </b-col>
+      </b-row>
       </b-form-group>
-
+     
       <b-form-group label="Juz" label-cols="3" label-for="juz">
         <b-form-input
           id="juz"
@@ -108,21 +115,12 @@
 
 <script>
 
-$(document).ready(function() {
-    $("#santri-id").hide();
-    $("#muhaffizh-id").hide();
-});
-
 import { mapState, mapMutations, mapActions } from "vuex";
 export default {
   inject: ['validator'],
   name: "mutqinForm",
-  // mounted:({
-  //   this.getMuhaffizh();
-  //   this.getSantri();
-  // }),
   created() {
-   
+    this.loadPage();
     this.getGroup();
     this.getMuhaffizh();
     this.getSantri();
@@ -141,17 +139,24 @@ export default {
   watch: {
       return(){
         this.getGroup();
-      
       }
   },    
   methods: {
-    ...mapMutations("mutqin", ["CLEAR_FORM","CLEAR_MUHAFFIZH","CLEAR_SANTRI"]),
+    ...mapMutations("mutqin", ["CLEAR_FORM"]),
     ...mapActions("mutqin", ["getUnit","getGroup","getMuhaffizh","getSantri"]),
+    loadPage(){
+      $( document ).ready(function() {
+          $("#santri-id").hide();
+          $("#muhaffizh-id").hide();
+      });
+    },
     clickMuhaffizh(){
+      this.mutqin.santri_id= null,
       $("#santri-id").hide();
       $("#muhaffizh-id").show();
     },
     clickSantri(){
+      this.mutqin.muhaffizh_id= null,
       $("#santri-id").show();
       $("#muhaffizh-id").hide();
     },
@@ -182,17 +187,12 @@ export default {
   destroyed() {
     this.CLEAR_FORM();
   },
-  // showMuhaffizh(muhaffizh){
-  //   console.log('m:',showMuhaffizh);
-  //  var muhaffizh = document.getElementById("muhaffizh");
-  //  muhaffizh.display = "none";
-  // },
   data() {
       return {
-        selected: 'first',
+        selected: 'Muhaffizh',
         options: [
           { text: 'Muhaffizh', value: 'Muhaffizh' },
-          { text: 'Santri', value: 'Santri' },
+          { text: 'Santri', value: 'Santri'},
         ]
       }
     }

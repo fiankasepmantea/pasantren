@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Santri as Model;
 use App\Http\Requests\SantriRequest as ModelRequest;
 use App\Http\Resources\SantriResource as ModelResource;
-use App\Models\Unit;
+use App\Models\Muhaffizh;
 use App\Models\Group;
 use App\Models\Grade;
 use App\Models\LevelSantri;
@@ -57,10 +57,15 @@ class SantriController extends Controller
         return response()->json(['status' => 'success', 'data' => $group]);
     }
 
-    public function getSantriUnit()
+    public function getSantriMuhaffizh(Request $request)
     {   
-        $unit = Unit::orderBy('nama', 'ASC')->get(); 
-        return response()->json(['status' => 'success', 'data' => $unit]);
+        if(isset($request->group_id)){
+            $group = Muhaffizh::where('group_id',$request->group_id)->orderBy('nama', 'ASC')->get();
+        }else{
+            $group = Muhaffizh::orderBy('nama', 'ASC')->get();;
+        }
+        
+        return response()->json(['status' => 'success', 'data' => $group]);
     }
 
     public function getSantriGrade()

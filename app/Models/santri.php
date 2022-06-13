@@ -8,7 +8,7 @@ use Illuminate\Foundation\Auth\Santri as Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Arr;
-use App\Models\Unit;
+use App\Models\Muhaffizh;
 use App\Models\Group;
 use App\Models\Grade;
 use App\Models\LevelSantri;
@@ -57,15 +57,15 @@ class Santri extends Model
         $model['mulai_belajar'] = $data['mulai_belajar'];
         $model['angkatan_kelas'] = $data['angkatan_kelas'];
         $model['group_id'] = $data['group_id'];
-        $model['unit_id'] = $data['unit_id'];
+        $model['muhaffizh_id'] = $data['muhaffizh_id'];
         $model['grade_id'] = $data['grade_id'];
         $model['levelsantri_id'] = $data['levelsantri_id'];
      
         return $is_update ? $this->update($model) : $this->create($model);
     }   
 
-    public function santriUnit(){
-        return $this->belongsTo(Unit::class,'unit_id','id');
+    public function santriMuhaffizh(){
+        return $this->belongsTo(Muhaffizh::class,'muhaffizh_id','id');
     }
     public function santriGroup(){
         return $this->belongsTo(Group::class,'group_id','id');
@@ -77,16 +77,16 @@ class Santri extends Model
         return $this->belongsTo(LevelSantri::class,'levelsantri_id','id');
     }
     //list
-    public function relationUnit(){
-        return $this->belongsTo(Unit::class,'unit_id','id');
+    public function listMuhaffizh(){
+        return $this->belongsTo(Muhaffizh::class,'muhaffizh_id','id');
     }
-    public function relationGroup(){
+    public function listGroup(){
         return $this->belongsTo(Group::class,'group_id','id');
     }
-    public function relationGrade(){
+    public function listGrade(){
         return $this->belongsTo(Grade::class,'grade_id','id');
     }
-    public function relationLevel(){
+    public function listLevel(){
         return $this->belongsTo(LevelSantri::class,'levelsantri_id','id');
     }
 }

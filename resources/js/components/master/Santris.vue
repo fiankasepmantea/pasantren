@@ -113,11 +113,6 @@ export default {
       pageOptions: [10, 20, 50, 100],
       header: [
         {
-          key: "nomor_induk",
-          label: "Nomor Induk",
-          
-        },
-        {
           key: "nama",
           label: "Nama",
           
@@ -127,50 +122,24 @@ export default {
           label: 'Alamat'
         },
         {
-          key: "tempat_lahir",
-          label: "Tempat Lahir",
-          
-        },
-        {
-          key: "tanggal_lahir",
-          label: "Tanggal Lahir",
-          
-        },
-        {
-          key: 'nama_ibu',
-          label: 'Nama Ibu'
-        },
-         {
-          key: 'nama_ayah',
-          label: 'Nama Ayah'
-        },
-        {
-          key: 'no_hp',
-          label: 'No HP'
-        },
-        {
-          key: 'mulai_belajar',
-          label: 'Mulai Bertugas'
-        },
-        {
           key: 'angkatan_kelas',
           label: 'Kelas/Angkatan'
-        },
+        }, 
         {
-          key: 'relation_group.nama',
-          label: 'Group'
-        },
-         {
-          key: 'relation_unit.nama',
-          label: 'Unit'
-        },
-        {
-          key: 'relation_grade.grade',
+          key: 'list_grade.grade',
           label: 'Grade'
         },
          {
-          key: 'relation_level.level',
-          label: 'Level Santri'
+          key: 'list_level.level',
+          label: 'Level'
+        },
+        {
+          key: 'list_group.nama',
+          label: 'Group'
+        },
+         {
+          key: 'list_muhaffizh.nama',
+          label: 'Muhaffizh'
         },
         {
           key: 'actions',

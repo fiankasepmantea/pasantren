@@ -17,6 +17,9 @@ class GroupResource extends JsonResource
         return [
             'id' => $this->id,
             'nama' => $this->nama,
+            'unit_id' => $this->unit_id,
+            //from controller
+            'list_unit'         => $this->listUnit,
         ];
     }
 }

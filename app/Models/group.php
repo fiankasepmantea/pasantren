@@ -40,7 +40,15 @@ class Group extends Model
         $model = [];
 
         $model['nama'] = ucwords($data['nama']);
-     
+        $model['unit_id'] = ucwords($data['unit_id']);
         return $is_update ? $this->update($model) : $this->create($model);
     }   
+
+    public function groupUnit(){
+        return $this->belongsTo(Unit::class,'unit_id','id');
+    }
+    // list
+    public function listUnit(){
+        return $this->belongsTo(Unit::class,'unit_id','id');
+    }
 }

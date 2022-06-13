@@ -113,32 +113,9 @@ export default {
       pageOptions: [10, 20, 50, 100],
       header: [
         {
-          key: "nomor_induk",
-          label: "Nomor Induk",
-          
-        },
-        {
           key: "nama",
           label: "Nama",
           
-        },
-        {
-          key: 'alamat',
-          label: 'Alamat'
-        },
-        {
-          key: "tempat_lahir",
-          label: "Tempat Lahir",
-          
-        },
-        {
-          key: "tanggal_lahir",
-          label: "Tanggal Lahir",
-          
-        },
-        {
-          key: 'pendidikan_terakhir',
-          label: 'Pendidikan Terakhir'
         },
         {
           key: 'no_hp',
@@ -157,11 +134,11 @@ export default {
           label: 'Kelas/Angkatan'
         },
         {
-          key: 'relation_group.nama',
+          key: 'list_group.nama',
           label: 'Group'
         },
          {
-          key: 'relation_unit.nama',
+          key: 'list_unit.nama',
           label: 'Unit'
         },
         {

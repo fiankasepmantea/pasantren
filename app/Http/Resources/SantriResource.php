@@ -27,15 +27,15 @@ class SantriResource extends JsonResource
             'nama_ibu'              => $this->nama_ibu,
             'nama_ayah'             => $this->nama_ayah,
             'group_id'              => $this->group_id,
-            'unit_id'               => $this->unit_id,
+            'muhaffizh_id'          => $this->muhaffizh_id,
             'grade_id'              => $this->grade_id,
             'levelsantri_id'        => $this->levelsantri_id,
           
             //from controller
-            'relation_unit'         => $this->relationUnit,
-            'relation_group'        => $this->relationGroup,
-            'relation_grade'        => $this->relationGrade,
-            'relation_level'        => $this->relationLevel
+            'list_muhaffizh'        => $this->listMuhaffizh,
+            'list_group'            => $this->listGroup,
+            'list_grade'            => $this->listGrade,
+            'list_level'            => $this->listLevel
         ];
     }
 }

@@ -9,6 +9,7 @@ import muhaffizh from './stores/muhaffizh'
 import santri from './stores/santri'
 import mutqin from './stores/mutqin'
 import setoran from './stores/setoran'
+import tahsin from './stores/tahsin'
 
 Vue.use(Vuex)
 
@@ -23,7 +24,8 @@ const store = new Vuex.Store({
         muhaffizh,
         santri,
         mutqin,
-        setoran
+        setoran,
+        tahsin
     },
   	//STATE HAMPIR SERUPA DENGAN PROPERTY DATA DARI COMPONENT HANYA SAJA DAPAT DIGUNAKAN SECARA GLOBAL
     state: {

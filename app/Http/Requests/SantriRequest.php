@@ -36,7 +36,7 @@ class SantriRequest extends FormRequest
             'nama_ibu'              => ['required'],
             'nama_ayah'             => ['required'],
             'group_id'              => ['required'],
-            'unit_id'               => ['required'],
+            'muhaffizh_id'          => ['required'],
             'grade_id'              => ['required'],
             'levelsantri_id'        => ['required'],
         ];

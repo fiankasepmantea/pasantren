@@ -123,6 +123,10 @@ export default {
           label: 'Nama Grup/Halaqoh',
         },
         {
+          key: 'list_unit.nama',
+          label: 'Unit',
+        },
+        {
           key: 'actions',
           label: "Aksi",
           stickyColumn: true,

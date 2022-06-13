@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Group as Model;
 use App\Http\Requests\GroupRequest as ModelRequest;
 use App\Http\Resources\GroupResource as ModelResource;
+use App\Models\Unit;
 
 class GroupController extends Controller
 {
@@ -45,6 +46,12 @@ class GroupController extends Controller
         } catch (\Exception $e) {
             return response()->json(['error' => $e->getMessage()], 403);
         }
+    }
+
+    public function getGroupUnit()
+    {   
+        $unit = Unit::orderBy('nama', 'ASC')->get(); 
+        return response()->json(['status' => 'success', 'data' => $unit]);
     }
 }
 

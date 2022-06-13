@@ -1,24 +1,10 @@
 <template>
   <div>
     <b-form @submit.stop.prevent="">
-      <b-form-group label="Unit" label-cols="3" label-for="unit">
-        <b-form-select
-          id="unit"
-          v-model="santri.unit_id"
-          :options="santri_unit"
-          placeholder="Pilih Unit"
-          name="unit"
-          v-validate="{ required: true }"
-          :state="validateState('unit')"
-          data-vv-as="Unit"
-        >
-        </b-form-select>
-        <b-form-invalid-feedback>{{ veeErrors.first('unit') }}</b-form-invalid-feedback>
-      </b-form-group>
-
       <b-form-group label="Group" label-cols="3" label-for="group">
         <b-form-select
           id="group"
+          @change="getMuhaffizhName(santri.group_id)"
           v-model="santri.group_id"
           :options="santri_group"
           placeholder="Pilih Group"
@@ -30,8 +16,22 @@
         </b-form-select>
         <b-form-invalid-feedback>{{ veeErrors.first('group') }}</b-form-invalid-feedback>
       </b-form-group>
+      <b-form-group label="Muhaffizh" label-cols="3" label-for="muhaffizh">
+        <b-form-select
+          id="muhaffizh"
+          v-model="santri.muhaffizh_id"
+          :options="santri_muhaffizh"
+          placeholder="Pilih Muhaffizh"
+          name="muhaffizh"
+          v-validate="{ required: true }"
+          :state="validateState('muhaffizh')"
+          data-vv-as="Muhaffizh"
+        >
+        </b-form-select>
+        <b-form-invalid-feedback>{{ veeErrors.first('group') }}</b-form-invalid-feedback>
+      </b-form-group>
 
-      <b-form-group label="Nomor Induk" label-cols="3" label-for="nomorinduk">
+       <b-form-group label="Nomor Induk Santri" label-cols="3" label-for="nomorinduk">
         <b-form-input
           id="nomorinduk"
           v-model="santri.nomor_induk"
@@ -45,7 +45,7 @@
         <b-form-invalid-feedback>{{ veeErrors.first('nomorinduk') }}</b-form-invalid-feedback>
       </b-form-group>
 
-      <b-form-group label="Nama" label-cols="3" label-for="nama">
+      <b-form-group label="Nama Santri" label-cols="3" label-for="nama">
         <b-form-input
           id="nama"
           v-model="santri.nama"
@@ -211,8 +211,8 @@ export default {
   inject: ['validator'],
   name: "santriForm",
   created() {
-    this.getUnit();
     this.getGroup();
+    this.getMuhaffizh();
     this.getGrade();
     this.getLevel();
     this.$validator = this.validator
@@ -221,7 +221,7 @@ export default {
     ...mapState(["errors"]),
     ...mapState("santri", {
       santri: (state) => state.santri,
-      santri_unit: (state) => state.santri_unit,
+      santri_muhaffizh: (state) => state.santri_muhaffizh,
       santri_group: (state) => state.santri_group,
       santri_grade: (state) => state.santri_grade,
       santri_level: (state) => state.santri_level,
@@ -229,7 +229,11 @@ export default {
   },
   methods: {
     ...mapMutations("santri", ["CLEAR_FORM"]),
-    ...mapActions("santri", ["getUnit","getGroup","getGrade","getLevel"]),
+    ...mapActions("santri", ["getMuhaffizh","getGroup","getGrade","getLevel"]),
+    getMuhaffizhName(id){
+      this.santri.muhaffizh_id = '',
+      this.getMuhaffizh(id)
+    },
     validateState(ref) {
       if(
       this.veeFields[ref] &&

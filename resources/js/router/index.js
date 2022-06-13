@@ -27,6 +27,7 @@ const Muhaffizh = () => import('../components/master/Muhaffizhs')
 const Santri = () => import('../components/master/Santris')
 const Mutqin = () => import('../components/master/Mutqins')
 const Setoran = () => import('../components/master/Setorans')
+const Tahsin = () => import('../components/master/Tahsins')
 
 Vue.use(Router)
 
@@ -65,46 +66,52 @@ function configRoutes() {
       component: TheContainer,
       children: [
         {
-          path: 'users',
+          path: 'user',
           name: 'Users',
           component: Users,
-          meta: { title: 'Role', auth: true }
+          meta: { title: 'Manajemen User', auth: true }
         },
         {
-          path: 'Groups',
+          path: 'group',
           name: 'Groups',
           component: Group,
           meta: { title: 'Grup/Halaqoh', auth: true }
         },
         {
-          path: 'Units',
+          path: 'unit',
           name: 'Units',
           component: Unit,
           meta: { title: 'Unit', auth: true }
         },
         {
-          path: 'Muhaffizhs',
+          path: 'muhaffizh',
           name: 'Muhaffizhs',
           component: Muhaffizh,
           meta: { title: 'Muhaffizh', auth: true }
         },
         {
-          path: 'Santris',
+          path: 'santri',
           name: 'Santris',
           component: Santri,
           meta: { title: 'Santri', auth: true }
         },
         {
-          path: 'Mutqins',
+          path: 'mutqin',
           name: 'Mutqins',
           component: Mutqin,
           meta: { title: 'Mutqin', auth: true }
         },
         {
-          path: 'Setorans',
+          path: 'setoran',
           name: 'Setorans',
           component: Setoran,
           meta: { title: 'Setoran', auth: true }
+        },
+        {
+          path: 'tahsin',
+          name: 'Tahsins',
+          component: Tahsin,
+          meta: { title: 'Tahsin', auth: true }
         },
       ]
     },

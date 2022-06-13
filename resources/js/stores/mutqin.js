@@ -13,10 +13,8 @@ const state = () => ({
     total_mutqin: '',
     santri_id: '',
     muhaffizh_id: '',
-    unit_id: '',
     group_id: '',
   },
-  mutqin_unit: [],
   mutqin_group: [],
   mutqin_muhaffizh: [],
   mutqin_santri: [],
@@ -37,7 +35,6 @@ const mutations = {
       total_mutqin: payload.total_mutqin,
       muhaffizh_id: payload.muhaffizh_id,
       santri_id: payload.santri_id,
-      unit_id: payload.unit_id,
       group_id: payload.group_id,
     }
   },
@@ -50,7 +47,6 @@ const mutations = {
       total_mutqin: '',
       muhaffizh_id: '',
       santri_id: '',
-      unit_id: '',
       group_id: '',
     }
   },
@@ -74,16 +70,6 @@ const mutations = {
     state.mutqin_santri = [];
   },
 
-  ASSIGN_UNIT(state, payload) {
-    state.mutqin_unit = payload
-  },
-  APPEND_UNIT(state, payload){
-    state.mutqin_unit.push(payload)
-  },
-  CLEAR_UNIT(state) {
-    state.mutqin_unit = [];
-  },
-
   ASSIGN_GROUP(state, payload) {
     state.mutqin_group = payload
   },
@@ -96,11 +82,15 @@ const mutations = {
 }
 
 const actions = {
-  getMutqins({ commit, state }, payload) {
-    let search = typeof payload != 'undefined' ? payload: ''
+  getMutqins({ commit, state }, payload =null) {
+    let listParams = {}
+
+    if (payload) {
+        listParams = payload
+    } 
     return new Promise((resolve, reject) => {
       $axios.get('/mutqin', {
-
+        params: listParams
       })
       .then((response) => {
         commit('ASSIGN_DATA', response.data)
@@ -149,18 +139,6 @@ const actions = {
       })
     })
   },
-  getUnit({ commit }) {
-    return new Promise((resolve, reject) => {
-        $axios.get(`/mutqin/mutqinunit`)
-        .then((response) => {
-            commit('CLEAR_UNIT') 
-            response.data.data.forEach(item=>{
-              commit('APPEND_UNIT', {value:item.id, text:item.nama})              
-            });
-            resolve(response.data)
-        })
-    })
-  },
   getGroup({ commit }) {
     return new Promise((resolve, reject) => {
         $axios.get(`/mutqin/mutqingroup`)
@@ -182,7 +160,7 @@ const actions = {
               }
             
             })
-            .then((response) => { console.log('response:',response);
+            .then((response) => { 
             commit('CLEAR_MUHAFFIZH') 
             response.data.data.forEach(item=>{
               commit('APPEND_MUHAFFIZH', {value:item.id, text:item.nama})              
