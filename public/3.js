@@ -425,7 +425,7 @@ var render = function() {
             [
               _c(
                 "b-card",
-                { attrs: { title: "Muhaffizh/Santri" } },
+                { attrs: { title: "Muhaffizh" } },
                 [
                   _c("hr"),
                   _vm._v(" "),

@@ -1,4 +1,5 @@
 import axios from 'axios';
+import router from './router/index.js'
 
 const $axios = axios.create({
     baseURL: '/api',
@@ -18,5 +19,26 @@ $axios.interceptors.request.use (
         return Promise.reject (error);
     }
 );
+
+$axios.interceptors.response.use(
+    response => {
+        if (response.status === 200 || response.status === 201) {
+            return Promise.resolve(response);
+        } else {
+            return Promise.reject(response);
+        }
+    }, error => {
+        if (error.response.status) {
+            switch (error.response.status) {
+                case 401:
+                    localStorage.removeItem('token');
+                    router.push({ name: 'login' });
+                    break;
+            }
+            return Promise.reject(error.response);
+        }
+    }
+);
+     
 
 export default $axios;

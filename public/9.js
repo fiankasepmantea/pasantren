@@ -374,6 +374,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       editModal: false,
       editedId: null,
       perPage: 20,
+      searchItem: '',
       currentPage: 1,
       pageOptions: [10, 20, 50, 100],
       filterModel: {
@@ -431,29 +432,25 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }
   })),
   methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_3__["mapActions"])('mutqin', ['getMutqins', 'removeMutqin', 'editMutqin', 'updateMutqin', 'submitMutqin'])), {}, {
-    loadData: function loadData() {
-      var _arguments = arguments,
-          _this = this;
+    loadData: function loadData(muhaffizh, santri) {
+      var _this = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-        var params;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                params = _arguments.length > 0 && _arguments[0] !== undefined ? _arguments[0] : null;
-
                 _this.$store.commit('loadingOn'); // setTimeout(() => {
 
 
-                _context.next = 4;
-                return _this.getMutqins(params);
+                _context.next = 3;
+                return _this.getMutqins(muhaffizh, santri);
 
-              case 4:
+              case 3:
                 _this.$store.commit('loadingOff'); // }, 1000);
 
 
-              case 5:
+              case 4:
               case "end":
                 return _context.stop();
             }
@@ -528,7 +525,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       });
     }
   }),
-  searchMuhaffizhSantri: function searchMuhaffizhSantri() {
+  searchMuhaffizhSantri: function searchMuhaffizhSantri(muhaffizh, santri) {
     var _this5 = this;
 
     return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
@@ -538,14 +535,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             case 0:
               _this5.$store.commit('loadingOn');
 
-              console.log('fil:', _this5.filterModel);
-              _context2.next = 4;
-              return _this5.loadData(_this5.filterModel);
-
-            case 4:
-              _this5.$store.commit('loadingOff');
+              console.log('muhaffizh:', muhaffizh);
+              console.log('santri:', santri);
+              _context2.next = 5;
+              return _this5.loadData(muhaffizh, santri);
 
             case 5:
+              _this5.$store.commit('loadingOff');
+
+            case 6:
             case "end":
               return _context2.stop();
           }
@@ -1051,7 +1049,10 @@ var render = function() {
                                     attrs: { icon: "search" },
                                     on: {
                                       click: function($event) {
-                                        return _vm.searchMuhaffizhSantri()
+                                        return _vm.searchMuhaffizhSantri(
+                                          _vm.filterModel.muhaffizh_name,
+                                          _vm.filterModel.santri_name
+                                        )
                                       }
                                     }
                                   })

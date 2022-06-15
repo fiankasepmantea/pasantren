@@ -72,99 +72,24 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       ppcs: [{
-        no_po: 'PPC/202010160001',
+        no_po: 'Ciro',
         progress: '50%',
         oms: [{
-          om_no: 'PPC/202010160001/OM/001',
+          om_no: '3 Juz',
           om_status: 'Done'
-        }, {
-          om_no: 'PPC/202010160001/OM/002',
-          om_status: 'Done'
-        }, {
-          om_no: 'PPC/202010160001/OM/003',
-          om_status: 'Cutting'
-        }, {
-          om_no: 'PPC/202010160001/OM/004',
-          om_status: 'Jahit'
         }]
       }, {
-        no_po: 'PPC/202010160002',
+        no_po: 'David',
         progress: '100%',
         oms: [{
-          om_no: 'PPC/202010160002/OM/001',
-          om_status: 'Done'
-        }, {
-          om_no: 'PPC/202010160002/OM/002',
-          om_status: 'Done'
-        }, {
-          om_no: 'PPC/202010160002/OM/003',
-          om_status: 'Done'
-        }, {
-          om_no: 'PPC/202010160002/OM/004',
+          om_no: '2 Juz',
           om_status: 'Done'
         }]
       }, {
-        no_po: 'PPC/202010160003',
+        no_po: 'Klok',
         progress: '50%',
         oms: [{
-          om_no: 'PPC/202010160003/OM/001',
-          om_status: 'Done'
-        }, {
-          om_no: 'PPC/202010160003/OM/002',
-          om_status: 'Done'
-        }, {
-          om_no: 'PPC/202010160003/OM/003',
-          om_status: 'Cutting'
-        }, {
-          om_no: 'PPC/202010160003/OM/004',
-          om_status: 'Jahit'
-        }]
-      }, {
-        no_po: 'PPC/202010160004',
-        progress: '25%',
-        oms: [{
-          om_no: 'PPC/202010160004/OM/001',
-          om_status: 'Done'
-        }, {
-          om_no: 'PPC/202010160004/OM/002',
-          om_status: 'Cutting'
-        }, {
-          om_no: 'PPC/202010160004/OM/003',
-          om_status: 'Cutting'
-        }, {
-          om_no: 'PPC/202010160004/OM/004',
-          om_status: 'Jahit'
-        }]
-      }, {
-        no_po: 'PPC/202010160005',
-        progress: '75%',
-        oms: [{
-          om_no: 'PPC/202010160001/OM/001',
-          om_status: 'Done'
-        }, {
-          om_no: 'PPC/202010160001/OM/002',
-          om_status: 'Done'
-        }, {
-          om_no: 'PPC/202010160001/OM/003',
-          om_status: 'Done'
-        }, {
-          om_no: 'PPC/202010160001/OM/004',
-          om_status: 'Jahit'
-        }]
-      }, {
-        no_po: 'PPC/202010160006',
-        progress: '100%',
-        oms: [{
-          om_no: 'PPC/202010160006/OM/001',
-          om_status: 'Done'
-        }, {
-          om_no: 'PPC/202010160006/OM/002',
-          om_status: 'Done'
-        }, {
-          om_no: 'PPC/202010160006/OM/003',
-          om_status: 'Done'
-        }, {
-          om_no: 'PPC/202010160006/OM/004',
+          om_no: '1',
           om_status: 'Done'
         }]
       }]

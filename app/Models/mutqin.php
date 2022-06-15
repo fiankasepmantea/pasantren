@@ -30,6 +30,11 @@ class Mutqin extends Model
                 $query->where('nama', 'LIKE', '%' . $filter_muhaffizh . '%');
             });
         }
+        if ( ($filter_santri = Arr::get($params, 'filter_santri', false)) ) {
+            $modelQuery->whereHas('filterSantri', function (Builder $query) use ($filter_santri) {
+                $query->where('nama', 'LIKE', '%' . $filter_santri . '%');
+            });
+        }
         // DEFAULT ORDERING DATA
         $modelQuery->orderBy('created_at', 'desc');
 
@@ -84,5 +89,8 @@ class Mutqin extends Model
     //filter
     public function filterMuhaffizh(){
         return $this->belongsTo(Muhaffizh::class,'muhaffizh_id','id');
+    }
+    public function filterSantri(){
+        return $this->belongsTo(Santri::class,'santri_id','id');
     }
 }
