@@ -136,13 +136,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       return state.mutqin_muhaffizh;
     }
   })),
-  // watch: {
-  //     return(){
-  //       this.getMuhaffizh();
-  //       this.getGroup();
-  //       this.getSantri();
-  //     }
-  // },    
+  watch: {
+    "return": function _return() {
+      this.getMuhaffizh();
+      this.getGroup();
+      this.getSantri();
+    }
+  },
   methods: _objectSpread(_objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapMutations"])("mutqin", ["CLEAR_FORM"])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])("mutqin", ["getUnit", "getGroup", "getMuhaffizh", "getSantri"])), {}, {
     clearMuhaffizh: function clearMuhaffizh() {
       this.CLEAR_MUHAFFIZH();
@@ -151,14 +151,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.CLEAR_SANTRI();
     },
     getGroupName: function getGroupName(id) {
-      // this.mutqin.group_id = '',
-      this.getGroup(id);
+      this.mutqin.group_id = '', this.getGroup(id);
     },
     getSantriName: function getSantriName(id) {
-      console.log('muhaffizh', muhaffizh);
-      console.log('group:', group); // this.mutqin.santri_id = '',
-
-      this.getSantri(id);
+      this.mutqin.santri_id = '', this.getSantri(id);
     },
     validateState: function validateState(ref) {
       if (this.veeFields[ref] && (this.veeFields[ref].dirty || this.veeFields[ref].validated)) {

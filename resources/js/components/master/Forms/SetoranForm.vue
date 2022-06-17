@@ -118,7 +118,7 @@ export default {
   inject: ['validator'],
   name: "setoranForm",
   created() {
-    this.loadPage();
+    // this.loadPage();
     this.getGroup();
     this.getMuhaffizh();
     this.getSantri();

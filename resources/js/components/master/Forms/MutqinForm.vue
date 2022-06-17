@@ -115,13 +115,13 @@ export default {
       mutqin_muhaffizh: (state) => state.mutqin_muhaffizh,
     }),
   },
-  // watch: {
-  //     return(){
-  //       this.getMuhaffizh();
-  //       this.getGroup();
-  //       this.getSantri();
-  //     }
-  // },    
+  watch: {
+      return(){
+        this.getMuhaffizh();
+        this.getGroup();
+        this.getSantri();
+      }
+  },    
   methods: {
     ...mapMutations("mutqin", ["CLEAR_FORM"]),
     ...mapActions("mutqin", ["getUnit","getGroup","getMuhaffizh","getSantri"]),
