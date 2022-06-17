@@ -169,39 +169,40 @@ const actions = {
       })
     })
   },
-  getGroup({ commit }) {
-    return new Promise((resolve, reject) => {
-        $axios.get(`/santri/santrigroup`)
-        .then((response) => {
-            commit('CLEAR_GROUP') 
-            response.data.data.forEach(item=>{
-              commit('APPEND_GROUP', {value:item.id, text:item.nama})              
-            });
-            resolve(response.data)
-        })
-    })
-  },
   getMuhaffizh({ commit }, payload=null) {
     return new Promise((resolve, reject) => {
-        if(payload){
-            $axios.get(`/santri/santrimuhaffizh`,{
-              params: {
-                group_id : payload,
-              }
-            })
-            .then((response) => { 
+        $axios.get(`/santri/santrimuhaffizh`)
+        .then((response) => {
             commit('CLEAR_MUHAFFIZH') 
             response.data.data.forEach(item=>{
               commit('APPEND_MUHAFFIZH', {value:item.id, text:item.nama})              
             });
             resolve(response.data)
+        })
+    })
+  },
+  getGroup({ commit }, payload=null) {
+    return new Promise((resolve, reject) => {
+      console.log('payload:',payload);
+        if(payload){
+            $axios.get(`/santri/santrigroup`,{
+              params: {
+                muhaffizh_id : payload,
+              }
+            })
+            .then((response) => { 
+            commit('CLEAR_GROUP') 
+            response.data.data.forEach(item=>{
+              commit('APPEND_GROUP', {value:item.id, text:item.nama})              
+            });
+            resolve(response.data)
           })
         }else{
-          $axios.get(`/santri/santrimuhaffizh`)
+          $axios.get(`/santri/santrigroup`)
           .then((response) => {
-              commit('CLEAR_MUHAFFIZH') 
+              commit('CLEAR_GROUP') 
               response.data.data.forEach(item=>{
-                commit('APPEND_MUHAFFIZH', {value:item.id, text:item.nama})              
+                commit('APPEND_GROUP', {value:item.id, text:item.nama})              
               });
               resolve(response.data)
           })

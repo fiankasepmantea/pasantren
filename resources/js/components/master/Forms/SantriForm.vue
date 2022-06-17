@@ -1,24 +1,10 @@
 <template>
   <div>
     <b-form @submit.stop.prevent="">
-      <b-form-group label="Group" label-cols="3" label-for="group">
-        <b-form-select
-          id="group"
-          @change="getMuhaffizhName(santri.group_id)"
-          v-model="santri.group_id"
-          :options="santri_group"
-          placeholder="Pilih Group"
-          name="group"
-          v-validate="{ required: true }"
-          :state="validateState('group')"
-          data-vv-as="Group"
-        >
-        </b-form-select>
-        <b-form-invalid-feedback>{{ veeErrors.first('group') }}</b-form-invalid-feedback>
-      </b-form-group>
       <b-form-group label="Muhaffizh" label-cols="3" label-for="muhaffizh">
         <b-form-select
           id="muhaffizh"
+          @change="getGroupName(santri.muhaffizh_id)"
           v-model="santri.muhaffizh_id"
           :options="santri_muhaffizh"
           placeholder="Pilih Muhaffizh"
@@ -26,6 +12,21 @@
           v-validate="{ required: true }"
           :state="validateState('muhaffizh')"
           data-vv-as="Muhaffizh"
+        >
+        </b-form-select>
+        <b-form-invalid-feedback>{{ veeErrors.first('group') }}</b-form-invalid-feedback>
+      </b-form-group>
+
+      <b-form-group label="Group" label-cols="3" label-for="group">
+        <b-form-select
+          id="group"
+          v-model="santri.group_id"
+          :options="santri_group"
+          placeholder="Pilih Group"
+          name="group"
+          v-validate="{ required: true }"
+          :state="validateState('group')"
+          data-vv-as="Group"
         >
         </b-form-select>
         <b-form-invalid-feedback>{{ veeErrors.first('group') }}</b-form-invalid-feedback>
@@ -230,9 +231,9 @@ export default {
   methods: {
     ...mapMutations("santri", ["CLEAR_FORM"]),
     ...mapActions("santri", ["getMuhaffizh","getGroup","getGrade","getLevel"]),
-    getMuhaffizhName(id){
-      this.santri.muhaffizh_id = '',
-      this.getMuhaffizh(id)
+    getGroupName(id){
+      this.santri.group_id = '',
+      this.getGroup(id)
     },
     validateState(ref) {
       if(

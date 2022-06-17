@@ -137,7 +137,7 @@ export default {
           key: 'list_group.nama',
           label: 'Group'
         },
-         {
+        {
           key: 'list_muhaffizh.nama',
           label: 'Muhaffizh'
         },

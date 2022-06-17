@@ -51,23 +51,24 @@ class SantriController extends Controller
         }
     }
 
-    public function getSantriGroup()
-    {
-        $group = Group::orderBy('nama', 'ASC')->get(); 
-        return response()->json(['status' => 'success', 'data' => $group]);
-    }
-
     public function getSantriMuhaffizh(Request $request)
     {   
-        if(isset($request->group_id)){
-            $group = Muhaffizh::where('group_id',$request->group_id)->orderBy('nama', 'ASC')->get();
-        }else{
-            $group = Muhaffizh::orderBy('nama', 'ASC')->get();;
-        }
-        
-        return response()->json(['status' => 'success', 'data' => $group]);
+        $muhaffizh = Muhaffizh::orderBy('nama', 'ASC')->get(); 
+      
+        return response()->json(['status' => 'success', 'data' => $muhaffizh]);
     }
 
+    public function getSantriGroup(Request $request)
+    {
+        if(isset($request->muhaffizh_id)){
+            $group = Group::where('muhaffizh_id',$request->muhaffizh_id)->orderBy('nama', 'ASC')->get();
+        }else{
+            $group = Group::orderBy('nama', 'ASC')->get();;
+        }
+
+        return response()->json(['status' => 'success', 'data' => $group]);
+    }
+    
     public function getSantriGrade()
     {
         $grade = Grade::orderBy('grade', 'ASC')->get(); 
