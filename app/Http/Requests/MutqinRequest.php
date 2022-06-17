@@ -28,8 +28,8 @@ class MutqinRequest extends FormRequest
             'juz'                   => ['required'],
             'halaman'               => ['required'],
             'baris'                 => ['required'],
-            'muhaffizh_id'          => ['required'],
-            'group_id'              => ['required'],
+            // 'muhaffizh_id'          => ['required'],
+            // 'group_id'              => ['required'],
             'santri_id'             => ['required'],
         ];
     }

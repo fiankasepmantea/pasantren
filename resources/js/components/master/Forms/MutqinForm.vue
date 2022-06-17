@@ -20,7 +20,7 @@
       <b-form-group label="Group" label-cols="3" label-for="group">
         <b-form-select
           id="group"
-          @change="() => { getSantriName(mutqin.muhaffizh_id,mutqin.group_id)}"
+          @change="() => { getSantriName(mutqin.group_id)}"
           v-model="mutqin.group_id"
           :options="mutqin_group"
           placeholder="Pilih Group"
@@ -132,14 +132,12 @@ export default {
       this.CLEAR_SANTRI();
     },
     getGroupName(id){
-      // this.mutqin.group_id = '',
+      this.mutqin.group_id = '',
       this.getGroup(id)
     },
-    getSantriName(muhaffizh,group){
-      console.log('muhaffizh',muhaffizh);
-      console.log('group:',group);
-      // this.mutqin.santri_id = '',
-      this.getSantri(muhaffizh,group)
+    getSantriName(id){
+      this.mutqin.santri_id = '',
+      this.getSantri(id)
     },
     validateState(ref) {
       if(

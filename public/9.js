@@ -154,11 +154,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       // this.mutqin.group_id = '',
       this.getGroup(id);
     },
-    getSantriName: function getSantriName(muhaffizh, group) {
+    getSantriName: function getSantriName(id) {
       console.log('muhaffizh', muhaffizh);
       console.log('group:', group); // this.mutqin.santri_id = '',
 
-      this.getSantri(muhaffizh, group);
+      this.getSantri(id);
     },
     validateState: function validateState(ref) {
       if (this.veeFields[ref] && (this.veeFields[ref].dirty || this.veeFields[ref].validated)) {
@@ -641,10 +641,7 @@ var render = function() {
                 },
                 on: {
                   change: function() {
-                    _vm.getSantriName(
-                      _vm.mutqin.muhaffizh_id,
-                      _vm.mutqin.group_id
-                    )
+                    _vm.getSantriName(_vm.mutqin.group_id)
                   }
                 },
                 model: {

@@ -71,8 +71,8 @@ class MutqinController extends Controller
 
     public function getMutqinSantri(Request $request)
     {
-        if(isset($request->muhaffizh_id) && isset($request->group_id)){
-            $santri = Santri::where('muhaffizh_id',$request->muhaffizh_id)->where('group_id',$request->group_id)->orderBy('nama', 'ASC')->get();
+        if(isset($request->group_id)){
+            $santri = Santri::where('group_id',$request->group_id)->orderBy('nama', 'ASC')->get();
         }else{
             $santri = Santri::orderBy('nama', 'ASC')->get();;
         }

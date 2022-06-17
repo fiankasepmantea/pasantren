@@ -181,15 +181,12 @@ const actions = {
         
     })
   },
-  getSantri({ commit }, muhaffizh=null, group=null) {
-    console.log('muhaffizh',muhaffizh);
-    console.log('group',group);
+  getSantri({ commit }, payload=null) {
     return new Promise((resolve, reject) => {
-        if(muhaffizh && group){
+        if(payload){
             $axios.get(`/mutqin/mutqinsantri`,{
               params: {
-                muhaffizh_id : muhaffizh,
-                group_id : group,
+                group_id : payload,
               }
             })
             .then((response) => {console.log('res:',response);
