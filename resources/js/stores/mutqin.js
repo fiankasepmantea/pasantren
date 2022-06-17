@@ -140,40 +140,40 @@ const actions = {
       })
     })
   },
-  getGroup({ commit }) {
+  getMuhaffizh({ commit }) {
     return new Promise((resolve, reject) => {
-        $axios.get(`/mutqin/mutqingroup`)
+        $axios.get(`/mutqin/mutqinmuhaffizh`)
         .then((response) => {
-            commit('CLEAR_GROUP') 
-            response.data.data.forEach(item=>{
-              commit('APPEND_GROUP', {value:item.id, text:item.nama})              
-            });
-            resolve(response.data)
-        })
-    })
-  },
-  getMuhaffizh({ commit }, payload=null) {
-    return new Promise((resolve, reject) => {
-        if(payload){
-            $axios.get(`/mutqin/mutqinmuhaffizh`,{
-              params: {
-                group_id : payload,
-              }
-            
-            })
-            .then((response) => { 
             commit('CLEAR_MUHAFFIZH') 
             response.data.data.forEach(item=>{
               commit('APPEND_MUHAFFIZH', {value:item.id, text:item.nama})              
             });
             resolve(response.data)
+        })
+    })
+  },
+  getGroup({ commit }, payload=null) {
+    return new Promise((resolve, reject) => {
+        if(payload){
+            $axios.get(`/mutqin/mutqingroup`,{
+              params: {
+                muhaffizh_id : payload,
+              }
+            
+            })
+            .then((response) => { 
+            commit('CLEAR_GROUP') 
+            response.data.data.forEach(item=>{
+              commit('APPEND_GROUP', {value:item.id, text:item.nama})              
+            });
+            resolve(response.data)
           })
         }else{
-          $axios.get(`/mutqin/mutqinmuhaffizh`)
+          $axios.get(`/mutqin/mutqingroup`)
           .then((response) => {
-              commit('CLEAR_MUHAFFIZH') 
+              commit('CLEAR_GROUP') 
               response.data.data.forEach(item=>{
-                commit('APPEND_MUHAFFIZH', {value:item.id, text:item.nama})              
+                commit('APPEND_GROUP', {value:item.id, text:item.nama})              
               });
               resolve(response.data)
           })
@@ -181,15 +181,18 @@ const actions = {
         
     })
   },
-  getSantri({ commit }, payload=null) {
+  getSantri({ commit }, muhaffizh=null, group=null) {
+    console.log('muhaffizh',muhaffizh);
+    console.log('group',group);
     return new Promise((resolve, reject) => {
-        if(payload){
+        if(muhaffizh && group){
             $axios.get(`/mutqin/mutqinsantri`,{
               params: {
-                group_id : payload,
+                muhaffizh_id : muhaffizh,
+                group_id : group,
               }
             })
-            .then((response) => {
+            .then((response) => {console.log('res:',response);
             commit('CLEAR_SANTRI') 
             response.data.data.forEach(item=>{
               commit('APPEND_SANTRI', {value:item.id, text:item.nama})              

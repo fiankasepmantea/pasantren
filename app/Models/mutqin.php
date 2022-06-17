@@ -53,15 +53,15 @@ class Mutqin extends Model
     public function saveModel($data, $is_update = false)
     {
         $model = [];
-
-        $model['santri_id'] = $data['santri_id'];
+        
         $model['muhaffizh_id'] = $data['muhaffizh_id'];
+        $model['group_id'] = $data['group_id'];
+        $model['santri_id'] = $data['santri_id'];
         $model['juz'] = $data['juz'];
         $model['halaman'] = ucwords($data['halaman']);
         $model['baris'] = $data['baris'];
-        $model['total_mutqin'] = $data['total_mutqin'];
-        $model['group_id'] = $data['group_id'];
- 
+        $model['total_mutqin'] = '0';
+        
         return $is_update ? $this->update($model) : $this->create($model);
     }   
 

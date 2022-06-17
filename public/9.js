@@ -112,31 +112,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   inject: ['validator'],
   name: "mutqinForm",
   created: function created() {
-    this.loadPage();
     this.getGroup();
     this.getMuhaffizh();
     this.getSantri();
@@ -145,9 +125,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(["errors"])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])("mutqin", {
     mutqin: function mutqin(state) {
       return state.mutqin;
-    },
-    mutqin_unit: function mutqin_unit(state) {
-      return state.mutqin_unit;
     },
     mutqin_group: function mutqin_group(state) {
       return state.mutqin_group;
@@ -159,37 +136,29 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       return state.mutqin_muhaffizh;
     }
   })),
-  watch: {
-    "return": function _return() {
-      this.getGroup();
-    }
-  },
+  // watch: {
+  //     return(){
+  //       this.getMuhaffizh();
+  //       this.getGroup();
+  //       this.getSantri();
+  //     }
+  // },    
   methods: _objectSpread(_objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapMutations"])("mutqin", ["CLEAR_FORM"])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])("mutqin", ["getUnit", "getGroup", "getMuhaffizh", "getSantri"])), {}, {
-    loadPage: function loadPage() {
-      $(document).ready(function () {
-        $("#santri-id").hide();
-        $("#muhaffizh-id").hide();
-      });
-    },
-    clickMuhaffizh: function clickMuhaffizh() {
-      this.mutqin.santri_id = null, $("#santri-id").hide();
-      $("#muhaffizh-id").show();
-    },
-    clickSantri: function clickSantri() {
-      this.mutqin.muhaffizh_id = null, $("#santri-id").show();
-      $("#muhaffizh-id").hide();
-    },
     clearMuhaffizh: function clearMuhaffizh() {
       this.CLEAR_MUHAFFIZH();
     },
     clearSantri: function clearSantri() {
       this.CLEAR_SANTRI();
     },
-    getMuhaffizhName: function getMuhaffizhName(id) {
-      this.mutqin.muhaffizh_id = '', this.getMuhaffizh(id);
+    getGroupName: function getGroupName(id) {
+      // this.mutqin.group_id = '',
+      this.getGroup(id);
     },
-    getSantriName: function getSantriName(id) {
-      this.mutqin.santri_id = '', this.getSantri(id);
+    getSantriName: function getSantriName(muhaffizh, group) {
+      console.log('muhaffizh', muhaffizh);
+      console.log('group:', group); // this.mutqin.santri_id = '',
+
+      this.getSantri(muhaffizh, group);
     },
     validateState: function validateState(ref) {
       if (this.veeFields[ref] && (this.veeFields[ref].dirty || this.veeFields[ref].validated)) {
@@ -201,18 +170,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   }),
   destroyed: function destroyed() {
     this.CLEAR_FORM();
-  },
-  data: function data() {
-    return {
-      selected: 'Muhaffizh',
-      options: [{
-        text: 'Muhaffizh',
-        value: 'Muhaffizh'
-      }, {
-        text: 'Santri',
-        value: 'Santri'
-      }]
-    };
   }
 });
 
@@ -355,7 +312,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
 
 
 
@@ -382,14 +338,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         santri_name: null
       },
       header: [{
+        key: 'list_santri.nama',
+        label: 'Santri'
+      }, {
         key: "list_group.nama",
         label: "Group"
       }, {
         key: "list_muhaffizh.nama",
         label: "Muhaffizh"
-      }, {
-        key: 'list_santri.nama',
-        label: 'Santri'
       }, {
         key: "juz",
         label: "Juz"
@@ -615,6 +571,54 @@ var render = function() {
           _c(
             "b-form-group",
             {
+              attrs: {
+                label: "Muhaffizh",
+                "label-cols": "3",
+                "label-for": "muhaffizh"
+              }
+            },
+            [
+              _c("b-form-select", {
+                directives: [
+                  {
+                    name: "validate",
+                    rawName: "v-validate",
+                    value: { required: true },
+                    expression: "{ required: true }"
+                  }
+                ],
+                attrs: {
+                  id: "muhaffizh",
+                  options: _vm.mutqin_muhaffizh,
+                  placeholder: "Pilih Muhaffizh",
+                  name: "muhaffizh",
+                  state: _vm.validateState("muhaffizh"),
+                  "data-vv-as": "Muhaffizh"
+                },
+                on: {
+                  change: function() {
+                    _vm.getGroupName(_vm.mutqin.muhaffizh_id)
+                  }
+                },
+                model: {
+                  value: _vm.mutqin.muhaffizh_id,
+                  callback: function($$v) {
+                    _vm.$set(_vm.mutqin, "muhaffizh_id", $$v)
+                  },
+                  expression: "mutqin.muhaffizh_id"
+                }
+              }),
+              _vm._v(" "),
+              _c("b-form-invalid-feedback", [
+                _vm._v(_vm._s(_vm.veeErrors.first("muhaffizh")))
+              ])
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "b-form-group",
+            {
               attrs: { label: "Group", "label-cols": "3", "label-for": "group" }
             },
             [
@@ -637,8 +641,10 @@ var render = function() {
                 },
                 on: {
                   change: function() {
-                    _vm.getMuhaffizhName(_vm.mutqin.group_id)
-                    _vm.getSantriName(_vm.mutqin.group_id)
+                    _vm.getSantriName(
+                      _vm.mutqin.muhaffizh_id,
+                      _vm.mutqin.group_id
+                    )
                   }
                 },
                 model: {
@@ -657,135 +663,48 @@ var render = function() {
             1
           ),
           _vm._v(" "),
-          _c("b-form-group", {
-            scopedSlots: _vm._u([
-              {
-                key: "default",
-                fn: function(ref) {
-                  var ariaDescribedby = ref.ariaDescribedby
-                  return [
-                    _c(
-                      "b-row",
-                      [
-                        _c(
-                          "b-col",
-                          [
-                            _c(
-                              "b-form-radio",
-                              {
-                                attrs: {
-                                  "aria-describedby": ariaDescribedby,
-                                  name: "some-radios",
-                                  value: "muhaffizh"
-                                },
-                                on: {
-                                  change: function($event) {
-                                    return _vm.clickMuhaffizh()
-                                  }
-                                },
-                                model: {
-                                  value: _vm.selected,
-                                  callback: function($$v) {
-                                    _vm.selected = $$v
-                                  },
-                                  expression: "selected"
-                                }
-                              },
-                              [_vm._v("Muhaffizh")]
-                            )
-                          ],
-                          1
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "b-col",
-                          [
-                            _c(
-                              "b-form-radio",
-                              {
-                                attrs: {
-                                  "aria-describedby": ariaDescribedby,
-                                  name: "some-radios",
-                                  value: "santri"
-                                },
-                                on: {
-                                  change: function($event) {
-                                    return _vm.clickSantri()
-                                  }
-                                },
-                                model: {
-                                  value: _vm.selected,
-                                  callback: function($$v) {
-                                    _vm.selected = $$v
-                                  },
-                                  expression: "selected"
-                                }
-                              },
-                              [_vm._v("Santri")]
-                            )
-                          ],
-                          1
-                        )
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "b-row",
-                      [
-                        _c(
-                          "b-col",
-                          [
-                            _c("b-form-select", {
-                              attrs: {
-                                id: "muhaffizh-id",
-                                options: _vm.mutqin_muhaffizh,
-                                placeholder: "Pilih Muhaffizh",
-                                name: "muhaffizh",
-                                "data-vv-as": "Muhaffizh"
-                              },
-                              model: {
-                                value: _vm.mutqin.muhaffizh_id,
-                                callback: function($$v) {
-                                  _vm.$set(_vm.mutqin, "muhaffizh_id", $$v)
-                                },
-                                expression: "mutqin.muhaffizh_id"
-                              }
-                            })
-                          ],
-                          1
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "b-col",
-                          [
-                            _c("b-form-select", {
-                              attrs: {
-                                id: "santri-id",
-                                options: _vm.mutqin_santri,
-                                placeholder: "Pilih Santri",
-                                name: "santri",
-                                "data-vv-as": "Santri"
-                              },
-                              model: {
-                                value: _vm.mutqin.santri_id,
-                                callback: function($$v) {
-                                  _vm.$set(_vm.mutqin, "santri_id", $$v)
-                                },
-                                expression: "mutqin.santri_id"
-                              }
-                            })
-                          ],
-                          1
-                        )
-                      ],
-                      1
-                    )
-                  ]
-                }
+          _c(
+            "b-form-group",
+            {
+              attrs: {
+                label: "Santri",
+                "label-cols": "3",
+                "label-for": "santri"
               }
-            ])
-          }),
+            },
+            [
+              _c("b-form-select", {
+                directives: [
+                  {
+                    name: "validate",
+                    rawName: "v-validate",
+                    value: { required: true },
+                    expression: "{ required: true }"
+                  }
+                ],
+                attrs: {
+                  id: "santri",
+                  options: _vm.mutqin_santri,
+                  placeholder: "Pilih Santri",
+                  name: "santri",
+                  state: _vm.validateState("santri"),
+                  "data-vv-as": "Santri"
+                },
+                model: {
+                  value: _vm.mutqin.santri_id,
+                  callback: function($$v) {
+                    _vm.$set(_vm.mutqin, "santri_id", $$v)
+                  },
+                  expression: "mutqin.santri_id"
+                }
+              }),
+              _vm._v(" "),
+              _c("b-form-invalid-feedback", [
+                _vm._v(_vm._s(_vm.veeErrors.first("santri")))
+              ])
+            ],
+            1
+          ),
           _vm._v(" "),
           _c(
             "b-form-group",
@@ -901,48 +820,6 @@ var render = function() {
               ])
             ],
             1
-          ),
-          _vm._v(" "),
-          _c(
-            "b-form-group",
-            {
-              attrs: {
-                label: "Total Mutqin",
-                "label-cols": "3",
-                "label-for": "totalmutqin"
-              }
-            },
-            [
-              _c("b-form-input", {
-                directives: [
-                  {
-                    name: "validate",
-                    rawName: "v-validate",
-                    value: { required: true },
-                    expression: "{ required: true }"
-                  }
-                ],
-                attrs: {
-                  id: "totalmutqin",
-                  placeholder: "Masukan Total Mutqin",
-                  name: "totalmutqin",
-                  state: _vm.validateState("totalmutqin"),
-                  "data-vv-as": "TotalMutqin"
-                },
-                model: {
-                  value: _vm.mutqin.total_mutqin,
-                  callback: function($$v) {
-                    _vm.$set(_vm.mutqin, "total_mutqin", $$v)
-                  },
-                  expression: "mutqin.total_mutqin"
-                }
-              }),
-              _vm._v(" "),
-              _c("b-form-invalid-feedback", [
-                _vm._v(_vm._s(_vm.veeErrors.first("totalmutqin")))
-              ])
-            ],
-            1
           )
         ],
         1
@@ -1016,8 +893,19 @@ var render = function() {
                         "b-input-group",
                         [
                           _c("b-form-input", {
+                            attrs: { placeholder: "Cari Santri", size: "sm" },
+                            model: {
+                              value: _vm.filterModel.santri_name,
+                              callback: function($$v) {
+                                _vm.$set(_vm.filterModel, "santri_name", $$v)
+                              },
+                              expression: "filterModel.santri_name"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("b-form-input", {
                             attrs: {
-                              placeholder: "Cari Muhaffizh ",
+                              placeholder: "Cari Muhaffizh",
                               size: "sm"
                             },
                             model: {
@@ -1026,17 +914,6 @@ var render = function() {
                                 _vm.$set(_vm.filterModel, "muhaffizh_name", $$v)
                               },
                               expression: "filterModel.muhaffizh_name"
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c("b-form-input", {
-                            attrs: { placeholder: "Cari Santri", size: "sm" },
-                            model: {
-                              value: _vm.filterModel.santri_name,
-                              callback: function($$v) {
-                                _vm.$set(_vm.filterModel, "santri_name", $$v)
-                              },
-                              expression: "filterModel.santri_name"
                             }
                           }),
                           _vm._v(" "),
@@ -1187,7 +1064,7 @@ var render = function() {
                 "b-modal",
                 {
                   attrs: {
-                    title: "Tambah Data Mutqin Muhaffizh/Santri",
+                    title: "Tambah Data Mutqin",
                     "no-close-on-backdrop": "",
                     "no-close-on-esc": "",
                     centered: ""

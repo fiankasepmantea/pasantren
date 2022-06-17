@@ -54,7 +54,6 @@ class Muhaffizh extends Model
         $model['angkatan_kelas'] = $data['angkatan_kelas'];
         $model['status'] = $data['status'];
         $model['pendidikan_terakhir'] = $data['pendidikan_terakhir'];
-        $model['group_id'] = $data['group_id'];
         $model['unit_id'] = $data['unit_id'];
 
         return $is_update ? $this->update($model) : $this->create($model);
@@ -63,14 +62,8 @@ class Muhaffizh extends Model
     public function muhaffizhUnit(){
         return $this->belongsTo(Unit::class,'unit_id','id');
     }
-    public function muhaffizhGroup(){
-        return $this->belongsTo(Group::class,'group_id','id');
-    }
     // list
     public function listUnit(){
         return $this->belongsTo(Unit::class,'unit_id','id');
-    }
-    public function listGroup(){
-        return $this->belongsTo(Group::class,'group_id','id');
     }
 }

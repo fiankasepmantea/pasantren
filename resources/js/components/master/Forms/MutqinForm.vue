@@ -1,10 +1,26 @@
 <template>
   <div>
     <b-form @submit.stop.prevent="">
+      <b-form-group label="Muhaffizh" label-cols="3" label-for="muhaffizh">
+        <b-form-select
+          id="muhaffizh"
+          @change="() => { getGroupName(mutqin.muhaffizh_id)}"
+          v-model="mutqin.muhaffizh_id"
+          :options="mutqin_muhaffizh"
+          placeholder="Pilih Muhaffizh"
+          name="muhaffizh"
+          v-validate="{ required: true }"
+          :state="validateState('muhaffizh')"
+          data-vv-as="Muhaffizh"
+        >
+        </b-form-select>
+        <b-form-invalid-feedback>{{ veeErrors.first('muhaffizh') }}</b-form-invalid-feedback>
+      </b-form-group>
+
       <b-form-group label="Group" label-cols="3" label-for="group">
         <b-form-select
           id="group"
-          @change="() => { getMuhaffizhName(mutqin.group_id);getSantriName(mutqin.group_id)}"
+          @change="() => { getSantriName(mutqin.muhaffizh_id,mutqin.group_id)}"
           v-model="mutqin.group_id"
           :options="mutqin_group"
           placeholder="Pilih Group"
@@ -16,44 +32,22 @@
         </b-form-select>
         <b-form-invalid-feedback>{{ veeErrors.first('group') }}</b-form-invalid-feedback>
       </b-form-group>
-      
-      <b-form-group v-slot="{ ariaDescribedby }">
-        <b-row>
-          <b-col>
-             <b-form-radio v-model="selected" :aria-describedby="ariaDescribedby" name="some-radios" value="muhaffizh" @change="clickMuhaffizh()">Muhaffizh</b-form-radio>
-          </b-col>
-          <b-col>
-             <b-form-radio v-model="selected" :aria-describedby="ariaDescribedby" name="some-radios" value="santri" @change="clickSantri()">Santri</b-form-radio>
-          </b-col>
-        </b-row>
-       <b-row>
-        <b-col>
-          <b-form-select
-            id="muhaffizh-id"
-            v-model="mutqin.muhaffizh_id"
-            :options="mutqin_muhaffizh"
-            placeholder="Pilih Muhaffizh"
-            name="muhaffizh"
-            data-vv-as="Muhaffizh"
-          >
-          </b-form-select>
-          <!-- <b-form-invalid-feedback>{{ veeErrors.first('muhaffizh') }}</b-form-invalid-feedback> -->
-        </b-col>
-        <b-col>
-         <b-form-select
-            id="santri-id"
-            v-model="mutqin.santri_id"
-            :options="mutqin_santri"
-            placeholder="Pilih Santri"
-            name="santri"
-            data-vv-as="Santri"
-          >
-          </b-form-select>
-          <!-- <b-form-invalid-feedback>{{ veeErrors.first('santri') }}</b-form-invalid-feedback> -->
-        </b-col>
-      </b-row>
+
+       <b-form-group label="Santri" label-cols="3" label-for="santri">
+        <b-form-select
+          id="santri"
+          v-model="mutqin.santri_id"
+          :options="mutqin_santri"
+          placeholder="Pilih Santri"
+          name="santri"
+          v-validate="{ required: true }"
+          :state="validateState('santri')"
+          data-vv-as="Santri"
+        >
+        </b-form-select>
+        <b-form-invalid-feedback>{{ veeErrors.first('santri') }}</b-form-invalid-feedback>
       </b-form-group>
-     
+      
       <b-form-group label="Juz" label-cols="3" label-for="juz">
         <b-form-input
           id="juz"
@@ -96,19 +90,6 @@
         <b-form-invalid-feedback>{{ veeErrors.first('baris') }}</b-form-invalid-feedback>
       </b-form-group>
 
-      <b-form-group label="Total Mutqin" label-cols="3" label-for="totalmutqin">
-        <b-form-input
-          id="totalmutqin"
-          v-model="mutqin.total_mutqin"
-          placeholder="Masukan Total Mutqin"
-          name="totalmutqin"
-          v-validate="{ required: true }"
-          :state="validateState('totalmutqin')"
-          data-vv-as="TotalMutqin"
-        >
-        </b-form-input>
-        <b-form-invalid-feedback>{{ veeErrors.first('totalmutqin') }}</b-form-invalid-feedback>
-      </b-form-group>
     </b-form>
   </div>
 </template>
@@ -120,7 +101,6 @@ export default {
   inject: ['validator'],
   name: "mutqinForm",
   created() {
-    this.loadPage();
     this.getGroup();
     this.getMuhaffizh();
     this.getSantri();
@@ -130,49 +110,36 @@ export default {
     ...mapState(["errors"]),
     ...mapState("mutqin", {
       mutqin: (state) => state.mutqin,
-      mutqin_unit: (state) => state.mutqin_unit,
       mutqin_group: (state) => state.mutqin_group,
       mutqin_santri: (state) => state.mutqin_santri,
       mutqin_muhaffizh: (state) => state.mutqin_muhaffizh,
     }),
   },
-  watch: {
-      return(){
-        this.getGroup();
-      }
-  },    
+  // watch: {
+  //     return(){
+  //       this.getMuhaffizh();
+  //       this.getGroup();
+  //       this.getSantri();
+  //     }
+  // },    
   methods: {
     ...mapMutations("mutqin", ["CLEAR_FORM"]),
     ...mapActions("mutqin", ["getUnit","getGroup","getMuhaffizh","getSantri"]),
-    loadPage(){
-      $( document ).ready(function() {
-          $("#santri-id").hide();
-          $("#muhaffizh-id").hide();
-      });
-    },
-    clickMuhaffizh(){
-      this.mutqin.santri_id= null,
-      $("#santri-id").hide();
-      $("#muhaffizh-id").show();
-    },
-    clickSantri(){
-      this.mutqin.muhaffizh_id= null,
-      $("#santri-id").show();
-      $("#muhaffizh-id").hide();
-    },
     clearMuhaffizh(){
       this.CLEAR_MUHAFFIZH();
     },
     clearSantri(){
       this.CLEAR_SANTRI();
     },
-    getMuhaffizhName(id){
-      this.mutqin.muhaffizh_id = '',
-      this.getMuhaffizh(id)
+    getGroupName(id){
+      // this.mutqin.group_id = '',
+      this.getGroup(id)
     },
-    getSantriName(id){
-      this.mutqin.santri_id = '',
-      this.getSantri(id)
+    getSantriName(muhaffizh,group){
+      console.log('muhaffizh',muhaffizh);
+      console.log('group:',group);
+      // this.mutqin.santri_id = '',
+      this.getSantri(muhaffizh,group)
     },
     validateState(ref) {
       if(
@@ -187,15 +154,6 @@ export default {
   destroyed() {
     this.CLEAR_FORM();
   },
-  data() {
-      return {
-        selected: 'Muhaffizh',
-        options: [
-          { text: 'Muhaffizh', value: 'Muhaffizh' },
-          { text: 'Santri', value: 'Santri'},
-        ]
-      }
-    }
 };
 
 

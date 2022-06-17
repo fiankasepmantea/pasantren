@@ -51,34 +51,28 @@ class MutqinController extends Controller
         }
     }
 
-    public function getMutqinGroup()
-    {
-        $group = Group::orderBy('nama', 'ASC')->get(); 
-        return response()->json(['status' => 'success', 'data' => $group]);
-    }
-
-    public function getMutqinUnit()
-    {   
-        $unit = Unit::orderBy('nama', 'ASC')->get(); 
-        return response()->json(['status' => 'success', 'data' => $unit]);
-    }
-
     public function getMutqinMuhaffizh(Request $request)
     {  
-        
-        if(isset($request->group_id)){
-            $muhaffizh = Muhaffizh::where('group_id',$request->group_id)->orderBy('nama', 'ASC')->get();
-        }else{
-            $muhaffizh = Muhaffizh::orderBy('nama', 'ASC')->get();;
-        }
-       
+        $muhaffizh = Muhaffizh::orderBy('nama', 'ASC')->get(); 
+     
         return response()->json(['status' => 'success', 'data' => $muhaffizh]);
+    }
+
+    public function getMutqinGroup(Request $request)
+    {   
+        if(isset($request->muhaffizh_id)){
+            $group = Group::where('muhaffizh_id',$request->muhaffizh_id)->orderBy('nama', 'ASC')->get();
+        }else{
+            $group = Group::orderBy('nama', 'ASC')->get();;
+        }
+
+        return response()->json(['status' => 'success', 'data' => $group]);
     }
 
     public function getMutqinSantri(Request $request)
     {
-        if(isset($request->group_id)){
-            $santri = Santri::where('group_id',$request->group_id)->orderBy('nama', 'ASC')->get();
+        if(isset($request->muhaffizh_id) && isset($request->group_id)){
+            $santri = Santri::where('muhaffizh_id',$request->muhaffizh_id)->where('group_id',$request->group_id)->orderBy('nama', 'ASC')->get();
         }else{
             $santri = Santri::orderBy('nama', 'ASC')->get();;
         }

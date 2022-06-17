@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Arr;
+use App\Models\Muhaffizh;
 
 class Group extends Model
 {
@@ -40,15 +41,15 @@ class Group extends Model
         $model = [];
 
         $model['nama'] = ucwords($data['nama']);
-        $model['unit_id'] = ucwords($data['unit_id']);
+        $model['muhaffizh_id'] = ucwords($data['muhaffizh_id']);
         return $is_update ? $this->update($model) : $this->create($model);
     }   
 
-    public function groupUnit(){
-        return $this->belongsTo(Unit::class,'unit_id','id');
+    public function getGroupMuhaffizh(){
+        return $this->belongsTo(Muhaffizh::class,'muhaffizh_id','id');
     }
     // list
-    public function listUnit(){
-        return $this->belongsTo(Unit::class,'unit_id','id');
+    public function listMuhaffizh(){
+        return $this->belongsTo(Muhaffizh::class,'muhaffizh_id','id');
     }
 }
