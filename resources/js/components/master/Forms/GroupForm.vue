@@ -1,19 +1,19 @@
 <template>
   <div>
     <b-form @submit.stop.prevent="">
-       <b-form-group label="Unit" label-cols="3" label-for="unit">
+       <b-form-group label="Muhaffizh" label-cols="3" label-for="muhaffizh">
         <b-form-select
-          id="unit"
-          v-model="group.unit_id"
-          :options="group_unit"
-          placeholder="Pilih Unit"
-          name="unit"
+          id="muhaffizh"
+          v-model="group.muhaffizh_id"
+          :options="group_muhaffizh"
+          placeholder="Pilih Muhaffizh"
+          name="muhaffizh"
           v-validate="{ required: true }"
-          :state="validateState('unit')"
-          data-vv-as="Unit"
+          :state="validateState('muhaffizh')"
+          data-vv-as="Muhaffizh"
         >
         </b-form-select>
-        <b-form-invalid-feedback>{{ veeErrors.first('unit') }}</b-form-invalid-feedback>
+        <b-form-invalid-feedback>{{ veeErrors.first('muhaffizh') }}</b-form-invalid-feedback>
       </b-form-group>
 
       <b-form-group label="Nama Grup" label-for="nama" label-cols="3">
@@ -42,19 +42,19 @@ export default {
   inject: ["validator"],
   name: "GroupForm",
   created() {
-    this.getUnit();
+    this.getMuhaffizh();
     this.$validator = this.validator
   },
   computed: {
     ...mapState(["errors"]),
     ...mapState("group", {
       group: (state) => state.group,
-      group_unit: (state) => state.group_unit,
+      group_muhaffizh: (state) => state.group_muhaffizh,
     }),
   },
   methods: {
     ...mapMutations("group", ["CLEAR_FORM"]),
-    ...mapActions("group", ["getUnit"]),
+    ...mapActions("group", ["getMuhaffizh"]),
     validateState(ref) {
       if (
         this.veeFields[ref] &&

@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Group as Model;
 use App\Http\Requests\GroupRequest as ModelRequest;
 use App\Http\Resources\GroupResource as ModelResource;
-use App\Models\Unit;
+use App\Models\Muhaffizh;
 
 class GroupController extends Controller
 {
@@ -48,10 +48,10 @@ class GroupController extends Controller
         }
     }
 
-    public function getGroupUnit()
+    public function getGroupMuhaffizh()
     {   
-        $unit = Unit::orderBy('nama', 'ASC')->get(); 
-        return response()->json(['status' => 'success', 'data' => $unit]);
+        $muhaffizh = Muhaffizh::orderBy('nama', 'ASC')->get(); 
+        return response()->json(['status' => 'success', 'data' => $muhaffizh]);
     }
 }
 

@@ -18,7 +18,6 @@ const state = () => ({
     angkatan_kelas: '',
     status: '',
     unit_id: '',
-    group_id: '',
   },
   muhaffizh_unit: [],
   muhaffizh_group: [],
@@ -44,7 +43,6 @@ const mutations = {
       status: payload.status,
       pendidikan_terakhir: payload.pendidikan_terakhir,
       unit_id: payload.unit_id,
-      group_id: payload.group_id,
     }
   },
   CLEAR_FORM(state) {
@@ -61,7 +59,6 @@ const mutations = {
       status: '',
       pendidikan_terakhir: '',
       unit_id: '',
-      group_id: '',
     }
   },
   ASSIGN_UNIT(state, payload) {
@@ -150,35 +147,6 @@ const actions = {
             });
             resolve(response.data)
         })
-    })
-  },
-
-  getGroup({ commit }, payload=null) {
-    return new Promise((resolve, reject) => {
-        if(payload){
-            $axios.get(`/muhaffizh/muhaffizhgroup`,{
-              params: {
-                unit_id : payload,
-              }
-            })
-            .then((response) => { 
-            commit('CLEAR_GROUP') 
-            response.data.data.forEach(item=>{
-              commit('APPEND_GROUP', {value:item.id, text:item.nama})              
-            });
-            resolve(response.data)
-          })
-        }else{
-          $axios.get(`/muhaffizh/muhaffizhgroup`)
-          .then((response) => {
-              commit('CLEAR_GROUP') 
-              response.data.data.forEach(item=>{
-                commit('APPEND_GROUP', {value:item.id, text:item.nama})              
-              });
-              resolve(response.data)
-          })
-        }
-        
     })
   },
 }

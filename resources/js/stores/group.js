@@ -8,9 +8,9 @@ const state = () => ({
   group: {
     id: '',
     nama: '',
-    unit_id: '',
+    muhaffizh_id: '',
   },
-  group_unit: [],
+  group_muhaffizh: [],
 })
 
 const mutations = {
@@ -23,25 +23,25 @@ const mutations = {
   ASSIGN_FORM(state, payload) {
     state.group = {
       nama: payload.nama,
-      unit_id: payload.unit_id,
+      muhaffizh_id: payload.muhaffizh_id,
     }
   },
   CLEAR_FORM(state) {
     state.group = {
       id: '',
       nama: '',
-      unit_id: '',
+      muhaffizh_id: '',
     }
   },
 
-  ASSIGN_UNIT(state, payload) {
-    state.group_unit = payload
+  ASSIGN_MUHAFFIZH(state, payload) {
+    state.group_muhaffizh = payload
   },
-  APPEND_UNIT(state, payload){
-    state.group_unit.push(payload)
+  APPEND_MUHAFFIZH(state, payload){
+    state.group_muhaffizh.push(payload)
   },
-  CLEAR_UNIT(state) {
-    state.group_unit = [];
+  CLEAR_MUHAFFIZH(state) {
+    state.group_muhaffizh = [];
   },
 }
 
@@ -99,13 +99,13 @@ const actions = {
       })
     })
   },
-  getUnit({ commit }) {
+  getMuhaffizh({ commit }) {
     return new Promise((resolve, reject) => {
-        $axios.get(`/group/groupunit`)
+        $axios.get(`/group/groupmuhaffizh`)
         .then((response) => {
-            commit('CLEAR_UNIT') 
+            commit('CLEAR_MUHAFFIZH') 
             response.data.data.forEach(item=>{
-              commit('APPEND_UNIT', {value:item.id, text:item.nama})              
+              commit('APPEND_MUHAFFIZH', {value:item.id, text:item.nama})              
             });
             resolve(response.data)
         })

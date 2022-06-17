@@ -72,12 +72,6 @@ function configRoutes() {
           meta: { title: 'Manajemen User', auth: true }
         },
         {
-          path: 'group',
-          name: 'Groups',
-          component: Group,
-          meta: { title: 'Grup/Halaqoh', auth: true }
-        },
-        {
           path: 'unit',
           name: 'Units',
           component: Unit,
@@ -88,6 +82,12 @@ function configRoutes() {
           name: 'Muhaffizhs',
           component: Muhaffizh,
           meta: { title: 'Muhaffizh', auth: true }
+        },
+        {
+          path: 'group',
+          name: 'Groups',
+          component: Group,
+          meta: { title: 'Grup/Halaqoh', auth: true }
         },
         {
           path: 'santri',
@@ -129,7 +129,7 @@ function configRoutes() {
           component: DSales,
           meta: {
             auth: true,
-            title: 'Muhaffizh/ah'
+            title: 'Santri'
           }
         },
         {

@@ -25,7 +25,7 @@ class GroupRequest extends FormRequest
     {
         return [
             'nama' => ['required'],
-            'unit_id' => ['required'],
+            'muhaffizh_id' => ['required'],
         ];
     }
 }

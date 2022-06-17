@@ -88,6 +88,7 @@ const actions = {
     if (payload) {
         listParams = payload
     } 
+  
     return new Promise((resolve, reject) => {
       $axios.get('/mutqin', {
         params: listParams

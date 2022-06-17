@@ -247,9 +247,17 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _PageTitle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./PageTitle */ "./resources/js/components/master/PageTitle.vue");
-/* harmony import */ var _Forms_setoranForm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Forms/setoranForm */ "./resources/js/components/master/Forms/setoranForm.vue");
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _PageTitle__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./PageTitle */ "./resources/js/components/master/PageTitle.vue");
+/* harmony import */ var _Forms_setoranForm__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Forms/setoranForm */ "./resources/js/components/master/Forms/setoranForm.vue");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -347,14 +355,35 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "setorans",
   components: {
-    pagetitle: _PageTitle__WEBPACK_IMPORTED_MODULE_0__["default"],
-    Form: _Forms_setoranForm__WEBPACK_IMPORTED_MODULE_1__["default"]
+    pagetitle: _PageTitle__WEBPACK_IMPORTED_MODULE_1__["default"],
+    Form: _Forms_setoranForm__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   created: function created() {
     this.loadData();
@@ -365,6 +394,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       editModal: false,
       editedId: null,
       perPage: 20,
+      filterModel: {
+        muhaffizh_name: null,
+        santri_name: null
+      },
       currentPage: 1,
       pageOptions: [10, 20, 50, 100],
       header: [{
@@ -412,24 +445,68 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         return 0;
       }
     }
-  }, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapState"])('setoran', {
+  }, Object(vuex__WEBPACK_IMPORTED_MODULE_3__["mapState"])('setoran', {
     setorans: function setorans(state) {
       return state.setorans;
     }
   })),
-  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapActions"])('setoran', ['getSetorans', 'removeSetoran', 'editSetoran', 'updateSetoran', 'submitSetoran'])), {}, {
+  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_3__["mapActions"])('setoran', ['getSetorans', 'removeSetoran', 'editSetoran', 'updateSetoran', 'submitSetoran'])), {}, {
     loadData: function loadData() {
-      var _this = this;
+      var _arguments = arguments,
+          _this = this;
 
-      this.$store.commit('loadingOn');
-      setTimeout(function () {
-        _this.getSetorans();
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var params;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                params = _arguments.length > 0 && _arguments[0] !== undefined ? _arguments[0] : null;
 
-        _this.$store.commit('loadingOff');
-      }, 1000);
+                _this.$store.commit('loadingOn'); // setTimeout(() => {
+
+
+                _context.next = 4;
+                return _this.getSetorans(params);
+
+              case 4:
+                _this.$store.commit('loadingOff'); // }, 1000);
+
+
+              case 5:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }))();
+    },
+    searchMuhaffizhSantri: function searchMuhaffizhSantri() {
+      var _this2 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _this2.$store.commit('loadingOn');
+
+                _context2.next = 3;
+                return _this2.loadData(_this2.filterModel);
+
+              case 3:
+                _this2.$store.commit('loadingOff');
+
+              case 4:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
+      }))();
     },
     deleteSetoran: function deleteSetoran(id) {
-      var _this2 = this;
+      var _this3 = this;
 
       this.$swal({
         title: 'Apakah anda yakin ?',
@@ -437,7 +514,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         showCancelButton: true
       }).then(function (result) {
         if (result.value) {
-          _this2.removeSetoran(id);
+          _this3.removeSetoran(id);
         }
       });
     },
@@ -447,30 +524,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.editedId = id;
     },
     handleUpdate: function handleUpdate(bvModalEvt) {
-      var _this3 = this;
-
-      bvModalEvt.preventDefault();
-      this.$validator.validateAll().then(function (result) {
-        if (!result) {
-          return;
-        }
-
-        _this3.updateSetoran(_this3.editedId);
-
-        _this3.$toasted.global.success_toast({
-          message: 'Data setoran berhasil diubah..'
-        });
-
-        _this3.editModal = false;
-
-        _this3.loadData();
-      })["catch"](function (err) {
-        _this3.$toasted.global.failed_toast({
-          message: 'Data setoran gagal untuk diubah..'
-        });
-      });
-    },
-    handleSubmit: function handleSubmit(bvModalEvt) {
       var _this4 = this;
 
       bvModalEvt.preventDefault();
@@ -479,17 +532,41 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           return;
         }
 
-        _this4.submitSetoran();
+        _this4.updateSetoran(_this4.editedId);
 
         _this4.$toasted.global.success_toast({
-          message: 'Data setoran berhasil ditambahkan..'
+          message: 'Data setoran berhasil diubah..'
         });
 
-        _this4.createModal = false;
+        _this4.editModal = false;
 
         _this4.loadData();
       })["catch"](function (err) {
         _this4.$toasted.global.failed_toast({
+          message: 'Data setoran gagal untuk diubah..'
+        });
+      });
+    },
+    handleSubmit: function handleSubmit(bvModalEvt) {
+      var _this5 = this;
+
+      bvModalEvt.preventDefault();
+      this.$validator.validateAll().then(function (result) {
+        if (!result) {
+          return;
+        }
+
+        _this5.submitSetoran();
+
+        _this5.$toasted.global.success_toast({
+          message: 'Data setoran berhasil ditambahkan..'
+        });
+
+        _this5.createModal = false;
+
+        _this5.loadData();
+      })["catch"](function (err) {
+        _this5.$toasted.global.failed_toast({
           message: 'Data setoran gagal untuk ditambahkan..'
         });
       });
@@ -964,6 +1041,76 @@ var render = function() {
                 ],
                 1
               ),
+              _vm._v(" "),
+              _c(
+                "b-row",
+                [
+                  _c(
+                    "b-col",
+                    { attrs: { xl: "4", lg: "4", md: "4", sm: "12" } },
+                    [
+                      _c(
+                        "b-input-group",
+                        [
+                          _c("b-form-input", {
+                            attrs: {
+                              placeholder: "Cari Muhaffizh ",
+                              size: "sm"
+                            },
+                            model: {
+                              value: _vm.filterModel.muhaffizh_name,
+                              callback: function($$v) {
+                                _vm.$set(_vm.filterModel, "muhaffizh_name", $$v)
+                              },
+                              expression: "filterModel.muhaffizh_name"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("b-form-input", {
+                            attrs: { placeholder: "Cari Santri", size: "sm" },
+                            model: {
+                              value: _vm.filterModel.santri_name,
+                              callback: function($$v) {
+                                _vm.$set(_vm.filterModel, "santri_name", $$v)
+                              },
+                              expression: "filterModel.santri_name"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c(
+                            "b-input-group-prepend",
+                            [
+                              _c(
+                                "b-button",
+                                { attrs: { size: "sm" } },
+                                [
+                                  _c("b-icon", {
+                                    attrs: { icon: "search" },
+                                    on: {
+                                      click: function($event) {
+                                        return _vm.searchMuhaffizhSantri(
+                                          _vm.filterModel
+                                        )
+                                      }
+                                    }
+                                  })
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c("br"),
               _vm._v(" "),
               _c(
                 "b-form",

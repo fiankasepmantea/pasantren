@@ -903,11 +903,11 @@ __webpack_require__.r(__webpack_exports__);
       name: 'Unit',
       to: '/master/unit'
     }, {
-      name: 'Grup',
-      to: '/master/group'
-    }, {
       name: 'Muhaffizh',
       to: '/master/muhaffizh'
+    }, {
+      name: 'Grup',
+      to: '/master/group'
     }, {
       name: 'Santri',
       to: '/master/santri'

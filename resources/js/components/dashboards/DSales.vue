@@ -2,24 +2,8 @@
   <div>
     <PageTitle />
     <b-row>
-      <b-col md="6">
-        <b-card 
-        title="Muhaffizh"
-        >
-        <hr>
-          <div v-for="(muhaffizh, index) in muhaffizhs" :key="index"  class="d-flex justify-content-between">
-            <b-card-text class="card-text">{{ muhaffizh.name }}</b-card-text>
-            <b-card-text class="card-text">{{ muhaffizh.revenue }}</b-card-text>
-          </div>
-          
-           <div class="d-flex justify-content-between">
-              <b-card-text class="card-text">Total</b-card-text>
-              <b-card-text class="card-text">{{ totalJuzMuhaffizh }}</b-card-text>
-           </div>
-         
-        </b-card>
-      </b-col>
-      <b-col md="6">
+      
+      <b-col md="12">
         <b-card 
         title="Santri"
         >

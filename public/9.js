@@ -432,25 +432,29 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }
   })),
   methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_3__["mapActions"])('mutqin', ['getMutqins', 'removeMutqin', 'editMutqin', 'updateMutqin', 'submitMutqin'])), {}, {
-    loadData: function loadData(muhaffizh, santri) {
-      var _this = this;
+    loadData: function loadData() {
+      var _arguments = arguments,
+          _this = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var params;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
+                params = _arguments.length > 0 && _arguments[0] !== undefined ? _arguments[0] : null;
+
                 _this.$store.commit('loadingOn'); // setTimeout(() => {
 
 
-                _context.next = 3;
-                return _this.getMutqins(muhaffizh, santri);
+                _context.next = 4;
+                return _this.getMutqins(params);
 
-              case 3:
+              case 4:
                 _this.$store.commit('loadingOff'); // }, 1000);
 
 
-              case 4:
+              case 5:
               case "end":
                 return _context.stop();
             }
@@ -458,8 +462,32 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         }, _callee);
       }))();
     },
-    deleteMutqin: function deleteMutqin(id) {
+    searchMuhaffizhSantri: function searchMuhaffizhSantri() {
       var _this2 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _this2.$store.commit('loadingOn');
+
+                _context2.next = 3;
+                return _this2.loadData(_this2.filterModel);
+
+              case 3:
+                _this2.$store.commit('loadingOff');
+
+              case 4:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
+      }))();
+    },
+    deleteMutqin: function deleteMutqin(id) {
+      var _this3 = this;
 
       this.$swal({
         title: 'Apakah anda yakin ?',
@@ -467,7 +495,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         showCancelButton: true
       }).then(function (result) {
         if (result.value) {
-          _this2.removeMutqin(id);
+          _this3.removeMutqin(id);
         }
       });
     },
@@ -477,30 +505,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.editedId = id;
     },
     handleUpdate: function handleUpdate(bvModalEvt) {
-      var _this3 = this;
-
-      bvModalEvt.preventDefault();
-      this.$validator.validateAll().then(function (result) {
-        if (!result) {
-          return;
-        }
-
-        _this3.updateMutqin(_this3.editedId);
-
-        _this3.$toasted.global.success_toast({
-          message: 'Data Mutqin berhasil diubah..'
-        });
-
-        _this3.editModal = false;
-
-        _this3.loadData();
-      })["catch"](function (err) {
-        _this3.$toasted.global.failed_toast({
-          message: 'Data Mutqin gagal untuk diubah..'
-        });
-      });
-    },
-    handleSubmit: function handleSubmit(bvModalEvt) {
       var _this4 = this;
 
       bvModalEvt.preventDefault();
@@ -509,48 +513,46 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           return;
         }
 
-        _this4.submitMutqin();
+        _this4.updateMutqin(_this4.editedId);
 
         _this4.$toasted.global.success_toast({
-          message: 'Data Mutqin berhasil ditambahkan..'
+          message: 'Data Mutqin berhasil diubah..'
         });
 
-        _this4.createModal = false;
+        _this4.editModal = false;
 
         _this4.loadData();
       })["catch"](function (err) {
         _this4.$toasted.global.failed_toast({
+          message: 'Data Mutqin gagal untuk diubah..'
+        });
+      });
+    },
+    handleSubmit: function handleSubmit(bvModalEvt) {
+      var _this5 = this;
+
+      bvModalEvt.preventDefault();
+      this.$validator.validateAll().then(function (result) {
+        if (!result) {
+          return;
+        }
+
+        _this5.submitMutqin();
+
+        _this5.$toasted.global.success_toast({
+          message: 'Data Mutqin berhasil ditambahkan..'
+        });
+
+        _this5.createModal = false;
+
+        _this5.loadData();
+      })["catch"](function (err) {
+        _this5.$toasted.global.failed_toast({
           message: 'Data Mutqin gagal untuk ditambahkan..'
         });
       });
     }
-  }),
-  searchMuhaffizhSantri: function searchMuhaffizhSantri(muhaffizh, santri) {
-    var _this5 = this;
-
-    return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
-        while (1) {
-          switch (_context2.prev = _context2.next) {
-            case 0:
-              _this5.$store.commit('loadingOn');
-
-              console.log('muhaffizh:', muhaffizh);
-              console.log('santri:', santri);
-              _context2.next = 5;
-              return _this5.loadData(muhaffizh, santri);
-
-            case 5:
-              _this5.$store.commit('loadingOff');
-
-            case 6:
-            case "end":
-              return _context2.stop();
-          }
-        }
-      }, _callee2);
-    }))();
-  }
+  })
 });
 
 /***/ }),
@@ -1050,8 +1052,7 @@ var render = function() {
                                     on: {
                                       click: function($event) {
                                         return _vm.searchMuhaffizhSantri(
-                                          _vm.filterModel.muhaffizh_name,
-                                          _vm.filterModel.santri_name
+                                          _vm.filterModel
                                         )
                                       }
                                     }
@@ -1071,6 +1072,8 @@ var render = function() {
                 ],
                 1
               ),
+              _vm._v(" "),
+              _c("br"),
               _vm._v(" "),
               _c(
                 "b-form",

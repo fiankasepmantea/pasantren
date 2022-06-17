@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Tymon\JWTAuth\Contracts\JWTSubject;
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Foundation\Auth\Muhtqin as Authenticatable;
+use Illuminate\Foundation\Auth\Mutqin as Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Arr;
@@ -12,6 +12,7 @@ use App\Models\Unit;
 use App\Models\Group;
 use App\Models\Santri;
 use App\Models\Muhaffizh;
+use Illuminate\Database\Eloquent\Builder;
 
 class Mutqin extends Model
 {
@@ -24,13 +25,13 @@ class Mutqin extends Model
     public static function getModel($params, $raw = false)
     {
         $modelQuery = static::query();
-
-        if ( ($filter_muhaffizh = Arr::get($params, 'filter_muhaffizh', false)) ) {
+        
+        if ( ($filter_muhaffizh = Arr::get($params, 'muhaffizh_name', false)) ) {
             $modelQuery->whereHas('filterMuhaffizh', function (Builder $query) use ($filter_muhaffizh) {
                 $query->where('nama', 'LIKE', '%' . $filter_muhaffizh . '%');
             });
         }
-        if ( ($filter_santri = Arr::get($params, 'filter_santri', false)) ) {
+        if ( ($filter_santri = Arr::get($params, 'santri_name', false)) ) {
             $modelQuery->whereHas('filterSantri', function (Builder $query) use ($filter_santri) {
                 $query->where('nama', 'LIKE', '%' . $filter_santri . '%');
             });

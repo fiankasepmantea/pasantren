@@ -21,12 +21,12 @@
                 size="sm"
               ></b-form-input> 
                 <b-input-group-prepend>
-                <b-button size="sm"> <b-icon icon="search" @click="searchMuhaffizhSantri(filterModel.muhaffizh_name,filterModel.santri_name)"></b-icon></b-button>
+                <b-button size="sm"> <b-icon icon="search" @click="searchMuhaffizhSantri(filterModel)"></b-icon></b-button>
                 </b-input-group-prepend>
               </b-input-group
           ></b-col>
-          
       </b-row>
+      <br>
       <b-form inline>
           <b-form-group
             label="Show :"
@@ -203,14 +203,18 @@ export default {
   methods: {
     ...mapActions('mutqin', ['getMutqins', 'removeMutqin', 'editMutqin', 'updateMutqin', 'submitMutqin']),
     
-    async loadData(muhaffizh,santri) {
+    async loadData(params=null) {
       this.$store.commit('loadingOn')
       // setTimeout(() => {
-        await this.getMutqins(muhaffizh,santri)
+        await this.getMutqins(params)
         this.$store.commit('loadingOff')
       // }, 1000);
     },
-
+    async searchMuhaffizhSantri() {
+      this.$store.commit('loadingOn')
+      await this.loadData(this.filterModel)
+      this.$store.commit('loadingOff')
+    },
     deleteMutqin(id) {
       this.$swal({
         title: 'Apakah anda yakin ?',
@@ -264,12 +268,6 @@ export default {
       })
     }
   },
-  async searchMuhaffizhSantri(muhaffizh,santri) {
-      this.$store.commit('loadingOn')
-      console.log('muhaffizh:',muhaffizh);
-      console.log('santri:',santri);
-      await this.loadData(muhaffizh,santri)
-      this.$store.commit('loadingOff')
-    }
+  
 };
 </script>

@@ -28,7 +28,7 @@ Route::group(['namespace' => 'Api'], function () {
         Route::post('auth/user', 'AuthController@user');
 
         Route::get('/user/userlevel', 'UserController@getLevel');
-        Route::get('/group/groupunit', 'GroupController@getGroupUnit');
+        Route::get('/group/groupmuhaffizh', 'GroupController@getGroupMuhaffizh');
         Route::get('/muhaffizh/muhaffizhgroup', 'MuhaffizhController@getMuhaffizhGroup');
         Route::get('/muhaffizh/muhaffizhunit', 'MuhaffizhController@getMuhaffizhUnit');
         Route::get('/santri/santrigroup', 'SantriController@getSantriGroup');

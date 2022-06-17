@@ -26,7 +26,6 @@ class MuhaffizhResource extends JsonResource
             'angkatan_kelas'        => $this->angkatan_kelas,
             'status'                => $this->status,
             'pendidikan_terakhir'   => $this->pendidikan_terakhir,
-            'group_id'              => $this->group_id,
             'unit_id'               => $this->unit_id,
             //from controller
             'list_unit'         => $this->listUnit,

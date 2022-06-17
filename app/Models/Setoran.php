@@ -12,6 +12,7 @@ use App\Models\Unit;
 use App\Models\Group;
 use App\Models\Santri;
 use App\Models\Muhaffizh;
+use Illuminate\Database\Eloquent\Builder;
 
 class Setoran extends Model
 {
@@ -25,8 +26,15 @@ class Setoran extends Model
     {
         $modelQuery = static::query();
 
-        if (($filter_name = Arr::get($params, 'nama', false))) {
-            $modelQuery->where('nama', 'LIKE', '%' . $filter_name . '%');
+        if ( ($filter_muhaffizh = Arr::get($params, 'muhaffizh_name', false)) ) {
+            $modelQuery->whereHas('filterMuhaffizh', function (Builder $query) use ($filter_muhaffizh) {
+                $query->where('nama', 'LIKE', '%' . $filter_muhaffizh . '%');
+            });
+        }
+        if ( ($filter_santri = Arr::get($params, 'santri_name', false)) ) {
+            $modelQuery->whereHas('filterSantri', function (Builder $query) use ($filter_santri) {
+                $query->where('nama', 'LIKE', '%' . $filter_santri . '%');
+            });
         }
         // DEFAULT ORDERING DATA
         $modelQuery->orderBy('created_at', 'desc');
@@ -79,5 +87,11 @@ class Setoran extends Model
     public function listMuhaffizh(){
         return $this->belongsTo(Muhaffizh::class,'muhaffizh_id','id');
     }
-
+    //filter
+    public function filterMuhaffizh(){
+        return $this->belongsTo(Muhaffizh::class,'muhaffizh_id','id');
+    }
+    public function filterSantri(){
+        return $this->belongsTo(Santri::class,'santri_id','id');
+    }
 }

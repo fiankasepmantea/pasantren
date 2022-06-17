@@ -134,10 +134,6 @@ export default {
           label: 'Kelas/Angkatan'
         },
         {
-          key: 'list_group.nama',
-          label: 'Group'
-        },
-         {
           key: 'list_unit.nama',
           label: 'Unit'
         },

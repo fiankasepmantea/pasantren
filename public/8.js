@@ -158,29 +158,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   inject: ['validator'],
   name: "MuhaffizhForm",
   created: function created() {
     this.getUnit();
-    this.getGroup();
     this.$validator = this.validator;
   },
   computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(["errors"])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])("muhaffizh", {
@@ -189,9 +172,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     muhaffizh_unit: function muhaffizh_unit(state) {
       return state.muhaffizh_unit;
-    },
-    muhaffizh_group: function muhaffizh_group(state) {
-      return state.muhaffizh_group;
     }
   })),
   watch: {
@@ -199,10 +179,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.getUnit();
     }
   },
-  methods: _objectSpread(_objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapMutations"])("muhaffizh", ["CLEAR_FORM"])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])("muhaffizh", ["getUnit", "getGroup"])), {}, {
-    getGroupName: function getGroupName(id) {
-      this.muhaffizh.group_id = '', this.getGroup(id);
-    },
+  methods: _objectSpread(_objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapMutations"])("muhaffizh", ["CLEAR_FORM"])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])("muhaffizh", ["getUnit"])), {}, {
     validateState: function validateState(ref) {
       if (this.veeFields[ref] && (this.veeFields[ref].dirty || this.veeFields[ref].validated)) {
         return !this.veeErrors.has(ref);
@@ -388,9 +365,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }, {
         key: 'angkatan_kelas',
         label: 'Kelas/Angkatan'
-      }, {
-        key: 'list_group.nama',
-        label: 'Group'
       }, {
         key: 'list_unit.nama',
         label: 'Unit'
@@ -580,11 +554,6 @@ var render = function() {
                   state: _vm.validateState("unit"),
                   "data-vv-as": "Unit"
                 },
-                on: {
-                  change: function($event) {
-                    return _vm.getGroupName(_vm.muhaffizh.unit_id)
-                  }
-                },
                 model: {
                   value: _vm.muhaffizh.unit_id,
                   callback: function($$v) {
@@ -596,45 +565,6 @@ var render = function() {
               _vm._v(" "),
               _c("b-form-invalid-feedback", [
                 _vm._v(_vm._s(_vm.veeErrors.first("unit")))
-              ])
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "b-form-group",
-            {
-              attrs: { label: "Group", "label-cols": "3", "label-for": "group" }
-            },
-            [
-              _c("b-form-select", {
-                directives: [
-                  {
-                    name: "validate",
-                    rawName: "v-validate",
-                    value: { required: true },
-                    expression: "{ required: true }"
-                  }
-                ],
-                attrs: {
-                  id: "group",
-                  options: _vm.muhaffizh_group,
-                  placeholder: "Pilih Group",
-                  name: "group",
-                  state: _vm.validateState("group"),
-                  "data-vv-as": "Group"
-                },
-                model: {
-                  value: _vm.muhaffizh.group_id,
-                  callback: function($$v) {
-                    _vm.$set(_vm.muhaffizh, "group_id", $$v)
-                  },
-                  expression: "muhaffizh.group_id"
-                }
-              }),
-              _vm._v(" "),
-              _c("b-form-invalid-feedback", [
-                _vm._v(_vm._s(_vm.veeErrors.first("group")))
               ])
             ],
             1

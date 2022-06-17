@@ -37,13 +37,13 @@ export default [
             to: '/master/unit'
           },
           {
-            name: 'Grup',
-            to: '/master/group'
-          },
-          {
             name: 'Muhaffizh',
             to: '/master/muhaffizh'
-          },    
+          },   
+          {
+            name: 'Grup',
+            to: '/master/group'
+          }, 
           {
             name: 'Santri',
             to: '/master/santri'

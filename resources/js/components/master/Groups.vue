@@ -123,8 +123,8 @@ export default {
           label: 'Nama Grup/Halaqoh',
         },
         {
-          key: 'list_unit.nama',
-          label: 'Unit',
+          key: 'list_muhaffizh.nama',
+          label: 'Muhaffizh',
         },
         {
           key: 'actions',

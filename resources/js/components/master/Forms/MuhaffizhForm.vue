@@ -4,7 +4,6 @@
       <b-form-group label="Unit" label-cols="3" label-for="unit">
         <b-form-select
           id="unit"
-          @change="getGroupName(muhaffizh.unit_id)"
           v-model="muhaffizh.unit_id"
           :options="muhaffizh_unit"
           placeholder="Pilih Unit"
@@ -15,21 +14,6 @@
         >
         </b-form-select>
         <b-form-invalid-feedback>{{ veeErrors.first('unit') }}</b-form-invalid-feedback>
-      </b-form-group>
-
-      <b-form-group label="Group" label-cols="3" label-for="group">
-        <b-form-select
-          id="group"
-          v-model="muhaffizh.group_id"
-          :options="muhaffizh_group"
-          placeholder="Pilih Group"
-          name="group"
-          v-validate="{ required: true }"
-          :state="validateState('group')"
-          data-vv-as="Group"
-        >
-        </b-form-select>
-        <b-form-invalid-feedback>{{ veeErrors.first('group') }}</b-form-invalid-feedback>
       </b-form-group>
 
       <b-form-group label="Nomor Induk" label-cols="3" label-for="nomorinduk">
@@ -163,7 +147,6 @@ export default {
   name: "MuhaffizhForm",
   created() {
     this.getUnit();
-    this.getGroup();
     this.$validator = this.validator
   },
   computed: {
@@ -171,7 +154,6 @@ export default {
     ...mapState("muhaffizh", {
       muhaffizh: (state) => state.muhaffizh,
       muhaffizh_unit: (state) => state.muhaffizh_unit,
-      muhaffizh_group: (state) => state.muhaffizh_group,
     }),
   },
   watch: {
@@ -181,11 +163,7 @@ export default {
   },    
   methods: {
     ...mapMutations("muhaffizh", ["CLEAR_FORM"]),
-    ...mapActions("muhaffizh", ["getUnit","getGroup"]),
-    getGroupName(id){
-      this.muhaffizh.group_id = '',
-      this.getGroup(id)
-    },
+    ...mapActions("muhaffizh", ["getUnit"]),
     validateState(ref) {
       if(
       this.veeFields[ref] &&

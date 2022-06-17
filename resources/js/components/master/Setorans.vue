@@ -6,6 +6,27 @@
       <div class="d-flex justify-content-end">
         <b-button size="sm" variant="success" @click="createModal = true">+ Tambah Setoran</b-button>
       </div>
+      <b-row>
+          <b-col xl="4" lg="4" md="4" sm="12"
+            ><b-input-group>
+              
+              <b-form-input
+                placeholder="Cari Muhaffizh "
+                v-model="filterModel.muhaffizh_name"
+                size="sm"
+              ></b-form-input> 
+              <b-form-input
+                placeholder="Cari Santri"
+                v-model="filterModel.santri_name"
+                size="sm"
+              ></b-form-input> 
+                <b-input-group-prepend>
+                <b-button size="sm"> <b-icon icon="search" @click="searchMuhaffizhSantri(filterModel)"></b-icon></b-button>
+                </b-input-group-prepend>
+              </b-input-group
+          ></b-col>
+      </b-row>
+      <br>
       <b-form inline>
           <b-form-group
             label="Show :"
@@ -109,6 +130,10 @@ export default {
       editModal : false,
       editedId: null,
       perPage: 20,
+      filterModel: {
+        muhaffizh_name: null,
+        santri_name: null,
+      },
       currentPage: 1,
       pageOptions: [10, 20, 50, 100],
       header: [
@@ -176,15 +201,18 @@ export default {
   },
   methods: {
     ...mapActions('setoran', ['getSetorans', 'removeSetoran', 'editSetoran', 'updateSetoran', 'submitSetoran']),
-    
-    loadData() {
+    async loadData(params=null) {
       this.$store.commit('loadingOn')
-      setTimeout(() => {
-        this.getSetorans()
+      // setTimeout(() => {
+        await this.getSetorans(params)
         this.$store.commit('loadingOff')
-      }, 1000);
+      // }, 1000);
     },
-
+    async searchMuhaffizhSantri() {
+      this.$store.commit('loadingOn')
+      await this.loadData(this.filterModel)
+      this.$store.commit('loadingOff')
+    },
     deleteSetoran(id) {
       this.$swal({
         title: 'Apakah anda yakin ?',

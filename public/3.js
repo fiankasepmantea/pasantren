@@ -186,22 +186,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -421,58 +405,7 @@ var render = function() {
         [
           _c(
             "b-col",
-            { attrs: { md: "6" } },
-            [
-              _c(
-                "b-card",
-                { attrs: { title: "Muhaffizh" } },
-                [
-                  _c("hr"),
-                  _vm._v(" "),
-                  _vm._l(_vm.muhaffizhs, function(muhaffizh, index) {
-                    return _c(
-                      "div",
-                      {
-                        key: index,
-                        staticClass: "d-flex justify-content-between"
-                      },
-                      [
-                        _c("b-card-text", { staticClass: "card-text" }, [
-                          _vm._v(_vm._s(muhaffizh.name))
-                        ]),
-                        _vm._v(" "),
-                        _c("b-card-text", { staticClass: "card-text" }, [
-                          _vm._v(_vm._s(muhaffizh.revenue))
-                        ])
-                      ],
-                      1
-                    )
-                  }),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "d-flex justify-content-between" },
-                    [
-                      _c("b-card-text", { staticClass: "card-text" }, [
-                        _vm._v("Total")
-                      ]),
-                      _vm._v(" "),
-                      _c("b-card-text", { staticClass: "card-text" }, [
-                        _vm._v(_vm._s(_vm.totalJuzMuhaffizh))
-                      ])
-                    ],
-                    1
-                  )
-                ],
-                2
-              )
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "b-col",
-            { attrs: { md: "6" } },
+            { attrs: { md: "12" } },
             [
               _c(
                 "b-card",
