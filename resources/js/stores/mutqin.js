@@ -189,7 +189,7 @@ const actions = {
                 group_id : payload,
               }
             })
-            .then((response) => {console.log('res:',response);
+            .then((response) => {
             commit('CLEAR_SANTRI') 
             response.data.data.forEach(item=>{
               commit('APPEND_SANTRI', {value:item.id, text:item.nama})              

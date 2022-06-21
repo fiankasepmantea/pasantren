@@ -352,9 +352,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         key: 'baris',
         label: 'Baris'
       }, {
-        key: 'total_mutqin',
-        label: 'Total Mutqin'
-      }, {
         key: 'updated_at',
         label: 'Tanggal Update'
       }, {

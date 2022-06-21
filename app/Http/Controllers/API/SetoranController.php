@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use App\Models\Setoran as Model;
 use App\Http\Requests\SetoranRequest as ModelRequest;
 use App\Http\Resources\SetoranResource as ModelResource;
-use App\Models\Unit;
 use App\Models\Group;
 use App\Models\Santri;
 use App\Models\Muhaffizh;
@@ -51,28 +50,22 @@ class SetoranController extends Controller
         }
     }
 
-    public function getSetoranGroup()
-    {
-        $group = Group::orderBy('nama', 'ASC')->get(); 
-        return response()->json(['status' => 'success', 'data' => $group]);
-    }
-
-    public function getSetoranUnit()
-    {   
-        $unit = Unit::orderBy('nama', 'ASC')->get(); 
-        return response()->json(['status' => 'success', 'data' => $unit]);
-    }
-
     public function getSetoranMuhaffizh(Request $request)
     {  
-        
-        if(isset($request->group_id)){
-            $muhaffizh = Muhaffizh::where('group_id',$request->group_id)->orderBy('nama', 'ASC')->get();
-        }else{
-            $muhaffizh = Muhaffizh::orderBy('nama', 'ASC')->get();;
-        }
-       
+        $muhaffizh = Muhaffizh::orderBy('nama', 'ASC')->get(); 
+     
         return response()->json(['status' => 'success', 'data' => $muhaffizh]);
+    }
+
+    public function getSetoranGroup(Request $request)
+    {   
+        if(isset($request->muhaffizh_id)){
+            $group = Group::where('muhaffizh_id',$request->muhaffizh_id)->orderBy('nama', 'ASC')->get();
+        }else{
+            $group = Group::orderBy('nama', 'ASC')->get();;
+        }
+
+        return response()->json(['status' => 'success', 'data' => $group]);
     }
 
     public function getSetoranSantri(Request $request)

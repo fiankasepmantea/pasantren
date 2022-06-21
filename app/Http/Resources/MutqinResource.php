@@ -18,12 +18,12 @@ class MutqinResource extends JsonResource
         return [
             'id'                    => $this->id,
             'santri_id'             => $this->santri_id,
-            'muhaffizh_id'          => $this->santri['muhaffizh_id'],
+            'muhaffizh_id'          => $this->muhaffizh_id,
             'juz'                   => $this->juz,
             'halaman'               => $this->halaman,
             'baris'                 => $this->baris,
             'total_mutqin'          => $this->total_mutqin,
-            'group_id'              => $this->santri['group_id'],
+            'group_id'              => $this->group_id,
             'updated_at'            => Carbon::parse($this->updated_at)->format('d, M Y H:i'),
             //from controller
             'list_group'        => $this->listGroup,

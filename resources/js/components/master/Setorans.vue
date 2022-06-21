@@ -64,7 +64,7 @@
               <b-button
                 variant="danger"
                 size="sm"
-                @click="deletesetoran(row.item.id)"
+                @click="deleteSetoran(row.item.id)"
               >
                 Delete
               </b-button>
@@ -85,7 +85,7 @@
       
       <b-modal
       v-model="createModal"
-      title="Tambah Data Setoran Muhaffizh/Santri"
+      title="Tambah Data Setoran "
       @ok="handleSubmit"
       no-close-on-backdrop
       no-close-on-esc
@@ -95,7 +95,7 @@
       </b-modal>
 
       <b-modal
-      title="Ubah Data Setoran Muhaffizh/Santri"
+      title="Ubah Data Setoran "
       v-model="editModal"
       @ok="handleUpdate"
       no-close-on-backdrop
@@ -138,6 +138,10 @@ export default {
       pageOptions: [10, 20, 50, 100],
       header: [
         {
+          key: 'list_santri.nama',
+          label: 'Santri'
+        },
+        {
           key: "list_group.nama",
           label: "Group",
           
@@ -146,10 +150,6 @@ export default {
           key: "list_muhaffizh.nama",
           label: "Muhaffizh",
           
-        },
-        {
-          key: 'list_santri.nama',
-          label: 'Santri'
         },
         {
           key: "juz",
@@ -163,10 +163,6 @@ export default {
         {
           key: 'baris',
           label: 'Baris'
-        },
-        {
-          key: 'total_setoran',
-          label: 'Total setoran'
         },
         {
           key: 'updated_at',

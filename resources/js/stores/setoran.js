@@ -139,40 +139,40 @@ const actions = {
       })
     })
   },
-  getGroup({ commit }) {
+  getMuhaffizh({ commit }) {
     return new Promise((resolve, reject) => {
-        $axios.get(`/setoran/setorangroup`)
+        $axios.get(`/setoran/setoranmuhaffizh`)
         .then((response) => {
-            commit('CLEAR_GROUP') 
-            response.data.data.forEach(item=>{
-              commit('APPEND_GROUP', {value:item.id, text:item.nama})              
-            });
-            resolve(response.data)
-        })
-    })
-  },
-  getMuhaffizh({ commit }, payload=null) {
-    return new Promise((resolve, reject) => {
-        if(payload){
-            $axios.get(`/setoran/setoranmuhaffizh`,{
-              params: {
-                group_id : payload,
-              }
-            
-            })
-            .then((response) => { 
             commit('CLEAR_MUHAFFIZH') 
             response.data.data.forEach(item=>{
               commit('APPEND_MUHAFFIZH', {value:item.id, text:item.nama})              
             });
             resolve(response.data)
+        })
+    })
+  },
+  getGroup({ commit }, payload=null) {
+    return new Promise((resolve, reject) => {
+        if(payload){
+            $axios.get(`/setoran/setorangroup`,{
+              params: {
+                muhaffizh_id : payload,
+              }
+            
+            })
+            .then((response) => { 
+            commit('CLEAR_GROUP') 
+            response.data.data.forEach(item=>{
+              commit('APPEND_GROUP', {value:item.id, text:item.nama})              
+            });
+            resolve(response.data)
           })
         }else{
-          $axios.get(`/setoran/setoranmuhaffizh`)
+          $axios.get(`/setoran/setorangroup`)
           .then((response) => {
-              commit('CLEAR_MUHAFFIZH') 
+              commit('CLEAR_GROUP') 
               response.data.data.forEach(item=>{
-                commit('APPEND_MUHAFFIZH', {value:item.id, text:item.nama})              
+                commit('APPEND_GROUP', {value:item.id, text:item.nama})              
               });
               resolve(response.data)
           })

@@ -71,9 +71,9 @@ class Mutqin extends Model
     public function mutqinSantri(){
         return $this->belongsToMany(Santri::class,'santri_id','id');
     }
-    public function mutqinUnit(){
-        return $this->belongsTo(Unit::class,'unit_id','id');
-    }
+    // public function mutqinUnit(){
+    //     return $this->belongsTo(Unit::class,'unit_id','id');
+    // }
     public function mutqinGroup(){
         return $this->belongsTo(Group::class,'group_id','id');
     }

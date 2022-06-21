@@ -165,10 +165,6 @@ export default {
           label: 'Baris'
         },
         {
-          key: 'total_mutqin',
-          label: 'Total Mutqin'
-        },
-        {
           key: 'updated_at',
           label: 'Tanggal Update'
         },

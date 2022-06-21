@@ -38,10 +38,9 @@ Route::group(['namespace' => 'Api'], function () {
         Route::get('/mutqin/mutqinmuhaffizh', 'MutqinController@getMutqinMuhaffizh');
         Route::get('/mutqin/mutqingroup', 'MutqinController@getMutqinGroup');
         Route::get('/mutqin/mutqinsantri', 'MutqinController@getMutqinSantri');
-        Route::get('/setoran/setorangroup', 'SetoranController@getSetoranGroup');
-        Route::get('/setoran/setoranunit', 'SetoranController@getSetoranUnit');
-        Route::get('/setoran/setoransantri', 'SetoranController@getSetoranSantri');
         Route::get('/setoran/setoranmuhaffizh', 'SetoranController@getSetoranMuhaffizh');
+        Route::get('/setoran/setorangroup', 'SetoranController@getSetoranGroup');
+        Route::get('/setoran/setoransantri', 'SetoranController@getSetoranSantri');
         Route::get('/tahsin/tahsingroup', 'TahsinController@getTahsinGroup');
         Route::get('/tahsin/tahsinunit', 'TahsinController@getTahsinUnit');
         Route::get('/tahsin/tahsinsantri', 'TahsinController@getTahsinSantri');

@@ -22,13 +22,15 @@ class SetoranResource extends JsonResource
             'juz'                   => $this->juz,
             'halaman'               => $this->halaman,
             'baris'                 => $this->baris,
-            'total_setoran'         => $this->total_setoran,
+            'total_mutqin'          => $this->total_mutqin,
             'group_id'              => $this->group_id,
             'updated_at'            => Carbon::parse($this->updated_at)->format('d, M Y H:i'),
             //from controller
             'list_group'        => $this->listGroup,
             'list_santri'       => $this->listSantri,
-            'list_muhaffizh'    => $this->listMuhaffizh
+            'list_muhaffizh'    => $this->listMuhaffizh,
+            //from model
+            'filter_muhaffizh'  => $this->filterMuhaffizh
         ];
     }
 }

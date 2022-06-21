@@ -1,10 +1,26 @@
 <template>
   <div>
     <b-form @submit.stop.prevent="">
+       <b-form-group label="Muhaffizh" label-cols="3" label-for="muhaffizh">
+        <b-form-select
+          id="muhaffizh"
+          @change="() => { getGroupName(setoran.muhaffizh_id)}"
+          v-model="setoran.muhaffizh_id"
+          :options="setoran_muhaffizh"
+          placeholder="Pilih Muhaffizh"
+          name="muhaffizh"
+          v-validate="{ required: true }"
+          :state="validateState('muhaffizh')"
+          data-vv-as="Muhaffizh"
+        >
+        </b-form-select>
+        <b-form-invalid-feedback>{{ veeErrors.first('muhaffizh') }}</b-form-invalid-feedback>
+      </b-form-group>
+
       <b-form-group label="Group" label-cols="3" label-for="group">
         <b-form-select
           id="group"
-          @change="() => { getMuhaffizhName(setoran.group_id);getSantriName(setoran.group_id)}"
+          @change="() => { getSantriName(setoran.group_id)}"
           v-model="setoran.group_id"
           :options="setoran_group"
           placeholder="Pilih Group"
@@ -17,43 +33,22 @@
         <b-form-invalid-feedback>{{ veeErrors.first('group') }}</b-form-invalid-feedback>
       </b-form-group>
 
-      <b-form-group v-slot="{ ariaDescribedby }">
-        <b-row>
-          <b-col>
-             <b-form-radio v-model="selected" :aria-describedby="ariaDescribedby" name="some-radios" value="muhaffizh" @change="clickMuhaffizh()">Muhaffizh</b-form-radio>
-          </b-col>
-          <b-col>
-             <b-form-radio v-model="selected" :aria-describedby="ariaDescribedby" name="some-radios" value="santri" @change="clickSantri()">Santri</b-form-radio>
-          </b-col>
-        </b-row>
-       <b-row>
-        <b-col>
-          <b-form-select
-            id="muhaffizh-id"
-            v-model="setoran.muhaffizh_id"
-            :options="setoran_muhaffizh"
-            placeholder="Pilih Muhaffizh"
-            name="muhaffizh"
-            data-vv-as="Muhaffizh"
-          >
-          </b-form-select>
-          <!-- <b-form-invalid-feedback>{{ veeErrors.first('muhaffizh') }}</b-form-invalid-feedback> -->
-        </b-col>
-        <b-col>
-         <b-form-select
-            id="santri-id"
-            v-model="setoran.santri_id"
-            :options="setoran_santri"
-            placeholder="Pilih Santri"
-            name="santri"
-            data-vv-as="Santri"
-          >
-          </b-form-select>
-          <!-- <b-form-invalid-feedback>{{ veeErrors.first('santri') }}</b-form-invalid-feedback> -->
-        </b-col>
-      </b-row>
+       <b-form-group label="Santri" label-cols="3" label-for="santri">
+        <b-form-select
+          id="santri"
+          v-model="setoran.santri_id"
+          :options="setoran_santri"
+          placeholder="Pilih Santri"
+          name="santri"
+          v-validate="{ required: true }"
+          :state="validateState('santri')"
+          data-vv-as="Santri"
+        >
+        </b-form-select>
+        <b-form-invalid-feedback>{{ veeErrors.first('santri') }}</b-form-invalid-feedback>
       </b-form-group>
-      <b-form-group label="Juz" label-cols="3" label-for="juz">
+
+        <b-form-group label="Juz" label-cols="3" label-for="juz">
         <b-form-input
           id="juz"
           v-model="setoran.juz"
@@ -95,19 +90,6 @@
         <b-form-invalid-feedback>{{ veeErrors.first('baris') }}</b-form-invalid-feedback>
       </b-form-group>
 
-      <b-form-group label="Total Setoran" label-cols="3" label-for="totalsetoran">
-        <b-form-input
-          id="totalsetoran"
-          v-model="setoran.total_setoran"
-          placeholder="Masukan Total Setoran"
-          name="totalsetoran"
-          v-validate="{ required: true }"
-          :state="validateState('totalsetoran')"
-          data-vv-as="TotalSetoran"
-        >
-        </b-form-input>
-        <b-form-invalid-feedback>{{ veeErrors.first('totalsetoran') }}</b-form-invalid-feedback>
-      </b-form-group>
     </b-form>
   </div>
 </template>
@@ -128,7 +110,6 @@ export default {
     ...mapState(["errors"]),
     ...mapState("setoran", {
       setoran: (state) => state.setoran,
-      setoran_unit: (state) => state.setoran_unit,
       setoran_group: (state) => state.setoran_group,
       setoran_santri: (state) => state.setoran_santri,
       setoran_muhaffizh: (state) => state.setoran_muhaffizh,
@@ -136,32 +117,24 @@ export default {
   },
   watch: {
       return(){
+        this.getMuhaffizh();
         this.getGroup();
-        this.getUnit();
+        this.getSantri();
+      
       }
   },    
   methods: {
     ...mapMutations("setoran", ["CLEAR_FORM"]),
-    ...mapActions("setoran", ["getUnit","getGroup","getMuhaffizh","getSantri"]),
+    ...mapActions("setoran", ["getGroup","getMuhaffizh","getSantri"]),
     loadPage(){
       $( document ).ready(function() {
           $("#santri-id").hide();
           $("#muhaffizh-id").hide();
       });
     },
-    clickMuhaffizh(){
-      this.setoran.santri_id= null,
-      $("#santri-id").hide();
-      $("#muhaffizh-id").show();
-    },
-    clickSantri(){
-      this.setoran.muhaffizh_id= null,
-      $("#santri-id").show();
-      $("#muhaffizh-id").hide();
-    },
-    getMuhaffizhName(id){
-      this.setoran.muhaffizh_id = '',
-      this.getMuhaffizh(id)
+    getGroupName(id){
+      this.setoran.group_id = '',
+      this.getGroup(id)
     },
     getSantriName(id){
       this.setoran.santri_id = '',

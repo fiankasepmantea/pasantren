@@ -28,8 +28,9 @@ class SetoranRequest extends FormRequest
             'juz'                   => ['required'],
             'halaman'               => ['required'],
             'baris'                 => ['required'],
-            'total_setoran'          => ['required'],
+            'muhaffizh_id'          => ['required'],
             'group_id'              => ['required'],
+            'santri_id'             => ['required'],
         ];
     }
 }

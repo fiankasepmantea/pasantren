@@ -54,13 +54,13 @@ class Setoran extends Model
     {
         $model = [];
 
-        $model['santri_id'] = $data['santri_id'];
         $model['muhaffizh_id'] = $data['muhaffizh_id'];
+        $model['group_id'] = $data['group_id'];
+        $model['santri_id'] = $data['santri_id'];
         $model['juz'] = $data['juz'];
         $model['halaman'] = ucwords($data['halaman']);
         $model['baris'] = $data['baris'];
-        $model['total_setoran'] = $data['total_setoran'];
-        $model['group_id'] = $data['group_id'];
+        $model['total_setoran'] = '0';
  
         return $is_update ? $this->update($model) : $this->create($model);
     }   
@@ -77,7 +77,7 @@ class Setoran extends Model
     public function mutqinGroup(){
         return $this->belongsTo(Group::class,'group_id','id');
     }
-    //list
+   //list
     public function listGroup(){
         return $this->belongsTo(Group::class,'group_id','id');
     }
