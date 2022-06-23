@@ -1,7 +1,7 @@
 <template>
   <div>
     <b-form @submit.stop.prevent="">
-       <b-form-group label="Muhaffizh" label-cols="3" label-for="muhaffizh">
+      <b-form-group label="Muhaffizh" label-cols="3" label-for="muhaffizh">
         <b-form-select
           id="muhaffizh"
           @change="() => { getGroupName(setoran.muhaffizh_id)}"
@@ -126,12 +126,6 @@ export default {
   methods: {
     ...mapMutations("setoran", ["CLEAR_FORM"]),
     ...mapActions("setoran", ["getGroup","getMuhaffizh","getSantri"]),
-    loadPage(){
-      $( document ).ready(function() {
-          $("#santri-id").hide();
-          $("#muhaffizh-id").hide();
-      });
-    },
     getGroupName(id){
       this.setoran.group_id = '',
       this.getGroup(id)

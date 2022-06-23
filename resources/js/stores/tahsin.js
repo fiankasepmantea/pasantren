@@ -14,7 +14,6 @@ const state = () => ({
     muhaffizh_id: '',
     group_id: '',
   },
-  tahsin_unit: [],
   tahsin_group: [],
   tahsin_muhaffizh: [],
   tahsin_santri: [],
@@ -68,16 +67,6 @@ const mutations = {
     state.tahsin_santri = [];
   },
 
-  ASSIGN_UNIT(state, payload) {
-    state.tahsin_unit = payload
-  },
-  APPEND_UNIT(state, payload){
-    state.tahsin_unit.push(payload)
-  },
-  CLEAR_UNIT(state) {
-    state.tahsin_unit = [];
-  },
-
   ASSIGN_GROUP(state, payload) {
     state.tahsin_group = payload
   },
@@ -90,11 +79,15 @@ const mutations = {
 }
 
 const actions = {
-  getTahsins({ commit, state }, payload) {
-    let search = typeof payload != 'undefined' ? payload: ''
+  getTahsins({ commit, state }, payload=null) {
+    let listParams = {}
+
+    if (payload) {
+        listParams = payload
+    } 
     return new Promise((resolve, reject) => {
       $axios.get('/tahsin', {
-
+        params: listParams
       })
       .then((response) => {
         commit('ASSIGN_DATA', response.data)
@@ -143,40 +136,40 @@ const actions = {
       })
     })
   },
-  getGroup({ commit }) {
+  getMuhaffizh({ commit }) {
     return new Promise((resolve, reject) => {
-        $axios.get(`/tahsin/tahsingroup`)
+        $axios.get(`/tahsin/tahsinmuhaffizh`)
         .then((response) => {
-            commit('CLEAR_GROUP') 
-            response.data.data.forEach(item=>{
-              commit('APPEND_GROUP', {value:item.id, text:item.nama})              
-            });
-            resolve(response.data)
-        })
-    })
-  },
-  getMuhaffizh({ commit }, payload=null) {
-    return new Promise((resolve, reject) => {
-        if(payload){
-            $axios.get(`/tahsin/tahsinmuhaffizh`,{
-              params: {
-                group_id : payload,
-              }
-            
-            })
-            .then((response) => { 
             commit('CLEAR_MUHAFFIZH') 
             response.data.data.forEach(item=>{
               commit('APPEND_MUHAFFIZH', {value:item.id, text:item.nama})              
             });
             resolve(response.data)
+        })
+    })
+  },
+  getGroup({ commit }, payload=null) {
+    return new Promise((resolve, reject) => {
+        if(payload){
+            $axios.get(`/tahsin/tahsingroup`,{
+              params: {
+                muhaffizh_id : payload,
+              }
+            
+            })
+            .then((response) => { 
+            commit('CLEAR_GROUP') 
+            response.data.data.forEach(item=>{
+              commit('APPEND_GROUP', {value:item.id, text:item.nama})              
+            });
+            resolve(response.data)
           })
         }else{
-          $axios.get(`/tahsin/tahsinmuhaffizh`)
+          $axios.get(`/tahsin/tahsingroup`)
           .then((response) => {
-              commit('CLEAR_MUHAFFIZH') 
+              commit('CLEAR_GROUP') 
               response.data.data.forEach(item=>{
-                commit('APPEND_MUHAFFIZH', {value:item.id, text:item.nama})              
+                commit('APPEND_GROUP', {value:item.id, text:item.nama})              
               });
               resolve(response.data)
           })

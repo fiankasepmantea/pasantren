@@ -9,15 +9,14 @@
       <b-row>
           <b-col xl="4" lg="4" md="4" sm="12"
             ><b-input-group>
-              
-              <b-form-input
-                placeholder="Cari Muhaffizh "
-                v-model="filterModel.muhaffizh_name"
-                size="sm"
-              ></b-form-input> 
               <b-form-input
                 placeholder="Cari Santri"
                 v-model="filterModel.santri_name"
+                size="sm"
+              ></b-form-input> 
+              <b-form-input
+                placeholder="Cari Muhaffizh "
+                v-model="filterModel.muhaffizh_name"
                 size="sm"
               ></b-form-input> 
                 <b-input-group-prepend>

@@ -125,12 +125,6 @@ export default {
   methods: {
     ...mapMutations("mutqin", ["CLEAR_FORM"]),
     ...mapActions("mutqin", ["getUnit","getGroup","getMuhaffizh","getSantri"]),
-    clearMuhaffizh(){
-      this.CLEAR_MUHAFFIZH();
-    },
-    clearSantri(){
-      this.CLEAR_SANTRI();
-    },
     getGroupName(id){
       this.mutqin.group_id = '',
       this.getGroup(id)

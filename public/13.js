@@ -145,12 +145,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }
   },
   methods: _objectSpread(_objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapMutations"])("setoran", ["CLEAR_FORM"])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])("setoran", ["getGroup", "getMuhaffizh", "getSantri"])), {}, {
-    loadPage: function loadPage() {
-      $(document).ready(function () {
-        $("#santri-id").hide();
-        $("#muhaffizh-id").hide();
-      });
-    },
     getGroupName: function getGroupName(id) {
       this.setoran.group_id = '', this.getGroup(id);
     },
@@ -236,7 +230,6 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-//
 //
 //
 //
@@ -940,6 +933,17 @@ var render = function() {
                         "b-input-group",
                         [
                           _c("b-form-input", {
+                            attrs: { placeholder: "Cari Santri", size: "sm" },
+                            model: {
+                              value: _vm.filterModel.santri_name,
+                              callback: function($$v) {
+                                _vm.$set(_vm.filterModel, "santri_name", $$v)
+                              },
+                              expression: "filterModel.santri_name"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("b-form-input", {
                             attrs: {
                               placeholder: "Cari Muhaffizh ",
                               size: "sm"
@@ -950,17 +954,6 @@ var render = function() {
                                 _vm.$set(_vm.filterModel, "muhaffizh_name", $$v)
                               },
                               expression: "filterModel.muhaffizh_name"
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c("b-form-input", {
-                            attrs: { placeholder: "Cari Santri", size: "sm" },
-                            model: {
-                              value: _vm.filterModel.santri_name,
-                              callback: function($$v) {
-                                _vm.$set(_vm.filterModel, "santri_name", $$v)
-                              },
-                              expression: "filterModel.santri_name"
                             }
                           }),
                           _vm._v(" "),

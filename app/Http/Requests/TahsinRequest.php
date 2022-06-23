@@ -27,8 +27,9 @@ class TahsinRequest extends FormRequest
         return [
             'buku'                   => ['required'],
             'halaman'                => ['required'],
-            'sertifikat_proses'      => ['required'],
-            'group_id'               => ['required'],
+            'muhaffizh_id'          => ['required'],
+            'group_id'              => ['required'],
+            'santri_id'             => ['required'],
         ];
     }
 }

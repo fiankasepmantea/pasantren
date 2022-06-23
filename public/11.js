@@ -99,30 +99,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   inject: ['validator'],
   name: "tahsinForm",
   created: function created() {
-    this.loadPage();
     this.getGroup();
     this.getMuhaffizh();
     this.getSantri();
@@ -131,9 +112,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(["errors"])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])("tahsin", {
     tahsin: function tahsin(state) {
       return state.tahsin;
-    },
-    tahsin_unit: function tahsin_unit(state) {
-      return state.tahsin_unit;
     },
     tahsin_group: function tahsin_group(state) {
       return state.tahsin_group;
@@ -152,22 +130,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }
   },
   methods: _objectSpread(_objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapMutations"])("tahsin", ["CLEAR_FORM"])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])("tahsin", ["getUnit", "getGroup", "getMuhaffizh", "getSantri"])), {}, {
-    loadPage: function loadPage() {
-      $(document).ready(function () {
-        $("#santri-id").hide();
-        $("#muhaffizh-id").hide();
-      });
-    },
-    clickMuhaffizh: function clickMuhaffizh() {
-      this.tahsin.santri_id = null, $("#santri-id").hide();
-      $("#muhaffizh-id").show();
-    },
-    clickSantri: function clickSantri() {
-      this.tahsin.muhaffizh_id = null, $("#santri-id").show();
-      $("#muhaffizh-id").hide();
-    },
-    getMuhaffizhName: function getMuhaffizhName(id) {
-      this.tahsin.muhaffizh_id = '', this.getMuhaffizh(id);
+    getGroupName: function getGroupName(id) {
+      this.tahsin.group_id = '', this.getGroup(id);
     },
     getSantriName: function getSantriName(id) {
       this.tahsin.santri_id = '', this.getSantri(id);
@@ -182,18 +146,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   }),
   destroyed: function destroyed() {
     this.CLEAR_FORM();
-  },
-  data: function data() {
-    return {
-      selected: 'first',
-      options: [{
-        text: 'Muhaffizh',
-        value: 'Muhaffizh'
-      }, {
-        text: 'Santri',
-        value: 'Santri'
-      }]
-    };
   }
 });
 
@@ -234,9 +186,17 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _PageTitle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./PageTitle */ "./resources/js/components/master/PageTitle.vue");
-/* harmony import */ var _Forms_TahsinForm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Forms/TahsinForm */ "./resources/js/components/master/Forms/TahsinForm.vue");
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _PageTitle__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./PageTitle */ "./resources/js/components/master/PageTitle.vue");
+/* harmony import */ var _Forms_TahsinForm__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Forms/TahsinForm */ "./resources/js/components/master/Forms/TahsinForm.vue");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -334,14 +294,33 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Tahsins",
   components: {
-    pagetitle: _PageTitle__WEBPACK_IMPORTED_MODULE_0__["default"],
-    Form: _Forms_TahsinForm__WEBPACK_IMPORTED_MODULE_1__["default"]
+    pagetitle: _PageTitle__WEBPACK_IMPORTED_MODULE_1__["default"],
+    Form: _Forms_TahsinForm__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   created: function created() {
     this.loadData();
@@ -352,26 +331,27 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       editModal: false,
       editedId: null,
       perPage: 20,
+      filterModel: {
+        muhaffizh_name: null,
+        santri_name: null
+      },
       currentPage: 1,
       pageOptions: [10, 20, 50, 100],
       header: [{
+        key: 'list_santri.nama',
+        label: 'Santri'
+      }, {
         key: "list_group.nama",
         label: "Group"
       }, {
         key: "list_muhaffizh.nama",
         label: "Muhaffizh"
       }, {
-        key: 'list_santri.nama',
-        label: 'Santri'
-      }, {
         key: "buku",
         label: "Buku"
       }, {
         key: 'halaman',
         label: 'Halaman'
-      }, {
-        key: 'sertifikat_proses',
-        label: 'Proses Tahsin'
       }, {
         key: 'updated_at',
         label: 'Tanggal Update'
@@ -396,24 +376,66 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         return 0;
       }
     }
-  }, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapState"])('tahsin', {
+  }, Object(vuex__WEBPACK_IMPORTED_MODULE_3__["mapState"])('tahsin', {
     tahsins: function tahsins(state) {
       return state.tahsins;
     }
   })),
-  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapActions"])('tahsin', ['getTahsins', 'removeTahsin', 'editTahsin', 'updateTahsin', 'submitTahsin'])), {}, {
+  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_3__["mapActions"])('tahsin', ['getTahsins', 'removeTahsin', 'editTahsin', 'updateTahsin', 'submitTahsin'])), {}, {
     loadData: function loadData() {
-      var _this = this;
+      var _arguments = arguments,
+          _this = this;
 
-      this.$store.commit('loadingOn');
-      setTimeout(function () {
-        _this.getTahsins();
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var params;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                params = _arguments.length > 0 && _arguments[0] !== undefined ? _arguments[0] : null;
 
-        _this.$store.commit('loadingOff');
-      }, 1000);
+                _this.$store.commit('loadingOn'); // setTimeout(() => {
+
+
+                _this.getTahsins(params);
+
+                _this.$store.commit('loadingOff'); // }, 1000);
+
+
+              case 4:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }))();
+    },
+    searchMuhaffizhSantri: function searchMuhaffizhSantri() {
+      var _this2 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _this2.$store.commit('loadingOn');
+
+                _context2.next = 3;
+                return _this2.loadData(_this2.filterModel);
+
+              case 3:
+                _this2.$store.commit('loadingOff');
+
+              case 4:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
+      }))();
     },
     deleteTahsin: function deleteTahsin(id) {
-      var _this2 = this;
+      var _this3 = this;
 
       this.$swal({
         title: 'Apakah anda yakin ?',
@@ -421,7 +443,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         showCancelButton: true
       }).then(function (result) {
         if (result.value) {
-          _this2.removeTahsin(id);
+          _this3.removeTahsin(id);
         }
       });
     },
@@ -431,30 +453,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.editedId = id;
     },
     handleUpdate: function handleUpdate(bvModalEvt) {
-      var _this3 = this;
-
-      bvModalEvt.preventDefault();
-      this.$validator.validateAll().then(function (result) {
-        if (!result) {
-          return;
-        }
-
-        _this3.updateTahsin(_this3.editedId);
-
-        _this3.$toasted.global.success_toast({
-          message: 'Data tahsin berhasil diubah..'
-        });
-
-        _this3.editModal = false;
-
-        _this3.loadData();
-      })["catch"](function (err) {
-        _this3.$toasted.global.failed_toast({
-          message: 'Data tahsin gagal untuk diubah..'
-        });
-      });
-    },
-    handleSubmit: function handleSubmit(bvModalEvt) {
       var _this4 = this;
 
       bvModalEvt.preventDefault();
@@ -463,17 +461,41 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           return;
         }
 
-        _this4.submitTahsin();
+        _this4.updateTahsin(_this4.editedId);
 
         _this4.$toasted.global.success_toast({
-          message: 'Data tahsin berhasil ditambahkan..'
+          message: 'Data tahsin berhasil diubah..'
         });
 
-        _this4.createModal = false;
+        _this4.editModal = false;
 
         _this4.loadData();
       })["catch"](function (err) {
         _this4.$toasted.global.failed_toast({
+          message: 'Data tahsin gagal untuk diubah..'
+        });
+      });
+    },
+    handleSubmit: function handleSubmit(bvModalEvt) {
+      var _this5 = this;
+
+      bvModalEvt.preventDefault();
+      this.$validator.validateAll().then(function (result) {
+        if (!result) {
+          return;
+        }
+
+        _this5.submitTahsin();
+
+        _this5.$toasted.global.success_toast({
+          message: 'Data tahsin berhasil ditambahkan..'
+        });
+
+        _this5.createModal = false;
+
+        _this5.loadData();
+      })["catch"](function (err) {
+        _this5.$toasted.global.failed_toast({
           message: 'Data tahsin gagal untuk ditambahkan..'
         });
       });
@@ -515,6 +537,54 @@ var render = function() {
           _c(
             "b-form-group",
             {
+              attrs: {
+                label: "Muhaffizh",
+                "label-cols": "3",
+                "label-for": "muhaffizh"
+              }
+            },
+            [
+              _c("b-form-select", {
+                directives: [
+                  {
+                    name: "validate",
+                    rawName: "v-validate",
+                    value: { required: true },
+                    expression: "{ required: true }"
+                  }
+                ],
+                attrs: {
+                  id: "muhaffizh",
+                  options: _vm.tahsin_muhaffizh,
+                  placeholder: "Pilih Muhaffizh",
+                  name: "muhaffizh",
+                  state: _vm.validateState("muhaffizh"),
+                  "data-vv-as": "Muhaffizh"
+                },
+                on: {
+                  change: function() {
+                    _vm.getGroupName(_vm.tahsin.muhaffizh_id)
+                  }
+                },
+                model: {
+                  value: _vm.tahsin.muhaffizh_id,
+                  callback: function($$v) {
+                    _vm.$set(_vm.tahsin, "muhaffizh_id", $$v)
+                  },
+                  expression: "tahsin.muhaffizh_id"
+                }
+              }),
+              _vm._v(" "),
+              _c("b-form-invalid-feedback", [
+                _vm._v(_vm._s(_vm.veeErrors.first("muhaffizh")))
+              ])
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "b-form-group",
+            {
               attrs: { label: "Group", "label-cols": "3", "label-for": "group" }
             },
             [
@@ -537,7 +607,6 @@ var render = function() {
                 },
                 on: {
                   change: function() {
-                    _vm.getMuhaffizhName(_vm.tahsin.group_id)
                     _vm.getSantriName(_vm.tahsin.group_id)
                   }
                 },
@@ -557,144 +626,48 @@ var render = function() {
             1
           ),
           _vm._v(" "),
-          _c("b-form-group", {
-            scopedSlots: _vm._u([
-              {
-                key: "default",
-                fn: function(ref) {
-                  var ariaDescribedby = ref.ariaDescribedby
-                  return [
-                    _c(
-                      "b-row",
-                      [
-                        _c(
-                          "b-col",
-                          [
-                            _c(
-                              "b-form-radio",
-                              {
-                                attrs: {
-                                  "aria-describedby": ariaDescribedby,
-                                  name: "some-radios",
-                                  value: "muhaffizh"
-                                },
-                                on: {
-                                  change: function($event) {
-                                    return _vm.clickMuhaffizh()
-                                  },
-                                  click: function($event) {
-                                    return _vm.clickMuhaffizh()
-                                  },
-                                  keyup: function($event) {
-                                    return _vm.clickMuhaffizh()
-                                  },
-                                  keypress: function($event) {
-                                    return _vm.clickMuhaffizh()
-                                  }
-                                },
-                                model: {
-                                  value: _vm.selected,
-                                  callback: function($$v) {
-                                    _vm.selected = $$v
-                                  },
-                                  expression: "selected"
-                                }
-                              },
-                              [_vm._v("Muhaffizh")]
-                            )
-                          ],
-                          1
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "b-col",
-                          [
-                            _c(
-                              "b-form-radio",
-                              {
-                                attrs: {
-                                  "aria-describedby": ariaDescribedby,
-                                  name: "some-radios",
-                                  value: "santri"
-                                },
-                                on: {
-                                  change: function($event) {
-                                    return _vm.clickSantri()
-                                  }
-                                },
-                                model: {
-                                  value: _vm.selected,
-                                  callback: function($$v) {
-                                    _vm.selected = $$v
-                                  },
-                                  expression: "selected"
-                                }
-                              },
-                              [_vm._v("Santri")]
-                            )
-                          ],
-                          1
-                        )
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "b-row",
-                      [
-                        _c(
-                          "b-col",
-                          [
-                            _c("b-form-select", {
-                              attrs: {
-                                id: "muhaffizh-id",
-                                options: _vm.tahsin_muhaffizh,
-                                placeholder: "Pilih Muhaffizh",
-                                name: "muhaffizh",
-                                "data-vv-as": "Muhaffizh"
-                              },
-                              model: {
-                                value: _vm.tahsin.muhaffizh_id,
-                                callback: function($$v) {
-                                  _vm.$set(_vm.tahsin, "muhaffizh_id", $$v)
-                                },
-                                expression: "tahsin.muhaffizh_id"
-                              }
-                            })
-                          ],
-                          1
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "b-col",
-                          [
-                            _c("b-form-select", {
-                              attrs: {
-                                id: "santri-id",
-                                options: _vm.tahsin_santri,
-                                placeholder: "Pilih Santri",
-                                name: "santri",
-                                "data-vv-as": "Santri"
-                              },
-                              model: {
-                                value: _vm.tahsin.santri_id,
-                                callback: function($$v) {
-                                  _vm.$set(_vm.tahsin, "santri_id", $$v)
-                                },
-                                expression: "tahsin.santri_id"
-                              }
-                            })
-                          ],
-                          1
-                        )
-                      ],
-                      1
-                    )
-                  ]
-                }
+          _c(
+            "b-form-group",
+            {
+              attrs: {
+                label: "Santri",
+                "label-cols": "3",
+                "label-for": "santri"
               }
-            ])
-          }),
+            },
+            [
+              _c("b-form-select", {
+                directives: [
+                  {
+                    name: "validate",
+                    rawName: "v-validate",
+                    value: { required: true },
+                    expression: "{ required: true }"
+                  }
+                ],
+                attrs: {
+                  id: "santri",
+                  options: _vm.tahsin_santri,
+                  placeholder: "Pilih Santri",
+                  name: "santri",
+                  state: _vm.validateState("santri"),
+                  "data-vv-as": "Santri"
+                },
+                model: {
+                  value: _vm.tahsin.santri_id,
+                  callback: function($$v) {
+                    _vm.$set(_vm.tahsin, "santri_id", $$v)
+                  },
+                  expression: "tahsin.santri_id"
+                }
+              }),
+              _vm._v(" "),
+              _c("b-form-invalid-feedback", [
+                _vm._v(_vm._s(_vm.veeErrors.first("santri")))
+              ])
+            ],
+            1
+          ),
           _vm._v(" "),
           _c(
             "b-form-group",
@@ -771,48 +744,6 @@ var render = function() {
               _vm._v(" "),
               _c("b-form-invalid-feedback", [
                 _vm._v(_vm._s(_vm.veeErrors.first("halaman")))
-              ])
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "b-form-group",
-            {
-              attrs: {
-                label: "Proses Tahsin",
-                "label-cols": "3",
-                "label-for": "sertifikatproses"
-              }
-            },
-            [
-              _c("b-form-input", {
-                directives: [
-                  {
-                    name: "validate",
-                    rawName: "v-validate",
-                    value: { required: true },
-                    expression: "{ required: true }"
-                  }
-                ],
-                attrs: {
-                  id: "sertifikatproses",
-                  placeholder: "Masukan Total Tahsin",
-                  name: "sertifikatproses",
-                  state: _vm.validateState("sertifikatproses"),
-                  "data-vv-as": "SertifikatProses"
-                },
-                model: {
-                  value: _vm.tahsin.sertifikat_proses,
-                  callback: function($$v) {
-                    _vm.$set(_vm.tahsin, "sertifikat_proses", $$v)
-                  },
-                  expression: "tahsin.sertifikat_proses"
-                }
-              }),
-              _vm._v(" "),
-              _c("b-form-invalid-feedback", [
-                _vm._v(_vm._s(_vm.veeErrors.first("sertifikatproses")))
               ])
             ],
             1
@@ -917,6 +848,74 @@ var render = function() {
                       }
                     },
                     [_vm._v("+ Tambah Tahsin")]
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "b-row",
+                [
+                  _c(
+                    "b-col",
+                    { attrs: { xl: "4", lg: "4", md: "4", sm: "12" } },
+                    [
+                      _c(
+                        "b-input-group",
+                        [
+                          _c("b-form-input", {
+                            attrs: { placeholder: "Cari Santri", size: "sm" },
+                            model: {
+                              value: _vm.filterModel.santri_name,
+                              callback: function($$v) {
+                                _vm.$set(_vm.filterModel, "santri_name", $$v)
+                              },
+                              expression: "filterModel.santri_name"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("b-form-input", {
+                            attrs: {
+                              placeholder: "Cari Muhaffizh ",
+                              size: "sm"
+                            },
+                            model: {
+                              value: _vm.filterModel.muhaffizh_name,
+                              callback: function($$v) {
+                                _vm.$set(_vm.filterModel, "muhaffizh_name", $$v)
+                              },
+                              expression: "filterModel.muhaffizh_name"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c(
+                            "b-input-group-prepend",
+                            [
+                              _c(
+                                "b-button",
+                                { attrs: { size: "sm" } },
+                                [
+                                  _c("b-icon", {
+                                    attrs: { icon: "search" },
+                                    on: {
+                                      click: function($event) {
+                                        return _vm.searchMuhaffizhSantri(
+                                          _vm.filterModel
+                                        )
+                                      }
+                                    }
+                                  })
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
                   )
                 ],
                 1
@@ -1034,7 +1033,7 @@ var render = function() {
                 "b-modal",
                 {
                   attrs: {
-                    title: "Tambah Data Tahsin Muhaffizh/Santri",
+                    title: "Tambah Data Tahsin",
                     "no-close-on-backdrop": "",
                     "no-close-on-esc": "",
                     centered: ""
@@ -1056,7 +1055,7 @@ var render = function() {
                 "b-modal",
                 {
                   attrs: {
-                    title: "Ubah Data Tahsin Muhaffizh/Santri",
+                    title: "Ubah Data Tahsin",
                     "no-close-on-backdrop": "",
                     "no-close-on-esc": "",
                     centered: ""

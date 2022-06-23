@@ -42,7 +42,6 @@ Route::group(['namespace' => 'Api'], function () {
         Route::get('/setoran/setorangroup', 'SetoranController@getSetoranGroup');
         Route::get('/setoran/setoransantri', 'SetoranController@getSetoranSantri');
         Route::get('/tahsin/tahsingroup', 'TahsinController@getTahsinGroup');
-        Route::get('/tahsin/tahsinunit', 'TahsinController@getTahsinUnit');
         Route::get('/tahsin/tahsinsantri', 'TahsinController@getTahsinSantri');
         Route::get('/tahsin/tahsinmuhaffizh', 'TahsinController@getTahsinMuhaffizh');
         

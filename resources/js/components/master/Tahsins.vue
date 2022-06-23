@@ -6,6 +6,25 @@
       <div class="d-flex justify-content-end">
         <b-button size="sm" variant="success" @click="createModal = true">+ Tambah Tahsin</b-button>
       </div>
+      <b-row>
+          <b-col xl="4" lg="4" md="4" sm="12"
+            ><b-input-group>
+              <b-form-input
+                placeholder="Cari Santri"
+                v-model="filterModel.santri_name"
+                size="sm"
+              ></b-form-input> 
+              <b-form-input
+                placeholder="Cari Muhaffizh "
+                v-model="filterModel.muhaffizh_name"
+                size="sm"
+              ></b-form-input> 
+                <b-input-group-prepend>
+                <b-button size="sm"> <b-icon icon="search" @click="searchMuhaffizhSantri(filterModel)"></b-icon></b-button>
+                </b-input-group-prepend>
+              </b-input-group
+          ></b-col>
+      </b-row>
       <b-form inline>
           <b-form-group
             label="Show :"
@@ -64,7 +83,7 @@
       
       <b-modal
       v-model="createModal"
-      title="Tambah Data Tahsin Muhaffizh/Santri"
+      title="Tambah Data Tahsin"
       @ok="handleSubmit"
       no-close-on-backdrop
       no-close-on-esc
@@ -74,7 +93,7 @@
       </b-modal>
 
       <b-modal
-      title="Ubah Data Tahsin Muhaffizh/Santri"
+      title="Ubah Data Tahsin"
       v-model="editModal"
       @ok="handleUpdate"
       no-close-on-backdrop
@@ -109,9 +128,17 @@ export default {
       editModal : false,
       editedId: null,
       perPage: 20,
+      filterModel: {
+        muhaffizh_name: null,
+        santri_name: null,
+      },
       currentPage: 1,
       pageOptions: [10, 20, 50, 100],
       header: [
+        {
+          key: 'list_santri.nama',
+          label: 'Santri'
+        },
         {
           key: "list_group.nama",
           label: "Group",
@@ -123,10 +150,6 @@ export default {
           
         },
         {
-          key: 'list_santri.nama',
-          label: 'Santri'
-        },
-        {
           key: "buku",
           label: "Buku",
           
@@ -134,10 +157,6 @@ export default {
         {
           key: 'halaman',
           label: 'Halaman'
-        },
-        {
-          key: 'sertifikat_proses',
-          label: 'Proses Tahsin'
         },
         {
           key: 'updated_at',
@@ -173,14 +192,18 @@ export default {
   methods: {
     ...mapActions('tahsin', ['getTahsins', 'removeTahsin', 'editTahsin', 'updateTahsin', 'submitTahsin']),
     
-    loadData() {
+    async loadData(params=null) {
       this.$store.commit('loadingOn')
-      setTimeout(() => {
-        this.getTahsins()
+      // setTimeout(() => {
+        this.getTahsins(params)
         this.$store.commit('loadingOff')
-      }, 1000);
+      // }, 1000);
     },
-
+     async searchMuhaffizhSantri() {
+      this.$store.commit('loadingOn')
+      await this.loadData(this.filterModel)
+      this.$store.commit('loadingOff')
+    },
     deleteTahsin(id) {
       this.$swal({
         title: 'Apakah anda yakin ?',

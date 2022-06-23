@@ -8,10 +8,10 @@ use Illuminate\Foundation\Auth\Tahsin as Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Arr;
-use App\Models\Unit;
 use App\Models\Group;
 use App\Models\Santri;
 use App\Models\Muhaffizh;
+use Illuminate\Database\Eloquent\Builder;
 
 class Tahsin extends Model
 {
@@ -25,9 +25,17 @@ class Tahsin extends Model
     {
         $modelQuery = static::query();
 
-        if (($filter_name = Arr::get($params, 'nama', false))) {
-            $modelQuery->where('nama', 'LIKE', '%' . $filter_name . '%');
+        if ( ($filter_muhaffizh = Arr::get($params, 'muhaffizh_name', false)) ) {
+            $modelQuery->whereHas('filterMuhaffizh', function (Builder $query) use ($filter_muhaffizh) {
+                $query->where('nama', 'LIKE', '%' . $filter_muhaffizh . '%');
+            });
         }
+        if ( ($filter_santri = Arr::get($params, 'santri_name', false)) ) {
+            $modelQuery->whereHas('filterSantri', function (Builder $query) use ($filter_santri) {
+                $query->where('nama', 'LIKE', '%' . $filter_santri . '%');
+            });
+        }
+     
         // DEFAULT ORDERING DATA
         $modelQuery->orderBy('created_at', 'desc');
 
@@ -46,13 +54,13 @@ class Tahsin extends Model
     {
         $model = [];
 
-        $model['santri_id'] = $data['santri_id'];
         $model['muhaffizh_id'] = $data['muhaffizh_id'];
+        $model['group_id'] = $data['group_id'];
+        $model['santri_id'] = $data['santri_id'];
         $model['buku'] = ucwords($data['buku']);
         $model['halaman'] = $data['halaman'];
-        $model['sertifikat_proses'] = $data['sertifikat_proses'];
-        $model['group_id'] = $data['group_id'];
- 
+        $model['sertifikat_proses'] = '0';
+    
         return $is_update ? $this->update($model) : $this->create($model);
     }   
 
@@ -77,6 +85,13 @@ class Tahsin extends Model
     }
     public function listMuhaffizh(){
         return $this->belongsTo(Muhaffizh::class,'muhaffizh_id','id');
+    }
+    //filter
+    public function filterMuhaffizh(){
+        return $this->belongsTo(Muhaffizh::class,'muhaffizh_id','id');
+    }
+    public function filterSantri(){
+        return $this->belongsTo(Santri::class,'santri_id','id');
     }
 
 }

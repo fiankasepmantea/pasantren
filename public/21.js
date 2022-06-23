@@ -1,9 +1,9 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[21],{
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/master/Forms/setoranForm.vue?vue&type=script&lang=js&":
-/*!***********************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/master/Forms/setoranForm.vue?vue&type=script&lang=js& ***!
-  \***********************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/master/Forms/TahsinForm.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/master/Forms/TahsinForm.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -99,63 +99,28 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   inject: ['validator'],
-  name: "setoranForm",
+  name: "tahsinForm",
   created: function created() {
-    this.loadPage();
     this.getGroup();
     this.getMuhaffizh();
     this.getSantri();
     this.$validator = this.validator;
   },
-  computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(["errors"])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])("setoran", {
-    setoran: function setoran(state) {
-      return state.setoran;
+  computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(["errors"])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])("tahsin", {
+    tahsin: function tahsin(state) {
+      return state.tahsin;
     },
-    setoran_unit: function setoran_unit(state) {
-      return state.setoran_unit;
+    tahsin_group: function tahsin_group(state) {
+      return state.tahsin_group;
     },
-    setoran_group: function setoran_group(state) {
-      return state.setoran_group;
+    tahsin_santri: function tahsin_santri(state) {
+      return state.tahsin_santri;
     },
-    setoran_santri: function setoran_santri(state) {
-      return state.setoran_santri;
-    },
-    setoran_muhaffizh: function setoran_muhaffizh(state) {
-      return state.setoran_muhaffizh;
+    tahsin_muhaffizh: function tahsin_muhaffizh(state) {
+      return state.tahsin_muhaffizh;
     }
   })),
   watch: {
@@ -164,26 +129,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.getUnit();
     }
   },
-  methods: _objectSpread(_objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapMutations"])("setoran", ["CLEAR_FORM"])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])("setoran", ["getUnit", "getGroup", "getMuhaffizh", "getSantri"])), {}, {
-    loadPage: function loadPage() {
-      $(document).ready(function () {
-        $("#santri-id").hide();
-        $("#muhaffizh-id").hide();
-      });
-    },
-    clickMuhaffizh: function clickMuhaffizh() {
-      this.setoran.santri_id = null, $("#santri-id").hide();
-      $("#muhaffizh-id").show();
-    },
-    clickSantri: function clickSantri() {
-      this.setoran.muhaffizh_id = null, $("#santri-id").show();
-      $("#muhaffizh-id").hide();
-    },
-    getMuhaffizhName: function getMuhaffizhName(id) {
-      this.setoran.muhaffizh_id = '', this.getMuhaffizh(id);
+  methods: _objectSpread(_objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapMutations"])("tahsin", ["CLEAR_FORM"])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])("tahsin", ["getUnit", "getGroup", "getMuhaffizh", "getSantri"])), {}, {
+    getGroupName: function getGroupName(id) {
+      this.tahsin.group_id = '', this.getGroup(id);
     },
     getSantriName: function getSantriName(id) {
-      this.setoran.santri_id = '', this.getSantri(id);
+      this.tahsin.santri_id = '', this.getSantri(id);
     },
     validateState: function validateState(ref) {
       if (this.veeFields[ref] && (this.veeFields[ref].dirty || this.veeFields[ref].validated)) {
@@ -195,18 +146,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   }),
   destroyed: function destroyed() {
     this.CLEAR_FORM();
-  },
-  data: function data() {
-    return {
-      selected: 'first',
-      options: [{
-        text: 'Muhaffizh',
-        value: 'Muhaffizh'
-      }, {
-        text: 'Santri',
-        value: 'Santri'
-      }]
-    };
   }
 });
 
@@ -238,10 +177,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/master/Setorans.vue?vue&type=script&lang=js&":
-/*!**************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/master/Setorans.vue?vue&type=script&lang=js& ***!
-  \**************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/master/Tahsins.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/master/Tahsins.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -250,7 +189,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _PageTitle__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./PageTitle */ "./resources/js/components/master/PageTitle.vue");
-/* harmony import */ var _Forms_setoranForm__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Forms/setoranForm */ "./resources/js/components/master/Forms/setoranForm.vue");
+/* harmony import */ var _Forms_TahsinForm__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Forms/TahsinForm */ "./resources/js/components/master/Forms/TahsinForm.vue");
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 
 
@@ -374,16 +313,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "setorans",
+  name: "Tahsins",
   components: {
     pagetitle: _PageTitle__WEBPACK_IMPORTED_MODULE_1__["default"],
-    Form: _Forms_setoranForm__WEBPACK_IMPORTED_MODULE_2__["default"]
+    Form: _Forms_TahsinForm__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   created: function created() {
     this.loadData();
@@ -401,26 +338,20 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       currentPage: 1,
       pageOptions: [10, 20, 50, 100],
       header: [{
+        key: 'list_santri.nama',
+        label: 'Santri'
+      }, {
         key: "list_group.nama",
         label: "Group"
       }, {
         key: "list_muhaffizh.nama",
         label: "Muhaffizh"
       }, {
-        key: 'list_santri.nama',
-        label: 'Santri'
-      }, {
-        key: "juz",
-        label: "Juz"
+        key: "buku",
+        label: "Buku"
       }, {
         key: 'halaman',
         label: 'Halaman'
-      }, {
-        key: 'baris',
-        label: 'Baris'
-      }, {
-        key: 'total_setoran',
-        label: 'Total setoran'
       }, {
         key: 'updated_at',
         label: 'Tanggal Update'
@@ -439,18 +370,18 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   computed: _objectSpread({
     rows: function rows() {
-      if (this.setorans && this.setorans.data) {
-        return this.setorans.data.length;
+      if (this.tahsins && this.tahsins.data) {
+        return this.tahsins.data.length;
       } else {
         return 0;
       }
     }
-  }, Object(vuex__WEBPACK_IMPORTED_MODULE_3__["mapState"])('setoran', {
-    setorans: function setorans(state) {
-      return state.setorans;
+  }, Object(vuex__WEBPACK_IMPORTED_MODULE_3__["mapState"])('tahsin', {
+    tahsins: function tahsins(state) {
+      return state.tahsins;
     }
   })),
-  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_3__["mapActions"])('setoran', ['getSetorans', 'removeSetoran', 'editSetoran', 'updateSetoran', 'submitSetoran'])), {}, {
+  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_3__["mapActions"])('tahsin', ['getTahsins', 'removeTahsin', 'editTahsin', 'updateTahsin', 'submitTahsin'])), {}, {
     loadData: function loadData() {
       var _arguments = arguments,
           _this = this;
@@ -466,14 +397,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                 _this.$store.commit('loadingOn'); // setTimeout(() => {
 
 
-                _context.next = 4;
-                return _this.getSetorans(params);
+                _this.getTahsins(params);
 
-              case 4:
                 _this.$store.commit('loadingOff'); // }, 1000);
 
 
-              case 5:
+              case 4:
               case "end":
                 return _context.stop();
             }
@@ -505,7 +434,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         }, _callee2);
       }))();
     },
-    deleteSetoran: function deleteSetoran(id) {
+    deleteTahsin: function deleteTahsin(id) {
       var _this3 = this;
 
       this.$swal({
@@ -514,13 +443,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         showCancelButton: true
       }).then(function (result) {
         if (result.value) {
-          _this3.removeSetoran(id);
+          _this3.removeTahsin(id);
         }
       });
     },
     handleEdit: function handleEdit(id) {
       this.editModal = true;
-      this.editSetoran(id);
+      this.editTahsin(id);
       this.editedId = id;
     },
     handleUpdate: function handleUpdate(bvModalEvt) {
@@ -532,10 +461,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           return;
         }
 
-        _this4.updateSetoran(_this4.editedId);
+        _this4.updateTahsin(_this4.editedId);
 
         _this4.$toasted.global.success_toast({
-          message: 'Data setoran berhasil diubah..'
+          message: 'Data tahsin berhasil diubah..'
         });
 
         _this4.editModal = false;
@@ -543,7 +472,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         _this4.loadData();
       })["catch"](function (err) {
         _this4.$toasted.global.failed_toast({
-          message: 'Data setoran gagal untuk diubah..'
+          message: 'Data tahsin gagal untuk diubah..'
         });
       });
     },
@@ -556,10 +485,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           return;
         }
 
-        _this5.submitSetoran();
+        _this5.submitTahsin();
 
         _this5.$toasted.global.success_toast({
-          message: 'Data setoran berhasil ditambahkan..'
+          message: 'Data tahsin berhasil ditambahkan..'
         });
 
         _this5.createModal = false;
@@ -567,7 +496,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         _this5.loadData();
       })["catch"](function (err) {
         _this5.$toasted.global.failed_toast({
-          message: 'Data setoran gagal untuk ditambahkan..'
+          message: 'Data tahsin gagal untuk ditambahkan..'
         });
       });
     }
@@ -576,10 +505,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/master/Forms/setoranForm.vue?vue&type=template&id=7d071a18&":
-/*!***************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/master/Forms/setoranForm.vue?vue&type=template&id=7d071a18& ***!
-  \***************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/master/Forms/TahsinForm.vue?vue&type=template&id=18c6af1a&":
+/*!**************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/master/Forms/TahsinForm.vue?vue&type=template&id=18c6af1a& ***!
+  \**************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -608,6 +537,54 @@ var render = function() {
           _c(
             "b-form-group",
             {
+              attrs: {
+                label: "Muhaffizh",
+                "label-cols": "3",
+                "label-for": "muhaffizh"
+              }
+            },
+            [
+              _c("b-form-select", {
+                directives: [
+                  {
+                    name: "validate",
+                    rawName: "v-validate",
+                    value: { required: true },
+                    expression: "{ required: true }"
+                  }
+                ],
+                attrs: {
+                  id: "muhaffizh",
+                  options: _vm.tahsin_muhaffizh,
+                  placeholder: "Pilih Muhaffizh",
+                  name: "muhaffizh",
+                  state: _vm.validateState("muhaffizh"),
+                  "data-vv-as": "Muhaffizh"
+                },
+                on: {
+                  change: function() {
+                    _vm.getGroupName(_vm.tahsin.muhaffizh_id)
+                  }
+                },
+                model: {
+                  value: _vm.tahsin.muhaffizh_id,
+                  callback: function($$v) {
+                    _vm.$set(_vm.tahsin, "muhaffizh_id", $$v)
+                  },
+                  expression: "tahsin.muhaffizh_id"
+                }
+              }),
+              _vm._v(" "),
+              _c("b-form-invalid-feedback", [
+                _vm._v(_vm._s(_vm.veeErrors.first("muhaffizh")))
+              ])
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "b-form-group",
+            {
               attrs: { label: "Group", "label-cols": "3", "label-for": "group" }
             },
             [
@@ -622,7 +599,7 @@ var render = function() {
                 ],
                 attrs: {
                   id: "group",
-                  options: _vm.setoran_group,
+                  options: _vm.tahsin_group,
                   placeholder: "Pilih Group",
                   name: "group",
                   state: _vm.validateState("group"),
@@ -630,16 +607,15 @@ var render = function() {
                 },
                 on: {
                   change: function() {
-                    _vm.getMuhaffizhName(_vm.setoran.group_id)
-                    _vm.getSantriName(_vm.setoran.group_id)
+                    _vm.getSantriName(_vm.tahsin.group_id)
                   }
                 },
                 model: {
-                  value: _vm.setoran.group_id,
+                  value: _vm.tahsin.group_id,
                   callback: function($$v) {
-                    _vm.$set(_vm.setoran, "group_id", $$v)
+                    _vm.$set(_vm.tahsin, "group_id", $$v)
                   },
-                  expression: "setoran.group_id"
+                  expression: "tahsin.group_id"
                 }
               }),
               _vm._v(" "),
@@ -650,139 +626,54 @@ var render = function() {
             1
           ),
           _vm._v(" "),
-          _c("b-form-group", {
-            scopedSlots: _vm._u([
-              {
-                key: "default",
-                fn: function(ref) {
-                  var ariaDescribedby = ref.ariaDescribedby
-                  return [
-                    _c(
-                      "b-row",
-                      [
-                        _c(
-                          "b-col",
-                          [
-                            _c(
-                              "b-form-radio",
-                              {
-                                attrs: {
-                                  "aria-describedby": ariaDescribedby,
-                                  name: "some-radios",
-                                  value: "muhaffizh"
-                                },
-                                on: {
-                                  change: function($event) {
-                                    return _vm.clickMuhaffizh()
-                                  }
-                                },
-                                model: {
-                                  value: _vm.selected,
-                                  callback: function($$v) {
-                                    _vm.selected = $$v
-                                  },
-                                  expression: "selected"
-                                }
-                              },
-                              [_vm._v("Muhaffizh")]
-                            )
-                          ],
-                          1
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "b-col",
-                          [
-                            _c(
-                              "b-form-radio",
-                              {
-                                attrs: {
-                                  "aria-describedby": ariaDescribedby,
-                                  name: "some-radios",
-                                  value: "santri"
-                                },
-                                on: {
-                                  change: function($event) {
-                                    return _vm.clickSantri()
-                                  }
-                                },
-                                model: {
-                                  value: _vm.selected,
-                                  callback: function($$v) {
-                                    _vm.selected = $$v
-                                  },
-                                  expression: "selected"
-                                }
-                              },
-                              [_vm._v("Santri")]
-                            )
-                          ],
-                          1
-                        )
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "b-row",
-                      [
-                        _c(
-                          "b-col",
-                          [
-                            _c("b-form-select", {
-                              attrs: {
-                                id: "muhaffizh-id",
-                                options: _vm.setoran_muhaffizh,
-                                placeholder: "Pilih Muhaffizh",
-                                name: "muhaffizh",
-                                "data-vv-as": "Muhaffizh"
-                              },
-                              model: {
-                                value: _vm.setoran.muhaffizh_id,
-                                callback: function($$v) {
-                                  _vm.$set(_vm.setoran, "muhaffizh_id", $$v)
-                                },
-                                expression: "setoran.muhaffizh_id"
-                              }
-                            })
-                          ],
-                          1
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "b-col",
-                          [
-                            _c("b-form-select", {
-                              attrs: {
-                                id: "santri-id",
-                                options: _vm.setoran_santri,
-                                placeholder: "Pilih Santri",
-                                name: "santri",
-                                "data-vv-as": "Santri"
-                              },
-                              model: {
-                                value: _vm.setoran.santri_id,
-                                callback: function($$v) {
-                                  _vm.$set(_vm.setoran, "santri_id", $$v)
-                                },
-                                expression: "setoran.santri_id"
-                              }
-                            })
-                          ],
-                          1
-                        )
-                      ],
-                      1
-                    )
-                  ]
-                }
+          _c(
+            "b-form-group",
+            {
+              attrs: {
+                label: "Santri",
+                "label-cols": "3",
+                "label-for": "santri"
               }
-            ])
-          }),
+            },
+            [
+              _c("b-form-select", {
+                directives: [
+                  {
+                    name: "validate",
+                    rawName: "v-validate",
+                    value: { required: true },
+                    expression: "{ required: true }"
+                  }
+                ],
+                attrs: {
+                  id: "santri",
+                  options: _vm.tahsin_santri,
+                  placeholder: "Pilih Santri",
+                  name: "santri",
+                  state: _vm.validateState("santri"),
+                  "data-vv-as": "Santri"
+                },
+                model: {
+                  value: _vm.tahsin.santri_id,
+                  callback: function($$v) {
+                    _vm.$set(_vm.tahsin, "santri_id", $$v)
+                  },
+                  expression: "tahsin.santri_id"
+                }
+              }),
+              _vm._v(" "),
+              _c("b-form-invalid-feedback", [
+                _vm._v(_vm._s(_vm.veeErrors.first("santri")))
+              ])
+            ],
+            1
+          ),
           _vm._v(" "),
           _c(
             "b-form-group",
-            { attrs: { label: "Juz", "label-cols": "3", "label-for": "juz" } },
+            {
+              attrs: { label: "Buku", "label-cols": "3", "label-for": "buku" }
+            },
             [
               _c("b-form-input", {
                 directives: [
@@ -794,23 +685,23 @@ var render = function() {
                   }
                 ],
                 attrs: {
-                  id: "juz",
-                  placeholder: "Masukan Juz",
-                  name: "juz",
-                  state: _vm.validateState("juz"),
-                  "data-vv-as": "Juz"
+                  id: "buku",
+                  placeholder: "Masukan Buku",
+                  name: "buku",
+                  state: _vm.validateState("buku"),
+                  "data-vv-as": "Buku"
                 },
                 model: {
-                  value: _vm.setoran.juz,
+                  value: _vm.tahsin.buku,
                   callback: function($$v) {
-                    _vm.$set(_vm.setoran, "juz", $$v)
+                    _vm.$set(_vm.tahsin, "buku", $$v)
                   },
-                  expression: "setoran.juz"
+                  expression: "tahsin.buku"
                 }
               }),
               _vm._v(" "),
               _c("b-form-invalid-feedback", [
-                _vm._v(_vm._s(_vm.veeErrors.first("juz")))
+                _vm._v(_vm._s(_vm.veeErrors.first("buku")))
               ])
             ],
             1
@@ -843,96 +734,16 @@ var render = function() {
                   "data-vv-as": "Halaman"
                 },
                 model: {
-                  value: _vm.setoran.halaman,
+                  value: _vm.tahsin.halaman,
                   callback: function($$v) {
-                    _vm.$set(_vm.setoran, "halaman", $$v)
+                    _vm.$set(_vm.tahsin, "halaman", $$v)
                   },
-                  expression: "setoran.halaman"
+                  expression: "tahsin.halaman"
                 }
               }),
               _vm._v(" "),
               _c("b-form-invalid-feedback", [
                 _vm._v(_vm._s(_vm.veeErrors.first("halaman")))
-              ])
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "b-form-group",
-            {
-              attrs: { label: "Baris", "label-cols": "3", "label-for": "baris" }
-            },
-            [
-              _c("b-form-input", {
-                directives: [
-                  {
-                    name: "validate",
-                    rawName: "v-validate",
-                    value: { required: true },
-                    expression: "{ required: true }"
-                  }
-                ],
-                attrs: {
-                  id: "baris",
-                  placeholder: "Masukan Baris",
-                  name: "baris",
-                  state: _vm.validateState("baris"),
-                  "data-vv-as": "Baris"
-                },
-                model: {
-                  value: _vm.setoran.baris,
-                  callback: function($$v) {
-                    _vm.$set(_vm.setoran, "baris", $$v)
-                  },
-                  expression: "setoran.baris"
-                }
-              }),
-              _vm._v(" "),
-              _c("b-form-invalid-feedback", [
-                _vm._v(_vm._s(_vm.veeErrors.first("baris")))
-              ])
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "b-form-group",
-            {
-              attrs: {
-                label: "Total Setoran",
-                "label-cols": "3",
-                "label-for": "totalsetoran"
-              }
-            },
-            [
-              _c("b-form-input", {
-                directives: [
-                  {
-                    name: "validate",
-                    rawName: "v-validate",
-                    value: { required: true },
-                    expression: "{ required: true }"
-                  }
-                ],
-                attrs: {
-                  id: "totalsetoran",
-                  placeholder: "Masukan Total Setoran",
-                  name: "totalsetoran",
-                  state: _vm.validateState("totalsetoran"),
-                  "data-vv-as": "TotalSetoran"
-                },
-                model: {
-                  value: _vm.setoran.total_setoran,
-                  callback: function($$v) {
-                    _vm.$set(_vm.setoran, "total_setoran", $$v)
-                  },
-                  expression: "setoran.total_setoran"
-                }
-              }),
-              _vm._v(" "),
-              _c("b-form-invalid-feedback", [
-                _vm._v(_vm._s(_vm.veeErrors.first("totalsetoran")))
               ])
             ],
             1
@@ -995,10 +806,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/master/Setorans.vue?vue&type=template&id=0451569a&":
-/*!******************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/master/Setorans.vue?vue&type=template&id=0451569a& ***!
-  \******************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/master/Tahsins.vue?vue&type=template&id=ed992f18&":
+/*!*****************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/master/Tahsins.vue?vue&type=template&id=ed992f18& ***!
+  \*****************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1036,7 +847,7 @@ var render = function() {
                         }
                       }
                     },
-                    [_vm._v("+ Tambah Setoran")]
+                    [_vm._v("+ Tambah Tahsin")]
                   )
                 ],
                 1
@@ -1053,6 +864,17 @@ var render = function() {
                         "b-input-group",
                         [
                           _c("b-form-input", {
+                            attrs: { placeholder: "Cari Santri", size: "sm" },
+                            model: {
+                              value: _vm.filterModel.santri_name,
+                              callback: function($$v) {
+                                _vm.$set(_vm.filterModel, "santri_name", $$v)
+                              },
+                              expression: "filterModel.santri_name"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("b-form-input", {
                             attrs: {
                               placeholder: "Cari Muhaffizh ",
                               size: "sm"
@@ -1063,17 +885,6 @@ var render = function() {
                                 _vm.$set(_vm.filterModel, "muhaffizh_name", $$v)
                               },
                               expression: "filterModel.muhaffizh_name"
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c("b-form-input", {
-                            attrs: { placeholder: "Cari Santri", size: "sm" },
-                            model: {
-                              value: _vm.filterModel.santri_name,
-                              callback: function($$v) {
-                                _vm.$set(_vm.filterModel, "santri_name", $$v)
-                              },
-                              expression: "filterModel.santri_name"
                             }
                           }),
                           _vm._v(" "),
@@ -1109,8 +920,6 @@ var render = function() {
                 ],
                 1
               ),
-              _vm._v(" "),
-              _c("br"),
               _vm._v(" "),
               _c(
                 "b-form",
@@ -1151,7 +960,7 @@ var render = function() {
               _vm._v(" "),
               _c("b-table", {
                 attrs: {
-                  items: _vm.setorans.data,
+                  items: _vm.tahsins.data,
                   fields: _vm.header,
                   "current-page": _vm.currentPage,
                   "per-page": _vm.perPage,
@@ -1188,7 +997,7 @@ var render = function() {
                             attrs: { variant: "danger", size: "sm" },
                             on: {
                               click: function($event) {
-                                return _vm.deletesetoran(row.item.id)
+                                return _vm.deleteTahsin(row.item.id)
                               }
                             }
                           },
@@ -1224,7 +1033,7 @@ var render = function() {
                 "b-modal",
                 {
                   attrs: {
-                    title: "Tambah Data Setoran Muhaffizh/Santri",
+                    title: "Tambah Data Tahsin",
                     "no-close-on-backdrop": "",
                     "no-close-on-esc": "",
                     centered: ""
@@ -1246,7 +1055,7 @@ var render = function() {
                 "b-modal",
                 {
                   attrs: {
-                    title: "Ubah Data Setoran Muhaffizh/Santri",
+                    title: "Ubah Data Tahsin",
                     "no-close-on-backdrop": "",
                     "no-close-on-esc": "",
                     centered: ""
@@ -1280,17 +1089,17 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./resources/js/components/master/Forms/setoranForm.vue":
-/*!**************************************************************!*\
-  !*** ./resources/js/components/master/Forms/setoranForm.vue ***!
-  \**************************************************************/
+/***/ "./resources/js/components/master/Forms/TahsinForm.vue":
+/*!*************************************************************!*\
+  !*** ./resources/js/components/master/Forms/TahsinForm.vue ***!
+  \*************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _setoranForm_vue_vue_type_template_id_7d071a18___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./setoranForm.vue?vue&type=template&id=7d071a18& */ "./resources/js/components/master/Forms/setoranForm.vue?vue&type=template&id=7d071a18&");
-/* harmony import */ var _setoranForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./setoranForm.vue?vue&type=script&lang=js& */ "./resources/js/components/master/Forms/setoranForm.vue?vue&type=script&lang=js&");
+/* harmony import */ var _TahsinForm_vue_vue_type_template_id_18c6af1a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./TahsinForm.vue?vue&type=template&id=18c6af1a& */ "./resources/js/components/master/Forms/TahsinForm.vue?vue&type=template&id=18c6af1a&");
+/* harmony import */ var _TahsinForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./TahsinForm.vue?vue&type=script&lang=js& */ "./resources/js/components/master/Forms/TahsinForm.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -1300,9 +1109,9 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _setoranForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _setoranForm_vue_vue_type_template_id_7d071a18___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _setoranForm_vue_vue_type_template_id_7d071a18___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _TahsinForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _TahsinForm_vue_vue_type_template_id_18c6af1a___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _TahsinForm_vue_vue_type_template_id_18c6af1a___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
   null,
@@ -1312,38 +1121,38 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/components/master/Forms/setoranForm.vue"
+component.options.__file = "resources/js/components/master/Forms/TahsinForm.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/components/master/Forms/setoranForm.vue?vue&type=script&lang=js&":
-/*!***************************************************************************************!*\
-  !*** ./resources/js/components/master/Forms/setoranForm.vue?vue&type=script&lang=js& ***!
-  \***************************************************************************************/
+/***/ "./resources/js/components/master/Forms/TahsinForm.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************!*\
+  !*** ./resources/js/components/master/Forms/TahsinForm.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_setoranForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./setoranForm.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/master/Forms/setoranForm.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_setoranForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TahsinForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./TahsinForm.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/master/Forms/TahsinForm.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TahsinForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
-/***/ "./resources/js/components/master/Forms/setoranForm.vue?vue&type=template&id=7d071a18&":
-/*!*********************************************************************************************!*\
-  !*** ./resources/js/components/master/Forms/setoranForm.vue?vue&type=template&id=7d071a18& ***!
-  \*********************************************************************************************/
+/***/ "./resources/js/components/master/Forms/TahsinForm.vue?vue&type=template&id=18c6af1a&":
+/*!********************************************************************************************!*\
+  !*** ./resources/js/components/master/Forms/TahsinForm.vue?vue&type=template&id=18c6af1a& ***!
+  \********************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_setoranForm_vue_vue_type_template_id_7d071a18___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./setoranForm.vue?vue&type=template&id=7d071a18& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/master/Forms/setoranForm.vue?vue&type=template&id=7d071a18&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_setoranForm_vue_vue_type_template_id_7d071a18___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TahsinForm_vue_vue_type_template_id_18c6af1a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./TahsinForm.vue?vue&type=template&id=18c6af1a& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/master/Forms/TahsinForm.vue?vue&type=template&id=18c6af1a&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TahsinForm_vue_vue_type_template_id_18c6af1a___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_setoranForm_vue_vue_type_template_id_7d071a18___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TahsinForm_vue_vue_type_template_id_18c6af1a___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
@@ -1418,17 +1227,17 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/master/Setorans.vue":
-/*!*****************************************************!*\
-  !*** ./resources/js/components/master/Setorans.vue ***!
-  \*****************************************************/
+/***/ "./resources/js/components/master/Tahsins.vue":
+/*!****************************************************!*\
+  !*** ./resources/js/components/master/Tahsins.vue ***!
+  \****************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Setorans_vue_vue_type_template_id_0451569a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Setorans.vue?vue&type=template&id=0451569a& */ "./resources/js/components/master/Setorans.vue?vue&type=template&id=0451569a&");
-/* harmony import */ var _Setorans_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Setorans.vue?vue&type=script&lang=js& */ "./resources/js/components/master/Setorans.vue?vue&type=script&lang=js&");
+/* harmony import */ var _Tahsins_vue_vue_type_template_id_ed992f18___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Tahsins.vue?vue&type=template&id=ed992f18& */ "./resources/js/components/master/Tahsins.vue?vue&type=template&id=ed992f18&");
+/* harmony import */ var _Tahsins_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Tahsins.vue?vue&type=script&lang=js& */ "./resources/js/components/master/Tahsins.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -1438,9 +1247,9 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _Setorans_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _Setorans_vue_vue_type_template_id_0451569a___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _Setorans_vue_vue_type_template_id_0451569a___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _Tahsins_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Tahsins_vue_vue_type_template_id_ed992f18___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Tahsins_vue_vue_type_template_id_ed992f18___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
   null,
@@ -1450,38 +1259,38 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/components/master/Setorans.vue"
+component.options.__file = "resources/js/components/master/Tahsins.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/components/master/Setorans.vue?vue&type=script&lang=js&":
-/*!******************************************************************************!*\
-  !*** ./resources/js/components/master/Setorans.vue?vue&type=script&lang=js& ***!
-  \******************************************************************************/
+/***/ "./resources/js/components/master/Tahsins.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************!*\
+  !*** ./resources/js/components/master/Tahsins.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Setorans_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./Setorans.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/master/Setorans.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Setorans_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Tahsins_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./Tahsins.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/master/Tahsins.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Tahsins_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
-/***/ "./resources/js/components/master/Setorans.vue?vue&type=template&id=0451569a&":
-/*!************************************************************************************!*\
-  !*** ./resources/js/components/master/Setorans.vue?vue&type=template&id=0451569a& ***!
-  \************************************************************************************/
+/***/ "./resources/js/components/master/Tahsins.vue?vue&type=template&id=ed992f18&":
+/*!***********************************************************************************!*\
+  !*** ./resources/js/components/master/Tahsins.vue?vue&type=template&id=ed992f18& ***!
+  \***********************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Setorans_vue_vue_type_template_id_0451569a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./Setorans.vue?vue&type=template&id=0451569a& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/master/Setorans.vue?vue&type=template&id=0451569a&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Setorans_vue_vue_type_template_id_0451569a___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Tahsins_vue_vue_type_template_id_ed992f18___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./Tahsins.vue?vue&type=template&id=ed992f18& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/master/Tahsins.vue?vue&type=template&id=ed992f18&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Tahsins_vue_vue_type_template_id_ed992f18___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Setorans_vue_vue_type_template_id_0451569a___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Tahsins_vue_vue_type_template_id_ed992f18___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

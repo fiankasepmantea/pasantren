@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use App\Models\Tahsin as Model;
 use App\Http\Requests\TahsinRequest as ModelRequest;
 use App\Http\Resources\TahsinResource as ModelResource;
-use App\Models\Unit;
 use App\Models\Group;
 use App\Models\Santri;
 use App\Models\Muhaffizh;
@@ -51,28 +50,22 @@ class TahsinController extends Controller
         }
     }
 
-    public function getTahsinGroup()
-    {
-        $group = Group::orderBy('nama', 'ASC')->get(); 
-        return response()->json(['status' => 'success', 'data' => $group]);
-    }
-
-    public function getTahsinUnit()
-    {   
-        $unit = Unit::orderBy('nama', 'ASC')->get(); 
-        return response()->json(['status' => 'success', 'data' => $unit]);
-    }
-
     public function getTahsinMuhaffizh(Request $request)
     {  
-        
-        if(isset($request->group_id)){
-            $muhaffizh = Muhaffizh::where('group_id',$request->group_id)->orderBy('nama', 'ASC')->get();
-        }else{
-            $muhaffizh = Muhaffizh::orderBy('nama', 'ASC')->get();;
-        }
-       
+        $muhaffizh = Muhaffizh::orderBy('nama', 'ASC')->get(); 
+     
         return response()->json(['status' => 'success', 'data' => $muhaffizh]);
+    }
+
+    public function getTahsinGroup(Request $request)
+    {   
+        if(isset($request->muhaffizh_id)){
+            $group = Group::where('muhaffizh_id',$request->muhaffizh_id)->orderBy('nama', 'ASC')->get();
+        }else{
+            $group = Group::orderBy('nama', 'ASC')->get();;
+        }
+
+        return response()->json(['status' => 'success', 'data' => $group]);
     }
 
     public function getTahsinSantri(Request $request)

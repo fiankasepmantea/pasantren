@@ -144,12 +144,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }
   },
   methods: _objectSpread(_objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapMutations"])("mutqin", ["CLEAR_FORM"])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])("mutqin", ["getUnit", "getGroup", "getMuhaffizh", "getSantri"])), {}, {
-    clearMuhaffizh: function clearMuhaffizh() {
-      this.CLEAR_MUHAFFIZH();
-    },
-    clearSantri: function clearSantri() {
-      this.CLEAR_SANTRI();
-    },
     getGroupName: function getGroupName(id) {
       this.mutqin.group_id = '', this.getGroup(id);
     },
