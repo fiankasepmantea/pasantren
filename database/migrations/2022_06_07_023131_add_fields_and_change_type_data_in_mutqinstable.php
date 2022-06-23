@@ -18,10 +18,8 @@ class AddFieldsAndChangeTypeDataInMutqinstable extends Migration
             $table->smallInteger('juz')->change();
             $table->smallInteger('halaman')->change();
             $table->smallInteger('baris')->change();
-            $table->foreignId('unit_id')->nullable();
             $table->foreignId('group_id')->nullable();
             $table->string('total_mutqin')->after('baris');
-            $table->foreign('unit_id')->references('id')->on('units')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('group_id')->references('id')->on('groups')->onDelete('cascade')->onUpdate('cascade');
         });
     }

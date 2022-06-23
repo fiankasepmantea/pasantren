@@ -142,16 +142,6 @@ export default {
           label: 'Santri'
         },
         {
-          key: "list_group.nama",
-          label: "Group",
-          
-        },
-        {
-          key: "list_muhaffizh.nama",
-          label: "Muhaffizh",
-          
-        }, 
-        {
           key: "juz",
           label: "Juz",
           
@@ -168,6 +158,16 @@ export default {
           key: 'updated_at',
           label: 'Tanggal Update'
         },
+        {
+          key: "list_group.nama",
+          label: "Group",
+          
+        },
+        {
+          key: "list_muhaffizh.nama",
+          label: "Muhaffizh",
+          
+        }, 
         {
           key: 'actions',
           label: "Aksi",

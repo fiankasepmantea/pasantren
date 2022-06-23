@@ -26,7 +26,6 @@ class CreateSantrisTable extends Migration
             $table->date('mulai_belajar');
             $table->string('angkatan_kelas');
             $table->foreignId('group_id')->nullable();
-            $table->foreignId('unit_id')->nullable();
             $table->foreignId('grade_id')->nullable();
             $table->foreignId('levelsantri_id')->nullable();
             $table->foreignId('walisantri_id')->nullable();
@@ -34,7 +33,6 @@ class CreateSantrisTable extends Migration
             $table->softDeletes('deleted_at', 0);
 
             $table->foreign('group_id')->references('id')->on('groups')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('unit_id')->references('id')->on('units')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('grade_id')->references('id')->on('grades')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('levelsantri_id')->references('id')->on('level_santris')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('walisantri_id')->references('id')->on('wali_santris')->onDelete('cascade')->onUpdate('cascade');

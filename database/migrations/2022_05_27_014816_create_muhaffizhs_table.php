@@ -25,12 +25,10 @@ class CreateMuhaffizhsTable extends Migration
             $table->date('mulai_bertugas');
             $table->string('angkatan_kelas');
             $table->enum('status',['Aktif','Tidak Aktif']);
-            $table->foreignId('group_id')->nullable();
             $table->foreignId('unit_id')->nullable();
             $table->timestamps();
             $table->softDeletes('deleted_at', 0);
 
-            $table->foreign('group_id')->references('id')->on('groups')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('unit_id')->references('id')->on('units')->onDelete('cascade')->onUpdate('cascade');
         });
     }

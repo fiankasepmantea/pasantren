@@ -16,9 +16,7 @@ class AddFieldsAndChangeTypeDataInTahsinsstable extends Migration
         Schema::table('tahsins', function (Blueprint $table) {
             $table->dropColumn('tanggal_update');
             $table->smallInteger('halaman')->change();
-            $table->foreignId('unit_id')->nullable();
             $table->foreignId('group_id')->nullable();
-            $table->foreign('unit_id')->references('id')->on('units')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('group_id')->references('id')->on('groups')->onDelete('cascade')->onUpdate('cascade');
         });
     }
