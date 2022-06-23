@@ -25,9 +25,10 @@ const Group = () => import('../components/master/Groups')
 const Unit = () => import('../components/master/Units')
 const Muhaffizh = () => import('../components/master/Muhaffizhs')
 const Santri = () => import('../components/master/Santris')
-const Mutqin = () => import('../components/master/Mutqins')
-const Setoran = () => import('../components/master/Setorans')
-const Tahsin = () => import('../components/master/Tahsins')
+// Proses
+const Mutqin = () => import('../components/process/Mutqins')
+const Setoran = () => import('../components/process/Setorans')
+const Tahsin = () => import('../components/process/Tahsins')
 
 Vue.use(Router)
 
@@ -95,6 +96,15 @@ function configRoutes() {
           component: Santri,
           meta: { title: 'Santri', auth: true }
         },
+      ]
+    },
+    // PROSES
+    {
+      path: '/process',
+      redirect: '/process',
+      name: 'Proses',
+      component: TheContainer,
+      children: [
         {
           path: 'mutqin',
           name: 'Mutqins',
@@ -115,7 +125,6 @@ function configRoutes() {
         },
       ]
     },
-
     //Dashboard
     {
       path: '/',

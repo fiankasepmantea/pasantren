@@ -911,15 +911,21 @@ __webpack_require__.r(__webpack_exports__);
     }, {
       name: 'Santri',
       to: '/master/santri'
-    }, {
+    }]
+  }, {
+    _name: 'CSidebarNavDropdown',
+    name: 'Proses Santri',
+    route: '/process',
+    icon: 'cil-puzzle',
+    items: [{
       name: 'Mutqin',
-      to: '/master/mutqin'
+      to: '/process/mutqin'
     }, {
       name: 'Setoran',
-      to: '/master/setoran'
+      to: '/process/setoran'
     }, {
       name: 'Tahsin',
-      to: '/master/tahsin'
+      to: '/process/tahsin'
     }]
   }, {
     _name: 'CSidebarNavTitle',
