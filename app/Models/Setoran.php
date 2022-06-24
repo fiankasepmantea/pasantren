@@ -61,7 +61,8 @@ class Setoran extends Model
         $model['halaman'] = ucwords($data['halaman']);
         $model['baris'] = $data['baris'];
         $model['total_setoran'] = '0';
- 
+        $model['pekan'] = $data['pekan'];
+        $model['bulan'] = ucwords($data['bulan']);
         return $is_update ? $this->update($model) : $this->create($model);
     }   
 

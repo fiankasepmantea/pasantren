@@ -31,6 +31,7 @@ class MutqinRequest extends FormRequest
             'muhaffizh_id'          => ['required'],
             'group_id'              => ['required'],
             'santri_id'             => ['required'],
+            'pekan'                 => ['required'],
         ];
     }
 }

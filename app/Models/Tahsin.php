@@ -60,7 +60,8 @@ class Tahsin extends Model
         $model['buku'] = ucwords($data['buku']);
         $model['halaman'] = $data['halaman'];
         $model['sertifikat_proses'] = '0';
-    
+        $model['pekan'] = $data['pekan'];
+        $model['bulan'] = ucwords($data['bulan']);
         return $is_update ? $this->update($model) : $this->create($model);
     }   
 

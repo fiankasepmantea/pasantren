@@ -14,6 +14,8 @@ const state = () => ({
     santri_id: '',
     muhaffizh_id: '',
     group_id: '',
+    pekan:'',
+    bulan:'',
   },
   mutqin_group: [],
   mutqin_muhaffizh: [],
@@ -36,6 +38,8 @@ const mutations = {
       muhaffizh_id: payload.muhaffizh_id,
       santri_id: payload.santri_id,
       group_id: payload.group_id,
+      pekan: payload.pekan,
+      bulan: payload.bulan,
     }
   },
   CLEAR_FORM(state) {
@@ -48,6 +52,8 @@ const mutations = {
       muhaffizh_id: '',
       santri_id: '',
       group_id: '',
+      pekan: '',
+      bulan: '',
     }
   },
   ASSIGN_MUHAFFIZH(state, payload) {

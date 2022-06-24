@@ -23,6 +23,8 @@ class TahsinResource extends JsonResource
             'halaman'               => $this->halaman,
             'group_id'              => $this->group_id,
             'updated_at'            => Carbon::parse($this->updated_at)->format('d, M Y H:i'),
+            'pekan'                 => $this->pekan,
+            'bulan'                 => $this->bulan,
              //from controller
              'list_group'        => $this->listGroup,
              'list_santri'       => $this->listSantri,

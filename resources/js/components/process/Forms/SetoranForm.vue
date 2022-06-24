@@ -48,6 +48,24 @@
         <b-form-invalid-feedback>{{ veeErrors.first('santri') }}</b-form-invalid-feedback>
       </b-form-group>
 
+        <b-form-group label="Bulan" label-cols="3" label-for="bulan">
+            <b-form-select v-model="mutqin.bulan" :options="options_bulan">{{ selected_bulan }}</b-form-select>
+        </b-form-group>
+        
+        <b-form-group label="Pekan ke-" label-cols="3" label-for="pekan">
+        <b-form-input
+          id="pekan"
+          v-model="setoran.pekan"
+          placeholder="Masukan Pekan"
+          name="pekan"
+          v-validate="{ required: true }"
+          :state="validateState('pekan')"
+          data-vv-as="Pekan"
+        >
+        </b-form-input>
+        <b-form-invalid-feedback>{{ veeErrors.first('pekan') }}</b-form-invalid-feedback>
+      </b-form-group>
+
         <b-form-group label="Juz" label-cols="3" label-for="juz">
         <b-form-input
           id="juz"
@@ -149,13 +167,23 @@ export default {
   },
   data() {
       return {
-        selected: 'first',
-        options: [
-          { text: 'Muhaffizh', value: 'Muhaffizh' },
-          { text: 'Santri', value: 'Santri' },
-        ]
+        selected_bulan: null,
+        options_bulan: [
+          { value: 'Januari', text: 'Januari' },
+          { value: 'Febuari', text: 'Febuari' },
+          { value: 'Maret', text: 'Maret' },
+          { value: 'April', text: 'April'},
+          { value: 'Mei', text: 'Mei' },
+          { value: 'Juni', text: 'Juni' },
+          { value: 'Juli', text: 'Juli' },
+          { value: 'September', text: 'September'},
+          { value: 'Agustus', text: 'Agustus' },
+          { value: 'Oktober', text: 'Oktober' },
+          { value: 'November', text: 'November' },
+          { value: 'Desember', text: 'Desember'}
+        ],
       }
-    }
+  },
 };
 
 

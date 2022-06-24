@@ -25,11 +25,12 @@ class TahsinRequest extends FormRequest
     public function rules()
     {
         return [
-            'buku'                   => ['required'],
-            'halaman'                => ['required'],
+            'buku'                  => ['required'],
+            'halaman'               => ['required'],
             'muhaffizh_id'          => ['required'],
             'group_id'              => ['required'],
             'santri_id'             => ['required'],
+            'pekan'                 => ['required'],
         ];
     }
 }

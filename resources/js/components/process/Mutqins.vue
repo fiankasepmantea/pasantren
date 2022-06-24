@@ -142,6 +142,16 @@ export default {
           label: 'Santri'
         },
         {
+          key: "bulan",
+          label: "Bulan",
+          
+        },
+        {
+          key: "pekan",
+          label: "Pekan",
+          
+        },
+        {
           key: "juz",
           label: "Juz",
           
