@@ -880,12 +880,12 @@ __webpack_require__.r(__webpack_exports__);
   }, {
     _name: 'CSidebarNavItem',
     name: 'Muhaffizh',
-    to: '/sales-dashboard',
+    to: '/santri-grafik',
     icon: 'cil-speedometer'
   }, {
     _name: 'CSidebarNavItem',
     name: 'Santri',
-    to: '/production-dashboard',
+    to: '/santri-dashboard',
     icon: 'cil-speedometer'
   }, {
     _name: 'CSidebarNavTitle',

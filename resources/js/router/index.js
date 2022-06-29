@@ -128,13 +128,13 @@ function configRoutes() {
     //Dashboard
     {
       path: '/',
-      redirect: '/sales-dashboard',
+      redirect: '/santri-grafik',
       name: 'Home',
       component: TheContainer,
       children: [
         {
-          path: 'sales-dashboard',
-          name: 'Monitor Penjualan',
+          path: 'santri-grafik',
+          name: 'Monitor Santri',
           component: DSales,
           meta: {
             auth: true,
@@ -142,8 +142,8 @@ function configRoutes() {
           }
         },
         {
-          path: 'production-dashboard',
-          name: 'Monitor Produksi',
+          path: 'santri-dashboard',
+          name: 'Monitor Santri',
           component: DProduction,
           meta: {
             auth: true,
