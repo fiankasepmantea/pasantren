@@ -879,7 +879,7 @@ __webpack_require__.r(__webpack_exports__);
 
   }, {
     _name: 'CSidebarNavItem',
-    name: 'Muhaffizh',
+    name: 'Grafik Santri',
     to: '/santri-grafik',
     icon: 'cil-speedometer'
   }, {

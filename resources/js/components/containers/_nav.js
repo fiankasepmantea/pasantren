@@ -8,7 +8,7 @@ export default [
       },
       {
         _name: 'CSidebarNavItem',
-        name: 'Muhaffizh',
+        name: 'Grafik Santri',
         to: '/santri-grafik',
         icon: 'cil-speedometer',
       },
