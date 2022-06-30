@@ -5,6 +5,7 @@
       <CCardBody style="padding-top:0px;">
       <div class="d-flex justify-content-end">
         <b-button size="sm" variant="success" @click="createModal = true">+ Tambah Tahsin</b-button>
+        <b-button size="sm" variant="info" class="ml-2" @click="uploadModal = true"><font-awesome-icon icon="upload" /> Upload Tahsin</b-button>
       </div>
       <b-row>
           <b-col xl="4" lg="4" md="4" sm="12"
@@ -103,6 +104,24 @@
       <Form />
       </b-modal>
       
+      <b-modal
+        title="Unggah Data Tahsin"
+        v-model="uploadModal"
+        body-class="form-view"
+        centered
+        >
+        <div>
+          <b-form-file
+            v-model="file1"
+            :state="Boolean(file1)"
+            accept=".xls, .xlsx, .csv"
+            placeholder="Pilih file/drag-n-drop..."
+            drop-placeholder="Drop file kesini..."
+          ></b-form-file>
+          <div class="mt-3">File: {{ file1 ? file1.name : '' }}</div>
+        </div>
+      </b-modal>
+
       </CCardBody>
     </CRow>
   </div>
@@ -126,6 +145,8 @@ export default {
     return {
       createModal : false,
       editModal : false,
+      uploadModal : false,
+      file1 : false,
       editedId: null,
       perPage: 20,
       filterModel: {

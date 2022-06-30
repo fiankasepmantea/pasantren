@@ -1,13 +1,20 @@
 <template>
-  <div class="c-app flex-row align-items-center">
+  <div id="login-bg" class="c-app flex-row align-items-center">
     <CContainer>
       <CRow class="justify-content-center">
-        <CCol md="8">
+        <CCol md="6">
           <CCard class="p-4 login-card">
             <CCardBody>
               <CForm class="text-center" @submit.prevent="postLogin">
-                <h2 class="text-muted">LOGIN</h2>
-                <h4 class="custom-login mb-4">PESANTREN</h4>
+                <CRow class="mb-4">
+                  <CCol sm="4">
+                      <CImg src="/assets/images/pesantren.png" :height="84"></CImg>
+                  </CCol>
+                  <CCol sm="6">
+                    <h2 class="text-muted">LOGIN</h2>
+                    <h4 class="custom-login">PESANTREN</h4>
+                  </CCol>
+                </CRow>
                 <CInput
                   placeholder="Username"
                   autocomplete="username"
@@ -53,6 +60,9 @@
     background: linear-gradient(145deg, #ffffff, #e6e6e6);
     box-shadow: 20px 20px 60px #d9d9d9, 
              -20px -20px 60px #ffffff;
+  }
+  #login-bg {
+    background: url('/assets/images/ethnic-floral-seamless-pattern.jpg') repeat;
   }
 </style>
 

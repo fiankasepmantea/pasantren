@@ -37,6 +37,9 @@
           show-empty
         >
           <template #cell(actions)="row">
+              <b-button variant="info" size="sm" @click="handleView(row.item)">
+                View
+              </b-button>
               <b-button variant="success" size="sm" @click="handleEdit(row.item.id)">
                 Edit
               </b-button>
@@ -83,6 +86,15 @@
       >
       <Form />
       </b-modal>
+
+      <b-modal
+      title="Lihat Data Muhaffizh"
+      v-model="viewModal"
+      body-class="form-view"
+      centered
+      >
+      <DataView :items="currentMuhaffizh" />
+      </b-modal>
       
       </CCardBody>
     </CRow>
@@ -92,6 +104,7 @@
 <script>
 import pagetitle from "./PageTitle"
 import Form from './Forms/MuhaffizhForm'
+import DataView from '../parts/PropertyView'
 import { mapActions, mapState } from 'vuex'
 
 export default {
@@ -99,6 +112,7 @@ export default {
   components: {
     pagetitle,
     Form,
+    DataView
   },
   created() {
     this.loadData()
@@ -106,10 +120,12 @@ export default {
   data() {
     return {
       createModal : false,
+      viewModal : false,
       editModal : false,
       editedId: null,
       perPage: 20,
       currentPage: 1,
+      currentMuhaffizh: {},
       pageOptions: [10, 20, 50, 100],
       header: [
         {
@@ -185,6 +201,17 @@ export default {
           this.removeMuhaffizh(id)
         }
       })
+    },
+    handleView(muhaffizh) {
+      this.viewModal = true
+      for(const [k, v] of Object.entries(muhaffizh)) {
+        if(typeof v === 'string' || typeof v === 'number') {
+          if(k.toLowerCase().indexOf('_id')>=0 || k.toLowerCase().indexOf('id_')>=0)
+            continue;
+          this.currentMuhaffizh[k] = v;
+        }
+      };
+      this.currentMuhaffizh.unit = muhaffizh.list_unit.nama;
     },
     handleEdit(id) {
       this.editModal = true

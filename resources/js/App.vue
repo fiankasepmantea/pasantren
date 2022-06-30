@@ -26,7 +26,7 @@ input[type=number]::-webkit-inner-spin-button {
 }
 
 .action-columns {
-  width: 150px;
+  width: 170px;
   text-align: center;
 }
 

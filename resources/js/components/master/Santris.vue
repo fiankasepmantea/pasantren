@@ -37,6 +37,9 @@
           show-empty
         >
           <template #cell(actions)="row">
+              <b-button variant="info" size="sm" @click="handleView(row.item)">
+                View
+              </b-button>
               <b-button variant="success" size="sm" @click="handleEdit(row.item.id)">
                 Edit
               </b-button>
@@ -84,6 +87,15 @@
       <Form />
       </b-modal>
       
+      <b-modal
+      title="Lihat Data Santri"
+      v-model="viewModal"
+      body-class="form-view"
+      centered
+      >
+      <DataView :items="currentSantri" />
+      </b-modal>
+
       </CCardBody>
     </CRow>
   </div>
@@ -92,6 +104,7 @@
 <script>
 import pagetitle from "./PageTitle"
 import Form from './Forms/SantriForm'
+import DataView from '../parts/PropertyView'
 import { mapActions, mapState } from 'vuex'
 
 export default {
@@ -99,6 +112,7 @@ export default {
   components: {
     pagetitle,
     Form,
+    DataView
   },
   created() {
     this.loadData()
@@ -106,10 +120,12 @@ export default {
   data() {
     return {
       createModal : false,
+      viewModal : false,
       editModal : false,
       editedId: null,
       perPage: 20,
       currentPage: 1,
+      currentSantri: {},
       pageOptions: [10, 20, 50, 100],
       header: [
         {
@@ -189,6 +205,20 @@ export default {
           this.removeSantri(id)
         }
       })
+    },
+    handleView(santri) {
+      this.viewModal = true
+      for(const [k, v] of Object.entries(santri)) {
+        if(typeof v === 'string' || typeof v === 'number') {
+          if(k.toLowerCase().indexOf('_id')>=0 || k.toLowerCase().indexOf('id_')>=0)
+            continue;
+          this.currentSantri[k] = v;
+        }
+      };
+      this.currentSantri.group = santri.list_group.nama;
+      this.currentSantri.muhaffizh = santri.list_muhaffizh.nama;
+      this.currentSantri.level = santri.list_level.level;
+      this.currentSantri.grade = santri.list_grade.grade;
     },
     handleEdit(id) {
       this.editModal = true
