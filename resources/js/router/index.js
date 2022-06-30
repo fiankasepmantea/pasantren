@@ -134,7 +134,7 @@ function configRoutes() {
       children: [
         {
           path: 'santri-grafik',
-          name: 'Monitor Santri',
+          name: 'Monitor Grafik Santri',
           component: DSales,
           meta: {
             auth: true,
@@ -143,7 +143,7 @@ function configRoutes() {
         },
         {
           path: 'santri-dashboard',
-          name: 'Monitor Santri',
+          name: 'Monitor Dashboard Santri',
           component: DProduction,
           meta: {
             auth: true,
