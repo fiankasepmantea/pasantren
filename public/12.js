@@ -373,6 +373,25 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -389,6 +408,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     return {
       createModal: false,
       editModal: false,
+      uploadModal: false,
+      file1: false,
       editedId: null,
       perPage: 20,
       filterModel: {
@@ -980,6 +1001,24 @@ var render = function() {
                       }
                     },
                     [_vm._v("+ Tambah Tahsin")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "b-button",
+                    {
+                      staticClass: "ml-2",
+                      attrs: { size: "sm", variant: "info" },
+                      on: {
+                        click: function($event) {
+                          _vm.uploadModal = true
+                        }
+                      }
+                    },
+                    [
+                      _c("font-awesome-icon", { attrs: { icon: "upload" } }),
+                      _vm._v(" Upload Tahsin")
+                    ],
+                    1
                   )
                 ],
                 1
@@ -1203,6 +1242,53 @@ var render = function() {
                 },
                 [_c("Form")],
                 1
+              ),
+              _vm._v(" "),
+              _c(
+                "b-modal",
+                {
+                  attrs: {
+                    title: "Unggah Data Tahsin",
+                    "body-class": "form-view",
+                    centered: ""
+                  },
+                  model: {
+                    value: _vm.uploadModal,
+                    callback: function($$v) {
+                      _vm.uploadModal = $$v
+                    },
+                    expression: "uploadModal"
+                  }
+                },
+                [
+                  _c(
+                    "div",
+                    [
+                      _c("b-form-file", {
+                        attrs: {
+                          state: Boolean(_vm.file1),
+                          accept: ".xls, .xlsx, .csv",
+                          placeholder: "Pilih file/drag-n-drop...",
+                          "drop-placeholder": "Drop file kesini..."
+                        },
+                        model: {
+                          value: _vm.file1,
+                          callback: function($$v) {
+                            _vm.file1 = $$v
+                          },
+                          expression: "file1"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "mt-3" }, [
+                        _vm._v(
+                          "File: " + _vm._s(_vm.file1 ? _vm.file1.name : "")
+                        )
+                      ])
+                    ],
+                    1
+                  )
+                ]
               )
             ],
             1

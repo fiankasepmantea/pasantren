@@ -82,6 +82,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Login",
@@ -157,7 +167,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.login-card {\n  background: linear-gradient(145deg, #ffffff, #e6e6e6);\n  box-shadow: 20px 20px 60px #d9d9d9, \n           -20px -20px 60px #ffffff;\n}\n", ""]);
+exports.push([module.i, "\n.login-card {\n  background: linear-gradient(145deg, #ffffff, #e6e6e6);\n  box-shadow: 20px 20px 60px #d9d9d9, \n           -20px -20px 60px #ffffff;\n}\n#login-bg {\n  background: url('/assets/images/ethnic-floral-seamless-pattern.jpg') repeat;\n}\n", ""]);
 
 // exports
 
@@ -211,7 +221,10 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "c-app flex-row align-items-center" },
+    {
+      staticClass: "c-app flex-row align-items-center",
+      attrs: { id: "login-bg" }
+    },
     [
       _c(
         "CContainer",
@@ -222,7 +235,7 @@ var render = function() {
             [
               _c(
                 "CCol",
-                { attrs: { md: "8" } },
+                { attrs: { md: "6" } },
                 [
                   _c(
                     "CCard",
@@ -243,13 +256,36 @@ var render = function() {
                               }
                             },
                             [
-                              _c("h2", { staticClass: "text-muted" }, [
-                                _vm._v("LOGIN")
-                              ]),
-                              _vm._v(" "),
-                              _c("h4", { staticClass: "custom-login mb-4" }, [
-                                _vm._v("PESANTREN")
-                              ]),
+                              _c(
+                                "CRow",
+                                { staticClass: "mb-4" },
+                                [
+                                  _c(
+                                    "CCol",
+                                    { attrs: { sm: "4" } },
+                                    [
+                                      _c("CImg", {
+                                        attrs: {
+                                          src: "/assets/images/pesantren.png",
+                                          height: 84
+                                        }
+                                      })
+                                    ],
+                                    1
+                                  ),
+                                  _vm._v(" "),
+                                  _c("CCol", { attrs: { sm: "6" } }, [
+                                    _c("h2", { staticClass: "text-muted" }, [
+                                      _vm._v("LOGIN")
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("h4", { staticClass: "custom-login" }, [
+                                      _vm._v("PESANTREN")
+                                    ])
+                                  ])
+                                ],
+                                1
+                              ),
                               _vm._v(" "),
                               _c("CInput", {
                                 attrs: {
