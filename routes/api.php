@@ -53,5 +53,7 @@ Route::group(['namespace' => 'Api'], function () {
         Route::apiResources(['mutqin' => 'MutqinController']);
         Route::apiResources(['setoran' => 'SetoranController']); 
         Route::apiResources(['tahsin' => 'TahsinController']); 
+
+        Route::post('/setoran/upload', 'SetoranController@uploadSetoran');
     }); 
 });

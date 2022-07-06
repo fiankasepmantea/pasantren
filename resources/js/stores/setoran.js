@@ -214,6 +214,19 @@ const actions = {
         
     })
   },
+  uploadSetoran(file) {
+    /*$axios.interceptors.request.use(config => {
+      config.headers.put['Content-Type'] = 'multipart/form-data';
+      return config;
+    });*/
+    let formData = new FormData();
+    formData.append("file_setoran", file);
+    return $axios.post(`/setoran/upload`, formData, {
+      headers: {
+        "Content-Type": "multipart/form-data"
+      }
+    });
+  },
 }
 
 export default { 

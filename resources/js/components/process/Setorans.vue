@@ -108,9 +108,11 @@
       <b-modal
         title="Unggah Data Setoran"
         v-model="uploadModal"
+        @ok="handleUpload"
         body-class="form-view"
         centered
         >
+        <b-form @submit.stop.prevent="">
         <div>
           <b-form-file
             v-model="file1"
@@ -121,6 +123,7 @@
           ></b-form-file>
           <div class="mt-3">File: {{ file1 ? file1.name : '' }}</div>
         </div>
+        </b-form>
       </b-modal>
     
       </CCardBody>
@@ -147,7 +150,7 @@ export default {
       createModal : false,
       editModal : false,
       uploadModal : false,
-      file1 : false,
+      file1 : undefined,
       editedId: null,
       perPage: 20,
       filterModel: {
@@ -226,7 +229,7 @@ export default {
     }),
   },
   methods: {
-    ...mapActions('setoran', ['getSetorans', 'removeSetoran', 'editSetoran', 'updateSetoran', 'submitSetoran']),
+    ...mapActions('setoran', ['getSetorans', 'removeSetoran', 'editSetoran', 'updateSetoran', 'submitSetoran','uploadSetoran']),
     async loadData(params=null) {
       this.$store.commit('loadingOn')
       // setTimeout(() => {
@@ -290,6 +293,12 @@ export default {
         message: 'Data setoran gagal untuk ditambahkan..'
       })
       })
+    },
+    handleUpload() {
+      console.log(this.file1);
+      this.uploadSetoran(this.file1)
+        .then(response => { console.log(response.data); })
+        .catch((e) => { console.log(e); })
     }
   }
 };
