@@ -77,24 +77,24 @@ export default [
       {
         _name: 'CSidebarNavDropdown',
         name: 'Laporan',
-        route: '/master',
+        route: '/laporan',
         icon: 'cil-book',
         items: [
           {
             name: 'List Group/Halaqoh',
-            to: '/master/users'
+            to: '/laporan/halaqoh'
           },   
           {
             name: 'List Muhaffizh',
-            to: '/master/units'
+            to: '/laporan/muhaffizh'
           },
           {
             name: 'List Santri',
-            to: '/master/units'
+            to: '/laporan/santri'
           },
           {
-            name: 'List Data AlQuran Santri',
-            to: '/master/units'
+            name: 'Setoran Juz',
+            to: '/laporan/setoran'
           },
         ]
       }

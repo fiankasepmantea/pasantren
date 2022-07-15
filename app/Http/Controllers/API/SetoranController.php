@@ -10,6 +10,7 @@ use App\Http\Resources\SetoranResource as ModelResource;
 use App\Models\Group;
 use App\Models\Santri;
 use App\Models\Muhaffizh;
+use XLSXWriter;
 
 class SetoranController extends Controller
 {
@@ -81,30 +82,48 @@ class SetoranController extends Controller
 
     public function uploadSetoran(Request $request) {
         $file = $request->file('file_setoran');
+        // TODO: detect mime (xls/xlsx/csv), parse file, process each row, rev.lookup string to id, insert to db..
 
-        return response()->json(['status'=>'success','data'=>print_r($file,true)]);
-
-        /*//Display File Name
-        echo 'File Name: '.$file->getClientOriginalName();
-        echo '<br>';
-
-        //Display File Extension
-        echo 'File Extension: '.$file->getClientOriginalExtension();
-        echo '<br>';
-
-        //Display File Real Path
-        echo 'File Real Path: '.$file->getRealPath();
-        echo '<br>';
-
-        //Display File Size
-        echo 'File Size: '.$file->getSize();
-        echo '<br>';
-
-        //Display File Mime Type
-        echo 'File Mime Type: '.$file->getMimeType();
+        return response()->json(['status'=>'success','data'=>
+            ["FileName" => $file->getClientOriginalName(),
+            "FileExtension" => $file->getClientOriginalExtension(),
+            "FileRealPath" => $file->getRealPath(),
+            "FileSize" => $file->getSize(),
+            "FileMimeType" => $file->getMimeType()]
+        ]);
 
         //Move Uploaded File
-        $destinationPath = 'uploads';
-        $file->move($destinationPath,$file->getClientOriginalName());*/
+        // $destinationPath = 'uploads';
+        // $file->move($destinationPath,$file->getClientOriginalName());
+    }
+
+    public function xlsSetoran(Request $req) 
+    {
+        $model = new Model();
+        $xw = new XLSXWriter();
+        $ws = "Sheet1";
+
+        $columns = array('Juz'=>'juz','Jml.Santri'=>'count_santri');
+        $widths = array(8,16);
+        $records = $model->getReportJmlSantriPerJuz();
+        // return response(print_r($records,true),500);
+        
+        $formats = array_fill(0,count($columns),"GENERAL");
+        $style = array("border-style"=>"thin","border"=>"left,right,top,bottom");
+        $style_h = array("font-style"=>"bold","border-style"=>"thin","border"=>"left,right,top,bottom","format"=>"GENERAL");
+        $xw->writeSheetHeader($ws,$formats,array('suppress_row'=>true,'widths'=>$widths));
+        $xw->writeSheetRow($ws,array_keys($columns),$style_h);
+        
+        foreach ($records as $i => $rec) {
+            $row = array();
+            foreach ($columns as $key => $field) {
+                $row[$key] = $rec->$field;
+            }
+            $xw->writeSheetRow($ws, $row, $style);
+        }
+        return response($xw->writeToString())
+            ->header('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
+            ->header('Content-disposition', "attachment; filename=laporan_setoran.xlsx")
+        ;
     }
 }

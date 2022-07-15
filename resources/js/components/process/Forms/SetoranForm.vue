@@ -132,6 +132,9 @@ export default {
       setoran_santri: (state) => state.setoran_santri,
       setoran_muhaffizh: (state) => state.setoran_muhaffizh,
     }),
+    ...mapState("mutqin", {
+      mutqin: (state) => state.mutqin,
+    }),
   },
   watch: {
       return(){

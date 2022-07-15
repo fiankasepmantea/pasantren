@@ -295,10 +295,18 @@ export default {
       })
     },
     handleUpload() {
-      console.log(this.file1);
-      this.uploadSetoran(this.file1)
-        .then(response => { console.log(response.data); })
-        .catch((e) => { console.log(e); })
+      let formData = new FormData();
+      formData.append("file_setoran", this.file1);
+      return fetch('/api/setoran/upload', {
+        method: 'POST',
+        body: formData,
+        headers: { Authorization: 'Bearer ' + localStorage.getItem('token') }
+      }).then((response) => response.json())
+        .then((result) => {
+          console.log(result);
+        }).catch((err) => {
+          console.log(err);
+        });
     }
   }
 };
