@@ -95,4 +95,12 @@ class Setoran extends Model
     public function filterSantri(){
         return $this->belongsTo(Santri::class,'santri_id','id');
     }
+
+    public function getReportJmlSantriPerJuz() {
+        return static::query()
+            ->select('juz')
+            ->selectRaw('COUNT(santri_id) AS count_santri')
+            ->groupBy('juz')
+            ->get();
+    }
 }

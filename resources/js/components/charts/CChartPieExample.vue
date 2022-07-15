@@ -1,7 +1,7 @@
 <template>
   <CChartPie
     :datasets="defaultDatasets"
-    :labels="['Sales 1', 'Sales 2']"
+    :labels="['Santri 1', 'Santri 2']"
   />
 </template>
 

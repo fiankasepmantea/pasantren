@@ -12,6 +12,7 @@ const state = () => ({
     alamat: '',
     tempat_lahir: '',
     tanggal_lahir:'',
+    gender: '',
     no_hp: '',
     nama_ibu:'',
     nama_ayah:'',
@@ -26,6 +27,7 @@ const state = () => ({
   santri_group: [],
   santri_grade: [],
   santri_level: [],
+  santri_gender: ['Laki','Perempuan'],
 })
 
 const mutations = {
@@ -42,6 +44,7 @@ const mutations = {
       alamat: payload.alamat,
       tempat_lahir: payload.tempat_lahir,
       tanggal_lahir: payload.tanggal_lahir,
+      gender: payload.gender,
       no_hp: payload.no_hp,
       mulai_belajar: payload.mulai_belajar,
       angkatan_kelas: payload.angkatan_kelas,
@@ -61,6 +64,7 @@ const mutations = {
       alamat: '',
       tempat_lahir: '',
       tanggal_lahir: '',
+      gender: '',
       no_hp: '',
       mulai_belajar: '',
       angkatan_kelas: '',

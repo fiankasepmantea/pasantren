@@ -66,4 +66,29 @@ class Muhaffizh extends Model
     public function listUnit(){
         return $this->belongsTo(Unit::class,'unit_id','id');
     }
+
+    public function getReportDetail() {
+        return static::query()
+            ->select('muhaffizhs.nama','units.nama AS nama_unit','nomor_induk')
+            ->join('units','units.id','=','muhaffizhs.unit_id')
+            ->get();
+    }
+
+    public function getReportJmlPerUnit() {
+        return static::query()
+            ->select('units.nama AS nama_unit')
+            ->selectRaw('COUNT(muhaffizhs.id) AS count_muhaffizh')
+            ->join('units','units.id','=','muhaffizhs.unit_id')
+            ->groupBy('nama_unit')
+            ->get();
+    }
+
+    public function getReportJmlSantri() {
+        return static::query()
+            ->select('muhaffizhs.nama')
+            ->selectRaw('COUNT(santris.id) AS count_santri')
+            ->join('santris','muhaffizhs.id','=','santris.muhaffizh_id')
+            ->groupBy('muhaffizhs.nama')
+            ->get();
+    }
 }
