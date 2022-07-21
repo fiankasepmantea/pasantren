@@ -300,11 +300,17 @@ export default {
       return fetch('/api/setoran/upload', {
         method: 'POST',
         body: formData,
-        headers: { Authorization: 'Bearer ' + localStorage.getItem('token') }
+        headers: { Accept: 'application/json', Authorization: 'Bearer ' + localStorage.getItem('token') }
       }).then((response) => response.json())
         .then((result) => {
-          console.log(result);
+          if(!result.success) {
+            this.$toasted.global.failed_toast(result);
+          } else {
+            this.$toasted.global.success_toast(result);
+            this.loadData();
+          }
         }).catch((err) => {
+          this.$toasted.global.failed_toast({message:'Error upload file'});
           console.log(err);
         });
     }

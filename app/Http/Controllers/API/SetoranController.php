@@ -11,6 +11,7 @@ use App\Models\Group;
 use App\Models\Santri;
 use App\Models\Muhaffizh;
 use XLSXWriter;
+use Aspera\Spreadsheet\XLSX\Reader;
 
 class SetoranController extends Controller
 {
@@ -80,21 +81,99 @@ class SetoranController extends Controller
         return response()->json(['status' => 'success', 'data' => $santri]);
     }
 
-    public function uploadSetoran(Request $request) {
+    public function uploadSetoran(Request $request, Model $setoran) {
+        $request->validate(['file_setoran'=>'mimes:xlsx']);
+        $result = array('success'=>false,'message'=>'','errors'=>array());
+        
         $file = $request->file('file_setoran');
-        // TODO: detect mime (xls/xlsx/csv), parse file, process each row, rev.lookup string to id, insert to db..
+        // $result["FileRealPath"] = $file->getRealPath();
+        // Parse xlsx file
+        $xr = new Reader();
+        $xr->open($file->getRealPath());
 
-        return response()->json(['status'=>'success','data'=>
-            ["FileName" => $file->getClientOriginalName(),
-            "FileExtension" => $file->getClientOriginalExtension(),
-            "FileRealPath" => $file->getRealPath(),
-            "FileSize" => $file->getSize(),
-            "FileMimeType" => $file->getMimeType()]
-        ]);
+        if(!$xr->valid()) {
+            $result['message'] = "File kosong/tidak ada baris untuk diproses";
+            return response()->json($result);
+        }
 
-        //Move Uploaded File
-        // $destinationPath = 'uploads';
-        // $file->move($destinationPath,$file->getClientOriginalName());
+        $mandatory = ['santri','bulan','pekan','juz','halaman','baris','group','muhaffizh'];
+        $head = $xr->current();
+        foreach ($head as &$field) {
+            $field = strtolower($field);
+        }
+        $fields = $rec = array();
+        foreach ($mandatory as $field) {
+            $i = array_search($field, $head);
+            if($i === false) {
+                $result['message'] = "File Excel harus memiliki kolom: ".$field;
+                return response()->json($result);
+            }
+            $fields[$i] = $field;
+            $rec[$field] = '';
+        }
+
+        // Process parsed row, reverse lookup string to id, validate relations, insert to db..
+        $success = $with_error = $failed = 0; 
+        foreach($xr as $i => $row) {
+            if($i<=1) continue; // skip header
+            $newrec = array();
+            $errors = '';
+            foreach ($fields as $k => $f) {
+                $rec[$f] = trim($row[$k]);
+                // collect non id field values
+                if(!in_array($f, ['santri','group','muhaffizh'])) 
+                    $newrec[$f] = $row[$k];
+            }
+
+            $muhaffizh = Muhaffizh::where('nama','LIKE',"%{$rec['muhaffizh']}%")->first();
+            if(!$muhaffizh) {
+                $newrec['muhaffizh_id'] = null;
+                $errors.= "WARNING: Nama muhaffizh {$rec['muhaffizh']} tidak ditemukan.\r\n";
+                // Percuma diterusin juga, santri & groupnya gak bakal ketemu..
+                $failed++;
+                $result['errors'][$i] = $errors;
+                continue;
+            }
+            else $newrec['muhaffizh_id'] = $muhaffizh->id;
+
+            $santri = Santri::where([
+                    ['nama','LIKE',"%{$rec['santri']}%"],
+                    ['muhaffizh_id',$newrec['muhaffizh_id']]
+                ])->first();
+            if(!$santri) {
+                $newrec['santri_id'] = null;
+                $errors.= "WARNING: Nama santri {$rec['santri']}"
+                    ." dibawah muhaffizh {$rec['muhaffizh']} tidak ditemukan.\r\n";
+            }
+            else $newrec['santri_id'] = $santri->id;
+
+            $group = Group::where([
+                ['nama','LIKE',"%{$rec['group']}%"],
+                ['muhaffizh_id',$newrec['muhaffizh_id']]
+            ])->first();
+            if(!$group) {
+                $newrec['group_id'] = null;
+                $errors.= "WARNING: Nama group {$rec['group']}"
+                    ." kelompok muhaffizh {$rec['muhaffizh']} tidak ditemukan.\r\n";
+            }
+            else $newrec['group_id'] = $group->id;
+
+            if($setoran->saveModel($newrec)) {
+                $success++;
+                if(!empty($errors)) {
+                    $result['errors'][$i] = $errors;
+                    $with_error++;
+                }
+            } else {
+                $failed++;
+            }
+
+            $result['debug'][] = $newrec;
+        }
+        $result['message'] = "Upload sukses: $success terimport ($with_error dgn error), $failed gagal";
+        $result['success'] = true;
+
+        return response()->json($result);
     }
 
     public function xlsSetoran(Request $req) 

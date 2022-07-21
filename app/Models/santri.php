@@ -100,7 +100,8 @@ class Santri extends Model
                 ,CONCAT(SUM(mutqins.juz),' Juz',SUM(mutqins.halaman),' Hal.') AS mutqin
                 ,CONCAT(SUM(mutqins.baris),' Baris') AS buku
             ")
-            ->join('units','units.id','=','santris.unit_id')
+            ->join('muhaffizhs','muhaffizhs.id','=','santris.muhaffizh_id')
+            ->join('units','units.id','=','muhaffizhs.unit_id')
             ->leftJoin('mutqins','santris.id','=','mutqins.santri_id')
             ->groupBy("santris.nama","nomor_induk","nama_unit")
             ->get();
@@ -110,7 +111,8 @@ class Santri extends Model
         return static::query()
             ->select('units.nama AS nama_unit')
             ->selectRaw('COUNT(santris.id) AS count_santri')
-            ->join('units','units.id','=','santris.unit_id')
+            ->join('muhaffizhs','muhaffizhs.id','=','santris.muhaffizh_id')
+            ->join('units','units.id','=','muhaffizhs.unit_id')
             ->groupBy('nama_unit')
             ->get();
     }
