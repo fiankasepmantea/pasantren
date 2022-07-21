@@ -67,8 +67,8 @@ class Group extends Model
             ->select('groups.nama','units.nama AS nama_unit','muhaffizhs.nama AS nama_muhaffizh')
             ->selectRaw('COUNT(santris.id) AS count_santri')
             ->join('santris','santris.group_id','=','groups.id')
-            ->join('units','units.id','=','groups.unit_id')
             ->join('muhaffizhs','muhaffizhs.id','=','groups.muhaffizh_id')
+            ->join('units','units.id','=','muhaffizhs.unit_id')
             ->groupBy('groups.nama','nama_unit','nama_muhaffizh')
             ->get();
     }
@@ -77,7 +77,8 @@ class Group extends Model
         return static::query()
             ->select('units.nama AS nama_unit')
             ->selectRaw('COUNT(groups.id) AS count_group')
-            ->join('units','units.id','=','groups.unit_id')
+            ->join('muhaffizhs','muhaffizhs.id','=','groups.muhaffizh_id')
+            ->join('units','units.id','=','muhaffizhs.unit_id')
             ->groupBy('nama_unit')
             ->get();
     }
