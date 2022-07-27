@@ -9,6 +9,7 @@ use App\Http\Requests\MuhaffizhRequest as ModelRequest;
 use App\Http\Resources\MuhaffizhResource as ModelResource;
 use App\Models\Unit;
 use App\Models\Group;
+use XLSXWriter;
 
 class MuhaffizhController extends Controller
 {
@@ -53,5 +54,47 @@ class MuhaffizhController extends Controller
         $unit = Unit::orderBy('nama', 'ASC')->get(); 
         return response()->json(['status' => 'success', 'data' => $unit]);
     }
-     
+    
+    public function xlsMuhaffizh(Request $req, $jenis = 'detail') 
+    {
+        $model = new Model();
+        $xw = new XLSXWriter();
+        $ws = "Sheet1";
+
+        switch($jenis) {
+            case 'jml_per_unit': // Muhaffizh per unit (Unit, Jml.Muhaffizh)
+                $columns = array('No'=>'','Unit'=>'nama_unit','Jml.Muhaffizh'=>'count_muhaffizh');
+                $widths = array(5,20,8);
+                $records = $model->getReportJmlPerUnit();
+            break;
+            case 'jml_santri': // Muhaffizh per Jml.Santri (Muhaffizh, Jml.Santri)
+                $columns = array('No'=>'','Muhaffizh'=>'nama','Jml.Santri'=>'count_santri');
+                $widths = array(5,20,8);
+                $records = $model->getReportJmlSantri();
+            break;
+            default: // Muhaffizh per org (Nama, Unit, Nik)
+                $columns = array('No'=>'','Nama'=>'nama','Unit'=>'nama_unit','NIK'=>'nomor_induk');
+                $widths = array(5,20,20,10);
+                $records = $model->getReportDetail();
+        }
+        // return response(print_r($records,true),500);
+        
+        $formats = array_fill(0,count($columns),"GENERAL");
+        $style = array("border-style"=>"thin","border"=>"left,right,top,bottom");
+        $style_h = array("font-style"=>"bold","border-style"=>"thin","border"=>"left,right,top,bottom","format"=>"GENERAL");
+        $xw->writeSheetHeader($ws,$formats,array('suppress_row'=>true,'widths'=>$widths));
+        $xw->writeSheetRow($ws,array_keys($columns),$style_h);
+        
+        foreach ($records as $i => $rec) {
+            $row = array('no'=>$i+1);
+            foreach ($columns as $key => $field) {
+                if(!empty($field)) $row[$key] = $rec->$field;
+            }
+            $xw->writeSheetRow($ws, $row, $style);
+        }
+        return response($xw->writeToString())
+            ->header('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
+            ->header('Content-disposition', "attachment; filename=laporan_muhaffizh_$jenis.xlsx")
+        ;
+    }
 }

@@ -11,6 +11,7 @@ use App\Models\Muhaffizh;
 use App\Models\Group;
 use App\Models\Grade;
 use App\Models\LevelSantri;
+use XLSXWriter;
 
 class SantriController extends Controller
 {
@@ -79,5 +80,49 @@ class SantriController extends Controller
     {
         $level = LevelSantri::orderBy('level', 'ASC')->get(); 
         return response()->json(['status' => 'success', 'data' => $level]);
+    }
+
+    public function xlsSantri(Request $req, $jenis = 'detail') 
+    {
+        $model = new Model();
+        $xw = new XLSXWriter();
+        $ws = "Sheet1";
+
+        switch($jenis) {
+            case 'jml_per_unit': // santri per unit (Unit, Jml.santri)
+                $columns = array('No'=>'','Unit'=>'nama_unit','Jml.santri'=>'count_santri');
+                $widths = array(5,20,8);
+                $records = $model->getReportJmlPerUnit();
+            break;
+            case 'jml_per_gender':
+                $columns = array('No'=>'','Gender'=>'gender','Jml.Santri'=>'count_santri');
+                $widths = array(5,20,8);
+                $records = $model->getReportPerGender();
+            break;
+            default: // Group per nama santri (Nama, Nik, Unit, hapalan , mutqin, buku)
+                $columns = array('No'=>'','Nama'=>'nama','NIK'=>'nomor_induk','Unit'=>'nama_unit'
+                    ,'Hapalan'=>'hapalan','Mutqin'=>'mutqin','Buku'=>'buku');
+                $widths = array(5,20,10,20,20,16);
+                $records = $model->getReportDetail();
+        }
+        // return response(print_r($records,true),500);
+        
+        $formats = array_fill(0,count($columns),"GENERAL");
+        $style = array("border-style"=>"thin","border"=>"left,right,top,bottom");
+        $style_h = array("font-style"=>"bold","border-style"=>"thin","border"=>"left,right,top,bottom","format"=>"GENERAL");
+        $xw->writeSheetHeader($ws,$formats,array('suppress_row'=>true,'widths'=>$widths));
+        $xw->writeSheetRow($ws,array_keys($columns),$style_h);
+        
+        foreach ($records as $i => $rec) {
+            $row = array('no'=>$i+1);
+            foreach ($columns as $key => $field) {
+                if(!empty($field)) $row[$key] = $rec->$field;
+            }
+            $xw->writeSheetRow($ws, $row, $style);
+        }
+        return response($xw->writeToString())
+            ->header('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
+            ->header('Content-disposition', "attachment; filename=laporan_santri_$jenis.xlsx")
+        ;
     }
 }

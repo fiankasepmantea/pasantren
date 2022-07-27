@@ -60,6 +60,21 @@
         <b-form-invalid-feedback>{{ veeErrors.first('nama') }}</b-form-invalid-feedback>
       </b-form-group>
 
+      <b-form-group label="Gender" label-cols="3" label-for="gender">
+        <b-form-select
+          id="gender"
+          v-model="santri.gender"
+          :options="santri_gender"
+          placeholder="Jenis Kelamin"
+          name="gender"
+          v-validate="{ required: true }"
+          :state="validateState('gender')"
+          data-vv-as="Gender"
+        >
+        </b-form-select>
+        <b-form-invalid-feedback>{{ veeErrors.first('level') }}</b-form-invalid-feedback>
+      </b-form-group>
+
       <b-form-group label="Alamat" label-cols="3" label-for="alamat">
         <b-form-textarea
           id="alamat"
@@ -226,6 +241,7 @@ export default {
       santri_group: (state) => state.santri_group,
       santri_grade: (state) => state.santri_grade,
       santri_level: (state) => state.santri_level,
+      santri_gender: (state) => state.santri_gender,
     }),
   },
   methods: {

@@ -29,6 +29,11 @@ const Santri = () => import('../components/master/Santris')
 const Mutqin = () => import('../components/process/Mutqins')
 const Setoran = () => import('../components/process/Setorans')
 const Tahsin = () => import('../components/process/Tahsins')
+// Laporan
+const Halaqoh = () => import('../components/laporan/Halaqoh')
+const MuhaffizhRpt = () => import('../components/laporan/Muhaffizh')
+const SantriRpt = () => import('../components/laporan/Santri')
+const SetoranRpt = () => import('../components/laporan/Setoran')
 
 Vue.use(Router)
 
@@ -165,6 +170,39 @@ function configRoutes() {
           meta: {
             auth: true
           }
+        },
+      ]
+    },
+    // LAPORAN
+    {
+      path: '/laporan',
+      redirect: '/laporan',
+      name: 'Laporan',
+      component: TheContainer,
+      children: [
+        {
+          path: 'halaqoh',
+          name: 'Halaqoh',
+          component: Halaqoh,
+          meta: { title: 'Laporan List Group/Halaqoh', auth: true }
+        },
+        {
+          path: 'muhaffizh',
+          name: 'MuhaffizhRpt',
+          component: MuhaffizhRpt,
+          meta: { title: 'Laporan List Muhaffizh', auth: true }
+        },
+        {
+          path: 'santri',
+          name: 'SantriRpt',
+          component: SantriRpt,
+          meta: { title: 'Laporan List Santri', auth: true }
+        },
+        {
+          path: 'setoran',
+          name: 'SetoranRpt',
+          component: SetoranRpt,
+          meta: { title: 'Laporan Setoran Juz', auth: true }
         },
       ]
     },

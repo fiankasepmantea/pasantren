@@ -21,6 +21,7 @@ class SantriResource extends JsonResource
             'alamat'                => $this->alamat,
             'tempat_lahir'          => $this->tempat_lahir,
             'tanggal_lahir'         => $this->tanggal_lahir,
+            'gender'                => $this->gender,
             'no_hp'                 => $this->no_hp,
             'mulai_belajar'         => $this->mulai_belajar,
             'angkatan_kelas'        => $this->angkatan_kelas,

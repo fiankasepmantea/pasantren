@@ -44,6 +44,9 @@ Route::group(['namespace' => 'Api'], function () {
         Route::get('/tahsin/tahsingroup', 'TahsinController@getTahsinGroup');
         Route::get('/tahsin/tahsinsantri', 'TahsinController@getTahsinSantri');
         Route::get('/tahsin/tahsinmuhaffizh', 'TahsinController@getTahsinMuhaffizh');
+        Route::get('/laporan/group/{jenis?}', 'GroupController@xlsGroup');
+        Route::get('/laporan/muhaffizh/{jenis?}', 'MuhaffizhController@xlsMuhaffizh');
+        Route::get('/laporan/santri/{jenis?}', 'SantriController@xlsSantri');
         
         Route::apiResources(['user' => 'UserController']);
         Route::apiResources(['group' => 'GroupController']);
@@ -53,5 +56,8 @@ Route::group(['namespace' => 'Api'], function () {
         Route::apiResources(['mutqin' => 'MutqinController']);
         Route::apiResources(['setoran' => 'SetoranController']); 
         Route::apiResources(['tahsin' => 'TahsinController']); 
+
+        Route::post('/setoran/upload', 'SetoranController@uploadSetoran');
+        Route::post('/laporan/setoran', 'SetoranController@xlsSetoran');
     }); 
 });

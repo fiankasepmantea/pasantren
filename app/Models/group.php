@@ -52,4 +52,43 @@ class Group extends Model
     public function listMuhaffizh(){
         return $this->belongsTo(Muhaffizh::class,'muhaffizh_id','id');
     }
+
+    // Report Group Detail
+    /* SELECT groups.nama AS Nama,COUNT(santris.id) AS `Jml.Santri`
+            ,units.nama AS Unit
+            ,muhaffizhs.nama AS Muhaffizh
+        FROM groups
+        JOIN santris ON groups.id = santris.group_id
+        JOIN units ON units.id = groups.unit_id
+        JOIN muhaffizhs ON muhaffizhs.id = groups.muhaffizh_id
+        GROUP BY Nama,Unit,Muhaffizh; */
+    public function getReportDetail() {
+        return static::query()
+            ->select('groups.nama','units.nama AS nama_unit','muhaffizhs.nama AS nama_muhaffizh')
+            ->selectRaw('COUNT(santris.id) AS count_santri')
+            ->join('santris','santris.group_id','=','groups.id')
+            ->join('muhaffizhs','muhaffizhs.id','=','groups.muhaffizh_id')
+            ->join('units','units.id','=','muhaffizhs.unit_id')
+            ->groupBy('groups.nama','nama_unit','nama_muhaffizh')
+            ->get();
+    }
+
+    public function getReportPerUnit() {
+        return static::query()
+            ->select('units.nama AS nama_unit')
+            ->selectRaw('COUNT(groups.id) AS count_group')
+            ->join('muhaffizhs','muhaffizhs.id','=','groups.muhaffizh_id')
+            ->join('units','units.id','=','muhaffizhs.unit_id')
+            ->groupBy('nama_unit')
+            ->get();
+    }
+
+    public function getReportPerMuhaffizh() {
+        return static::query()
+            ->select('muhaffizhs.nama AS nama_muhaffizh')
+            ->selectRaw('COUNT(groups.id) AS count_group')
+            ->join('muhaffizhs','muhaffizhs.id','=','groups.muhaffizh_id')
+            ->groupBy('muhaffizhs.nama')
+            ->get();
+    }
 }
