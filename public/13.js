@@ -415,6 +415,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 
 
@@ -1372,6 +1373,12 @@ var render = function() {
                       _c(
                         "div",
                         [
+                          _c(
+                            "CLink",
+                            { attrs: { href: "/docs/template_setoran.xlsx" } },
+                            [_vm._v("Download Template")]
+                          ),
+                          _vm._v(" "),
                           _c("b-form-file", {
                             attrs: {
                               state: Boolean(_vm.file1),

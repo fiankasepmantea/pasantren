@@ -71,12 +71,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var _this = this;
 
       return new Promise(function (resolve, reject) {
-        localStorage.removeItem('token'); //MENGHAPUS TOKEN DARI LOCALSTORAGE
-
+        localStorage.clear();
         resolve();
       }).then(function () {
         //MEMPERBAHARUI STATE TOKEN
-        _this.$store.state.token = localStorage.getItem('token');
+        _this.$store.state.token = null;
 
         _this.$router.push('/login'); //REDIRECT KE PAGE LOGIN
 

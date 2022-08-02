@@ -143,12 +143,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var _this = this;
 
       return new Promise(function (resolve, reject) {
-        localStorage.removeItem('token'); //MENGHAPUS TOKEN DARI LOCALSTORAGE
-
+        localStorage.clear();
         resolve();
       }).then(function () {
         //MEMPERBAHARUI STATE TOKEN
-        _this.$store.state.token = localStorage.getItem('token');
+        _this.$store.state.token = null;
 
         _this.$router.push('/login'); //REDIRECT KE PAGE LOGIN
 
@@ -168,7 +167,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _nav__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./_nav */ "./resources/js/components/containers/_nav.js");
 //
 //
 //
@@ -218,10 +216,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
+// import nav from './_nav'
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'TheSidebar',
-  nav: _nav__WEBPACK_IMPORTED_MODULE_0__["default"],
+  // nav,
   computed: {
     show: function show() {
       return this.$store.state.sidebarShow;
@@ -229,6 +227,67 @@ __webpack_require__.r(__webpack_exports__);
     minimize: function minimize() {
       return this.$store.state.sidebarMinimize;
     }
+  },
+  data: function data() {
+    var sessdata = JSON.parse(localStorage.getItem('sessdata'));
+    var childs = [];
+
+    if (sessdata) {
+      sessdata.menu.forEach(function (m) {
+        switch (m.sublevel) {
+          case 0:
+            childs.push({
+              _id: m.id,
+              _name: 'CSidebarNavTitle',
+              _children: [m.title]
+            });
+            break;
+
+          case 1:
+            if (m.path) {
+              childs.push({
+                _id: m.id,
+                _name: 'CSidebarNavItem',
+                name: m.title,
+                to: m.path,
+                icon: m.icon
+              });
+            } else {
+              childs.push({
+                _id: m.id,
+                _name: 'CSidebarNavDropdown',
+                name: m.title,
+                icon: m.icon,
+                items: []
+              });
+            }
+
+            break;
+
+          case 2:
+            var parent_idx = childs.findIndex(function (c) {
+              return c._id == m.parent_id;
+            });
+
+            if (parent_idx > -1) {
+              childs[parent_idx].items.push({
+                _id: m.id,
+                name: m.title,
+                to: m.path
+              });
+            }
+
+            break;
+        }
+      });
+    }
+
+    return {
+      navcontent: [{
+        _name: 'CSidebarNav',
+        _children: childs
+      }]
+    };
   }
 });
 
@@ -546,7 +605,7 @@ var render = function() {
       ),
       _vm._v(" "),
       _c("CRenderFunction", {
-        attrs: { flat: "", "content-to-render": _vm.$options.nav }
+        attrs: { flat: "", "content-to-render": _vm.navcontent }
       }),
       _vm._v(" "),
       _c("CSidebarMinimizer", {
@@ -859,98 +918,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TheSidebar_vue_vue_type_template_id_278b66ad___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
-
-/***/ }),
-
-/***/ "./resources/js/components/containers/_nav.js":
-/*!****************************************************!*\
-  !*** ./resources/js/components/containers/_nav.js ***!
-  \****************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ([{
-  _name: 'CSidebarNav',
-  _children: [{
-    _name: 'CSidebarNavTitle',
-    _children: ['Dashboards'] // DASHBOARDS
-
-  }, {
-    _name: 'CSidebarNavItem',
-    name: 'Grafik Santri',
-    to: '/santri-grafik',
-    icon: 'cil-speedometer'
-  }, {
-    _name: 'CSidebarNavItem',
-    name: 'Santri',
-    to: '/santri-dashboard',
-    icon: 'cil-speedometer'
-  }, {
-    _name: 'CSidebarNavTitle',
-    _children: ['MASTER DATA'] // MASTER DATA
-
-  }, {
-    _name: 'CSidebarNavDropdown',
-    name: 'Master Data',
-    route: '/master',
-    icon: 'cil-puzzle',
-    items: [{
-      name: 'Manajemen User',
-      to: '/master/user'
-    }, {
-      name: 'Unit',
-      to: '/master/unit'
-    }, {
-      name: 'Muhaffizh',
-      to: '/master/muhaffizh'
-    }, {
-      name: 'Grup',
-      to: '/master/group'
-    }, {
-      name: 'Santri',
-      to: '/master/santri'
-    }]
-  }, {
-    _name: 'CSidebarNavDropdown',
-    name: 'Proses Santri',
-    route: '/process',
-    icon: 'cil-puzzle',
-    items: [{
-      name: 'Mutqin',
-      to: '/process/mutqin'
-    }, {
-      name: 'Setoran',
-      to: '/process/setoran'
-    }, {
-      name: 'Tahsin',
-      to: '/process/tahsin'
-    }]
-  }, {
-    _name: 'CSidebarNavTitle',
-    _children: ['LAPORAN'] // LAPORAN
-
-  }, {
-    _name: 'CSidebarNavDropdown',
-    name: 'Laporan',
-    route: '/laporan',
-    icon: 'cil-book',
-    items: [{
-      name: 'List Group/Halaqoh',
-      to: '/laporan/halaqoh'
-    }, {
-      name: 'List Muhaffizh',
-      to: '/laporan/muhaffizh'
-    }, {
-      name: 'List Santri',
-      to: '/laporan/santri'
-    }, {
-      name: 'Setoran Juz',
-      to: '/laporan/setoran'
-    }]
-  }]
-}]);
 
 /***/ })
 
