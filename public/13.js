@@ -141,7 +141,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     this.getSantri();
     this.$validator = this.validator;
   },
-  computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(["errors"])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])("setoran", {
+  computed: _objectSpread(_objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(["errors"])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])("setoran", {
     setoran: function setoran(state) {
       return state.setoran;
     },
@@ -153,6 +153,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     setoran_muhaffizh: function setoran_muhaffizh(state) {
       return state.setoran_muhaffizh;
+    }
+  })), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])("mutqin", {
+    mutqin: function mutqin(state) {
+      return state.mutqin;
     }
   })),
   watch: {
@@ -408,6 +412,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -425,7 +433,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       createModal: false,
       editModal: false,
       uploadModal: false,
-      file1: false,
+      file1: undefined,
       editedId: null,
       perPage: 20,
       filterModel: {
@@ -487,7 +495,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       return state.setorans;
     }
   })),
-  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_3__["mapActions"])('setoran', ['getSetorans', 'removeSetoran', 'editSetoran', 'updateSetoran', 'submitSetoran'])), {}, {
+  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_3__["mapActions"])('setoran', ['getSetorans', 'removeSetoran', 'editSetoran', 'updateSetoran', 'submitSetoran', 'uploadSetoran'])), {}, {
     loadData: function loadData() {
       var _arguments = arguments,
           _this = this;
@@ -606,6 +614,36 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         _this5.$toasted.global.failed_toast({
           message: 'Data setoran gagal untuk ditambahkan..'
         });
+      });
+    },
+    handleUpload: function handleUpload() {
+      var _this6 = this;
+
+      var formData = new FormData();
+      formData.append("file_setoran", this.file1);
+      return fetch('/api/setoran/upload', {
+        method: 'POST',
+        body: formData,
+        headers: {
+          Accept: 'application/json',
+          Authorization: 'Bearer ' + localStorage.getItem('token')
+        }
+      }).then(function (response) {
+        return response.json();
+      }).then(function (result) {
+        if (!result.success) {
+          _this6.$toasted.global.failed_toast(result);
+        } else {
+          _this6.$toasted.global.success_toast(result);
+
+          _this6.loadData();
+        }
+      })["catch"](function (err) {
+        _this6.$toasted.global.failed_toast({
+          message: 'Error upload file'
+        });
+
+        console.log(err);
       });
     }
   })
@@ -1311,6 +1349,7 @@ var render = function() {
                     "body-class": "form-view",
                     centered: ""
                   },
+                  on: { ok: _vm.handleUpload },
                   model: {
                     value: _vm.uploadModal,
                     callback: function($$v) {
@@ -1321,33 +1360,53 @@ var render = function() {
                 },
                 [
                   _c(
-                    "div",
-                    [
-                      _c("b-form-file", {
-                        attrs: {
-                          state: Boolean(_vm.file1),
-                          accept: ".xls, .xlsx, .csv",
-                          placeholder: "Pilih file/drag-n-drop...",
-                          "drop-placeholder": "Drop file kesini..."
-                        },
-                        model: {
-                          value: _vm.file1,
-                          callback: function($$v) {
-                            _vm.file1 = $$v
-                          },
-                          expression: "file1"
+                    "b-form",
+                    {
+                      on: {
+                        submit: function($event) {
+                          $event.stopPropagation()
+                          $event.preventDefault()
                         }
-                      }),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "mt-3" }, [
-                        _vm._v(
-                          "File: " + _vm._s(_vm.file1 ? _vm.file1.name : "")
-                        )
-                      ])
-                    ],
-                    1
+                      }
+                    },
+                    [
+                      _c(
+                        "div",
+                        [
+                          _c(
+                            "CLink",
+                            { attrs: { href: "/docs/template_setoran.xlsx" } },
+                            [_vm._v("Download Template")]
+                          ),
+                          _vm._v(" "),
+                          _c("b-form-file", {
+                            attrs: {
+                              state: Boolean(_vm.file1),
+                              accept: ".xls, .xlsx, .csv",
+                              placeholder: "Pilih file/drag-n-drop...",
+                              "drop-placeholder": "Drop file kesini..."
+                            },
+                            model: {
+                              value: _vm.file1,
+                              callback: function($$v) {
+                                _vm.file1 = $$v
+                              },
+                              expression: "file1"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "mt-3" }, [
+                            _vm._v(
+                              "File: " + _vm._s(_vm.file1 ? _vm.file1.name : "")
+                            )
+                          ])
+                        ],
+                        1
+                      )
+                    ]
                   )
-                ]
+                ],
+                1
               )
             ],
             1
