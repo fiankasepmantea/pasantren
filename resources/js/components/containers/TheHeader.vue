@@ -51,11 +51,11 @@ export default {
         //KETIKA TOMBOL LOGOUT DITEKAN, FUNGSI INI DIJALANKAN
         logout() {
             return new Promise((resolve, reject) => {
-                localStorage.removeItem('token') //MENGHAPUS TOKEN DARI LOCALSTORAGE
+                localStorage.clear()
                 resolve()
             }).then(() => {
                 //MEMPERBAHARUI STATE TOKEN
-                this.$store.state.token = localStorage.getItem('token')
+                this.$store.state.token = null
                 this.$router.push('/login') //REDIRECT KE PAGE LOGIN
             })
         }
