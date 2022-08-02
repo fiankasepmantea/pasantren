@@ -114,6 +114,7 @@
         >
         <b-form @submit.stop.prevent="">
         <div>
+          <CLink href="/docs/template_setoran.xlsx">Download Template</CLink>
           <b-form-file
             v-model="file1"
             :state="Boolean(file1)"

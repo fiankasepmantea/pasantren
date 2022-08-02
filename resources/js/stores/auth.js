@@ -11,6 +11,7 @@ const mutations = {
 const actions = {
     submit({ commit }, payload) {
         localStorage.setItem('token', null) //RESET LOCAL STORAGE MENJADI NULL
+        localStorage.setItem('sessdata', null)
         commit('SET_TOKEN', null, { root: true }) //RESET STATE TOKEN MENJADI NULL
         //KARENA MUTATIONS SET_TOKEN BERADA PADA ROOT STORES, MAKA DITAMBAHKAN PARAMETER
         //{ root: true }
@@ -25,6 +26,7 @@ const actions = {
                     //MAKA LOCAL STORAGE DAN STATE TOKEN AKAN DISET MENGGUNAKAN
                     //API DARI SERVER RESPONSE
                     localStorage.setItem('token', response.data.access_token)
+                    localStorage.setItem('sessdata', JSON.stringify(response.data.sessdata))
                     commit('SET_TOKEN', response.data.access_token, { root: true })
                 } else {
                     commit('SET_ERRORS', { invalid: 'Username/Password Salah' }, { root: true })

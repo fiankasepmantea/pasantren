@@ -47,6 +47,10 @@ const router = new Router({
 router.beforeEach((to, from, next) => {
   if (to.meta.auth && to.meta.auth == true) {
     if (localStorage.getItem('token')) {
+      const sessdata = JSON.parse(localStorage.getItem('sessdata'));
+      if(sessdata) {
+        if(sessdata.menu.findIndex((m)=>m.path==to.path) < 0) return false
+      }
       next()
     } else {
       next({ name: 'login' })

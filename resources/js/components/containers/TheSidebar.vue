@@ -39,7 +39,7 @@
     </CImg>
     </CSidebarBrand>
 
-    <CRenderFunction flat :content-to-render="$options.nav"/>
+    <CRenderFunction flat :content-to-render="navcontent"/>
     <CSidebarMinimizer
       class="d-md-down-none"
       @click.native="$store.commit('set', ['sidebarMinimize', !minimize])"
@@ -48,17 +48,44 @@
 </template>
 
 <script>
-import nav from './_nav'
+// import nav from './_nav'
 
 export default {
   name: 'TheSidebar',
-  nav,
+  // nav,
   computed: {
     show () {
       return this.$store.state.sidebarShow 
     },
     minimize () {
       return this.$store.state.sidebarMinimize 
+    },
+  },
+  data() {
+    const sessdata = JSON.parse(localStorage.getItem('sessdata'));
+    let childs = [];
+    if(sessdata) {
+      sessdata.menu.forEach((m)=>{
+        switch(m.sublevel) {
+          case 0: childs.push({ _id: m.id, _name:'CSidebarNavTitle', _children:[m.title] }); break;
+          case 1: 
+            if(m.path) {
+              childs.push({ _id: m.id, _name: 'CSidebarNavItem', name: m.title, to: m.path, icon: m.icon });
+            } else {
+              childs.push({ _id: m.id, _name: 'CSidebarNavDropdown', name: m.title, icon: m.icon, items: [] });
+            }
+          break;
+          case 2:
+            let parent_idx = childs.findIndex((c)=>c._id==m.parent_id);
+            if(parent_idx > -1) {
+              childs[parent_idx].items.push({ _id: m.id, name: m.title, to: m.path });
+            }
+          break;
+        }
+      });
+    }
+    return {
+      navcontent: [{ _name: 'CSidebarNav', _children: childs }]
     }
   }
 }
