@@ -97,7 +97,7 @@ export default {
     async postLogin() {
       // this.isLoading = true;
     this.$store.commit('loadingOn')
-    await  this.submit(this.data).then(() => {
+    await  this.submit(this.data).then((res) => {
         if (this.isAuth) {
           this.$toasted.global.success_toast({
             message: 'Login Berhasil...'
@@ -110,6 +110,11 @@ export default {
           name: "Home",
           });
           }, 2000)
+        } else {
+          this.$toasted.global.failed_toast({
+            message: 'Gagal login'
+          })
+          this.$store.commit('loadingOff')
         }
       })
     }, 

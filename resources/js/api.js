@@ -32,10 +32,11 @@ $axios.interceptors.response.use(
             switch (error.response.status) {
                 case 401:
                     localStorage.removeItem('token');
+                    if(router.currentRoute.name != 'login')
                     router.push({ name: 'login' });
                     break;
             }
-            return Promise.reject(error.response);
+            return Promise.reject(error);
         }
     }
 );
