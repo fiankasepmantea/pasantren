@@ -224,6 +224,21 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   inject: ['validator'],
@@ -250,6 +265,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     santri_level: function santri_level(state) {
       return state.santri_level;
+    },
+    santri_gender: function santri_gender(state) {
+      return state.santri_gender;
     }
   })),
   methods: _objectSpread(_objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapMutations"])("santri", ["CLEAR_FORM"])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])("santri", ["getMuhaffizh", "getGroup", "getGrade", "getLevel"])), {}, {
@@ -845,6 +863,49 @@ var render = function() {
               _vm._v(" "),
               _c("b-form-invalid-feedback", [
                 _vm._v(_vm._s(_vm.veeErrors.first("nama")))
+              ])
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "b-form-group",
+            {
+              attrs: {
+                label: "Gender",
+                "label-cols": "3",
+                "label-for": "gender"
+              }
+            },
+            [
+              _c("b-form-select", {
+                directives: [
+                  {
+                    name: "validate",
+                    rawName: "v-validate",
+                    value: { required: true },
+                    expression: "{ required: true }"
+                  }
+                ],
+                attrs: {
+                  id: "gender",
+                  options: _vm.santri_gender,
+                  placeholder: "Jenis Kelamin",
+                  name: "gender",
+                  state: _vm.validateState("gender"),
+                  "data-vv-as": "Gender"
+                },
+                model: {
+                  value: _vm.santri.gender,
+                  callback: function($$v) {
+                    _vm.$set(_vm.santri, "gender", $$v)
+                  },
+                  expression: "santri.gender"
+                }
+              }),
+              _vm._v(" "),
+              _c("b-form-invalid-feedback", [
+                _vm._v(_vm._s(_vm.veeErrors.first("level")))
               ])
             ],
             1
