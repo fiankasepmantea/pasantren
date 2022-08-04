@@ -20,7 +20,7 @@
     </CHeaderBrand>
     <CHeaderNav class="d-md-down-none mr-auto">
       <CHeaderNavItem class="px-3 pt-2">
-        <h5>PESANTREN</h5>
+        <h5>Ahlan Wa Sahlan di Halaman Aplikasi Tahfizh Pesantren Pondok Quran.</h5>
       </CHeaderNavItem>
     </CHeaderNav>
     <CHeaderNav class="d-md-down-none flex-end">

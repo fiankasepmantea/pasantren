@@ -124,7 +124,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                 _this.$store.commit('loadingOn');
 
                 _context.next = 3;
-                return _this.submit(_this.data).then(function () {
+                return _this.submit(_this.data).then(function (res) {
                   if (_this.isAuth) {
                     _this.$toasted.global.success_toast({
                       message: 'Login Berhasil...'
@@ -139,6 +139,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                         name: "Home"
                       });
                     }, 2000);
+                  } else {
+                    _this.$toasted.global.failed_toast({
+                      message: 'Gagal login'
+                    });
+
+                    _this.$store.commit('loadingOff');
                   }
                 });
 

@@ -237,7 +237,11 @@ var render = function() {
         { staticClass: "d-md-down-none mr-auto" },
         [
           _c("CHeaderNavItem", { staticClass: "px-3 pt-2" }, [
-            _c("h5", [_vm._v("PESANTREN")])
+            _c("h5", [
+              _vm._v(
+                "Ahlan Wa Sahlan di Halaman Aplikasi Tahfizh Pesantren Pondok Quran."
+              )
+            ])
           ])
         ],
         1
