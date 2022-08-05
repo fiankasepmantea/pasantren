@@ -209,10 +209,12 @@ export default {
     handleView(santri) {
       this.viewModal = true
       for(const [k, v] of Object.entries(santri)) {
+        if(k.toLowerCase().indexOf('_id')>=0 || k.toLowerCase().indexOf('id_')>=0)
+          continue;
         if(typeof v === 'string' || typeof v === 'number') {
-          if(k.toLowerCase().indexOf('_id')>=0 || k.toLowerCase().indexOf('id_')>=0)
-            continue;
           this.currentSantri[k] = v;
+        } else if(!v) {
+          this.currentSantri[k] = '';
         }
       };
       this.currentSantri.group = santri.list_group.nama;

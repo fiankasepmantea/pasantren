@@ -25,11 +25,6 @@ input[type=number]::-webkit-inner-spin-button {
     margin: 0;
 }
 
-.action-columns {
-  width: 170px;
-  text-align: center;
-}
-
 .b-table-sticky-header {
   max-height: var(--sticky-height) !important;
 }

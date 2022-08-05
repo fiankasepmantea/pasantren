@@ -20,19 +20,19 @@
     </CHeaderBrand>
     <CHeaderNav class="d-md-down-none mr-auto">
       <CHeaderNavItem class="px-3 pt-2">
-        <h5>Ahlan Wa Sahlan di Halaman Aplikasi Tahfizh Pesantren Pondok Quran.</h5>
+        <h5>Ahlan Wa Sahlan di Aplikasi Tahfizh Pesantren Pondok Quran <font-awesome-icon icon="mosque" /></h5>
       </CHeaderNavItem>
     </CHeaderNav>
     <CHeaderNav class="d-md-down-none flex-end">
       <CHeaderNavItem class="d-md-down-none">
-        <CHeaderNavLink>
-          <CIcon name="cil-bell"/>
-        </CHeaderNavLink>
+        <CBadge color="secondary" shape="pill">
+          <font-awesome-icon icon="id-badge" />&nbsp;{{ userlevel }}
+        </CBadge>
       </CHeaderNavItem>
       <CHeaderNavItem class="d-md-down-none mx-1">
-        <CHeaderNavLink>
-          <CButton variant="ghost" color="danger" @click="logout">Logout</CButton>
-        </CHeaderNavLink>
+        <CDropdown color="danger" :toggler-text="username" class="m-2">
+          <CDropdownItem href="#" @click="logout"><font-awesome-icon icon="power-off" /> Logout</CDropdownItem>
+        </CDropdown>
       </CHeaderNavItem>
     </CHeaderNav>
   </CHeader>
@@ -42,23 +42,34 @@
 // import TheHeaderDropdownAccnt from './TheHeaderDropdownAccnt'
 import { mapState, mapActions } from 'vuex'
 export default {
-    computed: {
-        ...mapState('user', {
-            authenticated: state => state.authenticated //ME-LOAD STATE AUTHENTICATED
-        }),
-    },
-    methods: {  
-        //KETIKA TOMBOL LOGOUT DITEKAN, FUNGSI INI DIJALANKAN
-        logout() {
-            return new Promise((resolve, reject) => {
-                localStorage.clear()
-                resolve()
-            }).then(() => {
-                //MEMPERBAHARUI STATE TOKEN
-                this.$store.state.token = null
-                this.$router.push('/login') //REDIRECT KE PAGE LOGIN
-            })
-        }
+  data() {
+    const sessdata = JSON.parse(localStorage.getItem('sessdata'));
+    let username = "User", userlevel = "";
+    if(sessdata) {
+      username = sessdata.nama;
+      userlevel = sessdata.level;
     }
+    return {
+      username: username, userlevel: userlevel
+    }
+  },
+  computed: {
+      ...mapState('user', {
+          authenticated: state => state.authenticated //ME-LOAD STATE AUTHENTICATED
+      })
+  },
+  methods: {  
+      //KETIKA TOMBOL LOGOUT DITEKAN, FUNGSI INI DIJALANKAN
+      logout() {
+          return new Promise((resolve, reject) => {
+              localStorage.clear()
+              resolve()
+          }).then(() => {
+              //MEMPERBAHARUI STATE TOKEN
+              this.$store.state.token = null
+              this.$router.push('/login') //REDIRECT KE PAGE LOGIN
+          })
+      }
+  }
 }
 </script>

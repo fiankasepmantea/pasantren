@@ -1,6 +1,10 @@
 <template>
   <div>
     <b-form @submit.stop.prevent="">
+      <CRow alignHorizontal="center" style="margin-bottom:8px;">
+        <b-avatar v-if="santri.foto" :src="santri.foto" size="10rem" rounded="lg"></b-avatar>
+        <b-avatar v-else></b-avatar>
+      </CRow>
       <b-form-group label="Muhaffizh" label-cols="3" label-for="muhaffizh">
         <b-form-select
           id="muhaffizh"
@@ -217,6 +221,20 @@
         </b-form-select>
         <b-form-invalid-feedback>{{ veeErrors.first('level') }}</b-form-invalid-feedback>
       </b-form-group>
+      <b-form-group label="Pas Foto" label-cols="3" label-for="file_foto">
+        <b-form-file
+          id="file_foto"
+          name="file_foto"
+          v-model="santri.file_foto"
+          :state="validateState('file_foto')"
+          accept="image/jpeg"
+          placeholder="Upload foto..."
+          v-validate="{ size: 1024 }"
+          data-vv-as="file"
+        ></b-form-file>
+        <b-form-invalid-feedback>{{ veeErrors.first('file_foto') }}</b-form-invalid-feedback>
+      </b-form-group>
+
     </b-form>
   </div>
 </template>
