@@ -49,7 +49,7 @@
       </b-form-group>
 
       <b-form-group label="Bulan" label-cols="3" label-for="bulan">
-            <b-form-select v-model="mutqin.bulan" :options="options_bulan">{{ selected_bulan }}</b-form-select>
+            <b-form-select v-model="tahsin.bulan" :options="options_bulan">{{ selected_bulan }}</b-form-select>
       </b-form-group>
 
       <b-form-group label="Pekan ke-" label-cols="3" label-for="pekan">

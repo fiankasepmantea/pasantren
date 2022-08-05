@@ -13,6 +13,8 @@ const state = () => ({
     santri_id: '',
     muhaffizh_id: '',
     group_id: '',
+    pekan:'',
+    bulan:'',
   },
   tahsin_group: [],
   tahsin_muhaffizh: [],
