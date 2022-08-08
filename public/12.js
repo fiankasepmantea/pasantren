@@ -767,11 +767,11 @@ var render = function() {
                 {
                   attrs: { options: _vm.options_bulan },
                   model: {
-                    value: _vm.mutqin.bulan,
+                    value: _vm.tahsin.bulan,
                     callback: function($$v) {
-                      _vm.$set(_vm.mutqin, "bulan", $$v)
+                      _vm.$set(_vm.tahsin, "bulan", $$v)
                     },
-                    expression: "mutqin.bulan"
+                    expression: "tahsin.bulan"
                   }
                 },
                 [_vm._v(_vm._s(_vm.selected_bulan))]

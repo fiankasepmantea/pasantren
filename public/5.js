@@ -573,6 +573,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "PropertyView",
   props: {
@@ -587,7 +590,37 @@ __webpack_require__.r(__webpack_exports__);
   },
   computed: {
     getItems: function getItems() {
-      return this.items;
+      var items = [];
+
+      for (var key in this.items) {
+        if (key == 'id' || key == 'foto') continue;
+        var val = this.items[key];
+
+        if (typeof val === 'string' && val.substr(0, 10).split('-').length == 3) {
+          // Anggep aja tanggal..
+          var tgl = new Date(val);
+          if (tgl) val = tgl.toLocaleDateString();
+        }
+
+        items.push({
+          id: key.replace(/[_-]/g, '').trim(),
+          label: key.replace(/[_-]/g, ' ').trim().split(' ').map(function (w) {
+            return w[0].toUpperCase() + w.substring(1).toLowerCase();
+          }).join(' '),
+          value: val
+        });
+      }
+
+      return items;
+    },
+    getFoto: function getFoto() {
+      if (this.items.hasOwnProperty('foto')) {
+        if (this.items.foto != '') {
+          return this.items.foto;
+        }
+      }
+
+      return false;
     }
   }
 });
@@ -1370,42 +1403,51 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    _vm._l(_vm.getItems, function(item, key, idx) {
-      return _c(
-        "div",
-        [
-          _c(
-            "b-form-group",
-            {
-              attrs: {
-                label: key
-                  .replace(/[_-]/g, " ")
-                  .trim()
-                  .split(" ")
-                  .map(function(w) {
-                    return w[0].toUpperCase() + w.substring(1).toLowerCase()
-                  })
-                  .join(" "),
-                "label-cols": "3",
-                labelFor: key
-              }
-            },
-            [
-              _c("b-form-input", {
+    [
+      _vm.getFoto
+        ? [
+            _c(
+              "CRow",
+              {
+                staticStyle: { "margin-bottom": "8px" },
+                attrs: { alignHorizontal: "center" }
+              },
+              [
+                _c("b-avatar", {
+                  attrs: { src: _vm.getFoto, size: "10rem", rounded: "lg" }
+                })
+              ],
+              1
+            )
+          ]
+        : _vm._e(),
+      _vm._v(" "),
+      _vm._l(_vm.getItems, function(item) {
+        return _c(
+          "div",
+          [
+            _c(
+              "b-form-group",
+              {
                 attrs: {
-                  id: key.replace(/[_-]/g, "").trim(),
-                  value: item,
-                  plaintext: true
+                  label: item.label,
+                  "label-cols": "3",
+                  labelFor: item.id
                 }
-              })
-            ],
-            1
-          )
-        ],
-        1
-      )
-    }),
-    0
+              },
+              [
+                _c("b-form-input", {
+                  attrs: { id: item.id, value: item.value, plaintext: true }
+                })
+              ],
+              1
+            )
+          ],
+          1
+        )
+      })
+    ],
+    2
   )
 }
 var staticRenderFns = []
