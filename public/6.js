@@ -239,20 +239,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   inject: ['validator'],
@@ -1336,49 +1322,6 @@ var render = function() {
               _vm._v(" "),
               _c("b-form-invalid-feedback", [
                 _vm._v(_vm._s(_vm.veeErrors.first("level")))
-              ])
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "b-form-group",
-            {
-              attrs: {
-                label: "Pas Foto",
-                "label-cols": "3",
-                "label-for": "file_foto"
-              }
-            },
-            [
-              _c("b-form-file", {
-                directives: [
-                  {
-                    name: "validate",
-                    rawName: "v-validate",
-                    value: { size: 1024, image: true },
-                    expression: "{ size: 1024, image: true }"
-                  }
-                ],
-                attrs: {
-                  id: "file_foto",
-                  name: "file_foto",
-                  state: _vm.validateState("file_foto"),
-                  accept: "image/jpeg",
-                  placeholder: "Upload foto...",
-                  "data-vv-as": "file"
-                },
-                model: {
-                  value: _vm.santri.file_foto,
-                  callback: function($$v) {
-                    _vm.$set(_vm.santri, "file_foto", $$v)
-                  },
-                  expression: "santri.file_foto"
-                }
-              }),
-              _vm._v(" "),
-              _c("b-form-invalid-feedback", [
-                _vm._v(_vm._s(_vm.veeErrors.first("file_foto")))
               ])
             ],
             1
