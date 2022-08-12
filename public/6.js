@@ -239,24 +239,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   inject: ['validator'],
@@ -570,12 +552,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             k = _Object$entries$_i[0],
             v = _Object$entries$_i[1];
 
-        if (k.toLowerCase().indexOf('_id') >= 0 || k.toLowerCase().indexOf('id_') >= 0) continue;
-
         if (typeof v === 'string' || typeof v === 'number') {
+          if (k.toLowerCase().indexOf('_id') >= 0 || k.toLowerCase().indexOf('id_') >= 0) continue;
           this.currentSantri[k] = v;
-        } else if (!v) {
-          this.currentSantri[k] = '';
         }
       }
 
@@ -668,9 +647,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "PropertyView",
   props: {
@@ -685,37 +661,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   computed: {
     getItems: function getItems() {
-      var items = [];
-
-      for (var key in this.items) {
-        if (key == 'id' || key == 'foto') continue;
-        var val = this.items[key];
-
-        if (typeof val === 'string' && val.substr(0, 10).split('-').length == 3) {
-          // Anggep aja tanggal..
-          var tgl = new Date(val);
-          if (tgl) val = tgl.toLocaleDateString();
-        }
-
-        items.push({
-          id: key.replace(/[_-]/g, '').trim(),
-          label: key.replace(/[_-]/g, ' ').trim().split(' ').map(function (w) {
-            return w[0].toUpperCase() + w.substring(1).toLowerCase();
-          }).join(' '),
-          value: val
-        });
-      }
-
-      return items;
-    },
-    getFoto: function getFoto() {
-      if (this.items.hasOwnProperty('foto')) {
-        if (this.items.foto != '') {
-          return this.items.foto;
-        }
-      }
-
-      return false;
+      return this.items;
     }
   }
 });
@@ -751,26 +697,6 @@ var render = function() {
           }
         },
         [
-          _c(
-            "CRow",
-            {
-              staticStyle: { "margin-bottom": "8px" },
-              attrs: { alignHorizontal: "center" }
-            },
-            [
-              _vm.santri.foto
-                ? _c("b-avatar", {
-                    attrs: {
-                      src: _vm.santri.foto,
-                      size: "10rem",
-                      rounded: "lg"
-                    }
-                  })
-                : _c("b-avatar")
-            ],
-            1
-          ),
-          _vm._v(" "),
           _c(
             "b-form-group",
             {
@@ -1399,49 +1325,6 @@ var render = function() {
               ])
             ],
             1
-          ),
-          _vm._v(" "),
-          _c(
-            "b-form-group",
-            {
-              attrs: {
-                label: "Pas Foto",
-                "label-cols": "3",
-                "label-for": "file_foto"
-              }
-            },
-            [
-              _c("b-form-file", {
-                directives: [
-                  {
-                    name: "validate",
-                    rawName: "v-validate",
-                    value: { size: 1024 },
-                    expression: "{ size: 1024 }"
-                  }
-                ],
-                attrs: {
-                  id: "file_foto",
-                  name: "file_foto",
-                  state: _vm.validateState("file_foto"),
-                  accept: "image/jpeg",
-                  placeholder: "Upload foto...",
-                  "data-vv-as": "file"
-                },
-                model: {
-                  value: _vm.santri.file_foto,
-                  callback: function($$v) {
-                    _vm.$set(_vm.santri, "file_foto", $$v)
-                  },
-                  expression: "santri.file_foto"
-                }
-              }),
-              _vm._v(" "),
-              _c("b-form-invalid-feedback", [
-                _vm._v(_vm._s(_vm.veeErrors.first("file_foto")))
-              ])
-            ],
-            1
           )
         ],
         1
@@ -1766,51 +1649,42 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    [
-      _vm.getFoto
-        ? [
-            _c(
-              "CRow",
-              {
-                staticStyle: { "margin-bottom": "8px" },
-                attrs: { alignHorizontal: "center" }
-              },
-              [
-                _c("b-avatar", {
-                  attrs: { src: _vm.getFoto, size: "10rem", rounded: "lg" }
-                })
-              ],
-              1
-            )
-          ]
-        : _vm._e(),
-      _vm._v(" "),
-      _vm._l(_vm.getItems, function(item) {
-        return _c(
-          "div",
-          [
-            _c(
-              "b-form-group",
-              {
+    _vm._l(_vm.getItems, function(item, key, idx) {
+      return _c(
+        "div",
+        [
+          _c(
+            "b-form-group",
+            {
+              attrs: {
+                label: key
+                  .replace(/[_-]/g, " ")
+                  .trim()
+                  .split(" ")
+                  .map(function(w) {
+                    return w[0].toUpperCase() + w.substring(1).toLowerCase()
+                  })
+                  .join(" "),
+                "label-cols": "3",
+                labelFor: key
+              }
+            },
+            [
+              _c("b-form-input", {
                 attrs: {
-                  label: item.label,
-                  "label-cols": "3",
-                  labelFor: item.id
+                  id: key.replace(/[_-]/g, "").trim(),
+                  value: item,
+                  plaintext: true
                 }
-              },
-              [
-                _c("b-form-input", {
-                  attrs: { id: item.id, value: item.value, plaintext: true }
-                })
-              ],
-              1
-            )
-          ],
-          1
-        )
-      })
-    ],
-    2
+              })
+            ],
+            1
+          )
+        ],
+        1
+      )
+    }),
+    0
   )
 }
 var staticRenderFns = []

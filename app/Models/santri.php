@@ -12,7 +12,6 @@ use App\Models\Muhaffizh;
 use App\Models\Group;
 use App\Models\Grade;
 use App\Models\LevelSantri;
-use Intervention\Image\ImageManagerStatic as Image;
 
 class Santri extends Model
 {
@@ -62,12 +61,6 @@ class Santri extends Model
         $model['muhaffizh_id'] = $data['muhaffizh_id'];
         $model['grade_id'] = $data['grade_id'];
         $model['levelsantri_id'] = $data['levelsantri_id'];
-        if(!empty($data['foto_b64'])) {
-            // TODO: hapus avatar sebelumnya (klo ada)..
-            $path = 'assets/images/avatars/santri_' . $data['nomor_induk'].'-'.time().'.jpg';
-            Image::make($data['foto_b64'])->save(public_path($path));
-            $model['foto'] = '/'.$path;
-        }
      
         return $is_update ? $this->update($model) : $this->create($model);
     }   

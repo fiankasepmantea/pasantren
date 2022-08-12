@@ -59,21 +59,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 // import TheHeaderDropdownAccnt from './TheHeaderDropdownAccnt'
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  data: function data() {
-    var sessdata = JSON.parse(localStorage.getItem('sessdata'));
-    var username = "User",
-        userlevel = "";
-
-    if (sessdata) {
-      username = sessdata.nama;
-      userlevel = sessdata.level;
-    }
-
-    return {
-      username: username,
-      userlevel: userlevel
-    };
-  },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])('user', {
     authenticated: function authenticated(state) {
       return state.authenticated;
@@ -252,16 +237,11 @@ var render = function() {
         { staticClass: "d-md-down-none mr-auto" },
         [
           _c("CHeaderNavItem", { staticClass: "px-3 pt-2" }, [
-            _c(
-              "h5",
-              [
-                _vm._v(
-                  "Ahlan Wa Sahlan di Aplikasi Tahfizh Pesantren Pondok Quran "
-                ),
-                _c("font-awesome-icon", { attrs: { icon: "mosque" } })
-              ],
-              1
-            )
+            _c("h5", [
+              _vm._v(
+                "Ahlan Wa Sahlan di Halaman Aplikasi Tahfizh Pesantren Pondok Quran."
+              )
+            ])
           ])
         ],
         1
@@ -276,12 +256,8 @@ var render = function() {
             { staticClass: "d-md-down-none" },
             [
               _c(
-                "CBadge",
-                { attrs: { color: "secondary", shape: "pill" } },
-                [
-                  _c("font-awesome-icon", { attrs: { icon: "id-badge" } }),
-                  _vm._v(" " + _vm._s(_vm.userlevel) + "\n      ")
-                ],
+                "CHeaderNavLink",
+                [_c("CIcon", { attrs: { name: "cil-bell" } })],
                 1
               )
             ],
@@ -293,20 +269,15 @@ var render = function() {
             { staticClass: "d-md-down-none mx-1" },
             [
               _c(
-                "CDropdown",
-                {
-                  staticClass: "m-2",
-                  attrs: { color: "danger", "toggler-text": _vm.username }
-                },
+                "CHeaderNavLink",
                 [
                   _c(
-                    "CDropdownItem",
-                    { attrs: { href: "#" }, on: { click: _vm.logout } },
-                    [
-                      _c("font-awesome-icon", { attrs: { icon: "power-off" } }),
-                      _vm._v(" Logout")
-                    ],
-                    1
+                    "CButton",
+                    {
+                      attrs: { variant: "ghost", color: "danger" },
+                      on: { click: _vm.logout }
+                    },
+                    [_vm._v("Logout")]
                   )
                 ],
                 1

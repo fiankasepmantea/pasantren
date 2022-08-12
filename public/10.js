@@ -280,7 +280,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         key: 'actions',
         label: "Aksi",
         stickyColumn: true,
-        "class": 'action-columns act-2'
+        "class": 'action-columns'
       }]
     };
   },

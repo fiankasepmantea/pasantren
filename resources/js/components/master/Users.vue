@@ -130,7 +130,7 @@ export default {
           key: 'actions',
           label: "Aksi",
           stickyColumn: true,
-          class: 'action-columns act-2'
+          class: 'action-columns'
         },
       ],
     };

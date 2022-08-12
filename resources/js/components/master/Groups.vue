@@ -88,6 +88,13 @@
   </div>
 </template>
 
+<style>
+.action-columns {
+  width: 150px;
+  text-align: center;
+}
+</style>
+
 <script>
 import pagetitle from "./PageTitle"
 import Form from './Forms/GroupForm'
@@ -123,7 +130,7 @@ export default {
           key: 'actions',
           label: "Aksi",
           stickyColumn: true,
-          class: 'action-columns act-2'
+          class: 'action-columns'
         },
       ],
     };
