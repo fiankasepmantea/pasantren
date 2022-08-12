@@ -107,10 +107,13 @@
       <b-modal
         title="Unggah Data Tahsin"
         v-model="uploadModal"
+        @ok="handleUpload"
         body-class="form-view"
         centered
         >
+        <b-form @submit.stop.prevent="">
         <div>
+          <CLink href="/docs/template_tahsin.xlsx">Download Template</CLink>
           <b-form-file
             v-model="file1"
             :state="Boolean(file1)"
@@ -120,6 +123,7 @@
           ></b-form-file>
           <div class="mt-3">File: {{ file1 ? file1.name : '' }}</div>
         </div>
+        </b-form>
       </b-modal>
 
       </CCardBody>
@@ -286,6 +290,26 @@ export default {
         message: 'Data tahsin gagal untuk ditambahkan..'
       })
       })
+    },
+    handleUpload() {
+      let formData = new FormData();
+      formData.append("file_tahsin", this.file1);
+      return fetch('/api/tahsin/upload', {
+        method: 'POST',
+        body: formData,
+        headers: { Accept: 'application/json', Authorization: 'Bearer ' + localStorage.getItem('token') }
+      }).then((response) => response.json())
+        .then((result) => {
+          if(!result.success) {
+            this.$toasted.global.failed_toast(result);
+          } else {
+            this.$toasted.global.success_toast(result);
+            this.loadData();
+          }
+        }).catch((err) => {
+          this.$toasted.global.failed_toast({message:'Error upload file'});
+          console.log(err);
+        });
     }
   }
 };

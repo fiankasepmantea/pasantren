@@ -2,41 +2,26 @@
   <div>
     <PageTitle />
     <b-row>
-      
       <b-col md="12">
-        <b-card 
-        title="Santri"
-        >
-        <hr>
-          <div v-for="(santri, index) in santris" :key="index"  class="d-flex justify-content-between">
-            <b-card-text class="card-text">{{ santri.name }}</b-card-text>
-            <b-card-text class="card-text">{{ santri.revenue }}</b-card-text>
-          </div>
-          <div class="d-flex justify-content-between">
-              <b-card-text class="card-text">Total</b-card-text>
-              <b-card-text class="card-text">{{ totalJuzSantri }}</b-card-text>
-          </div>
-         
+        <b-card title="Total Setoran Juz">
+          <MainChart />
         </b-card>
       </b-col>
     </b-row>
     <b-row>
       <b-col md="4">
-        <b-card title="Grafik Garis">
-          <hr>
-          <LineChart />
+        <b-card title="Setoran Unit">
+          <ChartUnit />
         </b-card>
       </b-col>
       <b-col md="4">
-        <b-card title="Grafik Batang">
-          <hr>
-          <BarChart />
+        <b-card title="Setoran Muhaffizh">
+          <ChartMuhaffizh />
         </b-card>
       </b-col>
       <b-col md="4">
-        <b-card title="Grafik Lingkaran">
-          <hr>
-          <PieChart />
+        <b-card title="Setoran Group">
+          <ChartGroup />
         </b-card>
       </b-col>
     </b-row>
@@ -53,52 +38,18 @@
 
 <script>
 import PageTitle from './PageTitle'
-import LineChart from '../charts/CChartLineExample'
-import BarChart from '../charts/CChartBarExample'
-import PieChart from '../charts/CChartPieExample'
+import MainChart from '../dashboards/CLTotalSetorJuz'
+import ChartUnit from '../dashboards/CCSetoranUnit'
+import ChartMuhaffizh from '../dashboards/CCSetoranMuhaffizh'
+import ChartGroup from '../dashboards/CCSetoranGroup'
 
 export default {
   components: {
     PageTitle,
-    LineChart,
-    BarChart,
-    PieChart
+    MainChart,
+    ChartUnit,
+    ChartMuhaffizh,
+    ChartGroup
   },
-  data() {
-    return {
-      muhaffizhs: [
-        {
-          name: 'Didin',
-          revenue: '6 Juz'
-        },
-        {
-          name: 'Udin',
-          revenue: '2 Juz'
-        },
-        {
-          name: 'Maman',
-          revenue: '4 Juz'
-        },
-      
-      ],
-       santris: [
-        {
-          name: 'Ciro',
-          revenue: '3 Juz'
-        },
-        {
-          name: 'David',
-          revenue: '2 Juz'
-        },
-        {
-          name: 'Klok',
-          revenue: '1 Juz'
-        },
-      
-      ],
-      totalJuzMuhaffizh: '12 Juz',
-      totalJuzSantri: '6 Juz'
-    }
-  }
 }
 </script>
