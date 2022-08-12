@@ -47,6 +47,7 @@ Route::group(['namespace' => 'Api'], function () {
         Route::get('/laporan/group/{jenis?}', 'GroupController@xlsGroup');
         Route::get('/laporan/muhaffizh/{jenis?}', 'MuhaffizhController@xlsMuhaffizh');
         Route::get('/laporan/santri/{jenis?}', 'SantriController@xlsSantri');
+        Route::get('/dashboard/chartds/{dsname?}', 'DashboardController@getChartData');
         
         Route::apiResources(['user' => 'UserController']);
         Route::apiResources(['group' => 'GroupController']);
@@ -59,5 +60,6 @@ Route::group(['namespace' => 'Api'], function () {
 
         Route::post('/setoran/upload', 'SetoranController@uploadSetoran');
         Route::post('/laporan/setoran', 'SetoranController@xlsSetoran');
+        Route::post('/tahsin/upload', 'TahsinController@uploadTahsin');
     }); 
 });
