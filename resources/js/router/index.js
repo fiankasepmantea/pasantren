@@ -147,7 +147,7 @@ function configRoutes() {
           component: DSales,
           meta: {
             auth: true,
-            title: 'Santri'
+            title: ''
           }
         },
         {
@@ -156,7 +156,7 @@ function configRoutes() {
           component: DProduction,
           meta: {
             auth: true,
-            title: 'Santri'
+            title: ''
           }
         },
         {

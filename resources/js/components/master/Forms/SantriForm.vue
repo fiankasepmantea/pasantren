@@ -229,7 +229,7 @@
           :state="validateState('file_foto')"
           accept="image/jpeg"
           placeholder="Upload foto..."
-          v-validate="{ size: 1024 }"
+          v-validate="{ size: 1024, image: true }"
           data-vv-as="file"
         ></b-form-file>
         <b-form-invalid-feedback>{{ veeErrors.first('file_foto') }}</b-form-invalid-feedback>

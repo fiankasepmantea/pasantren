@@ -140,17 +140,37 @@ const actions = {
   },
   submitSantri({ dispatch, commit, state }) {
     return new Promise((resolve, reject) => {
-      $axios.post(`/santri`, state.santri)
-      .then((response) => {
-        dispatch('getSantris').then(() => {
-          resolve(response.data)
-        })
-      })
-      .catch((error) => {
-        if (error.response.status == 422) {
-          commit('SET_ERRORS', error.response.data.error, { root: true })
+      if(state.santri.file_foto instanceof File) {
+        const fr = new FileReader();
+        let data = {};
+        Object.assign(data,state.santri);
+        fr.onloadend = function() {
+          data.foto_b64 = fr.result.replace(/^data:.+;base64,/, '');
+          $axios.post(`/santri`, data)
+          .then((response) => {
+            dispatch('getSantris').then(() => {
+              resolve(response.data)
+            })
+          })
+          .catch((error) => {
+            if (error.response.status == 422) {
+              commit('SET_ERRORS', error.response.data.error, { root: true })
+            }
+          })
         }
-      })
+      } else {
+        $axios.post(`/santri`, state.santri)
+        .then((response) => {
+          dispatch('getSantris').then(() => {
+            resolve(response.data)
+          })
+        })
+        .catch((error) => {
+          if (error.response.status == 422) {
+            commit('SET_ERRORS', error.response.data.error, { root: true })
+          }
+        })
+      }
     })
   },
   editSantri({ commit }, payload) {
