@@ -1416,8 +1416,8 @@ var render = function() {
                   {
                     name: "validate",
                     rawName: "v-validate",
-                    value: { size: 1024 },
-                    expression: "{ size: 1024 }"
+                    value: { size: 1024, image: true },
+                    expression: "{ size: 1024, image: true }"
                   }
                 ],
                 attrs: {

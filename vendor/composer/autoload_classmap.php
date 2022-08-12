@@ -10,6 +10,7 @@ return array(
     'App\\Custom_Helper' => $baseDir . '/app/Custom_Helper.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
     'App\\Http\\Controllers\\Api\\AuthController' => $baseDir . '/app/Http/Controllers/Api/AuthController.php',
+    'App\\Http\\Controllers\\Api\\DashboardController' => $baseDir . '/app/Http/Controllers/Api/DashboardController.php',
     'App\\Http\\Controllers\\Api\\GroupController' => $baseDir . '/app/Http/Controllers/Api/GroupController.php',
     'App\\Http\\Controllers\\Api\\MuhaffizhController' => $baseDir . '/app/Http/Controllers/Api/MuhaffizhController.php',
     'App\\Http\\Controllers\\Api\\MutqinController' => $baseDir . '/app/Http/Controllers/Api/MutqinController.php',
