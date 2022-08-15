@@ -101,7 +101,7 @@ class Santri extends Model
     // Group per nama santri (Nama, Nik, Unit, hapalan , mutqin, buku)
     public function getReportDetail() {
         return static::query()
-            ->select('santris.nama','nomor_induk','units.nama AS nama_unit')
+            ->select('santris.nama','santris.nomor_induk','units.nama AS nama_unit')
             ->selectRaw("
                 CONCAT(SUM(mutqins.juz),' Juz') AS hapalan
                 ,CONCAT(SUM(mutqins.juz),' Juz',SUM(mutqins.halaman),' Hal.') AS mutqin

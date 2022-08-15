@@ -26,7 +26,7 @@ export default {
   },
   computed: {
     ds() {
-      const color1 = getStyle('success') || '#4dbd74'
+      const colors = ['#FF3F4E','#2444A9','#5B7785']
       let elements = this.labels.length
       const data1 = []
 
@@ -36,9 +36,9 @@ export default {
 
       return [{
         label: 'Juz',
-        backgroundColor: hexToRgba(color1, 10),
-        borderColor: color1,
-        pointHoverBackgroundColor: color1,
+        backgroundColor: colors.map((c)=>hexToRgba(c, 50)),
+        borderColor: colors,
+        pointHoverBackgroundColor: colors,
         borderWidth: 2,
         data: data1,
       }]
