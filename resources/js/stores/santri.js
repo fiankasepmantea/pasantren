@@ -22,6 +22,8 @@ const state = () => ({
     group_id: '',
     grade_id: '',
     levelsantri_id: '',
+    foto: '',
+    file_foto: [],
   },
   santri_muhaffizh: [],
   santri_group: [],
@@ -54,6 +56,8 @@ const mutations = {
       group_id: payload.group_id,
       grade_id: payload.grade_id,
       levelsantri_id: payload.levelsantri_id,
+      foto: payload.foto,
+      file_foto: [],
     }
   },
   CLEAR_FORM(state) {
@@ -74,6 +78,8 @@ const mutations = {
       group_id: '',
       grade_id: '',
       levelsantri_id: '',
+      foto: '',
+      file_foto: [],
     }
   },
 
@@ -178,11 +184,26 @@ const actions = {
   },
   updateSantri({ state, commit }, payload) {
     return new Promise((resolve, reject) => {
-      $axios.put(`/santri/${payload}`, state.santri)
-      .then((response) => {
-        commit('CLEAR_FORM')
-        resolve(response.data)
-      })
+      if(state.santri.file_foto instanceof File) {
+        const fr = new FileReader();
+        let data = {};
+        Object.assign(data,state.santri);
+        fr.onloadend = function() {
+          data.foto_b64 = fr.result.replace(/^data:.+;base64,/, '');
+          $axios.put(`/santri/${payload}`, data)
+          .then((response) => {
+            commit('CLEAR_FORM')
+            resolve(response.data)
+          })
+        }
+        fr.readAsDataURL(state.santri.file_foto);
+      } else {
+        $axios.put(`/santri/${payload}`, state.santri)
+        .then((response) => {
+          commit('CLEAR_FORM')
+          resolve(response.data)
+        })
+      }
     })
   },
   removeSantri({ dispatch }, payload) {

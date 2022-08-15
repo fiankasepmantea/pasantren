@@ -47,7 +47,7 @@ Route::group(['namespace' => 'Api'], function () {
         Route::get('/laporan/group/{jenis?}', 'GroupController@xlsGroup');
         Route::get('/laporan/muhaffizh/{jenis?}', 'MuhaffizhController@xlsMuhaffizh');
         Route::get('/laporan/santri/{jenis?}', 'SantriController@xlsSantri');
-        Route::get('/dashboard/chartds/{dsname?}', 'DashboardController@getChartData');
+        Route::get('/dashboard/chartsetoran', 'DashboardController@getChartSetoran');
         
         Route::apiResources(['user' => 'UserController']);
         Route::apiResources(['group' => 'GroupController']);

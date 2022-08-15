@@ -1,5 +1,5 @@
 <template>
-  <CChartLine
+  <CChartBar
     :datasets="ds"
     :options="opt"
     :labels="labels"
@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import { CChartLine } from '@coreui/vue-chartjs'
+import { CChartBar } from '@coreui/vue-chartjs'
 import { getStyle, hexToRgba } from '@coreui/utils/src'
 
 function random (min, max) {
@@ -17,7 +17,7 @@ function random (min, max) {
 export default {
   name: 'CCSetoranMuhaffizh',
   components: {
-    CChartLine
+    CChartBar
   },
   data() {
     return {
@@ -26,7 +26,7 @@ export default {
   },
   computed: {
     ds() {
-      const color1 = getStyle('warning') || '#f9b115'
+      const colors = ['#cc9112','#e05d06','#268406','#e417ef','#db5e15']
       let elements = this.labels.length
       const data1 = []
 
@@ -36,9 +36,8 @@ export default {
 
       return [{
         label: 'Juz',
-        backgroundColor: hexToRgba(color1, 10),
-        borderColor: color1,
-        pointHoverBackgroundColor: color1,
+        backgroundColor: colors.map((c)=>hexToRgba(c, 50)),
+        borderColor: colors,
         borderWidth: 2,
         data: data1,
       }]
