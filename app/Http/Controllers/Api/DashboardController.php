@@ -69,7 +69,7 @@ class DashboardController extends Controller
             ->get();
         foreach ($rows as $r) {
             $result['series'][] = (int) $r->total_juz;
-            $result['labels'][] = strtoupper(substr($r->nama,0,strpos($r->nama,' ')));
+            $result['labels'][] = $r->nama;
         }
         return $result;
     }
