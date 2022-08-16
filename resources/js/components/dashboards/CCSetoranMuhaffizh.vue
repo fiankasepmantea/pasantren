@@ -9,10 +9,7 @@
 <script>
 import { CChartBar } from '@coreui/vue-chartjs'
 import { getStyle, hexToRgba } from '@coreui/utils/src'
-
-function random (min, max) {
-  return Math.floor(Math.random() * (max - min + 1) + min)
-}
+import $axios from '../../api.js'
 
 export default {
   name: 'CCSetoranMuhaffizh',
@@ -21,28 +18,35 @@ export default {
   },
   data() {
     return {
-      labels: ['Ciro','David','Pipin','Agif']
+      labels: [],
+      series: []
     }
+  },
+  created() {
+    $axios.get('dashboard/chartsetoran?ds=SetoranMuhaffizh')
+    .then((response) => response.data)
+    .then((data)=> {
+      this.labels = data.labels
+      this.series = data.series
+    })
+    .catch((err) => {
+      this.$toasted.global.failed_toast(err)
+    });
   },
   computed: {
     ds() {
       const colors = ['#cc9112','#e05d06','#268406','#e417ef','#db5e15']
-      let elements = this.labels.length
-      const data1 = []
-
-      for (let i = 0; i <= elements; i++) {
-        data1.push(random(0, 30))
-      }
 
       return [{
         label: 'Juz',
         backgroundColor: colors.map((c)=>hexToRgba(c, 50)),
         borderColor: colors,
         borderWidth: 2,
-        data: data1,
+        data: this.series,
       }]
     },
     opt() {
+      const maxval = this.series.reduce((a, b) => Math.max(a, b), 30)
       return {
         maintainAspectRatio: false,
         scales: {
@@ -53,8 +57,8 @@ export default {
             ticks: {
               beginAtZero: true,
               maxTicksLimit: 5,
-              stepSize: Math.ceil(30 / 5),
-              max: 30
+              stepSize: Math.ceil(maxval / 5),
+              max: maxval
             },
             gridLines: {
               display: true
