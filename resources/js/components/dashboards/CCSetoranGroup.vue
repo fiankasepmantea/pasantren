@@ -48,7 +48,7 @@ export default {
     opt() {
       return {
         maintainAspectRatio: false,
-        // legend: { display:false },
+        legend: { position: 'right' },
       }
     }
   }
