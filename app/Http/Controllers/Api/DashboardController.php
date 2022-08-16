@@ -54,4 +54,23 @@ class DashboardController extends Controller
         }*/
         return $result;
     }
+
+    private function getSetoranUnit() {
+        $result = array('message'=>'','series'=>array(),'labels'=>array());
+        $setoran = new Model();
+        $m_setoran = $setoran->getModel([],true);
+        $m_setoran->getQuery()->orders = null;
+        $rows = $m_setoran->select('units.id','units.nama')
+            ->selectRaw('FLOOR(SUM(juz)+(SUM(halaman)/20)+(SUM(baris)/300)) AS total_juz')
+            ->join('muhaffizhs','setorans.muhaffizh_id','=','muhaffizhs.id')
+            ->join('units','muhaffizhs.unit_id','=','units.id')
+            ->whereDate('setorans.created_at','>=',date('Y-m-d',strtotime('-6 month')))
+            ->groupBy('units.id','units.nama')->orderBy('units.id')
+            ->get();
+        foreach ($rows as $r) {
+            $result['series'][] = (int) $r->total_juz;
+            $result['labels'][] = strtoupper(substr($r->nama,0,strpos($r->nama,' ')));
+        }
+        return $result;
+    }
 }
