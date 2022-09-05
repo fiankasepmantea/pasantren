@@ -1,1 +1,1490 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[11],{121:function(e,a,t){"use strict";t.r(a);var i=t(86),r=t(15);function n(e,a){var t=Object.keys(e);if(Object.getOwnPropertySymbols){var i=Object.getOwnPropertySymbols(e);a&&(i=i.filter((function(a){return Object.getOwnPropertyDescriptor(e,a).enumerable}))),t.push.apply(t,i)}return t}function l(e){for(var a=1;a<arguments.length;a++){var t=null!=arguments[a]?arguments[a]:{};a%2?n(Object(t),!0).forEach((function(a){o(e,a,t[a])})):Object.getOwnPropertyDescriptors?Object.defineProperties(e,Object.getOwnPropertyDescriptors(t)):n(Object(t)).forEach((function(a){Object.defineProperty(e,a,Object.getOwnPropertyDescriptor(t,a))}))}return e}function o(e,a,t){return a in e?Object.defineProperty(e,a,{value:t,enumerable:!0,configurable:!0,writable:!0}):e[a]=t,e}var s={inject:["validator"],name:"MuhaffizhForm",created:function(){this.getUnit(),this.$validator=this.validator},computed:l(l({},Object(r.e)(["errors"])),Object(r.e)("muhaffizh",{muhaffizh:function(e){return e.muhaffizh},muhaffizh_unit:function(e){return e.muhaffizh_unit}})),watch:{return:function(){this.getUnit()}},methods:l(l(l({},Object(r.d)("muhaffizh",["CLEAR_FORM"])),Object(r.b)("muhaffizh",["getUnit"])),{},{validateState:function(e){return this.veeFields[e]&&(this.veeFields[e].dirty||this.veeFields[e].validated)?!this.veeErrors.has(e):null}}),destroyed:function(){this.CLEAR_FORM()},data:function(){return{selected_pendidikan:null,options_pendidikan:[{value:"D3",text:"D3"},{value:"S1",text:"S1"},{value:"S2",text:"S2"},{value:"S3",text:"S3"}],selected_status:null,options_status:[{value:"Aktif",text:"Aktif"},{value:"Tidak Aktif",text:"Tidak Aktif"}]}}},u=t(11),f=Object(u.a)(s,(function(){var e=this,a=e.$createElement,t=e._self._c||a;return t("div",[t("b-form",{on:{submit:function(e){e.stopPropagation(),e.preventDefault()}}},[t("b-form-group",{attrs:{label:"Unit","label-cols":"3","label-for":"unit"}},[t("b-form-select",{directives:[{name:"validate",rawName:"v-validate",value:{required:!0},expression:"{ required: true }"}],attrs:{id:"unit",options:e.muhaffizh_unit,placeholder:"Pilih Unit",name:"unit",state:e.validateState("unit"),"data-vv-as":"Unit"},model:{value:e.muhaffizh.unit_id,callback:function(a){e.$set(e.muhaffizh,"unit_id",a)},expression:"muhaffizh.unit_id"}}),e._v(" "),t("b-form-invalid-feedback",[e._v(e._s(e.veeErrors.first("unit")))])],1),e._v(" "),t("b-form-group",{attrs:{label:"Nomor Induk","label-cols":"3","label-for":"nomorinduk"}},[t("b-form-input",{directives:[{name:"validate",rawName:"v-validate",value:{required:!0},expression:"{ required: true }"}],attrs:{id:"nomorinduk",placeholder:"Masukan Nomor Induk",name:"nomorinduk",state:e.validateState("nomorinduk"),"data-vv-as":"NomorInduk"},model:{value:e.muhaffizh.nomor_induk,callback:function(a){e.$set(e.muhaffizh,"nomor_induk",a)},expression:"muhaffizh.nomor_induk"}}),e._v(" "),t("b-form-invalid-feedback",[e._v(e._s(e.veeErrors.first("nomorinduk")))])],1),e._v(" "),t("b-form-group",{attrs:{label:"Nama","label-cols":"3","label-for":"nama"}},[t("b-form-input",{directives:[{name:"validate",rawName:"v-validate",value:{required:!0},expression:"{ required: true }"}],attrs:{id:"nama",placeholder:"Masukan Nama",name:"nama",state:e.validateState("nama"),"data-vv-as":"Nama"},model:{value:e.muhaffizh.nama,callback:function(a){e.$set(e.muhaffizh,"nama",a)},expression:"muhaffizh.nama"}}),e._v(" "),t("b-form-invalid-feedback",[e._v(e._s(e.veeErrors.first("nama")))])],1),e._v(" "),t("b-form-group",{attrs:{label:"Alamat","label-cols":"3","label-for":"alamat"}},[t("b-form-textarea",{directives:[{name:"validate",rawName:"v-validate",value:{required:!0},expression:"{ required: true }"}],attrs:{id:"alamat",placeholder:"Masukan Alamat",name:"alamat",state:e.validateState("alamat"),"data-vv-as":"Alamat"},model:{value:e.muhaffizh.alamat,callback:function(a){e.$set(e.muhaffizh,"alamat",a)},expression:"muhaffizh.alamat"}}),e._v(" "),t("b-form-invalid-feedback",[e._v(e._s(e.veeErrors.first("alamat")))])],1),e._v(" "),t("b-form-group",{attrs:{label:"Tempat Lahir","label-cols":"3","label-for":"tempatlahir"}},[t("b-form-input",{directives:[{name:"validate",rawName:"v-validate",value:{required:!0},expression:"{ required: true }"}],attrs:{id:"tempatlahir",placeholder:"Masukan Tempat Lahir",name:"tempatlahir",state:e.validateState("tempatlahir"),"data-vv-as":"TempatLahir"},model:{value:e.muhaffizh.tempat_lahir,callback:function(a){e.$set(e.muhaffizh,"tempat_lahir",a)},expression:"muhaffizh.tempat_lahir"}}),e._v(" "),t("b-form-invalid-feedback",[e._v(e._s(e.veeErrors.first("tempatlahir")))])],1),e._v(" "),t("b-form-group",{attrs:{label:"Tanggal Lahir","label-cols":"3","label-for":"tanggallahir"}},[t("b-form-input",{directives:[{name:"validate",rawName:"v-validate",value:{required:!0},expression:"{ required: true }"}],attrs:{id:"tanggallahir",placeholder:"Masukan Tanggal Lahir",type:"date",name:"tanggallahir",state:e.validateState("tanggallahir"),"data-vv-as":"TanggalLahir"},model:{value:e.muhaffizh.tanggal_lahir,callback:function(a){e.$set(e.muhaffizh,"tanggal_lahir",a)},expression:"muhaffizh.tanggal_lahir"}}),e._v(" "),t("b-form-invalid-feedback",[e._v(e._s(e.veeErrors.first("tanggallahir")))])],1),e._v(" "),t("b-form-group",{attrs:{label:"No HP","label-cols":"3","label-for":"no_hp"}},[t("b-form-input",{directives:[{name:"validate",rawName:"v-validate",value:{required:!0},expression:"{ required: true }"}],attrs:{id:"no_hp",placeholder:"Masukan No HP",name:"nohp",state:e.validateState("no_hp"),"data-vv-as":"NoHP"},model:{value:e.muhaffizh.no_hp,callback:function(a){e.$set(e.muhaffizh,"no_hp",a)},expression:"muhaffizh.no_hp"}}),e._v(" "),t("b-form-invalid-feedback",[e._v(e._s(e.veeErrors.first("no_hp")))])],1),e._v(" "),t("b-form-group",{attrs:{label:"Mulai Bertugas","label-cols":"3","label-for":"mulaibertugas"}},[t("b-form-input",{directives:[{name:"validate",rawName:"v-validate",value:{required:!0},expression:"{ required: true }"}],attrs:{id:"mulaibertugas",placeholder:"Masukan Tanggal Bertugas",type:"date",name:"mulaibertugas",state:e.validateState("mulaibertugas"),"data-vv-as":"MulaiBertugas"},model:{value:e.muhaffizh.mulai_bertugas,callback:function(a){e.$set(e.muhaffizh,"mulai_bertugas",a)},expression:"muhaffizh.mulai_bertugas"}}),e._v(" "),t("b-form-invalid-feedback",[e._v(e._s(e.veeErrors.first("mulaibertugas")))])],1),e._v(" "),t("b-form-group",{attrs:{label:"Pendidikan Terakhir","label-cols":"3","label-for":"pendidikanterakhir"}},[t("b-form-select",{attrs:{options:e.options_pendidikan},model:{value:e.muhaffizh.pendidikan_terakhir,callback:function(a){e.$set(e.muhaffizh,"pendidikan_terakhir",a)},expression:"muhaffizh.pendidikan_terakhir"}},[e._v(e._s(e.selected_pendidikan))])],1),e._v(" "),t("b-form-group",{attrs:{label:"Status","label-cols":"3","label-for":"status"}},[t("b-form-select",{attrs:{options:e.options_status},model:{value:e.muhaffizh.status,callback:function(a){e.$set(e.muhaffizh,"status",a)},expression:"muhaffizh.status"}},[e._v(e._s(e.selected_status))])],1),e._v(" "),t("b-form-group",{attrs:{label:"Kelas/Angkatan","label-cols":"3","label-for":"kelasangkatan"}},[t("b-form-input",{directives:[{name:"validate",rawName:"v-validate",value:{required:!0},expression:"{ required: true }"}],attrs:{id:"kelasangkatan",placeholder:"Masukan Angkatan/Kelas",name:"kelasangkatan",state:e.validateState("kelasangkatan"),"data-vv-as":"KelasAngkatan"},model:{value:e.muhaffizh.angkatan_kelas,callback:function(a){e.$set(e.muhaffizh,"angkatan_kelas",a)},expression:"muhaffizh.angkatan_kelas"}}),e._v(" "),t("b-form-invalid-feedback",[e._v(e._s(e.veeErrors.first("kelasangkatan")))])],1)],1)],1)}),[],!1,null,null,null).exports,c=t(95);function d(e,a){return function(e){if(Array.isArray(e))return e}(e)||function(e,a){if("undefined"==typeof Symbol||!(Symbol.iterator in Object(e)))return;var t=[],i=!0,r=!1,n=void 0;try{for(var l,o=e[Symbol.iterator]();!(i=(l=o.next()).done)&&(t.push(l.value),!a||t.length!==a);i=!0);}catch(e){r=!0,n=e}finally{try{i||null==o.return||o.return()}finally{if(r)throw n}}return t}(e,a)||function(e,a){if(!e)return;if("string"==typeof e)return h(e,a);var t=Object.prototype.toString.call(e).slice(8,-1);"Object"===t&&e.constructor&&(t=e.constructor.name);if("Map"===t||"Set"===t)return Array.from(e);if("Arguments"===t||/^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t))return h(e,a)}(e,a)||function(){throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}()}function h(e,a){(null==a||a>e.length)&&(a=e.length);for(var t=0,i=new Array(a);t<a;t++)i[t]=e[t];return i}function m(e,a){var t=Object.keys(e);if(Object.getOwnPropertySymbols){var i=Object.getOwnPropertySymbols(e);a&&(i=i.filter((function(a){return Object.getOwnPropertyDescriptor(e,a).enumerable}))),t.push.apply(t,i)}return t}function v(e){for(var a=1;a<arguments.length;a++){var t=null!=arguments[a]?arguments[a]:{};a%2?m(Object(t),!0).forEach((function(a){b(e,a,t[a])})):Object.getOwnPropertyDescriptors?Object.defineProperties(e,Object.getOwnPropertyDescriptors(t)):m(Object(t)).forEach((function(a){Object.defineProperty(e,a,Object.getOwnPropertyDescriptor(t,a))}))}return e}function b(e,a,t){return a in e?Object.defineProperty(e,a,{value:t,enumerable:!0,configurable:!0,writable:!0}):e[a]=t,e}var p={name:"Muhaffizhs",components:{pagetitle:i.a,Form:f,DataView:c.a},created:function(){this.loadData()},data:function(){return{createModal:!1,viewModal:!1,editModal:!1,editedId:null,perPage:20,currentPage:1,currentMuhaffizh:{},pageOptions:[10,20,50,100],header:[{key:"nama",label:"Nama"},{key:"no_hp",label:"No HP"},{key:"mulai_bertugas",label:"Mulai Bertugas"},{key:"status",label:"Status"},{key:"angkatan_kelas",label:"Kelas/Angkatan"},{key:"list_unit.nama",label:"Unit"},{key:"actions",label:"Aksi",stickyColumn:!0,class:"action-columns"}]}},provide:function(){return{validator:this.$validator}},computed:v({rows:function(){return this.muhaffizhs&&this.muhaffizhs.data?this.muhaffizhs.data.length:0}},Object(r.e)("muhaffizh",{muhaffizhs:function(e){return e.muhaffizhs}})),methods:v(v({},Object(r.b)("muhaffizh",["getMuhaffizhs","removeMuhaffizh","editMuhaffizh","updateMuhaffizh","submitMuhaffizh"])),{},{loadData:function(){var e=this;this.$store.commit("loadingOn"),setTimeout((function(){e.getMuhaffizhs(),e.$store.commit("loadingOff")}),1e3)},deleteMuhaffizh:function(e){var a=this;this.$swal({title:"Apakah anda yakin ?",text:"Tindakan ini akan menghapus data secara permanen",showCancelButton:!0}).then((function(t){t.value&&a.removeMuhaffizh(e)}))},handleView:function(e){this.viewModal=!0;for(var a=0,t=Object.entries(e);a<t.length;a++){var i=d(t[a],2),r=i[0],n=i[1];if("string"==typeof n||"number"==typeof n){if(r.toLowerCase().indexOf("_id")>=0||r.toLowerCase().indexOf("id_")>=0)continue;this.currentMuhaffizh[r]=n}}this.currentMuhaffizh.unit=e.list_unit.nama},handleEdit:function(e){this.editModal=!0,this.editMuhaffizh(e),this.editedId=e},handleUpdate:function(e){var a=this;e.preventDefault(),this.$validator.validateAll().then((function(e){e&&(a.updateMuhaffizh(a.editedId),a.$toasted.global.success_toast({message:"Data Muhaffizh berhasil diubah.."}),a.editModal=!1,a.loadData())})).catch((function(e){a.$toasted.global.failed_toast({message:"Data Muhaffizh gagal untuk diubah.."})}))},handleSubmit:function(e){var a=this;e.preventDefault(),this.$validator.validateAll().then((function(e){e&&(a.submitMuhaffizh(),a.$toasted.global.success_toast({message:"Data Muhaffizh berhasil ditambahkan.."}),a.createModal=!1,a.loadData())})).catch((function(e){a.$toasted.global.failed_toast({message:"Data Muhaffizh gagal untuk ditambahkan.."})}))}})},g=Object(u.a)(p,(function(){var e=this,a=e.$createElement,t=e._self._c||a;return t("div",[t("pagetitle"),e._v(" "),t("CRow",[t("CCardBody",{staticStyle:{"padding-top":"0px"}},[t("div",{staticClass:"d-flex justify-content-end"},[t("b-button",{attrs:{size:"sm",variant:"success"},on:{click:function(a){e.createModal=!0}}},[e._v("+ Tambah Muhaffizh")])],1),e._v(" "),t("b-form",{attrs:{inline:""}},[t("b-form-group",{staticClass:"mb-2",attrs:{label:"Show :","label-size":"sm","label-for":"perPageSelect"}},[t("b-form-select",{staticClass:"ml-2",attrs:{id:"perPageSelect",size:"sm",options:e.pageOptions},model:{value:e.perPage,callback:function(a){e.perPage=a},expression:"perPage"}})],1)],1),e._v(" "),t("b-table",{attrs:{items:e.muhaffizhs.data,fields:e.header,"current-page":e.currentPage,"per-page":e.perPage,"sticky-header":"","no-border-collapse":"",striped:"",hover:"",small:"",responsive:"",outlined:"","show-empty":""},scopedSlots:e._u([{key:"cell(actions)",fn:function(a){return[t("b-button",{attrs:{variant:"info",size:"sm"},on:{click:function(t){return e.handleView(a.item)}}},[e._v("\n              View\n            ")]),e._v(" "),t("b-button",{attrs:{variant:"success",size:"sm"},on:{click:function(t){return e.handleEdit(a.item.id)}}},[e._v("\n              Edit\n            ")]),e._v(" "),t("b-button",{attrs:{variant:"danger",size:"sm"},on:{click:function(t){return e.deleteMuhaffizh(a.item.id)}}},[e._v("\n              Delete\n            ")])]}}])}),e._v(" "),t("b-pagination",{attrs:{"total-rows":e.rows,"per-page":e.perPage,"first-text":"First","prev-text":"Prev","next-text":"Next","last-text":"Last",size:"sm",align:"right"},model:{value:e.currentPage,callback:function(a){e.currentPage=a},expression:"currentPage"}}),e._v(" "),t("b-modal",{attrs:{title:"Tambah Data Muhaffizh","no-close-on-backdrop":"","no-close-on-esc":"",centered:""},on:{ok:e.handleSubmit},model:{value:e.createModal,callback:function(a){e.createModal=a},expression:"createModal"}},[t("Form")],1),e._v(" "),t("b-modal",{attrs:{title:"Ubah Data Muhaffizh","no-close-on-backdrop":"","no-close-on-esc":"",centered:""},on:{ok:e.handleUpdate},model:{value:e.editModal,callback:function(a){e.editModal=a},expression:"editModal"}},[t("Form")],1),e._v(" "),t("b-modal",{attrs:{title:"Lihat Data Muhaffizh","body-class":"form-view",centered:""},model:{value:e.viewModal,callback:function(a){e.viewModal=a},expression:"viewModal"}},[t("DataView",{attrs:{items:e.currentMuhaffizh}})],1)],1)],1)],1)}),[],!1,null,null,null);a.default=g.exports},86:function(e,a,t){"use strict";var i={name:"page-title"},r=t(11),n=Object(r.a)(i,(function(){var e=this.$createElement,a=this._self._c||e;return a("div",[a("CRow",[a("CCol",{staticClass:"col-12"},[a("span",{staticClass:"text-uppercase page-subtitle"},[this._v("Master Data")]),this._v(" "),a("h3",{staticClass:"page-title"},[this._v(this._s(this.$route.meta.title))])])],1)],1)}),[],!1,null,null,null);a.a=n.exports},95:function(e,a,t){"use strict";var i={name:"PropertyView",props:{items:{type:Object,default:function(e){return{info:"Data is empty"}}}},computed:{getItems:function(){var e=[];for(var a in this.items)if("id"!=a&&"foto"!=a){var t=this.items[a];if("string"==typeof t&&3==t.substr(0,10).split("-").length){var i=new Date(t);i&&(t=i.toLocaleDateString())}e.push({id:a.replace(/[_-]/g,"").trim(),label:a.replace(/[_-]/g," ").trim().split(" ").map((function(e){return e[0].toUpperCase()+e.substring(1).toLowerCase()})).join(" "),value:t})}return e},getFoto:function(){return!(!this.items.hasOwnProperty("foto")||""==this.items.foto)&&this.items.foto}}},r=t(11),n=Object(r.a)(i,(function(){var e=this.$createElement,a=this._self._c||e;return a("div",[this.getFoto?[a("CRow",{staticStyle:{"margin-bottom":"8px"},attrs:{alignHorizontal:"center"}},[a("b-avatar",{attrs:{src:this.getFoto,size:"10rem",rounded:"lg"}})],1)]:this._e(),this._v(" "),this._l(this.getItems,(function(e){return a("div",[a("b-form-group",{attrs:{label:e.label,"label-cols":"3",labelFor:e.id}},[a("b-form-input",{attrs:{id:e.id,value:e.value,plaintext:!0}})],1)],1)}))],2)}),[],!1,null,null,null);a.a=n.exports}}]);
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[11],{
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/process/Forms/MutqinForm.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/process/Forms/MutqinForm.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  inject: ['validator'],
+  name: "mutqinForm",
+  created: function created() {
+    this.getGroup();
+    this.getMuhaffizh();
+    this.getSantri();
+    this.$validator = this.validator;
+  },
+  computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(["errors"])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])("mutqin", {
+    mutqin: function mutqin(state) {
+      return state.mutqin;
+    },
+    mutqin_group: function mutqin_group(state) {
+      return state.mutqin_group;
+    },
+    mutqin_santri: function mutqin_santri(state) {
+      return state.mutqin_santri;
+    },
+    mutqin_muhaffizh: function mutqin_muhaffizh(state) {
+      return state.mutqin_muhaffizh;
+    }
+  })),
+  watch: {
+    "return": function _return() {
+      this.getMuhaffizh();
+      this.getGroup();
+      this.getSantri();
+    }
+  },
+  methods: _objectSpread(_objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapMutations"])("mutqin", ["CLEAR_FORM"])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])("mutqin", ["getUnit", "getGroup", "getMuhaffizh", "getSantri"])), {}, {
+    getGroupName: function getGroupName(id) {
+      this.mutqin.group_id = '', this.getGroup(id);
+    },
+    getSantriName: function getSantriName(id) {
+      this.mutqin.santri_id = '', this.getSantri(id);
+    },
+    validateState: function validateState(ref) {
+      if (this.veeFields[ref] && (this.veeFields[ref].dirty || this.veeFields[ref].validated)) {
+        return !this.veeErrors.has(ref);
+      }
+
+      return null;
+    }
+  }),
+  destroyed: function destroyed() {
+    this.CLEAR_FORM();
+  },
+  data: function data() {
+    return {
+      selected_bulan: null,
+      options_bulan: [{
+        value: 'Januari',
+        text: 'Januari'
+      }, {
+        value: 'Febuari',
+        text: 'Febuari'
+      }, {
+        value: 'Maret',
+        text: 'Maret'
+      }, {
+        value: 'April',
+        text: 'April'
+      }, {
+        value: 'Mei',
+        text: 'Mei'
+      }, {
+        value: 'Juni',
+        text: 'Juni'
+      }, {
+        value: 'Juli',
+        text: 'Juli'
+      }, {
+        value: 'September',
+        text: 'September'
+      }, {
+        value: 'Agustus',
+        text: 'Agustus'
+      }, {
+        value: 'Oktober',
+        text: 'Oktober'
+      }, {
+        value: 'November',
+        text: 'November'
+      }, {
+        value: 'Desember',
+        text: 'Desember'
+      }]
+    };
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/process/Mutqins.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/process/Mutqins.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _PageTitle__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./PageTitle */ "./resources/js/components/process/PageTitle.vue");
+/* harmony import */ var _Forms_MutqinForm__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Forms/MutqinForm */ "./resources/js/components/process/Forms/MutqinForm.vue");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "Mutqins",
+  components: {
+    pagetitle: _PageTitle__WEBPACK_IMPORTED_MODULE_1__["default"],
+    Form: _Forms_MutqinForm__WEBPACK_IMPORTED_MODULE_2__["default"]
+  },
+  created: function created() {
+    this.loadData();
+  },
+  data: function data() {
+    return {
+      createModal: false,
+      editModal: false,
+      editedId: null,
+      perPage: 20,
+      searchItem: '',
+      currentPage: 1,
+      pageOptions: [10, 20, 50, 100],
+      filterModel: {
+        muhaffizh_name: null,
+        santri_name: null
+      },
+      header: [{
+        key: 'list_santri.nama',
+        label: 'Santri'
+      }, {
+        key: "bulan",
+        label: "Bulan"
+      }, {
+        key: "pekan",
+        label: "Pekan"
+      }, {
+        key: "juz",
+        label: "Juz"
+      }, {
+        key: 'halaman',
+        label: 'Halaman'
+      }, {
+        key: 'baris',
+        label: 'Baris'
+      }, {
+        key: 'updated_at',
+        label: 'Tanggal Update'
+      }, {
+        key: "list_group.nama",
+        label: "Group"
+      }, {
+        key: "list_muhaffizh.nama",
+        label: "Muhaffizh"
+      }, {
+        key: 'actions',
+        label: "Aksi",
+        stickyColumn: true,
+        "class": 'action-columns'
+      }]
+    };
+  },
+  provide: function provide() {
+    return {
+      validator: this.$validator
+    };
+  },
+  computed: _objectSpread({
+    rows: function rows() {
+      if (this.mutqins && this.mutqins.data) {
+        return this.mutqins.data.length;
+      } else {
+        return 0;
+      }
+    }
+  }, Object(vuex__WEBPACK_IMPORTED_MODULE_3__["mapState"])('mutqin', {
+    mutqins: function mutqins(state) {
+      return state.mutqins;
+    }
+  })),
+  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_3__["mapActions"])('mutqin', ['getMutqins', 'removeMutqin', 'editMutqin', 'updateMutqin', 'submitMutqin'])), {}, {
+    loadData: function loadData() {
+      var _arguments = arguments,
+          _this = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var params;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                params = _arguments.length > 0 && _arguments[0] !== undefined ? _arguments[0] : null;
+
+                _this.$store.commit('loadingOn'); // setTimeout(() => {
+
+
+                _context.next = 4;
+                return _this.getMutqins(params);
+
+              case 4:
+                _this.$store.commit('loadingOff'); // }, 1000);
+
+
+              case 5:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }))();
+    },
+    searchMuhaffizhSantri: function searchMuhaffizhSantri() {
+      var _this2 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _this2.$store.commit('loadingOn');
+
+                _context2.next = 3;
+                return _this2.loadData(_this2.filterModel);
+
+              case 3:
+                _this2.$store.commit('loadingOff');
+
+              case 4:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
+      }))();
+    },
+    deleteMutqin: function deleteMutqin(id) {
+      var _this3 = this;
+
+      this.$swal({
+        title: 'Apakah anda yakin ?',
+        text: 'Tindakan ini akan menghapus data secara permanen',
+        showCancelButton: true
+      }).then(function (result) {
+        if (result.value) {
+          _this3.removeMutqin(id);
+        }
+      });
+    },
+    handleEdit: function handleEdit(id) {
+      this.editModal = true;
+      this.editMutqin(id);
+      this.editedId = id;
+    },
+    handleUpdate: function handleUpdate(bvModalEvt) {
+      var _this4 = this;
+
+      bvModalEvt.preventDefault();
+      this.$validator.validateAll().then(function (result) {
+        if (!result) {
+          return;
+        }
+
+        _this4.updateMutqin(_this4.editedId);
+
+        _this4.$toasted.global.success_toast({
+          message: 'Data Mutqin berhasil diubah..'
+        });
+
+        _this4.editModal = false;
+
+        _this4.loadData();
+      })["catch"](function (err) {
+        _this4.$toasted.global.failed_toast({
+          message: 'Data Mutqin gagal untuk diubah..'
+        });
+      });
+    },
+    handleSubmit: function handleSubmit(bvModalEvt) {
+      var _this5 = this;
+
+      bvModalEvt.preventDefault();
+      this.$validator.validateAll().then(function (result) {
+        if (!result) {
+          return;
+        }
+
+        _this5.submitMutqin();
+
+        _this5.$toasted.global.success_toast({
+          message: 'Data Mutqin berhasil ditambahkan..'
+        });
+
+        _this5.createModal = false;
+
+        _this5.loadData();
+      })["catch"](function (err) {
+        _this5.$toasted.global.failed_toast({
+          message: 'Data Mutqin gagal untuk ditambahkan..'
+        });
+      });
+    }
+  })
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/process/PageTitle.vue?vue&type=script&lang=js&":
+/*!****************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/process/PageTitle.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'page-title'
+});
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/process/Forms/MutqinForm.vue?vue&type=template&id=2a9c080e&":
+/*!***************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/process/Forms/MutqinForm.vue?vue&type=template&id=2a9c080e& ***!
+  \***************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c(
+        "b-form",
+        {
+          on: {
+            submit: function($event) {
+              $event.stopPropagation()
+              $event.preventDefault()
+            }
+          }
+        },
+        [
+          _c(
+            "b-form-group",
+            {
+              attrs: {
+                label: "Muhaffizh",
+                "label-cols": "3",
+                "label-for": "muhaffizh"
+              }
+            },
+            [
+              _c("b-form-select", {
+                directives: [
+                  {
+                    name: "validate",
+                    rawName: "v-validate",
+                    value: { required: true },
+                    expression: "{ required: true }"
+                  }
+                ],
+                attrs: {
+                  id: "muhaffizh",
+                  options: _vm.mutqin_muhaffizh,
+                  placeholder: "Pilih Muhaffizh",
+                  name: "muhaffizh",
+                  state: _vm.validateState("muhaffizh"),
+                  "data-vv-as": "Muhaffizh"
+                },
+                on: {
+                  change: function() {
+                    _vm.getGroupName(_vm.mutqin.muhaffizh_id)
+                  }
+                },
+                model: {
+                  value: _vm.mutqin.muhaffizh_id,
+                  callback: function($$v) {
+                    _vm.$set(_vm.mutqin, "muhaffizh_id", $$v)
+                  },
+                  expression: "mutqin.muhaffizh_id"
+                }
+              }),
+              _vm._v(" "),
+              _c("b-form-invalid-feedback", [
+                _vm._v(_vm._s(_vm.veeErrors.first("muhaffizh")))
+              ])
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "b-form-group",
+            {
+              attrs: { label: "Group", "label-cols": "3", "label-for": "group" }
+            },
+            [
+              _c("b-form-select", {
+                directives: [
+                  {
+                    name: "validate",
+                    rawName: "v-validate",
+                    value: { required: true },
+                    expression: "{ required: true }"
+                  }
+                ],
+                attrs: {
+                  id: "group",
+                  options: _vm.mutqin_group,
+                  placeholder: "Pilih Group",
+                  name: "group",
+                  state: _vm.validateState("group"),
+                  "data-vv-as": "Group"
+                },
+                on: {
+                  change: function() {
+                    _vm.getSantriName(_vm.mutqin.group_id)
+                  }
+                },
+                model: {
+                  value: _vm.mutqin.group_id,
+                  callback: function($$v) {
+                    _vm.$set(_vm.mutqin, "group_id", $$v)
+                  },
+                  expression: "mutqin.group_id"
+                }
+              }),
+              _vm._v(" "),
+              _c("b-form-invalid-feedback", [
+                _vm._v(_vm._s(_vm.veeErrors.first("group")))
+              ])
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "b-form-group",
+            {
+              attrs: {
+                label: "Santri",
+                "label-cols": "3",
+                "label-for": "santri"
+              }
+            },
+            [
+              _c("b-form-select", {
+                directives: [
+                  {
+                    name: "validate",
+                    rawName: "v-validate",
+                    value: { required: true },
+                    expression: "{ required: true }"
+                  }
+                ],
+                attrs: {
+                  id: "santri",
+                  options: _vm.mutqin_santri,
+                  placeholder: "Pilih Santri",
+                  name: "santri",
+                  state: _vm.validateState("santri"),
+                  "data-vv-as": "Santri"
+                },
+                model: {
+                  value: _vm.mutqin.santri_id,
+                  callback: function($$v) {
+                    _vm.$set(_vm.mutqin, "santri_id", $$v)
+                  },
+                  expression: "mutqin.santri_id"
+                }
+              }),
+              _vm._v(" "),
+              _c("b-form-invalid-feedback", [
+                _vm._v(_vm._s(_vm.veeErrors.first("santri")))
+              ])
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "b-form-group",
+            {
+              attrs: { label: "Bulan", "label-cols": "3", "label-for": "bulan" }
+            },
+            [
+              _c(
+                "b-form-select",
+                {
+                  attrs: { options: _vm.options_bulan },
+                  model: {
+                    value: _vm.mutqin.bulan,
+                    callback: function($$v) {
+                      _vm.$set(_vm.mutqin, "bulan", $$v)
+                    },
+                    expression: "mutqin.bulan"
+                  }
+                },
+                [_vm._v(_vm._s(_vm.selected_bulan))]
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "b-form-group",
+            {
+              attrs: {
+                label: "Pekan ke-",
+                "label-cols": "3",
+                "label-for": "pekan"
+              }
+            },
+            [
+              _c("b-form-input", {
+                directives: [
+                  {
+                    name: "validate",
+                    rawName: "v-validate",
+                    value: { required: true },
+                    expression: "{ required: true }"
+                  }
+                ],
+                attrs: {
+                  id: "pekan",
+                  placeholder: "Masukan Pekan",
+                  name: "pekan",
+                  state: _vm.validateState("pekan"),
+                  "data-vv-as": "Pekan"
+                },
+                model: {
+                  value: _vm.mutqin.pekan,
+                  callback: function($$v) {
+                    _vm.$set(_vm.mutqin, "pekan", $$v)
+                  },
+                  expression: "mutqin.pekan"
+                }
+              }),
+              _vm._v(" "),
+              _c("b-form-invalid-feedback", [
+                _vm._v(_vm._s(_vm.veeErrors.first("pekan")))
+              ])
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "b-form-group",
+            { attrs: { label: "Juz", "label-cols": "3", "label-for": "juz" } },
+            [
+              _c("b-form-input", {
+                directives: [
+                  {
+                    name: "validate",
+                    rawName: "v-validate",
+                    value: { required: true },
+                    expression: "{ required: true }"
+                  }
+                ],
+                attrs: {
+                  id: "juz",
+                  placeholder: "Masukan Juz",
+                  name: "juz",
+                  state: _vm.validateState("juz"),
+                  "data-vv-as": "Juz"
+                },
+                model: {
+                  value: _vm.mutqin.juz,
+                  callback: function($$v) {
+                    _vm.$set(_vm.mutqin, "juz", $$v)
+                  },
+                  expression: "mutqin.juz"
+                }
+              }),
+              _vm._v(" "),
+              _c("b-form-invalid-feedback", [
+                _vm._v(_vm._s(_vm.veeErrors.first("juz")))
+              ])
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "b-form-group",
+            {
+              attrs: {
+                label: "Halaman",
+                "label-cols": "3",
+                "label-for": "halaman"
+              }
+            },
+            [
+              _c("b-form-input", {
+                directives: [
+                  {
+                    name: "validate",
+                    rawName: "v-validate",
+                    value: { required: true },
+                    expression: "{ required: true }"
+                  }
+                ],
+                attrs: {
+                  id: "halaman",
+                  placeholder: "Masukan Halaman",
+                  name: "halaman",
+                  state: _vm.validateState("halaman"),
+                  "data-vv-as": "Halaman"
+                },
+                model: {
+                  value: _vm.mutqin.halaman,
+                  callback: function($$v) {
+                    _vm.$set(_vm.mutqin, "halaman", $$v)
+                  },
+                  expression: "mutqin.halaman"
+                }
+              }),
+              _vm._v(" "),
+              _c("b-form-invalid-feedback", [
+                _vm._v(_vm._s(_vm.veeErrors.first("halaman")))
+              ])
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "b-form-group",
+            {
+              attrs: { label: "Baris", "label-cols": "3", "label-for": "baris" }
+            },
+            [
+              _c("b-form-input", {
+                directives: [
+                  {
+                    name: "validate",
+                    rawName: "v-validate",
+                    value: { required: true },
+                    expression: "{ required: true }"
+                  }
+                ],
+                attrs: {
+                  id: "baris",
+                  placeholder: "Masukan Baris",
+                  name: "baris",
+                  state: _vm.validateState("baris"),
+                  "data-vv-as": "Baris"
+                },
+                model: {
+                  value: _vm.mutqin.baris,
+                  callback: function($$v) {
+                    _vm.$set(_vm.mutqin, "baris", $$v)
+                  },
+                  expression: "mutqin.baris"
+                }
+              }),
+              _vm._v(" "),
+              _c("b-form-invalid-feedback", [
+                _vm._v(_vm._s(_vm.veeErrors.first("baris")))
+              ])
+            ],
+            1
+          )
+        ],
+        1
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/process/Mutqins.vue?vue&type=template&id=fb41d824&":
+/*!******************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/process/Mutqins.vue?vue&type=template&id=fb41d824& ***!
+  \******************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c("pagetitle"),
+      _vm._v(" "),
+      _c(
+        "CRow",
+        [
+          _c(
+            "CCardBody",
+            { staticStyle: { "padding-top": "0px" } },
+            [
+              _c(
+                "div",
+                { staticClass: "d-flex justify-content-end" },
+                [
+                  _c(
+                    "b-button",
+                    {
+                      attrs: { size: "sm", variant: "success" },
+                      on: {
+                        click: function($event) {
+                          _vm.createModal = true
+                        }
+                      }
+                    },
+                    [_vm._v("+ Tambah Mutqin")]
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "b-row",
+                [
+                  _c(
+                    "b-col",
+                    { attrs: { xl: "4", lg: "4", md: "4", sm: "12" } },
+                    [
+                      _c(
+                        "b-input-group",
+                        [
+                          _c("b-form-input", {
+                            attrs: { placeholder: "Cari Santri", size: "sm" },
+                            model: {
+                              value: _vm.filterModel.santri_name,
+                              callback: function($$v) {
+                                _vm.$set(_vm.filterModel, "santri_name", $$v)
+                              },
+                              expression: "filterModel.santri_name"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("b-form-input", {
+                            attrs: {
+                              placeholder: "Cari Muhaffizh",
+                              size: "sm"
+                            },
+                            model: {
+                              value: _vm.filterModel.muhaffizh_name,
+                              callback: function($$v) {
+                                _vm.$set(_vm.filterModel, "muhaffizh_name", $$v)
+                              },
+                              expression: "filterModel.muhaffizh_name"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c(
+                            "b-input-group-prepend",
+                            [
+                              _c(
+                                "b-button",
+                                { attrs: { size: "sm" } },
+                                [
+                                  _c("b-icon", {
+                                    attrs: { icon: "search" },
+                                    on: {
+                                      click: function($event) {
+                                        return _vm.searchMuhaffizhSantri(
+                                          _vm.filterModel
+                                        )
+                                      }
+                                    }
+                                  })
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c("br"),
+              _vm._v(" "),
+              _c(
+                "b-form",
+                { attrs: { inline: "" } },
+                [
+                  _c(
+                    "b-form-group",
+                    {
+                      staticClass: "mb-2",
+                      attrs: {
+                        label: "Show :",
+                        "label-size": "sm",
+                        "label-for": "perPageSelect"
+                      }
+                    },
+                    [
+                      _c("b-form-select", {
+                        staticClass: "ml-2",
+                        attrs: {
+                          id: "perPageSelect",
+                          size: "sm",
+                          options: _vm.pageOptions
+                        },
+                        model: {
+                          value: _vm.perPage,
+                          callback: function($$v) {
+                            _vm.perPage = $$v
+                          },
+                          expression: "perPage"
+                        }
+                      })
+                    ],
+                    1
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c("b-table", {
+                attrs: {
+                  items: _vm.mutqins.data,
+                  fields: _vm.header,
+                  "current-page": _vm.currentPage,
+                  "per-page": _vm.perPage,
+                  "sticky-header": "",
+                  "no-border-collapse": "",
+                  striped: "",
+                  hover: "",
+                  small: "",
+                  responsive: "",
+                  outlined: "",
+                  "show-empty": ""
+                },
+                scopedSlots: _vm._u([
+                  {
+                    key: "cell(actions)",
+                    fn: function(row) {
+                      return [
+                        _c(
+                          "b-button",
+                          {
+                            attrs: { variant: "success", size: "sm" },
+                            on: {
+                              click: function($event) {
+                                return _vm.handleEdit(row.item.id)
+                              }
+                            }
+                          },
+                          [_vm._v("\n              Edit\n            ")]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "b-button",
+                          {
+                            attrs: { variant: "danger", size: "sm" },
+                            on: {
+                              click: function($event) {
+                                return _vm.deleteMutqin(row.item.id)
+                              }
+                            }
+                          },
+                          [_vm._v("\n              Delete\n            ")]
+                        )
+                      ]
+                    }
+                  }
+                ])
+              }),
+              _vm._v(" "),
+              _c("b-pagination", {
+                attrs: {
+                  "total-rows": _vm.rows,
+                  "per-page": _vm.perPage,
+                  "first-text": "First",
+                  "prev-text": "Prev",
+                  "next-text": "Next",
+                  "last-text": "Last",
+                  size: "sm",
+                  align: "right"
+                },
+                model: {
+                  value: _vm.currentPage,
+                  callback: function($$v) {
+                    _vm.currentPage = $$v
+                  },
+                  expression: "currentPage"
+                }
+              }),
+              _vm._v(" "),
+              _c(
+                "b-modal",
+                {
+                  attrs: {
+                    title: "Tambah Data Mutqin",
+                    "no-close-on-backdrop": "",
+                    "no-close-on-esc": "",
+                    centered: ""
+                  },
+                  on: { ok: _vm.handleSubmit },
+                  model: {
+                    value: _vm.createModal,
+                    callback: function($$v) {
+                      _vm.createModal = $$v
+                    },
+                    expression: "createModal"
+                  }
+                },
+                [_c("Form")],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "b-modal",
+                {
+                  attrs: {
+                    title: "Ubah Data Mutqin",
+                    "no-close-on-backdrop": "",
+                    "no-close-on-esc": "",
+                    centered: ""
+                  },
+                  on: { ok: _vm.handleUpdate },
+                  model: {
+                    value: _vm.editModal,
+                    callback: function($$v) {
+                      _vm.editModal = $$v
+                    },
+                    expression: "editModal"
+                  }
+                },
+                [_c("Form")],
+                1
+              )
+            ],
+            1
+          )
+        ],
+        1
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/process/PageTitle.vue?vue&type=template&id=0223c60e&":
+/*!********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/process/PageTitle.vue?vue&type=template&id=0223c60e& ***!
+  \********************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c(
+        "CRow",
+        [
+          _c("CCol", { staticClass: "col-12" }, [
+            _c("span", { staticClass: "text-uppercase page-subtitle" }, [
+              _vm._v("Master Data")
+            ]),
+            _vm._v(" "),
+            _c("h3", { staticClass: "page-title" }, [
+              _vm._v(_vm._s(_vm.$route.meta.title))
+            ])
+          ])
+        ],
+        1
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/process/Forms/MutqinForm.vue":
+/*!**************************************************************!*\
+  !*** ./resources/js/components/process/Forms/MutqinForm.vue ***!
+  \**************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _MutqinForm_vue_vue_type_template_id_2a9c080e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MutqinForm.vue?vue&type=template&id=2a9c080e& */ "./resources/js/components/process/Forms/MutqinForm.vue?vue&type=template&id=2a9c080e&");
+/* harmony import */ var _MutqinForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MutqinForm.vue?vue&type=script&lang=js& */ "./resources/js/components/process/Forms/MutqinForm.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _MutqinForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _MutqinForm_vue_vue_type_template_id_2a9c080e___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _MutqinForm_vue_vue_type_template_id_2a9c080e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/process/Forms/MutqinForm.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/process/Forms/MutqinForm.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************!*\
+  !*** ./resources/js/components/process/Forms/MutqinForm.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MutqinForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./MutqinForm.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/process/Forms/MutqinForm.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MutqinForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/process/Forms/MutqinForm.vue?vue&type=template&id=2a9c080e&":
+/*!*********************************************************************************************!*\
+  !*** ./resources/js/components/process/Forms/MutqinForm.vue?vue&type=template&id=2a9c080e& ***!
+  \*********************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MutqinForm_vue_vue_type_template_id_2a9c080e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./MutqinForm.vue?vue&type=template&id=2a9c080e& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/process/Forms/MutqinForm.vue?vue&type=template&id=2a9c080e&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MutqinForm_vue_vue_type_template_id_2a9c080e___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MutqinForm_vue_vue_type_template_id_2a9c080e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/process/Mutqins.vue":
+/*!*****************************************************!*\
+  !*** ./resources/js/components/process/Mutqins.vue ***!
+  \*****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Mutqins_vue_vue_type_template_id_fb41d824___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Mutqins.vue?vue&type=template&id=fb41d824& */ "./resources/js/components/process/Mutqins.vue?vue&type=template&id=fb41d824&");
+/* harmony import */ var _Mutqins_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Mutqins.vue?vue&type=script&lang=js& */ "./resources/js/components/process/Mutqins.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Mutqins_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Mutqins_vue_vue_type_template_id_fb41d824___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Mutqins_vue_vue_type_template_id_fb41d824___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/process/Mutqins.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/process/Mutqins.vue?vue&type=script&lang=js&":
+/*!******************************************************************************!*\
+  !*** ./resources/js/components/process/Mutqins.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Mutqins_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./Mutqins.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/process/Mutqins.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Mutqins_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/process/Mutqins.vue?vue&type=template&id=fb41d824&":
+/*!************************************************************************************!*\
+  !*** ./resources/js/components/process/Mutqins.vue?vue&type=template&id=fb41d824& ***!
+  \************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Mutqins_vue_vue_type_template_id_fb41d824___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./Mutqins.vue?vue&type=template&id=fb41d824& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/process/Mutqins.vue?vue&type=template&id=fb41d824&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Mutqins_vue_vue_type_template_id_fb41d824___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Mutqins_vue_vue_type_template_id_fb41d824___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/process/PageTitle.vue":
+/*!*******************************************************!*\
+  !*** ./resources/js/components/process/PageTitle.vue ***!
+  \*******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _PageTitle_vue_vue_type_template_id_0223c60e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./PageTitle.vue?vue&type=template&id=0223c60e& */ "./resources/js/components/process/PageTitle.vue?vue&type=template&id=0223c60e&");
+/* harmony import */ var _PageTitle_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./PageTitle.vue?vue&type=script&lang=js& */ "./resources/js/components/process/PageTitle.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _PageTitle_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _PageTitle_vue_vue_type_template_id_0223c60e___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _PageTitle_vue_vue_type_template_id_0223c60e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/process/PageTitle.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/process/PageTitle.vue?vue&type=script&lang=js&":
+/*!********************************************************************************!*\
+  !*** ./resources/js/components/process/PageTitle.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_PageTitle_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./PageTitle.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/process/PageTitle.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_PageTitle_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/process/PageTitle.vue?vue&type=template&id=0223c60e&":
+/*!**************************************************************************************!*\
+  !*** ./resources/js/components/process/PageTitle.vue?vue&type=template&id=0223c60e& ***!
+  \**************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PageTitle_vue_vue_type_template_id_0223c60e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./PageTitle.vue?vue&type=template&id=0223c60e& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/process/PageTitle.vue?vue&type=template&id=0223c60e&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PageTitle_vue_vue_type_template_id_0223c60e___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PageTitle_vue_vue_type_template_id_0223c60e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ })
+
+}]);
