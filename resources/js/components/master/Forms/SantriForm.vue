@@ -1,6 +1,10 @@
 <template>
   <div>
     <b-form @submit.stop.prevent="">
+      <CRow alignHorizontal="center" style="margin-bottom:8px;">
+        <b-avatar v-if="santri.foto" :src="santri.foto" size="10rem" rounded="lg"></b-avatar>
+        <b-avatar v-else></b-avatar>
+      </CRow>
       <b-form-group label="Muhaffizh" label-cols="3" label-for="muhaffizh">
         <b-form-select
           id="muhaffizh"

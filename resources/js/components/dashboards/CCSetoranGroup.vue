@@ -1,5 +1,5 @@
 <template>
-  <CChartLine
+  <CChartPie
     :datasets="ds"
     :options="opt"
     :labels="labels"
@@ -7,73 +7,48 @@
 </template>
 
 <script>
-import { CChartLine } from '@coreui/vue-chartjs'
+import { CChartPie } from '@coreui/vue-chartjs'
 import { getStyle, hexToRgba } from '@coreui/utils/src'
-
-function random (min, max) {
-  return Math.floor(Math.random() * (max - min + 1) + min)
-}
+import $axios from '../../api.js'
 
 export default {
   name: 'CCSetoranGroup',
   components: {
-    CChartLine
+    CChartPie
   },
   data() {
     return {
-      labels: ['Umar','Saidah','Sidik','Usman','Fajar']
+      labels: [],
+      series: []
     }
+  },
+  created() {
+    $axios.get('dashboard/chartsetoran?ds=SetoranGroup')
+    .then((response) => response.data)
+    .then((data)=> {
+      this.labels = data.labels
+      this.series = data.series
+    })
+    .catch((err) => {
+      this.$toasted.global.failed_toast(err)
+    });
   },
   computed: {
     ds() {
-      const color1 = getStyle('danger') || '#f86c6b'
-      let elements = this.labels.length
-      const data1 = []
-
-      for (let i = 0; i <= elements; i++) {
-        data1.push(random(0, 30))
-      }
+      const colors = ['#F59100','#49AA4D','#3B4DAE','#EA3F33','#9827AD','#C8D736']
 
       return [{
         label: 'Juz',
-        backgroundColor: hexToRgba(color1, 10),
-        borderColor: color1,
-        pointHoverBackgroundColor: color1,
+        backgroundColor: colors.map((c)=>hexToRgba(c, 90)),
+        borderColor: colors,
         borderWidth: 2,
-        data: data1,
+        data: this.series,
       }]
     },
     opt() {
       return {
         maintainAspectRatio: false,
-        scales: {
-          xAxes: [{
-            gridLines: { display: true }
-          }],
-          yAxes: [{
-            ticks: {
-              beginAtZero: true,
-              maxTicksLimit: 5,
-              stepSize: Math.ceil(30 / 5),
-              max: 30
-            },
-            gridLines: {
-              display: true
-            }
-          }]
-        },
-        elements: {
-          point: {
-            radius: 2,
-            hitRadius: 10,
-            hoverRadius: 4,
-            hoverBorderWidth: 3
-          },
-          line: {
-            tension: 0
-          }
-        },
-        legend: { display:false },
+        legend: { position: 'right' },
       }
     }
   }

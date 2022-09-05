@@ -9,10 +9,7 @@
 <script>
 import { CChartBar } from '@coreui/vue-chartjs'
 import { getStyle, hexToRgba } from '@coreui/utils/src'
-
-function random (min, max) {
-  return Math.floor(Math.random() * (max - min + 1) + min)
-}
+import $axios from '../../api.js'
 
 export default {
   name: 'CCSetoranUnit',
@@ -21,29 +18,35 @@ export default {
   },
   data() {
     return {
-      labels: ['SD','SMP','SMA']
+      labels: [],
+      series: []
     }
+  },
+  created() {
+    $axios.get('dashboard/chartsetoran?ds=SetoranUnit')
+    .then((response) => response.data)
+    .then((data)=> {
+      this.labels = data.labels
+      this.series = data.series
+    })
+    .catch((err) => {
+      this.$toasted.global.failed_toast(err)
+    });
   },
   computed: {
     ds() {
-      const color1 = getStyle('success') || '#4dbd74'
-      let elements = this.labels.length
-      const data1 = []
-
-      for (let i = 0; i <= elements; i++) {
-        data1.push(random(0, 30))
-      }
+      const colors = ['#268406','#FF3F4E','#2444A9','#5B7785']
 
       return [{
         label: 'Juz',
-        backgroundColor: hexToRgba(color1, 10),
-        borderColor: color1,
-        pointHoverBackgroundColor: color1,
+        backgroundColor: colors.map((c)=>hexToRgba(c, 50)),
+        borderColor: colors,
         borderWidth: 2,
-        data: data1,
+        data: this.series,
       }]
     },
     opt() {
+      const maxval = this.series.reduce((a, b) => Math.max(a, b), 30)
       return {
         maintainAspectRatio: false,
         scales: {
@@ -54,8 +57,8 @@ export default {
             ticks: {
               beginAtZero: true,
               maxTicksLimit: 5,
-              stepSize: Math.ceil(30 / 5),
-              max: 30
+              stepSize: Math.ceil(maxval / 5),
+              max: maxval
             },
             gridLines: {
               display: true

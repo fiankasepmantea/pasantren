@@ -12,6 +12,7 @@ use App\Models\Muhaffizh;
 use App\Models\Group;
 use App\Models\Grade;
 use App\Models\LevelSantri;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class Santri extends Model
 {
@@ -61,6 +62,12 @@ class Santri extends Model
         $model['muhaffizh_id'] = $data['muhaffizh_id'];
         $model['grade_id'] = $data['grade_id'];
         $model['levelsantri_id'] = $data['levelsantri_id'];
+        if(!empty($data['foto_b64'])) {
+            // TODO: hapus avatar sebelumnya (klo ada)..
+            $path = 'assets/images/avatars/santri_' . $data['nomor_induk'].'-'.time().'.jpg';
+            Image::make($data['foto_b64'])->save(public_path($path));
+            $model['foto'] = '/'.$path;
+        }
      
         return $is_update ? $this->update($model) : $this->create($model);
     }   
@@ -94,7 +101,7 @@ class Santri extends Model
     // Group per nama santri (Nama, Nik, Unit, hapalan , mutqin, buku)
     public function getReportDetail() {
         return static::query()
-            ->select('santris.nama','nomor_induk','units.nama AS nama_unit')
+            ->select('santris.nama','santris.nomor_induk','units.nama AS nama_unit')
             ->selectRaw("
                 CONCAT(SUM(mutqins.juz),' Juz') AS hapalan
                 ,CONCAT(SUM(mutqins.juz),' Juz',SUM(mutqins.halaman),' Hal.') AS mutqin
