@@ -249,11 +249,12 @@ var render = function() {
       _vm._v(" "),
       _c(
         "CHeaderNav",
-        { staticClass: "d-md-down-none mr-auto" },
+        { staticClass: "mr-auto" },
         [
           _c("CHeaderNavItem", { staticClass: "px-3 pt-2" }, [
             _c(
               "h5",
+              { staticClass: "d-md-none d-lg-block" },
               [
                 _vm._v(
                   "Ahlan Wa Sahlan di Aplikasi Tahfizh Pesantren Pondok Quran "
@@ -269,7 +270,7 @@ var render = function() {
       _vm._v(" "),
       _c(
         "CHeaderNav",
-        { staticClass: "d-md-down-none flex-end" },
+        { staticClass: "flex-end" },
         [
           _c(
             "CHeaderNavItem",
@@ -290,7 +291,7 @@ var render = function() {
           _vm._v(" "),
           _c(
             "CHeaderNavItem",
-            { staticClass: "d-md-down-none mx-1" },
+            { staticClass: "mx-1" },
             [
               _c(
                 "CDropdown",
