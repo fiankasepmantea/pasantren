@@ -18,18 +18,18 @@
     >
     </CImg>
     </CHeaderBrand>
-    <CHeaderNav class="d-md-down-none mr-auto">
+    <CHeaderNav class="mr-auto">
       <CHeaderNavItem class="px-3 pt-2">
-        <h5>Ahlan Wa Sahlan di Aplikasi Tahfizh Pesantren Pondok Quran <font-awesome-icon icon="mosque" /></h5>
+        <h5 class="d-md-none d-lg-block">Ahlan Wa Sahlan di Aplikasi Tahfizh Pesantren Pondok Quran <font-awesome-icon icon="mosque" /></h5>
       </CHeaderNavItem>
     </CHeaderNav>
-    <CHeaderNav class="d-md-down-none flex-end">
+    <CHeaderNav class="flex-end">
       <CHeaderNavItem class="d-md-down-none">
         <CBadge color="secondary" shape="pill">
           <font-awesome-icon icon="id-badge" />&nbsp;{{ userlevel }}
         </CBadge>
       </CHeaderNavItem>
-      <CHeaderNavItem class="d-md-down-none mx-1">
+      <CHeaderNavItem class="mx-1">
         <CDropdown color="danger" :toggler-text="username" class="m-2">
           <CDropdownItem href="#" @click="logout"><font-awesome-icon icon="power-off" /> Logout</CDropdownItem>
         </CDropdown>
