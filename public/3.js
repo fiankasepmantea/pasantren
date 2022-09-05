@@ -12,6 +12,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _coreui_vue_chartjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @coreui/vue-chartjs */ "./node_modules/@coreui/vue-chartjs/dist/coreui-vue-chartjs.common.js");
 /* harmony import */ var _coreui_vue_chartjs__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_coreui_vue_chartjs__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _coreui_utils_src__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @coreui/utils/src */ "./node_modules/@coreui/utils/src/index.js");
+/* harmony import */ var _api_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../api.js */ "./resources/js/api.js");
 //
 //
 //
@@ -22,74 +23,48 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 
-
-function random(min, max) {
-  return Math.floor(Math.random() * (max - min + 1) + min);
-}
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'CCSetoranGroup',
   components: {
-    CChartLine: _coreui_vue_chartjs__WEBPACK_IMPORTED_MODULE_0__["CChartLine"]
+    CChartPie: _coreui_vue_chartjs__WEBPACK_IMPORTED_MODULE_0__["CChartPie"]
   },
   data: function data() {
     return {
-      labels: ['Umar', 'Saidah', 'Sidik', 'Usman', 'Fajar']
+      labels: [],
+      series: []
     };
+  },
+  created: function created() {
+    var _this = this;
+
+    _api_js__WEBPACK_IMPORTED_MODULE_2__["default"].get('dashboard/chartsetoran?ds=SetoranGroup').then(function (response) {
+      return response.data;
+    }).then(function (data) {
+      _this.labels = data.labels;
+      _this.series = data.series;
+    })["catch"](function (err) {
+      _this.$toasted.global.failed_toast(err);
+    });
   },
   computed: {
     ds: function ds() {
-      var color1 = Object(_coreui_utils_src__WEBPACK_IMPORTED_MODULE_1__["getStyle"])('danger') || '#f86c6b';
-      var elements = this.labels.length;
-      var data1 = [];
-
-      for (var i = 0; i <= elements; i++) {
-        data1.push(random(0, 30));
-      }
-
+      var colors = ['#F59100', '#49AA4D', '#3B4DAE', '#EA3F33', '#9827AD', '#C8D736'];
       return [{
         label: 'Juz',
-        backgroundColor: Object(_coreui_utils_src__WEBPACK_IMPORTED_MODULE_1__["hexToRgba"])(color1, 10),
-        borderColor: color1,
-        pointHoverBackgroundColor: color1,
+        backgroundColor: colors.map(function (c) {
+          return Object(_coreui_utils_src__WEBPACK_IMPORTED_MODULE_1__["hexToRgba"])(c, 90);
+        }),
+        borderColor: colors,
         borderWidth: 2,
-        data: data1
+        data: this.series
       }];
     },
     opt: function opt() {
       return {
         maintainAspectRatio: false,
-        scales: {
-          xAxes: [{
-            gridLines: {
-              display: true
-            }
-          }],
-          yAxes: [{
-            ticks: {
-              beginAtZero: true,
-              maxTicksLimit: 5,
-              stepSize: Math.ceil(30 / 5),
-              max: 30
-            },
-            gridLines: {
-              display: true
-            }
-          }]
-        },
-        elements: {
-          point: {
-            radius: 2,
-            hitRadius: 10,
-            hoverRadius: 4,
-            hoverBorderWidth: 3
-          },
-          line: {
-            tension: 0
-          }
-        },
         legend: {
-          display: false
+          position: 'right'
         }
       };
     }
@@ -110,6 +85,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _coreui_vue_chartjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @coreui/vue-chartjs */ "./node_modules/@coreui/vue-chartjs/dist/coreui-vue-chartjs.common.js");
 /* harmony import */ var _coreui_vue_chartjs__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_coreui_vue_chartjs__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _coreui_utils_src__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @coreui/utils/src */ "./node_modules/@coreui/utils/src/index.js");
+/* harmony import */ var _api_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../api.js */ "./resources/js/api.js");
 //
 //
 //
@@ -120,41 +96,47 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 
-
-function random(min, max) {
-  return Math.floor(Math.random() * (max - min + 1) + min);
-}
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'CCSetoranMuhaffizh',
   components: {
-    CChartLine: _coreui_vue_chartjs__WEBPACK_IMPORTED_MODULE_0__["CChartLine"]
+    CChartBar: _coreui_vue_chartjs__WEBPACK_IMPORTED_MODULE_0__["CChartBar"]
   },
   data: function data() {
     return {
-      labels: ['Ciro', 'David', 'Pipin', 'Agif']
+      labels: [],
+      series: []
     };
+  },
+  created: function created() {
+    var _this = this;
+
+    _api_js__WEBPACK_IMPORTED_MODULE_2__["default"].get('dashboard/chartsetoran?ds=SetoranMuhaffizh').then(function (response) {
+      return response.data;
+    }).then(function (data) {
+      _this.labels = data.labels;
+      _this.series = data.series;
+    })["catch"](function (err) {
+      _this.$toasted.global.failed_toast(err);
+    });
   },
   computed: {
     ds: function ds() {
-      var color1 = Object(_coreui_utils_src__WEBPACK_IMPORTED_MODULE_1__["getStyle"])('warning') || '#f9b115';
-      var elements = this.labels.length;
-      var data1 = [];
-
-      for (var i = 0; i <= elements; i++) {
-        data1.push(random(0, 30));
-      }
-
+      var colors = ['#cc9112', '#e05d06', '#268406', '#e417ef', '#db5e15'];
       return [{
         label: 'Juz',
-        backgroundColor: Object(_coreui_utils_src__WEBPACK_IMPORTED_MODULE_1__["hexToRgba"])(color1, 10),
-        borderColor: color1,
-        pointHoverBackgroundColor: color1,
+        backgroundColor: colors.map(function (c) {
+          return Object(_coreui_utils_src__WEBPACK_IMPORTED_MODULE_1__["hexToRgba"])(c, 50);
+        }),
+        borderColor: colors,
         borderWidth: 2,
-        data: data1
+        data: this.series
       }];
     },
     opt: function opt() {
+      var maxval = this.series.reduce(function (a, b) {
+        return Math.max(a, b);
+      }, 30);
       return {
         maintainAspectRatio: false,
         scales: {
@@ -167,8 +149,8 @@ function random(min, max) {
             ticks: {
               beginAtZero: true,
               maxTicksLimit: 5,
-              stepSize: Math.ceil(30 / 5),
-              max: 30
+              stepSize: Math.ceil(maxval / 5),
+              max: maxval
             },
             gridLines: {
               display: true
@@ -208,6 +190,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _coreui_vue_chartjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @coreui/vue-chartjs */ "./node_modules/@coreui/vue-chartjs/dist/coreui-vue-chartjs.common.js");
 /* harmony import */ var _coreui_vue_chartjs__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_coreui_vue_chartjs__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _coreui_utils_src__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @coreui/utils/src */ "./node_modules/@coreui/utils/src/index.js");
+/* harmony import */ var _api_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../api.js */ "./resources/js/api.js");
 //
 //
 //
@@ -218,10 +201,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 
-
-function random(min, max) {
-  return Math.floor(Math.random() * (max - min + 1) + min);
-}
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'CCSetoranUnit',
@@ -230,29 +209,39 @@ function random(min, max) {
   },
   data: function data() {
     return {
-      labels: ['SD', 'SMP', 'SMA']
+      labels: [],
+      series: []
     };
+  },
+  created: function created() {
+    var _this = this;
+
+    _api_js__WEBPACK_IMPORTED_MODULE_2__["default"].get('dashboard/chartsetoran?ds=SetoranUnit').then(function (response) {
+      return response.data;
+    }).then(function (data) {
+      _this.labels = data.labels;
+      _this.series = data.series;
+    })["catch"](function (err) {
+      _this.$toasted.global.failed_toast(err);
+    });
   },
   computed: {
     ds: function ds() {
-      var color1 = Object(_coreui_utils_src__WEBPACK_IMPORTED_MODULE_1__["getStyle"])('success') || '#4dbd74';
-      var elements = this.labels.length;
-      var data1 = [];
-
-      for (var i = 0; i <= elements; i++) {
-        data1.push(random(0, 30));
-      }
-
+      var colors = ['#268406', '#FF3F4E', '#2444A9', '#5B7785'];
       return [{
         label: 'Juz',
-        backgroundColor: Object(_coreui_utils_src__WEBPACK_IMPORTED_MODULE_1__["hexToRgba"])(color1, 10),
-        borderColor: color1,
-        pointHoverBackgroundColor: color1,
+        backgroundColor: colors.map(function (c) {
+          return Object(_coreui_utils_src__WEBPACK_IMPORTED_MODULE_1__["hexToRgba"])(c, 50);
+        }),
+        borderColor: colors,
         borderWidth: 2,
-        data: data1
+        data: this.series
       }];
     },
     opt: function opt() {
+      var maxval = this.series.reduce(function (a, b) {
+        return Math.max(a, b);
+      }, 30);
       return {
         maintainAspectRatio: false,
         scales: {
@@ -265,8 +254,8 @@ function random(min, max) {
             ticks: {
               beginAtZero: true,
               maxTicksLimit: 5,
-              stepSize: Math.ceil(30 / 5),
-              max: 30
+              stepSize: Math.ceil(maxval / 5),
+              max: maxval
             },
             gridLines: {
               display: true
@@ -306,6 +295,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _coreui_vue_chartjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @coreui/vue-chartjs */ "./node_modules/@coreui/vue-chartjs/dist/coreui-vue-chartjs.common.js");
 /* harmony import */ var _coreui_vue_chartjs__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_coreui_vue_chartjs__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _coreui_utils_src__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @coreui/utils/src */ "./node_modules/@coreui/utils/src/index.js");
+/* harmony import */ var _api_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../api.js */ "./resources/js/api.js");
 //
 //
 //
@@ -314,6 +304,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 
 
 
@@ -328,26 +319,32 @@ function random(min, max) {
   },
   data: function data() {
     return {
-      labels: ['Mei-2', 'Mei-3', 'Mei-4', 'Juni-1', 'Juni-2', 'Juni-3', 'Juni-4', 'Juli-1', 'Juli-2', 'Juli-3', 'Juli-4', 'Juli-5', 'Agustus-1', 'Agustus-2', 'Agustus-3', 'Agustus-4']
+      labels: [],
+      series: []
     };
+  },
+  created: function created() {
+    var _this = this;
+
+    _api_js__WEBPACK_IMPORTED_MODULE_2__["default"].get('dashboard/chartsetoran?ds=TotalSetorJuz').then(function (response) {
+      return response.data;
+    }).then(function (data) {
+      _this.labels = data.labels;
+      _this.series = data.series;
+    })["catch"](function (err) {
+      _this.$toasted.global.failed_toast(err);
+    });
   },
   computed: {
     ds: function ds() {
       var color1 = Object(_coreui_utils_src__WEBPACK_IMPORTED_MODULE_1__["getStyle"])('info') || '#20a8d8';
-      var elements = this.labels.length;
-      var data1 = [];
-
-      for (var i = 0; i <= elements; i++) {
-        data1.push(random(0, 30));
-      }
-
       return [{
         label: 'Juz',
         backgroundColor: Object(_coreui_utils_src__WEBPACK_IMPORTED_MODULE_1__["hexToRgba"])(color1, 10),
         borderColor: color1,
         pointHoverBackgroundColor: color1,
         borderWidth: 2,
-        data: data1
+        data: this.series
       }];
     },
     opt: function opt() {
@@ -377,7 +374,9 @@ function random(min, max) {
               beginAtZero: true,
               maxTicksLimit: 5,
               stepSize: Math.ceil(30 / 5),
-              max: 30
+              max: this.series.reduce(function (a, b) {
+                return Math.max(a, b);
+              }, 30)
             },
             gridLines: {
               display: true
@@ -564,7 +563,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("CChartLine", {
+  return _c("CChartPie", {
     attrs: { datasets: _vm.ds, options: _vm.opt, labels: _vm.labels }
   })
 }
@@ -590,7 +589,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("CChartLine", {
+  return _c("CChartBar", {
     attrs: { datasets: _vm.ds, options: _vm.opt, labels: _vm.labels }
   })
 }
