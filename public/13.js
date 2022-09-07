@@ -1075,105 +1075,96 @@ var render = function() {
       _c("pagetitle"),
       _vm._v(" "),
       _c(
-        "CRow",
+        "CCardBody",
+        { staticStyle: { "padding-top": "0px" } },
         [
           _c(
-            "CCardBody",
-            { staticStyle: { "padding-top": "0px" } },
+            "div",
+            { staticClass: "d-flex justify-content-end" },
             [
               _c(
-                "div",
-                { staticClass: "d-flex justify-content-end" },
-                [
-                  _c(
-                    "b-button",
-                    {
-                      attrs: { size: "sm", variant: "success" },
-                      on: {
-                        click: function($event) {
-                          _vm.createModal = true
-                        }
-                      }
-                    },
-                    [_vm._v("+ Tambah Setoran")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "b-button",
-                    {
-                      staticClass: "ml-2",
-                      attrs: { size: "sm", variant: "info" },
-                      on: {
-                        click: function($event) {
-                          _vm.uploadModal = true
-                        }
-                      }
-                    },
-                    [
-                      _c("font-awesome-icon", { attrs: { icon: "upload" } }),
-                      _vm._v(" Upload Setoran")
-                    ],
-                    1
-                  )
-                ],
-                1
+                "b-button",
+                {
+                  attrs: { size: "sm", variant: "success" },
+                  on: {
+                    click: function($event) {
+                      _vm.createModal = true
+                    }
+                  }
+                },
+                [_vm._v("+ Tambah Setoran")]
               ),
               _vm._v(" "),
               _c(
-                "b-row",
+                "b-button",
+                {
+                  staticClass: "ml-2",
+                  attrs: { size: "sm", variant: "info" },
+                  on: {
+                    click: function($event) {
+                      _vm.uploadModal = true
+                    }
+                  }
+                },
+                [
+                  _c("font-awesome-icon", { attrs: { icon: "upload" } }),
+                  _vm._v(" Upload Setoran")
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "b-row",
+            [
+              _c(
+                "b-col",
+                { attrs: { xl: "4", lg: "4", md: "4", sm: "12" } },
                 [
                   _c(
-                    "b-col",
-                    { attrs: { xl: "4", lg: "4", md: "4", sm: "12" } },
+                    "b-input-group",
                     [
+                      _c("b-form-input", {
+                        attrs: { placeholder: "Cari Santri", size: "sm" },
+                        model: {
+                          value: _vm.filterModel.santri_name,
+                          callback: function($$v) {
+                            _vm.$set(_vm.filterModel, "santri_name", $$v)
+                          },
+                          expression: "filterModel.santri_name"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("b-form-input", {
+                        attrs: { placeholder: "Cari Muhaffizh ", size: "sm" },
+                        model: {
+                          value: _vm.filterModel.muhaffizh_name,
+                          callback: function($$v) {
+                            _vm.$set(_vm.filterModel, "muhaffizh_name", $$v)
+                          },
+                          expression: "filterModel.muhaffizh_name"
+                        }
+                      }),
+                      _vm._v(" "),
                       _c(
-                        "b-input-group",
+                        "b-input-group-prepend",
                         [
-                          _c("b-form-input", {
-                            attrs: { placeholder: "Cari Santri", size: "sm" },
-                            model: {
-                              value: _vm.filterModel.santri_name,
-                              callback: function($$v) {
-                                _vm.$set(_vm.filterModel, "santri_name", $$v)
-                              },
-                              expression: "filterModel.santri_name"
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c("b-form-input", {
-                            attrs: {
-                              placeholder: "Cari Muhaffizh ",
-                              size: "sm"
-                            },
-                            model: {
-                              value: _vm.filterModel.muhaffizh_name,
-                              callback: function($$v) {
-                                _vm.$set(_vm.filterModel, "muhaffizh_name", $$v)
-                              },
-                              expression: "filterModel.muhaffizh_name"
-                            }
-                          }),
-                          _vm._v(" "),
                           _c(
-                            "b-input-group-prepend",
+                            "b-button",
+                            { attrs: { size: "sm" } },
                             [
-                              _c(
-                                "b-button",
-                                { attrs: { size: "sm" } },
-                                [
-                                  _c("b-icon", {
-                                    attrs: { icon: "search" },
-                                    on: {
-                                      click: function($event) {
-                                        return _vm.searchMuhaffizhSantri(
-                                          _vm.filterModel
-                                        )
-                                      }
-                                    }
-                                  })
-                                ],
-                                1
-                              )
+                              _c("b-icon", {
+                                attrs: { icon: "search" },
+                                on: {
+                                  click: function($event) {
+                                    return _vm.searchMuhaffizhSantri(
+                                      _vm.filterModel
+                                    )
+                                  }
+                                }
+                              })
                             ],
                             1
                           )
@@ -1185,228 +1176,228 @@ var render = function() {
                   )
                 ],
                 1
-              ),
-              _vm._v(" "),
-              _c("br"),
-              _vm._v(" "),
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c("br"),
+          _vm._v(" "),
+          _c(
+            "b-form",
+            { attrs: { inline: "" } },
+            [
+              _c(
+                "b-form-group",
+                {
+                  staticClass: "mb-2",
+                  attrs: {
+                    label: "Show :",
+                    "label-size": "sm",
+                    "label-for": "perPageSelect"
+                  }
+                },
+                [
+                  _c("b-form-select", {
+                    staticClass: "ml-2",
+                    attrs: {
+                      id: "perPageSelect",
+                      size: "sm",
+                      options: _vm.pageOptions
+                    },
+                    model: {
+                      value: _vm.perPage,
+                      callback: function($$v) {
+                        _vm.perPage = $$v
+                      },
+                      expression: "perPage"
+                    }
+                  })
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c("b-table", {
+            attrs: {
+              items: _vm.setorans.data,
+              fields: _vm.header,
+              "current-page": _vm.currentPage,
+              "per-page": _vm.perPage,
+              "sticky-header": "",
+              "no-border-collapse": "",
+              striped: "",
+              hover: "",
+              small: "",
+              responsive: "",
+              outlined: "",
+              "show-empty": ""
+            },
+            scopedSlots: _vm._u([
+              {
+                key: "cell(actions)",
+                fn: function(row) {
+                  return [
+                    _c(
+                      "b-button",
+                      {
+                        attrs: { variant: "success", size: "sm" },
+                        on: {
+                          click: function($event) {
+                            return _vm.handleEdit(row.item.id)
+                          }
+                        }
+                      },
+                      [_vm._v("\n              Edit\n            ")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "b-button",
+                      {
+                        attrs: { variant: "danger", size: "sm" },
+                        on: {
+                          click: function($event) {
+                            return _vm.deleteSetoran(row.item.id)
+                          }
+                        }
+                      },
+                      [_vm._v("\n              Delete\n            ")]
+                    )
+                  ]
+                }
+              }
+            ])
+          }),
+          _vm._v(" "),
+          _c("b-pagination", {
+            attrs: {
+              "total-rows": _vm.rows,
+              "per-page": _vm.perPage,
+              "first-text": "First",
+              "prev-text": "Prev",
+              "next-text": "Next",
+              "last-text": "Last",
+              size: "sm",
+              align: "right"
+            },
+            model: {
+              value: _vm.currentPage,
+              callback: function($$v) {
+                _vm.currentPage = $$v
+              },
+              expression: "currentPage"
+            }
+          }),
+          _vm._v(" "),
+          _c(
+            "b-modal",
+            {
+              attrs: {
+                title: "Tambah Data Setoran ",
+                "no-close-on-backdrop": "",
+                "no-close-on-esc": "",
+                centered: ""
+              },
+              on: { ok: _vm.handleSubmit },
+              model: {
+                value: _vm.createModal,
+                callback: function($$v) {
+                  _vm.createModal = $$v
+                },
+                expression: "createModal"
+              }
+            },
+            [_c("Form")],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "b-modal",
+            {
+              attrs: {
+                title: "Ubah Data Setoran ",
+                "no-close-on-backdrop": "",
+                "no-close-on-esc": "",
+                centered: ""
+              },
+              on: { ok: _vm.handleUpdate },
+              model: {
+                value: _vm.editModal,
+                callback: function($$v) {
+                  _vm.editModal = $$v
+                },
+                expression: "editModal"
+              }
+            },
+            [_c("Form")],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "b-modal",
+            {
+              attrs: {
+                title: "Unggah Data Setoran",
+                "body-class": "form-view",
+                centered: ""
+              },
+              on: { ok: _vm.handleUpload },
+              model: {
+                value: _vm.uploadModal,
+                callback: function($$v) {
+                  _vm.uploadModal = $$v
+                },
+                expression: "uploadModal"
+              }
+            },
+            [
               _c(
                 "b-form",
-                { attrs: { inline: "" } },
+                {
+                  on: {
+                    submit: function($event) {
+                      $event.stopPropagation()
+                      $event.preventDefault()
+                    }
+                  }
+                },
                 [
                   _c(
-                    "b-form-group",
-                    {
-                      staticClass: "mb-2",
-                      attrs: {
-                        label: "Show :",
-                        "label-size": "sm",
-                        "label-for": "perPageSelect"
-                      }
-                    },
+                    "div",
                     [
-                      _c("b-form-select", {
-                        staticClass: "ml-2",
+                      _c(
+                        "CLink",
+                        { attrs: { href: "/docs/template_setoran.xlsx" } },
+                        [_vm._v("Download Template")]
+                      ),
+                      _vm._v(" "),
+                      _c("b-form-file", {
                         attrs: {
-                          id: "perPageSelect",
-                          size: "sm",
-                          options: _vm.pageOptions
+                          state: Boolean(_vm.file1),
+                          accept: ".xls, .xlsx, .csv",
+                          placeholder: "Pilih file/drag-n-drop...",
+                          "drop-placeholder": "Drop file kesini..."
                         },
                         model: {
-                          value: _vm.perPage,
+                          value: _vm.file1,
                           callback: function($$v) {
-                            _vm.perPage = $$v
+                            _vm.file1 = $$v
                           },
-                          expression: "perPage"
+                          expression: "file1"
                         }
-                      })
+                      }),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "mt-3" }, [
+                        _vm._v(
+                          "File: " + _vm._s(_vm.file1 ? _vm.file1.name : "")
+                        )
+                      ])
                     ],
                     1
                   )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("b-table", {
-                attrs: {
-                  items: _vm.setorans.data,
-                  fields: _vm.header,
-                  "current-page": _vm.currentPage,
-                  "per-page": _vm.perPage,
-                  "sticky-header": "",
-                  "no-border-collapse": "",
-                  striped: "",
-                  hover: "",
-                  small: "",
-                  responsive: "",
-                  outlined: "",
-                  "show-empty": ""
-                },
-                scopedSlots: _vm._u([
-                  {
-                    key: "cell(actions)",
-                    fn: function(row) {
-                      return [
-                        _c(
-                          "b-button",
-                          {
-                            attrs: { variant: "success", size: "sm" },
-                            on: {
-                              click: function($event) {
-                                return _vm.handleEdit(row.item.id)
-                              }
-                            }
-                          },
-                          [_vm._v("\n              Edit\n            ")]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "b-button",
-                          {
-                            attrs: { variant: "danger", size: "sm" },
-                            on: {
-                              click: function($event) {
-                                return _vm.deleteSetoran(row.item.id)
-                              }
-                            }
-                          },
-                          [_vm._v("\n              Delete\n            ")]
-                        )
-                      ]
-                    }
-                  }
-                ])
-              }),
-              _vm._v(" "),
-              _c("b-pagination", {
-                attrs: {
-                  "total-rows": _vm.rows,
-                  "per-page": _vm.perPage,
-                  "first-text": "First",
-                  "prev-text": "Prev",
-                  "next-text": "Next",
-                  "last-text": "Last",
-                  size: "sm",
-                  align: "right"
-                },
-                model: {
-                  value: _vm.currentPage,
-                  callback: function($$v) {
-                    _vm.currentPage = $$v
-                  },
-                  expression: "currentPage"
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "b-modal",
-                {
-                  attrs: {
-                    title: "Tambah Data Setoran ",
-                    "no-close-on-backdrop": "",
-                    "no-close-on-esc": "",
-                    centered: ""
-                  },
-                  on: { ok: _vm.handleSubmit },
-                  model: {
-                    value: _vm.createModal,
-                    callback: function($$v) {
-                      _vm.createModal = $$v
-                    },
-                    expression: "createModal"
-                  }
-                },
-                [_c("Form")],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "b-modal",
-                {
-                  attrs: {
-                    title: "Ubah Data Setoran ",
-                    "no-close-on-backdrop": "",
-                    "no-close-on-esc": "",
-                    centered: ""
-                  },
-                  on: { ok: _vm.handleUpdate },
-                  model: {
-                    value: _vm.editModal,
-                    callback: function($$v) {
-                      _vm.editModal = $$v
-                    },
-                    expression: "editModal"
-                  }
-                },
-                [_c("Form")],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "b-modal",
-                {
-                  attrs: {
-                    title: "Unggah Data Setoran",
-                    "body-class": "form-view",
-                    centered: ""
-                  },
-                  on: { ok: _vm.handleUpload },
-                  model: {
-                    value: _vm.uploadModal,
-                    callback: function($$v) {
-                      _vm.uploadModal = $$v
-                    },
-                    expression: "uploadModal"
-                  }
-                },
-                [
-                  _c(
-                    "b-form",
-                    {
-                      on: {
-                        submit: function($event) {
-                          $event.stopPropagation()
-                          $event.preventDefault()
-                        }
-                      }
-                    },
-                    [
-                      _c(
-                        "div",
-                        [
-                          _c(
-                            "CLink",
-                            { attrs: { href: "/docs/template_setoran.xlsx" } },
-                            [_vm._v("Download Template")]
-                          ),
-                          _vm._v(" "),
-                          _c("b-form-file", {
-                            attrs: {
-                              state: Boolean(_vm.file1),
-                              accept: ".xls, .xlsx, .csv",
-                              placeholder: "Pilih file/drag-n-drop...",
-                              "drop-placeholder": "Drop file kesini..."
-                            },
-                            model: {
-                              value: _vm.file1,
-                              callback: function($$v) {
-                                _vm.file1 = $$v
-                              },
-                              expression: "file1"
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "mt-3" }, [
-                            _vm._v(
-                              "File: " + _vm._s(_vm.file1 ? _vm.file1.name : "")
-                            )
-                          ])
-                        ],
-                        1
-                      )
-                    ]
-                  )
-                ],
-                1
+                ]
               )
             ],
             1

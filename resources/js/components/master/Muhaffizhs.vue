@@ -1,7 +1,6 @@
 <template>
   <div>
     <pagetitle></pagetitle>
-    <CRow>
       <CCardBody style="padding-top:0px;">
       <div class="d-flex justify-content-end">
         <b-button size="sm" variant="success" @click="createModal = true">+ Tambah Muhaffizh</b-button>
@@ -21,7 +20,7 @@
               class="ml-2"
             ></b-form-select>
           </b-form-group>
-        </b-form>
+      </b-form>
         <b-table
           :items="muhaffizhs.data"
           :fields="header"
@@ -97,7 +96,6 @@
       </b-modal>
       
       </CCardBody>
-    </CRow>
   </div>
 </template>
 

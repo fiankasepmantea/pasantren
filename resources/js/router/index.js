@@ -151,15 +151,6 @@ function configRoutes() {
           }
         },
         {
-          path: 'santri-dashboard',
-          name: 'Monitor Dashboard Santri',
-          component: DProduction,
-          meta: {
-            auth: true,
-            title: ''
-          }
-        },
-        {
           path: 'charts',
           name: 'Charts',
           component: Charts,

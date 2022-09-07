@@ -1,7 +1,7 @@
 <template>
   <div>
     <pagetitle></pagetitle>
-    <CRow>
+   
       <CCardBody style="padding-top:0px;">
       <div class="d-flex justify-content-end">
         <b-button size="sm" variant="success" @click="createModal = true">+ Tambah Mutqin</b-button>
@@ -105,7 +105,7 @@
       </b-modal>
       
       </CCardBody>
-    </CRow>
+    
   </div>
 </template>
 

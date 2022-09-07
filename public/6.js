@@ -1522,217 +1522,211 @@ var render = function() {
       _c("pagetitle"),
       _vm._v(" "),
       _c(
-        "CRow",
+        "CCardBody",
+        { staticStyle: { "padding-top": "0px" } },
         [
           _c(
-            "CCardBody",
-            { staticStyle: { "padding-top": "0px" } },
+            "div",
+            { staticClass: "d-flex justify-content-end" },
             [
               _c(
-                "div",
-                { staticClass: "d-flex justify-content-end" },
-                [
-                  _c(
-                    "b-button",
-                    {
-                      attrs: { size: "sm", variant: "success" },
-                      on: {
-                        click: function($event) {
-                          _vm.createModal = true
-                        }
-                      }
-                    },
-                    [_vm._v("+ Tambah Santri")]
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "b-form",
-                { attrs: { inline: "" } },
-                [
-                  _c(
-                    "b-form-group",
-                    {
-                      staticClass: "mb-2",
-                      attrs: {
-                        label: "Show :",
-                        "label-size": "sm",
-                        "label-for": "perPageSelect"
-                      }
-                    },
-                    [
-                      _c("b-form-select", {
-                        staticClass: "ml-2",
-                        attrs: {
-                          id: "perPageSelect",
-                          size: "sm",
-                          options: _vm.pageOptions
-                        },
-                        model: {
-                          value: _vm.perPage,
-                          callback: function($$v) {
-                            _vm.perPage = $$v
-                          },
-                          expression: "perPage"
-                        }
-                      })
-                    ],
-                    1
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("b-table", {
-                attrs: {
-                  items: _vm.santris.data,
-                  fields: _vm.header,
-                  "current-page": _vm.currentPage,
-                  "per-page": _vm.perPage,
-                  "sticky-header": "",
-                  "no-border-collapse": "",
-                  striped: "",
-                  hover: "",
-                  small: "",
-                  responsive: "",
-                  outlined: "",
-                  "show-empty": ""
-                },
-                scopedSlots: _vm._u([
-                  {
-                    key: "cell(actions)",
-                    fn: function(row) {
-                      return [
-                        _c(
-                          "b-button",
-                          {
-                            attrs: { variant: "info", size: "sm" },
-                            on: {
-                              click: function($event) {
-                                return _vm.handleView(row.item)
-                              }
-                            }
-                          },
-                          [_vm._v("\n              View\n            ")]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "b-button",
-                          {
-                            attrs: { variant: "success", size: "sm" },
-                            on: {
-                              click: function($event) {
-                                return _vm.handleEdit(row.item.id)
-                              }
-                            }
-                          },
-                          [_vm._v("\n              Edit\n            ")]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "b-button",
-                          {
-                            attrs: { variant: "danger", size: "sm" },
-                            on: {
-                              click: function($event) {
-                                return _vm.deleteSantri(row.item.id)
-                              }
-                            }
-                          },
-                          [_vm._v("\n              Delete\n            ")]
-                        )
-                      ]
+                "b-button",
+                {
+                  attrs: { size: "sm", variant: "success" },
+                  on: {
+                    click: function($event) {
+                      _vm.createModal = true
                     }
                   }
-                ])
-              }),
-              _vm._v(" "),
-              _c("b-pagination", {
-                attrs: {
-                  "total-rows": _vm.rows,
-                  "per-page": _vm.perPage,
-                  "first-text": "First",
-                  "prev-text": "Prev",
-                  "next-text": "Next",
-                  "last-text": "Last",
-                  size: "sm",
-                  align: "right"
                 },
-                model: {
-                  value: _vm.currentPage,
-                  callback: function($$v) {
-                    _vm.currentPage = $$v
-                  },
-                  expression: "currentPage"
-                }
-              }),
-              _vm._v(" "),
+                [_vm._v("+ Tambah Santri")]
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "b-form",
+            { attrs: { inline: "" } },
+            [
               _c(
-                "b-modal",
+                "b-form-group",
                 {
+                  staticClass: "mb-2",
                   attrs: {
-                    title: "Tambah Data Santri",
-                    "no-close-on-backdrop": "",
-                    "no-close-on-esc": "",
-                    centered: ""
-                  },
-                  on: { ok: _vm.handleSubmit },
-                  model: {
-                    value: _vm.createModal,
-                    callback: function($$v) {
-                      _vm.createModal = $$v
-                    },
-                    expression: "createModal"
+                    label: "Show :",
+                    "label-size": "sm",
+                    "label-for": "perPageSelect"
                   }
                 },
-                [_c("Form")],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "b-modal",
-                {
-                  attrs: {
-                    title: "Ubah Data Santri",
-                    "no-close-on-backdrop": "",
-                    "no-close-on-esc": "",
-                    centered: ""
-                  },
-                  on: { ok: _vm.handleUpdate },
-                  model: {
-                    value: _vm.editModal,
-                    callback: function($$v) {
-                      _vm.editModal = $$v
+                [
+                  _c("b-form-select", {
+                    staticClass: "ml-2",
+                    attrs: {
+                      id: "perPageSelect",
+                      size: "sm",
+                      options: _vm.pageOptions
                     },
-                    expression: "editModal"
-                  }
-                },
-                [_c("Form")],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "b-modal",
-                {
-                  attrs: {
-                    title: "Lihat Data Santri",
-                    "body-class": "form-view",
-                    centered: ""
-                  },
-                  model: {
-                    value: _vm.viewModal,
-                    callback: function($$v) {
-                      _vm.viewModal = $$v
-                    },
-                    expression: "viewModal"
-                  }
-                },
-                [_c("DataView", { attrs: { items: _vm.currentSantri } })],
+                    model: {
+                      value: _vm.perPage,
+                      callback: function($$v) {
+                        _vm.perPage = $$v
+                      },
+                      expression: "perPage"
+                    }
+                  })
+                ],
                 1
               )
             ],
+            1
+          ),
+          _vm._v(" "),
+          _c("b-table", {
+            attrs: {
+              items: _vm.santris.data,
+              fields: _vm.header,
+              "current-page": _vm.currentPage,
+              "per-page": _vm.perPage,
+              "sticky-header": "",
+              "no-border-collapse": "",
+              striped: "",
+              hover: "",
+              small: "",
+              responsive: "",
+              outlined: "",
+              "show-empty": ""
+            },
+            scopedSlots: _vm._u([
+              {
+                key: "cell(actions)",
+                fn: function(row) {
+                  return [
+                    _c(
+                      "b-button",
+                      {
+                        attrs: { variant: "info", size: "sm" },
+                        on: {
+                          click: function($event) {
+                            return _vm.handleView(row.item)
+                          }
+                        }
+                      },
+                      [_vm._v("\n              View\n            ")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "b-button",
+                      {
+                        attrs: { variant: "success", size: "sm" },
+                        on: {
+                          click: function($event) {
+                            return _vm.handleEdit(row.item.id)
+                          }
+                        }
+                      },
+                      [_vm._v("\n              Edit\n            ")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "b-button",
+                      {
+                        attrs: { variant: "danger", size: "sm" },
+                        on: {
+                          click: function($event) {
+                            return _vm.deleteSantri(row.item.id)
+                          }
+                        }
+                      },
+                      [_vm._v("\n              Delete\n            ")]
+                    )
+                  ]
+                }
+              }
+            ])
+          }),
+          _vm._v(" "),
+          _c("b-pagination", {
+            attrs: {
+              "total-rows": _vm.rows,
+              "per-page": _vm.perPage,
+              "first-text": "First",
+              "prev-text": "Prev",
+              "next-text": "Next",
+              "last-text": "Last",
+              size: "sm",
+              align: "right"
+            },
+            model: {
+              value: _vm.currentPage,
+              callback: function($$v) {
+                _vm.currentPage = $$v
+              },
+              expression: "currentPage"
+            }
+          }),
+          _vm._v(" "),
+          _c(
+            "b-modal",
+            {
+              attrs: {
+                title: "Tambah Data Santri",
+                "no-close-on-backdrop": "",
+                "no-close-on-esc": "",
+                centered: ""
+              },
+              on: { ok: _vm.handleSubmit },
+              model: {
+                value: _vm.createModal,
+                callback: function($$v) {
+                  _vm.createModal = $$v
+                },
+                expression: "createModal"
+              }
+            },
+            [_c("Form")],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "b-modal",
+            {
+              attrs: {
+                title: "Ubah Data Santri",
+                "no-close-on-backdrop": "",
+                "no-close-on-esc": "",
+                centered: ""
+              },
+              on: { ok: _vm.handleUpdate },
+              model: {
+                value: _vm.editModal,
+                callback: function($$v) {
+                  _vm.editModal = $$v
+                },
+                expression: "editModal"
+              }
+            },
+            [_c("Form")],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "b-modal",
+            {
+              attrs: {
+                title: "Lihat Data Santri",
+                "body-class": "form-view",
+                centered: ""
+              },
+              model: {
+                value: _vm.viewModal,
+                callback: function($$v) {
+                  _vm.viewModal = $$v
+                },
+                expression: "viewModal"
+              }
+            },
+            [_c("DataView", { attrs: { items: _vm.currentSantri } })],
             1
           )
         ],
