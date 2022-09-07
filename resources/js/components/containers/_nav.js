@@ -13,12 +13,6 @@ export default [
         icon: 'cil-speedometer',
       },
       {
-        _name: 'CSidebarNavItem',
-        name: 'Santri',
-        to: '/santri-dashboard',
-        icon: 'cil-speedometer'
-      },
-      {
         _name: 'CSidebarNavTitle',
         _children: ['MASTER DATA'] // MASTER DATA
       },

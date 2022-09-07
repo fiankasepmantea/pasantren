@@ -15,7 +15,7 @@ class MenuSeeder extends Seeder
         $menus = array(
             ['id'=>1,'title'=>'DASHBOARDS','path'=>'','icon'=>'','parent_id'=>null,'sublevel'=>0,'order'=>100],
             ['id'=>2,'title'=>'Grafik Santri','path'=>'/santri-grafik','icon'=>'cil-speedometer','parent_id'=>1,'sublevel'=>1,'order'=>110],
-            ['id'=>3,'title'=>'Santri','path'=>'/santri','icon'=>'cil-speedometer','parent_id'=>1,'sublevel'=>1,'order'=>120],
+            // ['id'=>3,'title'=>'Santri','path'=>'/santri','icon'=>'cil-speedometer','parent_id'=>1,'sublevel'=>1,'order'=>120],
             ['id'=>4,'title'=>'MASTER DATA','path'=>'','icon'=>'','parent_id'=>null,'sublevel'=>0,'order'=>200],
             ['id'=>5,'title'=>'Master Data','path'=>'','icon'=>'cil-puzzle','parent_id'=>4,'sublevel'=>1,'order'=>210],
             ['id'=>6,'title'=>'Manajemen User','path'=>'/master/user','icon'=>'','parent_id'=>5,'sublevel'=>2,'order'=>211],
