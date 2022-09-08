@@ -1,12 +1,11 @@
 <template>
-  <CFooter :fixed="false">
+  <CFooter style="background: #fff;">
     <div>
-      <a href="https://coreui.io" target="_blank">CoreUI</a>
-      <span class="ml-1">&copy; {{new Date().getFullYear()}} creativeLabs.</span>
+      <span class="ml-1">&copy; {{new Date().getFullYear()}} PT. Swamedia Daya Mandiri</span>
     </div>
     <div class="ml-auto">
       <span class="mr-1">Powered by</span>
-      <a href="https://coreui.io/vue" target="_blank">CoreUI for Vue</a>
+      <span>Ahlan Wa Sahlan di Aplikasi Tahfizh Pesantren Pondok Quran</span>
     </div>
   </CFooter>
 </template>

@@ -30,6 +30,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -53,7 +54,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
 //
 //
 //
@@ -404,7 +404,9 @@ var render = function() {
               ],
               1
             )
-          ])
+          ]),
+          _vm._v(" "),
+          _c("TheFooter")
         ],
         1
       )
@@ -434,22 +436,20 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("CFooter", { attrs: { fixed: false } }, [
+  return _c("CFooter", { staticStyle: { background: "#fff" } }, [
     _c("div", [
-      _c("a", { attrs: { href: "https://coreui.io", target: "_blank" } }, [
-        _vm._v("CoreUI")
-      ]),
-      _vm._v(" "),
       _c("span", { staticClass: "ml-1" }, [
-        _vm._v("© " + _vm._s(new Date().getFullYear()) + " creativeLabs.")
+        _vm._v(
+          "© " + _vm._s(new Date().getFullYear()) + " PT. Swamedia Daya Mandiri"
+        )
       ])
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "ml-auto" }, [
       _c("span", { staticClass: "mr-1" }, [_vm._v("Powered by")]),
       _vm._v(" "),
-      _c("a", { attrs: { href: "https://coreui.io/vue", target: "_blank" } }, [
-        _vm._v("CoreUI for Vue")
+      _c("span", [
+        _vm._v("Ahlan Wa Sahlan di Aplikasi Tahfizh Pesantren Pondok Quran")
       ])
     ])
   ])
