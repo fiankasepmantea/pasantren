@@ -426,21 +426,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         key: 'list_santri.nama',
         label: 'Santri'
       }, {
-        key: "bulan",
-        label: "Bulan"
-      }, {
-        key: "pekan",
-        label: "Pekan"
-      }, {
-        key: "buku",
-        label: "Buku"
-      }, {
-        key: 'halaman',
-        label: 'Halaman'
-      }, {
-        key: 'updated_at',
-        label: 'Tanggal Update'
-      }, {
         key: "list_group.nama",
         label: "Group"
       }, {
