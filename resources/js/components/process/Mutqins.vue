@@ -141,33 +141,7 @@ export default {
           key: 'list_santri.nama',
           label: 'Santri'
         },
-        {
-          key: "bulan",
-          label: "Bulan",
-          
-        },
-        {
-          key: "pekan",
-          label: "Pekan",
-          
-        },
-        {
-          key: "juz",
-          label: "Juz",
-          
-        },
-        {
-          key: 'halaman',
-          label: 'Halaman'
-        },
-        {
-          key: 'baris',
-          label: 'Baris'
-        },
-        {
-          key: 'updated_at',
-          label: 'Tanggal Update'
-        },
+        
         {
           key: "list_group.nama",
           label: "Group",
