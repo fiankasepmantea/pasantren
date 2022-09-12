@@ -158,6 +158,8 @@ const actions = {
             }
           })
         }
+        fr.readAsDataURL(state.santri.file_foto);
+        
       } else {
         $axios.post(`/santri`, state.santri)
         .then((response) => {

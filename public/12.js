@@ -396,6 +396,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 
 
@@ -406,10 +407,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     Form: _Forms_TahsinForm__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   created: function created() {
+    var sessdata = JSON.parse(localStorage.getItem('sessdata'));
+    if (["Admin", "Muhaffizh"].indexOf(sessdata.level) > -1) this.showAction = true;else this.showAction = false;
     this.loadData();
   },
   data: function data() {
     return {
+      showAction: true,
       createModal: false,
       editModal: false,
       uploadModal: false,
@@ -1162,31 +1166,35 @@ var render = function() {
                 key: "cell(actions)",
                 fn: function(row) {
                   return [
-                    _c(
-                      "b-button",
-                      {
-                        attrs: { variant: "success", size: "sm" },
-                        on: {
-                          click: function($event) {
-                            return _vm.handleEdit(row.item.id)
-                          }
-                        }
-                      },
-                      [_vm._v("\n              Edit\n            ")]
-                    ),
+                    _vm.showAction
+                      ? _c(
+                          "b-button",
+                          {
+                            attrs: { variant: "success", size: "sm" },
+                            on: {
+                              click: function($event) {
+                                return _vm.handleEdit(row.item.id)
+                              }
+                            }
+                          },
+                          [_vm._v("\n              Edit\n            ")]
+                        )
+                      : _vm._e(),
                     _vm._v(" "),
-                    _c(
-                      "b-button",
-                      {
-                        attrs: { variant: "danger", size: "sm" },
-                        on: {
-                          click: function($event) {
-                            return _vm.deleteTahsin(row.item.id)
-                          }
-                        }
-                      },
-                      [_vm._v("\n              Delete\n            ")]
-                    )
+                    _vm.showAction
+                      ? _c(
+                          "b-button",
+                          {
+                            attrs: { variant: "danger", size: "sm" },
+                            on: {
+                              click: function($event) {
+                                return _vm.deleteTahsin(row.item.id)
+                              }
+                            }
+                          },
+                          [_vm._v("\n              Delete\n            ")]
+                        )
+                      : _vm._e()
                   ]
                 }
               }

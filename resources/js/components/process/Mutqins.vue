@@ -57,10 +57,11 @@
           show-empty
         >
           <template #cell(actions)="row">
-              <b-button variant="success" size="sm" @click="handleEdit(row.item.id)">
+              <b-button v-if="showAction" variant="success" size="sm" @click="handleEdit(row.item.id)">
                 Edit
               </b-button>
               <b-button
+                v-if="showAction"
                 variant="danger"
                 size="sm"
                 @click="deleteMutqin(row.item.id)"
@@ -121,10 +122,15 @@ export default {
     Form,
   },
   created() {
+    const sessdata = JSON.parse(localStorage.getItem('sessdata'));
+    if(["Admin","Muhaffizh"].indexOf(sessdata.level) > -1) 
+      this.showAction = true; else this.showAction = false ;
+
     this.loadData()
   },
   data() {
     return {
+      showAction:true,
       createModal : false,
       editModal : false,
       editedId: null,

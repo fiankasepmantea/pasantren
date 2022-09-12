@@ -37,13 +37,14 @@
           show-empty
         >
           <template #cell(actions)="row">
-              <b-button variant="info" size="sm" @click="handleView(row.item)">
+              <a href="#" variant="info" size="sm" @click="handleView(row.item)">
                 View
-              </b-button>
-              <b-button variant="success" size="sm" @click="handleEdit(row.item.id)">
+              </a>
+              <b-button v-if="showAction" variant="success" size="sm" @click="handleEdit(row.item.id)">
                 Edit
               </b-button>
               <b-button
+                v-if="showAction"
                 variant="danger"
                 size="sm"
                 @click="deleteSantri(row.item.id)"
@@ -115,10 +116,15 @@ export default {
     DataView
   },
   created() {
+    const sessdata = JSON.parse(localStorage.getItem('sessdata'));
+    if(["Admin","Muhaffizh"].indexOf(sessdata.level) > -1) 
+      this.showAction = true; else this.showAction = false ;
+
     this.loadData()
   },
   data() {
     return {
+      showAction:true,
       createModal : false,
       viewModal : false,
       editModal : false,
