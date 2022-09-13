@@ -12,6 +12,7 @@ use App\Models\Muhaffizh;
 use App\Models\Group;
 use App\Models\Grade;
 use App\Models\LevelSantri;
+use App\Models\Santri;
 use Intervention\Image\ImageManagerStatic as Image;
 use Auth;
 
@@ -29,12 +30,17 @@ class Santri extends Model
         $user = Auth::user();
         $level = $user->userLevel;
         $userID = $user->id;
-
+        // $santri = Santri::where('muhaffizh_id',$userID);
+        // dd($santri);
         if(strtolower($level->nama) == 'walisantri') {
             $modelQuery->where('user_id', $userID);
         }
 
-        if (($filter_name = Arr::get($params, 'nama', false))) {
+        // if(in_array($userID,$santri['muhaffizh_id'])) {
+        //     $modelQuery->where('muhaffizh_id', $userID);
+        // }
+
+        if(($filter_name = Arr::get($params, 'nama', false))) {
             $modelQuery->where('nama', 'LIKE', '%' . $filter_name . '%');
         }
         // DEFAULT ORDERING DATA
