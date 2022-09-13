@@ -1068,18 +1068,20 @@ var render = function() {
             "div",
             { staticClass: "d-flex justify-content-end" },
             [
-              _c(
-                "b-button",
-                {
-                  attrs: { size: "sm", variant: "success" },
-                  on: {
-                    click: function($event) {
-                      _vm.createModal = true
-                    }
-                  }
-                },
-                [_vm._v("+ Tambah Setoran")]
-              ),
+              _vm.showAction
+                ? _c(
+                    "b-button",
+                    {
+                      attrs: { size: "sm", variant: "success" },
+                      on: {
+                        click: function($event) {
+                          _vm.createModal = true
+                        }
+                      }
+                    },
+                    [_vm._v("+ Tambah Setoran")]
+                  )
+                : _vm._e(),
               _vm._v(" "),
               _c(
                 "b-button",
