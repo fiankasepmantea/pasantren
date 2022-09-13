@@ -50,6 +50,21 @@
         <b-form-invalid-feedback>{{ veeErrors.first('nomorinduk') }}</b-form-invalid-feedback>
       </b-form-group>
 
+      <b-form-group label="WaliSantri" label-cols="3" label-for="walisantri">
+        <b-form-select
+          id="wali-santri"
+          v-model="santri.user_id"
+          :options="santri_user"
+          placeholder="Pilih Wali Santri"
+          name="user_id"
+          v-validate="{ required: true }"
+          :state="validateState('walisantri')"
+          data-vv-as="WaliSantri"
+        >
+        </b-form-select>
+        <b-form-invalid-feedback>{{ veeErrors.first('walisantri') }}</b-form-invalid-feedback>
+      </b-form-group>
+
       <b-form-group label="Nama Santri" label-cols="3" label-for="nama">
         <b-form-input
           id="nama"
@@ -249,6 +264,7 @@ export default {
     this.getMuhaffizh();
     this.getGrade();
     this.getLevel();
+    this.getUser();
     this.$validator = this.validator
   },
   computed: {
@@ -260,11 +276,12 @@ export default {
       santri_grade: (state) => state.santri_grade,
       santri_level: (state) => state.santri_level,
       santri_gender: (state) => state.santri_gender,
+      santri_user: (state) => state.santri_user,
     }),
   },
   methods: {
     ...mapMutations("santri", ["CLEAR_FORM"]),
-    ...mapActions("santri", ["getMuhaffizh","getGroup","getGrade","getLevel"]),
+    ...mapActions("santri", ["getMuhaffizh","getGroup","getGrade","getLevel","getUser"]),
     getGroupName(id){
       this.santri.group_id = '',
       this.getGroup(id)

@@ -8,6 +8,7 @@ use App\User as Model;
 use App\Http\Requests\UserRequest as ModelRequest;
 use App\Http\Resources\UserResource as ModelResource;
 use App\Models\Level;
+
 class UserController extends Controller
 {
     public function index(Request $request)
@@ -51,5 +52,10 @@ class UserController extends Controller
     {
         $level = Level::orderBy('nama', 'ASC')->get(); 
         return response()->json(['status' => 'success', 'data' => $level]);
+    }
+
+    public function getUserWalisantri(){
+        $walisantri = Model::where('level_id',4)->get();
+        return response()->json(['status' => 'success', 'data' => $walisantri]);
     }
 }

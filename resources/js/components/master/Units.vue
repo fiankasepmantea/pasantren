@@ -4,7 +4,7 @@
    
       <CCardBody style="padding-top:0px;">
       <div class="d-flex justify-content-end">
-        <b-button variant="success" size="sm" @click="createModal = true">+ Tambah Data</b-button>
+        <b-button v-if="showAction" variant="success" size="sm" @click="createModal = true">+ Tambah Data</b-button>
       </div>
       <b-form inline>
         <b-form-group

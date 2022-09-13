@@ -28,22 +28,35 @@ Route::group(['namespace' => 'Api'], function () {
         Route::post('auth/user', 'AuthController@user');
 
         Route::get('/user/userlevel', 'UserController@getLevel');
+        Route::get('/user/userwalisantri', 'UserController@getUserWalisantri');
+
         Route::get('/group/groupmuhaffizh', 'GroupController@getGroupMuhaffizh');
+
         Route::get('/muhaffizh/muhaffizhgroup', 'MuhaffizhController@getMuhaffizhGroup');
         Route::get('/muhaffizh/muhaffizhunit', 'MuhaffizhController@getMuhaffizhUnit');
+
+        //santri
         Route::get('/santri/santrigroup', 'SantriController@getSantriGroup');
         Route::get('/santri/santrimuhaffizh', 'SantriController@getSantriMuhaffizh');
         Route::get('/santri/santrigrade', 'SantriController@getSantriGrade');
         Route::get('/santri/santrilevel', 'SantriController@getSantriLevel');
+        
+        //mutqin
         Route::get('/mutqin/mutqinmuhaffizh', 'MutqinController@getMutqinMuhaffizh');
         Route::get('/mutqin/mutqingroup', 'MutqinController@getMutqinGroup');
         Route::get('/mutqin/mutqinsantri', 'MutqinController@getMutqinSantri');
+        
+        //setoran
         Route::get('/setoran/setoranmuhaffizh', 'SetoranController@getSetoranMuhaffizh');
         Route::get('/setoran/setorangroup', 'SetoranController@getSetoranGroup');
         Route::get('/setoran/setoransantri', 'SetoranController@getSetoranSantri');
+
+        //tahsin
         Route::get('/tahsin/tahsingroup', 'TahsinController@getTahsinGroup');
         Route::get('/tahsin/tahsinsantri', 'TahsinController@getTahsinSantri');
         Route::get('/tahsin/tahsinmuhaffizh', 'TahsinController@getTahsinMuhaffizh');
+
+        //laporan
         Route::get('/laporan/group/{jenis?}', 'GroupController@xlsGroup');
         Route::get('/laporan/muhaffizh/{jenis?}', 'MuhaffizhController@xlsMuhaffizh');
         Route::get('/laporan/santri/{jenis?}', 'SantriController@xlsSantri');

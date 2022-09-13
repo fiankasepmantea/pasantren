@@ -4,7 +4,7 @@
    
       <CCardBody style="padding-top:0px;">
       <div class="d-flex justify-content-end">
-        <b-button size="sm" variant="success" @click="createModal = true">+ Tambah Tahsin</b-button>
+        <b-button v-if="showAction" size="sm" variant="success" @click="createModal = true">+ Tambah Tahsin</b-button>
         <b-button size="sm" variant="info" class="ml-2" @click="uploadModal = true"><font-awesome-icon icon="upload" /> Upload Tahsin</b-button>
       </div>
       <b-row>

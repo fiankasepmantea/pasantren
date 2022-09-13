@@ -29,11 +29,12 @@ class SantriResource extends JsonResource
             'nama_ayah'             => $this->nama_ayah,
             'muhaffizh_id'          => $this->muhaffizh_id,
             'group_id'              => $this->group_id,
-            'santri_id'          => $this->santri_id,
+            'santri_id'             => $this->santri_id,
             'grade_id'              => $this->grade_id,
             'levelsantri_id'        => $this->levelsantri_id,
             'foto'                  => $this->foto,
-          
+            'user_id'               => $this->user_id,
+            
             //from model
             'list_muhaffizh'        => $this->listMuhaffizh,
             'list_group'            => $this->listGroup,

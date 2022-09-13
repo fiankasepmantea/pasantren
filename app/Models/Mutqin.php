@@ -13,6 +13,7 @@ use App\Models\Group;
 use App\Models\Santri;
 use App\Models\Muhaffizh;
 use Illuminate\Database\Eloquent\Builder;
+use Auth;
 
 class Mutqin extends Model
 {
@@ -25,7 +26,16 @@ class Mutqin extends Model
     public static function getModel($params, $raw = false)
     {
         $modelQuery = static::query();
-        
+        $user = Auth::user();
+        $level = $user->userLevel;
+        $userID = $user->id;
+
+        if(strtolower($level->nama) == 'walisantri') {
+            $modelQuery->whereHas('filterSantri', function (Builder $query) use ($userID) {
+                $query->where('user_id', $userID);
+            });
+        }
+
         if ( ($filter_muhaffizh = Arr::get($params, 'muhaffizh_name', false)) ) {
             $modelQuery->whereHas('filterMuhaffizh', function (Builder $query) use ($filter_muhaffizh) {
                 $query->where('nama', 'LIKE', '%' . $filter_muhaffizh . '%');

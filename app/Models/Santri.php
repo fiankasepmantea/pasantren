@@ -13,6 +13,7 @@ use App\Models\Group;
 use App\Models\Grade;
 use App\Models\LevelSantri;
 use Intervention\Image\ImageManagerStatic as Image;
+use Auth;
 
 class Santri extends Model
 {
@@ -25,6 +26,13 @@ class Santri extends Model
     public static function getModel($params, $raw = false)
     {
         $modelQuery = static::query();
+        $user = Auth::user();
+        $level = $user->userLevel;
+        $userID = $user->id;
+
+        if(strtolower($level->nama) == 'walisantri') {
+            $modelQuery->where('user_id', $userID);
+        }
 
         if (($filter_name = Arr::get($params, 'nama', false))) {
             $modelQuery->where('nama', 'LIKE', '%' . $filter_name . '%');
@@ -62,6 +70,8 @@ class Santri extends Model
         $model['muhaffizh_id'] = $data['muhaffizh_id'];
         $model['grade_id'] = $data['grade_id'];
         $model['levelsantri_id'] = $data['levelsantri_id'];
+        $model['user_id'] = $data['user_id'];
+
         if(!empty($data['foto_b64'])) {
             // TODO: hapus avatar sebelumnya (klo ada)..
             $path = 'assets/images/avatars/santri_' . $data['nomor_induk'].'-'.time().'.jpg';
