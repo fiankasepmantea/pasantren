@@ -28,6 +28,7 @@ class DashboardController extends Controller
         $m_setoran = $setoran->getModel([],true);
         // Reset default orderBy (created_at) krn mw sort by bulan & pekan..
         $m_setoran->getQuery()->orders = null;
+        $m_setoran->getQuery()->wheres = [];
         // Ada baiknya subquery namabulan (nb) diganti tabel fisik
         $rows = $m_setoran->select('setorans.bulan','bln','pekan')
             ->selectRaw('FLOOR(SUM(juz)+(SUM(halaman)/20)+(SUM(baris)/300)) AS total_juz')
@@ -60,6 +61,7 @@ class DashboardController extends Controller
         $setoran = new Model();
         $m_setoran = $setoran->getModel([],true);
         $m_setoran->getQuery()->orders = null;
+        $m_setoran->getQuery()->wheres = [];
         $rows = $m_setoran->select('units.id','units.nama')
             ->selectRaw('FLOOR(SUM(juz)+(SUM(halaman)/20)+(SUM(baris)/300)) AS total_juz')
             ->join('muhaffizhs','setorans.muhaffizh_id','=','muhaffizhs.id')
@@ -79,6 +81,7 @@ class DashboardController extends Controller
         $setoran = new Model();
         $m_setoran = $setoran->getModel([],true);
         $m_setoran->getQuery()->orders = null;
+        $m_setoran->getQuery()->wheres = [];
         $rows = $m_setoran->select('muhaffizhs.id','muhaffizhs.nama')
             ->selectRaw('FLOOR(SUM(juz)+(SUM(halaman)/20)+(SUM(baris)/300)) AS total_juz')
             ->join('muhaffizhs','setorans.muhaffizh_id','=','muhaffizhs.id')
@@ -97,6 +100,7 @@ class DashboardController extends Controller
         $setoran = new Model();
         $m_setoran = $setoran->getModel([],true);
         $m_setoran->getQuery()->orders = null;
+        $m_setoran->getQuery()->wheres = [];
         $rows = $m_setoran->select('groups.id','groups.nama')
             ->selectRaw('FLOOR(SUM(juz)+(SUM(halaman)/20)+(SUM(baris)/300)) AS total_juz')
             ->join('groups','setorans.group_id','=','groups.id')
