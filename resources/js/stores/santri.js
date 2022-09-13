@@ -24,12 +24,14 @@ const state = () => ({
     levelsantri_id: '',
     foto: '',
     file_foto: [],
+    user_id: '',
   },
   santri_muhaffizh: [],
   santri_group: [],
   santri_grade: [],
   santri_level: [],
   santri_gender: ['Laki','Perempuan'],
+  santri_user: [],
 })
 
 const mutations = {
@@ -58,6 +60,7 @@ const mutations = {
       levelsantri_id: payload.levelsantri_id,
       foto: payload.foto,
       file_foto: [],
+      user_id: payload.user_id,
     }
   },
   CLEAR_FORM(state) {
@@ -80,6 +83,7 @@ const mutations = {
       levelsantri_id: '',
       foto: '',
       file_foto: [],
+      user_id: '',
     }
   },
 
@@ -121,6 +125,16 @@ const mutations = {
   },
   CLEAR_LEVEL(state) {
     state.santri_level = [];
+  },
+
+  ASSIGN_USER(state, payload) {
+    state.santri_user = payload
+  },
+  APPEND_USER(state, payload){
+    state.santri_user.push(payload)
+  },
+  CLEAR_USER(state) {
+    state.santri_user = [];
   },
 
 }
@@ -230,7 +244,7 @@ const actions = {
   },
   getGroup({ commit }, payload=null) {
     return new Promise((resolve, reject) => {
-      console.log('payload:',payload);
+   
         if(payload){
             $axios.get(`/santri/santrigroup`,{
               params: {
@@ -276,6 +290,18 @@ const actions = {
             commit('CLEAR_LEVEL') 
             response.data.data.forEach(item=>{
               commit('APPEND_LEVEL', {value:item.id, text:item.level})              
+            });
+            resolve(response.data)
+        })
+    })
+  },
+  getUser({ commit }) {
+    return new Promise((resolve, reject) => {
+        $axios.get(`/user/userwalisantri`)
+        .then((response) => {
+            commit('CLEAR_USER') 
+            response.data.data.forEach(item=>{
+              commit('APPEND_USER', {value:item.id, text:item.name})              
             });
             resolve(response.data)
         })

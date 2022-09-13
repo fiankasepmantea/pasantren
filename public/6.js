@@ -257,6 +257,21 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   inject: ['validator'],
@@ -266,6 +281,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     this.getMuhaffizh();
     this.getGrade();
     this.getLevel();
+    this.getUser();
     this.$validator = this.validator;
   },
   computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(["errors"])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])("santri", {
@@ -286,9 +302,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     santri_gender: function santri_gender(state) {
       return state.santri_gender;
+    },
+    santri_user: function santri_user(state) {
+      return state.santri_user;
     }
   })),
-  methods: _objectSpread(_objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapMutations"])("santri", ["CLEAR_FORM"])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])("santri", ["getMuhaffizh", "getGroup", "getGrade", "getLevel"])), {}, {
+  methods: _objectSpread(_objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapMutations"])("santri", ["CLEAR_FORM"])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])("santri", ["getMuhaffizh", "getGroup", "getGrade", "getLevel", "getUser"])), {}, {
     getGroupName: function getGroupName(id) {
       this.santri.group_id = '', this.getGroup(id);
     },
@@ -899,6 +918,49 @@ var render = function() {
               _vm._v(" "),
               _c("b-form-invalid-feedback", [
                 _vm._v(_vm._s(_vm.veeErrors.first("nomorinduk")))
+              ])
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "b-form-group",
+            {
+              attrs: {
+                label: "WaliSantri",
+                "label-cols": "3",
+                "label-for": "walisantri"
+              }
+            },
+            [
+              _c("b-form-select", {
+                directives: [
+                  {
+                    name: "validate",
+                    rawName: "v-validate",
+                    value: { required: true },
+                    expression: "{ required: true }"
+                  }
+                ],
+                attrs: {
+                  id: "wali-santri",
+                  options: _vm.santri_user,
+                  placeholder: "Pilih Wali Santri",
+                  name: "user_id",
+                  state: _vm.validateState("walisantri"),
+                  "data-vv-as": "WaliSantri"
+                },
+                model: {
+                  value: _vm.santri.user_id,
+                  callback: function($$v) {
+                    _vm.$set(_vm.santri, "user_id", $$v)
+                  },
+                  expression: "santri.user_id"
+                }
+              }),
+              _vm._v(" "),
+              _c("b-form-invalid-feedback", [
+                _vm._v(_vm._s(_vm.veeErrors.first("walisantri")))
               ])
             ],
             1
