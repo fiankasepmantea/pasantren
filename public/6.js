@@ -516,7 +516,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       pageOptions: [10, 20, 50, 100],
       header: [{
         key: "nama",
-        label: "Nama"
+        label: "Nama Santri"
+      }, {
+        key: 'list_walisantri.name',
+        label: 'Wali Santri'
       }, {
         key: 'alamat',
         label: 'Alamat'
@@ -607,6 +610,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.currentSantri.muhaffizh = santri.list_muhaffizh.nama;
       this.currentSantri.level = santri.list_level.level;
       this.currentSantri.grade = santri.list_grade.grade;
+      this.currentSantri.walisantri = santri.list_walisantri.name;
     },
     handleEdit: function handleEdit(id) {
       this.editModal = true;

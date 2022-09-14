@@ -136,8 +136,12 @@ export default {
       header: [
         {
           key: "nama",
-          label: "Nama",
+          label: "Nama Santri",
           
+        },
+        {
+          key: 'list_walisantri.name',
+          label: 'Wali Santri'
         },
         {
           key: 'alamat',
@@ -214,6 +218,7 @@ export default {
     },
     handleView(santri) {
       this.viewModal = true
+    
       for(const [k, v] of Object.entries(santri)) {
         if(k.toLowerCase().indexOf('_id')>=0 || k.toLowerCase().indexOf('id_')>=0)
           continue;
@@ -223,10 +228,12 @@ export default {
           this.currentSantri[k] = '';
         }
       };
+      
       this.currentSantri.group = santri.list_group.nama;
       this.currentSantri.muhaffizh = santri.list_muhaffizh.nama;
       this.currentSantri.level = santri.list_level.level;
       this.currentSantri.grade = santri.list_grade.grade;
+      this.currentSantri.walisantri = santri.list_walisantri.name;
     },
     handleEdit(id) {
       this.editModal = true

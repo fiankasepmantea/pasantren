@@ -12,6 +12,7 @@ use App\Models\Muhaffizh;
 use App\Models\Group;
 use App\Models\Grade;
 use App\Models\LevelSantri;
+use App\User;
 use Intervention\Image\ImageManagerStatic as Image;
 use Auth;
 
@@ -29,14 +30,17 @@ class Santri extends Model
         $user = Auth::user();
         $level = $user->userLevel;
         $userID = $user->id;
-        $santris = static::query()->where('muhaffizh_id',$userID)->get();
       
-        foreach($santris as $i => $santri){
-            if($userID == $santri['muhaffizh_id']) {
-                $modelQuery->where('muhaffizh_id', $userID);
-            }
-        }
+        // if(strtolower($level->nama) == 'muhaffizh') {
+        //     $santris = static::query()->where('muhaffizh_id',$userID)->get();
         
+        //     foreach($santris as $i => $santri){
+        //         if($userID == $santri['muhaffizh_id']) {
+        //             $modelQuery->where('muhaffizh_id', $userID);
+        //         }
+        //     }
+        // }
+
         if(strtolower($level->nama) == 'walisantri') {
             $modelQuery->where('user_id', $userID);
         }
@@ -113,6 +117,9 @@ class Santri extends Model
     }
     public function listLevel(){
         return $this->belongsTo(LevelSantri::class,'levelsantri_id','id');
+    }
+    public function listUserWalisantri(){
+        return $this->belongsTo(User::class,'user_id','id');
     }
 
     // Group per nama santri (Nama, Nik, Unit, hapalan , mutqin, buku)
