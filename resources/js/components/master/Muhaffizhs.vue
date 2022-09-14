@@ -34,11 +34,16 @@
           responsive
           outlined
           show-empty
-        >
+        > 
+          <template #cell(nama)="data">
+            <!-- `data.value` is the value after formatted by the Formatter -->
+            <a :href="`#`" @click="handleView(data.item)">{{ data.value }}</a>
+          </template>
+
           <template #cell(actions)="row">
-              <a href="#" variant="info" size="sm" @click="handleView(row.item)">
+              <!-- <a href="#" variant="info" size="sm" @click="handleView(row.item)">
                 View
-              </a>
+              </a> -->
               <b-button v-if="showAction" variant="success" size="sm" @click="handleEdit(row.item.id)">
                 Edit
               </b-button>
