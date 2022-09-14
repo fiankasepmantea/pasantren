@@ -36,10 +36,15 @@
           outlined
           show-empty
         >
+          <template #cell(nama)="data">
+            <!-- `data.value` is the value after formatted by the Formatter -->
+            <a :href="`#`" @click="handleView(data.item)">{{ data.value }}</a>
+          </template>
+          
           <template #cell(actions)="row">
-              <a href="#" variant="info" size="sm" @click="handleView(row.item)">
+              <!-- <a href="#" variant="info" size="sm" @click="handleView(row.item)">
                 View
-              </a>
+              </a> -->
               <b-button v-if="showAction" variant="success" size="sm" @click="handleEdit(row.item.id)">
                 Edit
               </b-button>
@@ -136,8 +141,11 @@ export default {
       header: [
         {
           key: "nama",
-          label: "Nama",
-          
+          label: "Nama Santri",
+        },
+        {
+          key: 'list_walisantri.name',
+          label: 'Wali Santri'
         },
         {
           key: 'alamat',
@@ -214,6 +222,7 @@ export default {
     },
     handleView(santri) {
       this.viewModal = true
+    
       for(const [k, v] of Object.entries(santri)) {
         if(k.toLowerCase().indexOf('_id')>=0 || k.toLowerCase().indexOf('id_')>=0)
           continue;
@@ -223,10 +232,12 @@ export default {
           this.currentSantri[k] = '';
         }
       };
-      this.currentSantri.group = santri.list_group.nama;
-      this.currentSantri.muhaffizh = santri.list_muhaffizh.nama;
-      this.currentSantri.level = santri.list_level.level;
-      this.currentSantri.grade = santri.list_grade.grade;
+      
+      this.currentSantri.group = santri.list_group ? santri.list_group.nama : "Belum ke isi";
+      this.currentSantri.muhaffizh = santri.list_muhaffizh ? santri.list_muhaffizh.nama :"Belum ke isi";
+      this.currentSantri.level = santri.list_level ? santri.list_level.level : "Belum ke isi";
+      this.currentSantri.grade = santri.list_grade ? santri.list_grade.grade : "Belum ke isi";
+      this.currentSantri.walisantri = santri.list_walisantri ? santri.list_walisantri.name : "Belum ke isi";
     },
     handleEdit(id) {
       this.editModal = true

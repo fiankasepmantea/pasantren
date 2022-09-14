@@ -39,7 +39,8 @@ class SantriResource extends JsonResource
             'list_muhaffizh'        => $this->listMuhaffizh,
             'list_group'            => $this->listGroup,
             'list_grade'            => $this->listGrade,
-            'list_level'            => $this->listLevel
+            'list_level'            => $this->listLevel,
+            'list_walisantri'       => $this->listUserWalisantri
         ];
     }
 }
