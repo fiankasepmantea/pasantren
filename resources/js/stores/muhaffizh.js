@@ -18,9 +18,11 @@ const state = () => ({
     angkatan_kelas: '',
     status: '',
     unit_id: '',
+    user_id: ''
   },
   muhaffizh_unit: [],
   muhaffizh_group: [],
+  muhaffizh_user: [],
 })
 
 const mutations = {
@@ -43,6 +45,7 @@ const mutations = {
       status: payload.status,
       pendidikan_terakhir: payload.pendidikan_terakhir,
       unit_id: payload.unit_id,
+      user_id: payload.user_id,
     }
   },
   CLEAR_FORM(state) {
@@ -59,6 +62,7 @@ const mutations = {
       status: '',
       pendidikan_terakhir: '',
       unit_id: '',
+      user_id: ''
     }
   },
   ASSIGN_UNIT(state, payload) {
@@ -81,6 +85,15 @@ const mutations = {
     state.muhaffizh_group = [];
   },
 
+  ASSIGN_USER(state, payload) {
+    state.muhaffizh_user = payload
+  },
+  APPEND_USER(state, payload){
+    state.muhaffizh_user.push(payload)
+  },
+  CLEAR_USER(state) {
+    state.muhaffizh_user = [];
+  },
 }
 
 const actions = {
@@ -144,6 +157,18 @@ const actions = {
             commit('CLEAR_UNIT') 
             response.data.data.forEach(item=>{
               commit('APPEND_UNIT', {value:item.id, text:item.nama})              
+            });
+            resolve(response.data)
+        })
+    })
+  },
+  getUser({ commit }) {
+    return new Promise((resolve, reject) => {
+        $axios.get(`/user/usermuhaffizh`)
+        .then((response) => {
+            commit('CLEAR_USER') 
+            response.data.data.forEach(item=>{
+              commit('APPEND_USER', {value:item.id, text:item.name})              
             });
             resolve(response.data)
         })

@@ -158,12 +158,46 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   inject: ['validator'],
   name: "MuhaffizhForm",
   created: function created() {
     this.getUnit();
+    this.getUser();
     this.$validator = this.validator;
   },
   computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(["errors"])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])("muhaffizh", {
@@ -172,6 +206,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     muhaffizh_unit: function muhaffizh_unit(state) {
       return state.muhaffizh_unit;
+    },
+    muhaffizh_user: function muhaffizh_user(state) {
+      return state.muhaffizh_user;
     }
   })),
   watch: {
@@ -179,7 +216,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.getUnit();
     }
   },
-  methods: _objectSpread(_objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapMutations"])("muhaffizh", ["CLEAR_FORM"])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])("muhaffizh", ["getUnit"])), {}, {
+  methods: _objectSpread(_objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapMutations"])("muhaffizh", ["CLEAR_FORM"])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])("muhaffizh", ["getUnit", "getUser"])), {}, {
     validateState: function validateState(ref) {
       if (this.veeFields[ref] && (this.veeFields[ref].dirty || this.veeFields[ref].validated)) {
         return !this.veeErrors.has(ref);
@@ -747,7 +784,54 @@ var render = function() {
           _c(
             "b-form-group",
             {
-              attrs: { label: "Nama", "label-cols": "3", "label-for": "nama" }
+              attrs: {
+                label: "Akun Login Muhaffizh",
+                "label-cols": "3",
+                "label-for": "akunloginmuhaffizh"
+              }
+            },
+            [
+              _c("b-form-select", {
+                directives: [
+                  {
+                    name: "validate",
+                    rawName: "v-validate",
+                    value: { required: true },
+                    expression: "{ required: true }"
+                  }
+                ],
+                attrs: {
+                  id: "akun-login-muhaffizh",
+                  options: _vm.muhaffizh_user,
+                  placeholder: "Pilih Akun Login",
+                  name: "user_id",
+                  state: _vm.validateState("user_id"),
+                  "data-vv-as": "AkunLogin"
+                },
+                model: {
+                  value: _vm.muhaffizh.user_id,
+                  callback: function($$v) {
+                    _vm.$set(_vm.muhaffizh, "user_id", $$v)
+                  },
+                  expression: "muhaffizh.user_id"
+                }
+              }),
+              _vm._v(" "),
+              _c("b-form-invalid-feedback", [
+                _vm._v(_vm._s(_vm.veeErrors.first("user_id")))
+              ])
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "b-form-group",
+            {
+              attrs: {
+                label: "Nama Muhaffizh",
+                "label-cols": "3",
+                "label-for": "nama"
+              }
             },
             [
               _c("b-form-input", {
@@ -912,7 +996,7 @@ var render = function() {
           _c(
             "b-form-group",
             {
-              attrs: { label: "No HP", "label-cols": "3", "label-for": "no_hp" }
+              attrs: { label: "No HP", "label-cols": "3", "label-for": "nohp" }
             },
             [
               _c("b-form-input", {
@@ -925,10 +1009,10 @@ var render = function() {
                   }
                 ],
                 attrs: {
-                  id: "no_hp",
+                  id: "no-hp",
                   placeholder: "Masukan No HP",
                   name: "nohp",
-                  state: _vm.validateState("no_hp"),
+                  state: _vm.validateState("nohp"),
                   "data-vv-as": "NoHP"
                 },
                 model: {
@@ -941,7 +1025,7 @@ var render = function() {
               }),
               _vm._v(" "),
               _c("b-form-invalid-feedback", [
-                _vm._v(_vm._s(_vm.veeErrors.first("no_hp")))
+                _vm._v(_vm._s(_vm.veeErrors.first("nohp")))
               ])
             ],
             1
@@ -1003,7 +1087,20 @@ var render = function() {
               _c(
                 "b-form-select",
                 {
-                  attrs: { options: _vm.options_pendidikan },
+                  directives: [
+                    {
+                      name: "validate",
+                      rawName: "v-validate",
+                      value: { required: true },
+                      expression: "{ required: true }"
+                    }
+                  ],
+                  attrs: {
+                    options: _vm.options_pendidikan,
+                    name: "pendidikanterakhir",
+                    state: _vm.validateState("pendidikanterakhir"),
+                    "data-vv-as": "PendidikanTerakhir"
+                  },
                   model: {
                     value: _vm.muhaffizh.pendidikan_terakhir,
                     callback: function($$v) {
@@ -1012,8 +1109,12 @@ var render = function() {
                     expression: "muhaffizh.pendidikan_terakhir"
                   }
                 },
-                [_vm._v(_vm._s(_vm.selected_pendidikan))]
-              )
+                [_vm._v(_vm._s(_vm.selected_pendidikan) + "\n          ")]
+              ),
+              _vm._v(" "),
+              _c("b-form-invalid-feedback", [
+                _vm._v(_vm._s(_vm.veeErrors.first("pendidikanterakhir")))
+              ])
             ],
             1
           ),
@@ -1031,7 +1132,20 @@ var render = function() {
               _c(
                 "b-form-select",
                 {
-                  attrs: { options: _vm.options_status },
+                  directives: [
+                    {
+                      name: "validate",
+                      rawName: "v-validate",
+                      value: { required: true },
+                      expression: "{ required: true }"
+                    }
+                  ],
+                  attrs: {
+                    options: _vm.options_status,
+                    name: "status",
+                    state: _vm.validateState("status"),
+                    "data-vv-as": "Status"
+                  },
                   model: {
                     value: _vm.muhaffizh.status,
                     callback: function($$v) {
@@ -1040,8 +1154,12 @@ var render = function() {
                     expression: "muhaffizh.status"
                   }
                 },
-                [_vm._v(_vm._s(_vm.selected_status))]
-              )
+                [_vm._v(_vm._s(_vm.selected_status) + "\n        ")]
+              ),
+              _vm._v(" "),
+              _c("b-form-invalid-feedback", [
+                _vm._v(_vm._s(_vm.veeErrors.first("status")))
+              ])
             ],
             1
           ),

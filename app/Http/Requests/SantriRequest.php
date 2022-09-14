@@ -39,7 +39,7 @@ class SantriRequest extends FormRequest
             'muhaffizh_id'          => ['required'],
             'grade_id'              => ['required'],
             'levelsantri_id'        => ['required'],
-            'user_id'               => ['required'],
+            'user_id'               => ['required'], //muhaffizh_id
         ];
     }
 }

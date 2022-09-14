@@ -30,17 +30,15 @@ class Santri extends Model
         $user = Auth::user();
         $level = $user->userLevel;
         $userID = $user->id;
-      
-        // if(strtolower($level->nama) == 'muhaffizh') {
-        //     $santris = static::query()->where('muhaffizh_id',$userID)->get();
+       
+        if(strtolower($level->nama) == 'muhaffizh') {
+            $muhaffizh = Muhaffizh::where('user_id',$userID)->first();
+           
+            if($muhaffizh) {
+                $modelQuery->where('muhaffizh_id', $muhaffizh['id']);
+            }    
+        }
         
-        //     foreach($santris as $i => $santri){
-        //         if($userID == $santri['muhaffizh_id']) {
-        //             $modelQuery->where('muhaffizh_id', $userID);
-        //         }
-        //     }
-        // }
-
         if(strtolower($level->nama) == 'walisantri') {
             $modelQuery->where('user_id', $userID);
         }

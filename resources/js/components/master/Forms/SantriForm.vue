@@ -58,11 +58,11 @@
           placeholder="Pilih Wali Santri"
           name="user_id"
           v-validate="{ required: true }"
-          :state="validateState('walisantri')"
+          :state="validateState('user_id')"
           data-vv-as="WaliSantri"
         >
         </b-form-select>
-        <b-form-invalid-feedback>{{ veeErrors.first('walisantri') }}</b-form-invalid-feedback>
+        <b-form-invalid-feedback>{{ veeErrors.first('user_id') }}</b-form-invalid-feedback>
       </b-form-group>
 
       <b-form-group label="Nama Santri" label-cols="3" label-for="nama">
@@ -164,14 +164,14 @@
         </b-form-input>
         <b-form-invalid-feedback>{{ veeErrors.first('namaayah') }}</b-form-invalid-feedback>
       </b-form-group>
-       <b-form-group label="No HP" label-cols="3" label-for="no_hp">
+       <b-form-group label="No HP" label-cols="3" label-for="nohp">
         <b-form-input
-          id="no_hp"
+          id="no-hp"
           v-model="santri.no_hp"
           placeholder="Masukan No HP"
           name="nohp"
           v-validate="{ required: true }"
-          :state="validateState('no_hp')"
+          :state="validateState('nohp')"
           data-vv-as="NoHP"
         >
         </b-form-input>

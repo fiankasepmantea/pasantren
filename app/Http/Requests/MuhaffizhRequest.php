@@ -36,6 +36,7 @@ class MuhaffizhRequest extends FormRequest
             'status'                => ['required'],
             'pendidikan_terakhir'   => ['required'],
             'unit_id'               => ['required'],
+            'user_id'               => ['required'],
         ];
     }
 }
