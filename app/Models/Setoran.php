@@ -31,6 +31,14 @@ class Setoran extends Model
         $level = $user->userLevel;
         $userID = $user->id;
 
+        if(strtolower($level->nama) == 'muhaffizh') {
+            $muhaffizh = Muhaffizh::where('user_id',$userID)->first();
+           
+            if($muhaffizh) {
+                $modelQuery->where('muhaffizh_id', $muhaffizh['id']);
+            }    
+        }
+        
         if(strtolower($level->nama) == 'walisantri') {
             $modelQuery->whereHas('filterSantri', function (Builder $query) use ($userID) {
                 $query->where('user_id', $userID);
