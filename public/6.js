@@ -956,7 +956,7 @@ var render = function() {
                   options: _vm.santri_user,
                   placeholder: "Pilih Wali Santri",
                   name: "user_id",
-                  state: _vm.validateState("walisantri"),
+                  state: _vm.validateState("user_id"),
                   "data-vv-as": "WaliSantri"
                 },
                 model: {
@@ -969,7 +969,7 @@ var render = function() {
               }),
               _vm._v(" "),
               _c("b-form-invalid-feedback", [
-                _vm._v(_vm._s(_vm.veeErrors.first("walisantri")))
+                _vm._v(_vm._s(_vm.veeErrors.first("user_id")))
               ])
             ],
             1
@@ -1274,7 +1274,7 @@ var render = function() {
           _c(
             "b-form-group",
             {
-              attrs: { label: "No HP", "label-cols": "3", "label-for": "no_hp" }
+              attrs: { label: "No HP", "label-cols": "3", "label-for": "nohp" }
             },
             [
               _c("b-form-input", {
@@ -1287,10 +1287,10 @@ var render = function() {
                   }
                 ],
                 attrs: {
-                  id: "no_hp",
+                  id: "no-hp",
                   placeholder: "Masukan No HP",
                   name: "nohp",
-                  state: _vm.validateState("no_hp"),
+                  state: _vm.validateState("nohp"),
                   "data-vv-as": "NoHP"
                 },
                 model: {

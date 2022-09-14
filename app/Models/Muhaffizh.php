@@ -55,7 +55,8 @@ class Muhaffizh extends Model
         $model['status'] = $data['status'];
         $model['pendidikan_terakhir'] = $data['pendidikan_terakhir'];
         $model['unit_id'] = $data['unit_id'];
-
+        $model['user_id'] = $data['user_id'];
+        
         return $is_update ? $this->update($model) : $this->create($model);
     }   
 

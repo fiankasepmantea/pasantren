@@ -30,7 +30,22 @@
         <b-form-invalid-feedback>{{ veeErrors.first('nomorinduk') }}</b-form-invalid-feedback>
       </b-form-group>
 
-      <b-form-group label="Nama" label-cols="3" label-for="nama">
+      <b-form-group label="Akun Login Muhaffizh" label-cols="3" label-for="akunloginmuhaffizh">
+        <b-form-select
+          id="akun-login-muhaffizh"
+          v-model="muhaffizh.user_id"
+          :options="muhaffizh_user"
+          placeholder="Pilih Akun Login"
+          name="user_id"
+          v-validate="{ required: true }"
+          :state="validateState('user_id')"
+          data-vv-as="AkunLogin"
+        >
+        </b-form-select>
+        <b-form-invalid-feedback>{{ veeErrors.first('user_id') }}</b-form-invalid-feedback>
+      </b-form-group>
+
+      <b-form-group label="Nama Muhaffizh" label-cols="3" label-for="nama">
         <b-form-input
           id="nama"
           v-model="muhaffizh.nama"
@@ -87,18 +102,18 @@
         <b-form-invalid-feedback>{{ veeErrors.first('tanggallahir') }}</b-form-invalid-feedback>
       </b-form-group>
 
-       <b-form-group label="No HP" label-cols="3" label-for="no_hp">
+       <b-form-group label="No HP" label-cols="3" label-for="nohp">
         <b-form-input
-          id="no_hp"
+          id="no-hp"
           v-model="muhaffizh.no_hp"
           placeholder="Masukan No HP"
           name="nohp"
           v-validate="{ required: true }"
-          :state="validateState('no_hp')"
+          :state="validateState('nohp')"
           data-vv-as="NoHP"
         >
         </b-form-input>
-        <b-form-invalid-feedback>{{ veeErrors.first('no_hp') }}</b-form-invalid-feedback>
+        <b-form-invalid-feedback>{{ veeErrors.first('nohp') }}</b-form-invalid-feedback>
       </b-form-group>
 
       <b-form-group label="Mulai Bertugas" label-cols="3" label-for="mulaibertugas">
@@ -117,10 +132,28 @@
       </b-form-group>
 
       <b-form-group label="Pendidikan Terakhir" label-cols="3" label-for="pendidikanterakhir">
-            <b-form-select v-model="muhaffizh.pendidikan_terakhir" :options="options_pendidikan">{{ selected_pendidikan }}</b-form-select>
+            <b-form-select 
+              v-model="muhaffizh.pendidikan_terakhir" 
+              :options="options_pendidikan"
+              name="pendidikanterakhir"
+              v-validate="{ required: true }"
+              :state="validateState('pendidikanterakhir')"
+              data-vv-as="PendidikanTerakhir"
+              >{{ selected_pendidikan }}
+            </b-form-select>
+            <b-form-invalid-feedback>{{ veeErrors.first('pendidikanterakhir') }}</b-form-invalid-feedback>
       </b-form-group>
          <b-form-group label="Status" label-cols="3" label-for="status">
-            <b-form-select v-model="muhaffizh.status" :options="options_status">{{ selected_status }}</b-form-select>
+            <b-form-select 
+              v-model="muhaffizh.status" 
+              :options="options_status"
+              name="status"
+              v-validate="{ required: true }"
+              :state="validateState('status')"
+              data-vv-as="Status"
+              >{{ selected_status }}
+          </b-form-select>
+          <b-form-invalid-feedback>{{ veeErrors.first('status') }}</b-form-invalid-feedback>
       </b-form-group>
 
       <b-form-group label="Kelas/Angkatan" label-cols="3" label-for="kelasangkatan">
@@ -147,6 +180,7 @@ export default {
   name: "MuhaffizhForm",
   created() {
     this.getUnit();
+    this.getUser();
     this.$validator = this.validator
   },
   computed: {
@@ -154,16 +188,18 @@ export default {
     ...mapState("muhaffizh", {
       muhaffizh: (state) => state.muhaffizh,
       muhaffizh_unit: (state) => state.muhaffizh_unit,
+      muhaffizh_user: (state) => state.muhaffizh_user,
     }),
   },
   watch: {
       return(){
         this.getUnit();
+
       }
   },    
   methods: {
     ...mapMutations("muhaffizh", ["CLEAR_FORM"]),
-    ...mapActions("muhaffizh", ["getUnit"]),
+    ...mapActions("muhaffizh", ["getUnit","getUser"]),
     validateState(ref) {
       if(
       this.veeFields[ref] &&

@@ -58,4 +58,9 @@ class UserController extends Controller
         $walisantri = Model::where('level_id',4)->get();
         return response()->json(['status' => 'success', 'data' => $walisantri]);
     }
+
+    public function getUserMuhaffizh(){
+        $userMuhaffizh = Model::where('level_id',3)->get();
+        return response()->json(['status' => 'success', 'data' => $userMuhaffizh]);
+    }
 }

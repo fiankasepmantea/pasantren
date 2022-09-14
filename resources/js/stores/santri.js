@@ -24,7 +24,7 @@ const state = () => ({
     levelsantri_id: '',
     foto: '',
     file_foto: [],
-    user_id: '',
+    user_id: '', //muhaffizh_id
   },
   santri_muhaffizh: [],
   santri_group: [],

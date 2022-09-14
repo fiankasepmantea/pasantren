@@ -29,6 +29,7 @@ Route::group(['namespace' => 'Api'], function () {
 
         Route::get('/user/userlevel', 'UserController@getLevel');
         Route::get('/user/userwalisantri', 'UserController@getUserWalisantri');
+        Route::get('/user/usermuhaffizh', 'UserController@getUserMuhaffizh');
 
         Route::get('/group/groupmuhaffizh', 'GroupController@getGroupMuhaffizh');
 
