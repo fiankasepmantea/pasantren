@@ -354,6 +354,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 
@@ -1196,22 +1201,28 @@ var render = function() {
             },
             scopedSlots: _vm._u([
               {
-                key: "cell(actions)",
-                fn: function(row) {
+                key: "cell(nama)",
+                fn: function(data) {
                   return [
                     _c(
                       "a",
                       {
-                        attrs: { href: "#", variant: "info", size: "sm" },
+                        attrs: { href: "#" },
                         on: {
                           click: function($event) {
-                            return _vm.handleView(row.item)
+                            return _vm.handleView(data.item)
                           }
                         }
                       },
-                      [_vm._v("\n              View\n            ")]
-                    ),
-                    _vm._v(" "),
+                      [_vm._v(_vm._s(data.value))]
+                    )
+                  ]
+                }
+              },
+              {
+                key: "cell(actions)",
+                fn: function(row) {
+                  return [
                     _vm.showAction
                       ? _c(
                           "b-button",
