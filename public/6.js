@@ -487,6 +487,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 
@@ -606,11 +611,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }
 
       ;
-      this.currentSantri.group = santri.list_group.nama;
-      this.currentSantri.muhaffizh = santri.list_muhaffizh.nama;
-      this.currentSantri.level = santri.list_level.level;
-      this.currentSantri.grade = santri.list_grade.grade;
-      this.currentSantri.walisantri = santri.list_walisantri.name;
+      this.currentSantri.group = santri.list_group ? santri.list_group.nama : "Belum ke isi";
+      this.currentSantri.muhaffizh = santri.list_muhaffizh ? santri.list_muhaffizh.nama : "Belum ke isi";
+      this.currentSantri.level = santri.list_level ? santri.list_level.level : "Belum ke isi";
+      this.currentSantri.grade = santri.list_grade ? santri.list_grade.grade : "Belum ke isi";
+      this.currentSantri.walisantri = santri.list_walisantri ? santri.list_walisantri.name : "Belum ke isi";
     },
     handleEdit: function handleEdit(id) {
       this.editModal = true;
@@ -1671,22 +1676,28 @@ var render = function() {
             },
             scopedSlots: _vm._u([
               {
-                key: "cell(actions)",
-                fn: function(row) {
+                key: "cell(nama)",
+                fn: function(data) {
                   return [
                     _c(
                       "a",
                       {
-                        attrs: { href: "#", variant: "info", size: "sm" },
+                        attrs: { href: "#" },
                         on: {
                           click: function($event) {
-                            return _vm.handleView(row.item)
+                            return _vm.handleView(data.item)
                           }
                         }
                       },
-                      [_vm._v("\n              View\n            ")]
-                    ),
-                    _vm._v(" "),
+                      [_vm._v(_vm._s(data.value))]
+                    )
+                  ]
+                }
+              },
+              {
+                key: "cell(actions)",
+                fn: function(row) {
+                  return [
                     _vm.showAction
                       ? _c(
                           "b-button",
