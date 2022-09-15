@@ -517,17 +517,19 @@ var render = function() {
         { staticClass: "mr-auto" },
         [
           _c("CHeaderNavItem", { staticClass: "px-3 pt-2" }, [
-            _c(
-              "h5",
-              { staticClass: "d-md-none d-lg-block" },
-              [
-                _vm._v(
-                  "Ahlan Wa Sahlan di Aplikasi Tahfizh Pesantren Pondok Quran "
-                ),
-                _c("font-awesome-icon", { attrs: { icon: "mosque" } })
-              ],
-              1
-            )
+            _c("h5", { staticClass: "d-md-none d-lg-block" }, [
+              _c(
+                "span",
+                { staticClass: "d-sm-down-none" },
+                [
+                  _vm._v(
+                    "Ahlan Wa Sahlan di Aplikasi Tahfizh Pesantren Pondok Quran "
+                  ),
+                  _c("font-awesome-icon", { attrs: { icon: "mosque" } })
+                ],
+                1
+              )
+            ])
           ])
         ],
         1
