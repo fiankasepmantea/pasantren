@@ -26,3 +26,22 @@ extend('max', {
   params: ['length'],
   message: 'maksimal memiliki {length} karakter.'
 })
+
+extend("cekSantri", {
+  validate: (field,args) => function(){
+    return new Promise((resolve, reject) => {
+  
+          $axios.get(`/santri/checksantri`,{
+            params: {
+              user_id : args.user_id,
+              nama : args.nama,
+            }
+          })
+          .then((response) => { 
+            
+            resolve(response.data)
+        })
+      
+  })},
+  getMessage: (field, args) => 'Nama santri sudah ada'
+});

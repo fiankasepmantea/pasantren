@@ -41,7 +41,8 @@ Route::group(['namespace' => 'Api'], function () {
         Route::get('/santri/santrimuhaffizh', 'SantriController@getSantriMuhaffizh');
         Route::get('/santri/santrigrade', 'SantriController@getSantriGrade');
         Route::get('/santri/santrilevel', 'SantriController@getSantriLevel');
-        
+        Route::get('/santri/checksantri', 'SantriController@checkSantri');
+
         //mutqin
         Route::get('/mutqin/mutqinmuhaffizh', 'MutqinController@getMutqinMuhaffizh');
         Route::get('/mutqin/mutqingroup', 'MutqinController@getMutqinGroup');

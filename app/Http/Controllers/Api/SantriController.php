@@ -10,6 +10,7 @@ use App\Http\Resources\SantriResource as ModelResource;
 use App\Models\Muhaffizh;
 use App\Models\Group;
 use App\Models\Grade;
+use App\User;
 use App\Models\LevelSantri;
 use XLSXWriter;
 
@@ -80,6 +81,20 @@ class SantriController extends Controller
     {
         $level = LevelSantri::orderBy('level', 'ASC')->get(); 
         return response()->json(['status' => 'success', 'data' => $level]);
+    }
+
+    public function checkSantri(Request $request)
+    {
+       
+        if(isset($request->nama) && isset($request->user_id)){
+            
+            $santri = Model::where('user_id',$request->user_id)
+                        ->where('nama',ucwords($request->nama))->count();
+
+            return response()->json(['status' => 'success', 'data' => ($santri == 0)]);
+        
+        }
+
     }
 
     public function xlsSantri(Request $req, $jenis = 'detail') 

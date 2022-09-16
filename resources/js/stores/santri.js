@@ -24,7 +24,7 @@ const state = () => ({
     levelsantri_id: '',
     foto: '',
     file_foto: [],
-    user_id: '', //muhaffizh_id
+    user_id: '', //walisantri
   },
   santri_muhaffizh: [],
   santri_group: [],
@@ -309,6 +309,23 @@ const actions = {
             });
             resolve(response.data)
         })
+    })
+  },
+  getSantri({ commit }, payload=null) {
+    return new Promise((resolve, reject) => {
+       
+        if(payload){
+            $axios.get(`/santri/checksantri`,{
+              params: {
+                user_id : payload.user_id,
+                nama : payload.nama,
+              }
+            })
+            .then((response) => { 
+              
+              resolve(response.data)
+          })
+        }
     })
   },
 }
