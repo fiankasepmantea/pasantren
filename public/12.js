@@ -397,6 +397,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 
 
@@ -1045,6 +1046,8 @@ var render = function() {
             ],
             1
           ),
+          _vm._v(" "),
+          _c("br"),
           _vm._v(" "),
           _c(
             "b-row",
