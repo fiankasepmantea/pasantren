@@ -43,7 +43,7 @@ class Santri extends Model
             $modelQuery->where('user_id', $userID);
         }
 
-        if(($filter_name = Arr::get($params, 'nama', false))) {
+        if(($filter_name = Arr::get($params, 'santri_name', false))) {
             $modelQuery->where('nama', 'LIKE', '%' . $filter_name . '%');
         }
         // DEFAULT ORDERING DATA

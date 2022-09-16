@@ -141,10 +141,14 @@ const mutations = {
 
 const actions = {
   getSantris({ commit, state }, payload) {
-    let search = typeof payload != 'undefined' ? payload: ''
+    let listParams = {}
+
+    if (payload) {
+        listParams = payload
+    } 
     return new Promise((resolve, reject) => {
       $axios.get('/santri', {
-
+        params: listParams
       })
       .then((response) => {
         commit('ASSIGN_DATA', response.data)

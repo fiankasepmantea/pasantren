@@ -6,6 +6,21 @@
       <div class="d-flex justify-content-end">
         <b-button v-if="showAction" variant="success" size="sm" @click="createModal = true">+ Tambah Data</b-button>
       </div>
+      <b-row>
+          <b-col xl="4" lg="4" md="4" sm="12"
+            ><b-input-group>
+               <b-form-input
+                placeholder="Cari Grup/Halaqoh"
+                v-model="filterModel.group_name"
+                size="sm"
+              ></b-form-input> 
+                <b-input-group-prepend>
+                <b-button size="sm"> <b-icon icon="search" @click="searchGroup(filterModel)"></b-icon></b-button>
+                </b-input-group-prepend>
+              </b-input-group
+          ></b-col>
+      </b-row>
+      <br>
       <b-form inline>
         <b-form-group
           label="Show :"
@@ -116,6 +131,9 @@ export default {
       perPage: 20,
       currentPage: 1,
       pageOptions: [10, 20, 50, 100],
+      filterModel: {
+        group_name: null,
+      },
       header: [
         {
           key: 'nama',
@@ -154,12 +172,17 @@ export default {
   methods: {
     ...mapActions('group', ['getGroups', 'removeGroup', 'editGroup', 'updateGroup', 'submitGroup']),
     
-    loadData() {
+    async loadData(params=null) {
       this.$store.commit('loadingOn')
-      setTimeout(() => {
-      this.getGroups()
+      // setTimeout(() => {
+      await this.getGroups(params)
       this.$store.commit('loadingOff')        
-      }, 1000);
+      // }, 1000);
+    },
+    async searchGroup() {
+      this.$store.commit('loadingOn')
+      await this.loadData(this.filterModel)
+      this.$store.commit('loadingOff')
     },
     deleteGroup(id) {
       this.$swal({

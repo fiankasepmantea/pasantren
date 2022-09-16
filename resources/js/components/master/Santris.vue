@@ -6,6 +6,21 @@
       <div class="d-flex justify-content-end">
         <b-button v-if="showAction" size="sm" variant="success" @click="createModal = true">+ Tambah Santri</b-button>
       </div>
+      <b-row>
+          <b-col xl="4" lg="4" md="4" sm="12"
+            ><b-input-group>
+               <b-form-input
+                placeholder="Cari Santri"
+                v-model="filterModel.santri_name"
+                size="sm"
+              ></b-form-input> 
+                <b-input-group-prepend>
+                <b-button size="sm"> <b-icon icon="search" @click="searchSantri(filterModel)"></b-icon></b-button>
+                </b-input-group-prepend>
+              </b-input-group
+          ></b-col>
+      </b-row>
+      <br>
       <b-form inline>
           <b-form-group
             label="Show :"
@@ -138,6 +153,9 @@ export default {
       currentPage: 1,
       currentSantri: {},
       pageOptions: [10, 20, 50, 100],
+      filterModel: {
+        santri_name: null,
+      },
       header: [
         {
           key: "nama",
@@ -201,14 +219,18 @@ export default {
   methods: {
     ...mapActions('santri', ['getSantris', 'removeSantri', 'editSantri', 'updateSantri', 'submitSantri']),
     
-    loadData() {
+    async loadData(params=null) {
       this.$store.commit('loadingOn')
-      setTimeout(() => {
-        this.getSantris()
+      // setTimeout(() => {
+        await this.getSantris(params)
         this.$store.commit('loadingOff')
-      }, 1000);
+      // }, 1000);
     },
-
+    async searchSantri() {
+      this.$store.commit('loadingOn')
+      await this.loadData(this.filterModel)
+      this.$store.commit('loadingOff')
+    },
     deleteSantri(id) {
       this.$swal({
         title: 'Apakah anda yakin ?',

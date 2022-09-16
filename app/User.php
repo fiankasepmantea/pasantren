@@ -54,11 +54,14 @@ class User extends Authenticatable implements JWTSubject
             });
         }
 
-
         if ( ($begin_date = Arr::get($params, 'begin_date', false)) && ($end_date = Arr::get($params, 'end_date', false)) ) {
             $modelQuery->whereBetween('created_at', [$begin_date . ' 00:00:00', $end_date . ' 23:59:59']);
         }
-       
+
+        if(($filter_name = Arr::get($params, 'user_name', false))) {
+            $modelQuery->where('name', 'LIKE', '%' . $filter_name . '%');
+        }
+        
         // DEFAULT ORDERING DATA
         $modelQuery->orderBy('created_at', 'desc');
 

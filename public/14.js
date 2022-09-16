@@ -252,7 +252,7 @@ var render = function() {
         { staticClass: "mr-auto" },
         [
           _c("CHeaderNavItem", { staticClass: "px-3 pt-2" }, [
-            _c("h5", { staticClass: "d-md-none d-lg-block" }, [
+            _c("h5", { staticClass: "d-none d-lg-inline" }, [
               _c(
                 "span",
                 { staticClass: "d-sm-down-none" },

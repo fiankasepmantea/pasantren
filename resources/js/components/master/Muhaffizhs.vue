@@ -5,6 +5,21 @@
       <div class="d-flex justify-content-end">
         <b-button v-if="showAction" size="sm" variant="success" @click="createModal = true">+ Tambah Muhaffizh</b-button>
       </div>
+      <b-row>
+          <b-col xl="4" lg="4" md="4" sm="12"
+            ><b-input-group>
+               <b-form-input
+                placeholder="Cari Muhaffizh"
+                v-model="filterModel.muhaffizh_name"
+                size="sm"
+              ></b-form-input> 
+                <b-input-group-prepend>
+                <b-button size="sm"> <b-icon icon="search" @click="searchMuhaffizh(filterModel)"></b-icon></b-button>
+                </b-input-group-prepend>
+              </b-input-group
+          ></b-col>
+      </b-row>
+      <br>
       <b-form inline>
           <b-form-group
             label="Show :"
@@ -136,6 +151,9 @@ export default {
       currentPage: 1,
       currentMuhaffizh: {},
       pageOptions: [10, 20, 50, 100],
+      filterModel: {
+        muhaffizh_name: null,
+      },
       header: [
         {
           key: "nama",
@@ -192,14 +210,18 @@ export default {
   methods: {
     ...mapActions('muhaffizh', ['getMuhaffizhs', 'removeMuhaffizh', 'editMuhaffizh', 'updateMuhaffizh', 'submitMuhaffizh']),
     
-    loadData() {
+    async loadData(params=null) {
       this.$store.commit('loadingOn')
-      setTimeout(() => {
-        this.getMuhaffizhs()
+      // setTimeout(() => {
+        await this.getMuhaffizhs(params)
         this.$store.commit('loadingOff')
-      }, 1000);
+      // }, 1000);
     },
-
+    async searchMuhaffizh() {
+      this.$store.commit('loadingOn')
+      await this.loadData(this.filterModel)
+      this.$store.commit('loadingOff')
+    },
     deleteMuhaffizh(id) {
       this.$swal({
         title: 'Apakah anda yakin ?',

@@ -6,6 +6,21 @@
       <div class="d-flex justify-content-end">
         <b-button v-if="showAction" size="sm" variant="success" @click="createModal = true">+ Tambah Data</b-button>
       </div>
+      <b-row>
+          <b-col xl="4" lg="4" md="4" sm="12"
+            ><b-input-group>
+               <b-form-input
+                placeholder="Cari Nama User"
+                v-model="filterModel.user_name"
+                size="sm"
+              ></b-form-input> 
+                <b-input-group-prepend>
+                <b-button size="sm"> <b-icon icon="search" @click="searchUser(filterModel)"></b-icon></b-button>
+                </b-input-group-prepend>
+              </b-input-group
+          ></b-col>
+      </b-row>
+      <br>
       <b-form inline>
           <b-form-group
             label="Show :"
@@ -117,6 +132,9 @@ export default {
       perPage: 20,
       currentPage: 1,
       pageOptions: [10, 20, 50, 100],
+      filterModel: {
+        user_name: null,
+      },
       header: [
         {
           key: "name",
@@ -162,14 +180,18 @@ export default {
   methods: {
     ...mapActions('user', ['getUsers', 'removeUser', 'editUser', 'updateUser', 'submitUser']),
     
-    loadData() {
+    async loadData(params=null) {
       this.$store.commit('loadingOn')
-      setTimeout(() => {
-        this.getUsers()
+      // setTimeout(() => {
+        await this.getUsers(params)
         this.$store.commit('loadingOff')
-      }, 1000);
+      // }, 1000);
     },
-
+    async searchUser() {
+      this.$store.commit('loadingOn')
+      await this.loadData(this.filterModel)
+      this.$store.commit('loadingOff')
+    },
     deleteUser(id) {
       this.$swal({
         title: 'Apakah anda yakin ?',

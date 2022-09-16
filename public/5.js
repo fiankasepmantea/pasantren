@@ -1,9 +1,9 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[5],{
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/master/Forms/MuhaffizhForm.vue?vue&type=script&lang=js&":
-/*!*************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/master/Forms/MuhaffizhForm.vue?vue&type=script&lang=js& ***!
-  \*************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/master/Forms/SantriForm.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/master/Forms/SantriForm.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -191,32 +191,126 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   inject: ['validator'],
-  name: "MuhaffizhForm",
+  name: "santriForm",
   created: function created() {
-    this.getUnit();
+    this.getGroup();
+    this.getMuhaffizh();
+    this.getGrade();
+    this.getLevel();
     this.getUser();
     this.$validator = this.validator;
   },
-  computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(["errors"])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])("muhaffizh", {
-    muhaffizh: function muhaffizh(state) {
-      return state.muhaffizh;
+  computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(["errors"])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])("santri", {
+    santri: function santri(state) {
+      return state.santri;
     },
-    muhaffizh_unit: function muhaffizh_unit(state) {
-      return state.muhaffizh_unit;
+    santri_muhaffizh: function santri_muhaffizh(state) {
+      return state.santri_muhaffizh;
     },
-    muhaffizh_user: function muhaffizh_user(state) {
-      return state.muhaffizh_user;
+    santri_group: function santri_group(state) {
+      return state.santri_group;
+    },
+    santri_grade: function santri_grade(state) {
+      return state.santri_grade;
+    },
+    santri_level: function santri_level(state) {
+      return state.santri_level;
+    },
+    santri_gender: function santri_gender(state) {
+      return state.santri_gender;
+    },
+    santri_user: function santri_user(state) {
+      return state.santri_user;
     }
   })),
-  watch: {
-    "return": function _return() {
-      this.getUnit();
-    }
-  },
-  methods: _objectSpread(_objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapMutations"])("muhaffizh", ["CLEAR_FORM"])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])("muhaffizh", ["getUnit", "getUser"])), {}, {
+  methods: _objectSpread(_objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapMutations"])("santri", ["CLEAR_FORM"])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])("santri", ["getMuhaffizh", "getGroup", "getGrade", "getLevel", "getUser"])), {}, {
+    getGroupName: function getGroupName(id) {
+      this.santri.group_id = '', this.getGroup(id);
+    },
     validateState: function validateState(ref) {
       if (this.veeFields[ref] && (this.veeFields[ref].dirty || this.veeFields[ref].validated)) {
         return !this.veeErrors.has(ref);
@@ -227,50 +321,54 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   }),
   destroyed: function destroyed() {
     this.CLEAR_FORM();
-  },
-  data: function data() {
-    return {
-      selected_pendidikan: null,
-      options_pendidikan: [{
-        value: 'D3',
-        text: 'D3'
-      }, {
-        value: 'S1',
-        text: 'S1'
-      }, {
-        value: 'S2',
-        text: 'S2'
-      }, {
-        value: 'S3',
-        text: 'S3'
-      }],
-      selected_status: null,
-      options_status: [{
-        value: 'Aktif',
-        text: 'Aktif'
-      }, {
-        value: 'Tidak Aktif',
-        text: 'Tidak Aktif'
-      }]
-    };
   }
 });
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/master/Muhaffizhs.vue?vue&type=script&lang=js&":
-/*!****************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/master/Muhaffizhs.vue?vue&type=script&lang=js& ***!
-  \****************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/master/PageTitle.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/master/PageTitle.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _PageTitle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./PageTitle */ "./resources/js/components/master/PageTitle.vue");
-/* harmony import */ var _Forms_MuhaffizhForm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Forms/MuhaffizhForm */ "./resources/js/components/master/Forms/MuhaffizhForm.vue");
-/* harmony import */ var _parts_PropertyView__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../parts/PropertyView */ "./resources/js/components/parts/PropertyView.vue");
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'page-title'
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/master/Santris.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/master/Santris.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _PageTitle__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./PageTitle */ "./resources/js/components/master/PageTitle.vue");
+/* harmony import */ var _Forms_SantriForm__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Forms/SantriForm */ "./resources/js/components/master/Forms/SantriForm.vue");
+/* harmony import */ var _parts_PropertyView__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../parts/PropertyView */ "./resources/js/components/parts/PropertyView.vue");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+
+
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -282,6 +380,10 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
@@ -396,16 +498,33 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "Muhaffizhs",
+  name: "Santris",
   components: {
-    pagetitle: _PageTitle__WEBPACK_IMPORTED_MODULE_0__["default"],
-    Form: _Forms_MuhaffizhForm__WEBPACK_IMPORTED_MODULE_1__["default"],
-    DataView: _parts_PropertyView__WEBPACK_IMPORTED_MODULE_2__["default"]
+    pagetitle: _PageTitle__WEBPACK_IMPORTED_MODULE_1__["default"],
+    Form: _Forms_SantriForm__WEBPACK_IMPORTED_MODULE_2__["default"],
+    DataView: _parts_PropertyView__WEBPACK_IMPORTED_MODULE_3__["default"]
   },
   created: function created() {
     var sessdata = JSON.parse(localStorage.getItem('sessdata'));
@@ -421,26 +540,35 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       editedId: null,
       perPage: 20,
       currentPage: 1,
-      currentMuhaffizh: {},
+      currentSantri: {},
       pageOptions: [10, 20, 50, 100],
+      filterModel: {
+        santri_name: null
+      },
       header: [{
         key: "nama",
-        label: "Nama"
+        label: "Nama Santri"
       }, {
-        key: 'no_hp',
-        label: 'No HP'
+        key: 'list_walisantri.name',
+        label: 'Wali Santri'
       }, {
-        key: 'mulai_bertugas',
-        label: 'Mulai Bertugas'
-      }, {
-        key: 'status',
-        label: 'Status'
+        key: 'alamat',
+        label: 'Alamat'
       }, {
         key: 'angkatan_kelas',
         label: 'Kelas/Angkatan'
       }, {
-        key: 'list_unit.nama',
-        label: 'Unit'
+        key: 'list_grade.grade',
+        label: 'Grade'
+      }, {
+        key: 'list_level.level',
+        label: 'Level'
+      }, {
+        key: 'list_group.nama',
+        label: 'Group'
+      }, {
+        key: 'list_muhaffizh.nama',
+        label: 'Muhaffizh'
       }, {
         key: 'actions',
         label: "Aksi",
@@ -456,30 +584,74 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   computed: _objectSpread({
     rows: function rows() {
-      if (this.muhaffizhs && this.muhaffizhs.data) {
-        return this.muhaffizhs.data.length;
+      if (this.santris && this.santris.data) {
+        return this.santris.data.length;
       } else {
         return 0;
       }
     }
-  }, Object(vuex__WEBPACK_IMPORTED_MODULE_3__["mapState"])('muhaffizh', {
-    muhaffizhs: function muhaffizhs(state) {
-      return state.muhaffizhs;
+  }, Object(vuex__WEBPACK_IMPORTED_MODULE_4__["mapState"])('santri', {
+    santris: function santris(state) {
+      return state.santris;
     }
   })),
-  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_3__["mapActions"])('muhaffizh', ['getMuhaffizhs', 'removeMuhaffizh', 'editMuhaffizh', 'updateMuhaffizh', 'submitMuhaffizh'])), {}, {
+  methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_4__["mapActions"])('santri', ['getSantris', 'removeSantri', 'editSantri', 'updateSantri', 'submitSantri'])), {}, {
     loadData: function loadData() {
-      var _this = this;
+      var _arguments = arguments,
+          _this = this;
 
-      this.$store.commit('loadingOn');
-      setTimeout(function () {
-        _this.getMuhaffizhs();
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var params;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                params = _arguments.length > 0 && _arguments[0] !== undefined ? _arguments[0] : null;
 
-        _this.$store.commit('loadingOff');
-      }, 1000);
+                _this.$store.commit('loadingOn'); // setTimeout(() => {
+
+
+                _context.next = 4;
+                return _this.getSantris(params);
+
+              case 4:
+                _this.$store.commit('loadingOff'); // }, 1000);
+
+
+              case 5:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }))();
     },
-    deleteMuhaffizh: function deleteMuhaffizh(id) {
+    searchSantri: function searchSantri() {
       var _this2 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _this2.$store.commit('loadingOn');
+
+                _context2.next = 3;
+                return _this2.loadData(_this2.filterModel);
+
+              case 3:
+                _this2.$store.commit('loadingOff');
+
+              case 4:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
+      }))();
+    },
+    deleteSantri: function deleteSantri(id) {
+      var _this3 = this;
 
       this.$swal({
         title: 'Apakah anda yakin ?',
@@ -487,57 +659,40 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         showCancelButton: true
       }).then(function (result) {
         if (result.value) {
-          _this2.removeMuhaffizh(id);
+          _this3.removeSantri(id);
         }
       });
     },
-    handleView: function handleView(muhaffizh) {
+    handleView: function handleView(santri) {
       this.viewModal = true;
 
-      for (var _i = 0, _Object$entries = Object.entries(muhaffizh); _i < _Object$entries.length; _i++) {
+      for (var _i = 0, _Object$entries = Object.entries(santri); _i < _Object$entries.length; _i++) {
         var _Object$entries$_i = _slicedToArray(_Object$entries[_i], 2),
             k = _Object$entries$_i[0],
             v = _Object$entries$_i[1];
 
+        if (k.toLowerCase().indexOf('_id') >= 0 || k.toLowerCase().indexOf('id_') >= 0) continue;
+
         if (typeof v === 'string' || typeof v === 'number') {
-          if (k.toLowerCase().indexOf('_id') >= 0 || k.toLowerCase().indexOf('id_') >= 0) continue;
-          this.currentMuhaffizh[k] = v;
+          this.currentSantri[k] = v;
+        } else if (!v) {
+          this.currentSantri[k] = '';
         }
       }
 
       ;
-      this.currentMuhaffizh.unit = muhaffizh.list_unit.nama;
+      this.currentSantri.group = santri.list_group ? santri.list_group.nama : "Belum ke isi";
+      this.currentSantri.muhaffizh = santri.list_muhaffizh ? santri.list_muhaffizh.nama : "Belum ke isi";
+      this.currentSantri.level = santri.list_level ? santri.list_level.level : "Belum ke isi";
+      this.currentSantri.grade = santri.list_grade ? santri.list_grade.grade : "Belum ke isi";
+      this.currentSantri.walisantri = santri.list_walisantri ? santri.list_walisantri.name : "Belum ke isi";
     },
     handleEdit: function handleEdit(id) {
       this.editModal = true;
-      this.editMuhaffizh(id);
+      this.editSantri(id);
       this.editedId = id;
     },
     handleUpdate: function handleUpdate(bvModalEvt) {
-      var _this3 = this;
-
-      bvModalEvt.preventDefault();
-      this.$validator.validateAll().then(function (result) {
-        if (!result) {
-          return;
-        }
-
-        _this3.updateMuhaffizh(_this3.editedId);
-
-        _this3.$toasted.global.success_toast({
-          message: 'Data Muhaffizh berhasil diubah..'
-        });
-
-        _this3.editModal = false;
-
-        _this3.loadData();
-      })["catch"](function (err) {
-        _this3.$toasted.global.failed_toast({
-          message: 'Data Muhaffizh gagal untuk diubah..'
-        });
-      });
-    },
-    handleSubmit: function handleSubmit(bvModalEvt) {
       var _this4 = this;
 
       bvModalEvt.preventDefault();
@@ -546,48 +701,46 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           return;
         }
 
-        _this4.submitMuhaffizh();
+        _this4.updateSantri(_this4.editedId);
 
         _this4.$toasted.global.success_toast({
-          message: 'Data Muhaffizh berhasil ditambahkan..'
+          message: 'Data Santri berhasil diubah..'
         });
 
-        _this4.createModal = false;
+        _this4.editModal = false;
 
         _this4.loadData();
       })["catch"](function (err) {
         _this4.$toasted.global.failed_toast({
-          message: 'Data Muhaffizh gagal untuk ditambahkan..'
+          message: 'Data Santri gagal untuk diubah..'
+        });
+      });
+    },
+    handleSubmit: function handleSubmit(bvModalEvt) {
+      var _this5 = this;
+
+      bvModalEvt.preventDefault();
+      this.$validator.validateAll().then(function (result) {
+        if (!result) {
+          return;
+        }
+
+        _this5.submitSantri();
+
+        _this5.$toasted.global.success_toast({
+          message: 'Data Santri berhasil ditambahkan..'
+        });
+
+        _this5.createModal = false;
+
+        _this5.loadData();
+      })["catch"](function (err) {
+        _this5.$toasted.global.failed_toast({
+          message: 'Data Santri gagal untuk ditambahkan..'
         });
       });
     }
   })
-});
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/master/PageTitle.vue?vue&type=script&lang=js&":
-/*!***************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/master/PageTitle.vue?vue&type=script&lang=js& ***!
-  \***************************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'page-title'
 });
 
 /***/ }),
@@ -671,10 +824,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/master/Forms/MuhaffizhForm.vue?vue&type=template&id=f1d76590&":
-/*!*****************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/master/Forms/MuhaffizhForm.vue?vue&type=template&id=f1d76590& ***!
-  \*****************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/master/Forms/SantriForm.vue?vue&type=template&id=f3e77e3e&":
+/*!**************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/master/Forms/SantriForm.vue?vue&type=template&id=f3e77e3e& ***!
+  \**************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -701,9 +854,33 @@ var render = function() {
         },
         [
           _c(
+            "CRow",
+            {
+              staticStyle: { "margin-bottom": "8px" },
+              attrs: { alignHorizontal: "center" }
+            },
+            [
+              _vm.santri.foto
+                ? _c("b-avatar", {
+                    attrs: {
+                      src: _vm.santri.foto,
+                      size: "10rem",
+                      rounded: "lg"
+                    }
+                  })
+                : _c("b-avatar")
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
             "b-form-group",
             {
-              attrs: { label: "Unit", "label-cols": "3", "label-for": "unit" }
+              attrs: {
+                label: "Muhaffizh",
+                "label-cols": "3",
+                "label-for": "muhaffizh"
+              }
             },
             [
               _c("b-form-select", {
@@ -716,24 +893,68 @@ var render = function() {
                   }
                 ],
                 attrs: {
-                  id: "unit",
-                  options: _vm.muhaffizh_unit,
-                  placeholder: "Pilih Unit",
-                  name: "unit",
-                  state: _vm.validateState("unit"),
-                  "data-vv-as": "Unit"
+                  id: "muhaffizh",
+                  options: _vm.santri_muhaffizh,
+                  placeholder: "Pilih Muhaffizh",
+                  name: "muhaffizh",
+                  state: _vm.validateState("muhaffizh"),
+                  "data-vv-as": "Muhaffizh"
+                },
+                on: {
+                  change: function($event) {
+                    return _vm.getGroupName(_vm.santri.muhaffizh_id)
+                  }
                 },
                 model: {
-                  value: _vm.muhaffizh.unit_id,
+                  value: _vm.santri.muhaffizh_id,
                   callback: function($$v) {
-                    _vm.$set(_vm.muhaffizh, "unit_id", $$v)
+                    _vm.$set(_vm.santri, "muhaffizh_id", $$v)
                   },
-                  expression: "muhaffizh.unit_id"
+                  expression: "santri.muhaffizh_id"
                 }
               }),
               _vm._v(" "),
               _c("b-form-invalid-feedback", [
-                _vm._v(_vm._s(_vm.veeErrors.first("unit")))
+                _vm._v(_vm._s(_vm.veeErrors.first("group")))
+              ])
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "b-form-group",
+            {
+              attrs: { label: "Group", "label-cols": "3", "label-for": "group" }
+            },
+            [
+              _c("b-form-select", {
+                directives: [
+                  {
+                    name: "validate",
+                    rawName: "v-validate",
+                    value: { required: true },
+                    expression: "{ required: true }"
+                  }
+                ],
+                attrs: {
+                  id: "group",
+                  options: _vm.santri_group,
+                  placeholder: "Pilih Group",
+                  name: "group",
+                  state: _vm.validateState("group"),
+                  "data-vv-as": "Group"
+                },
+                model: {
+                  value: _vm.santri.group_id,
+                  callback: function($$v) {
+                    _vm.$set(_vm.santri, "group_id", $$v)
+                  },
+                  expression: "santri.group_id"
+                }
+              }),
+              _vm._v(" "),
+              _c("b-form-invalid-feedback", [
+                _vm._v(_vm._s(_vm.veeErrors.first("group")))
               ])
             ],
             1
@@ -743,7 +964,7 @@ var render = function() {
             "b-form-group",
             {
               attrs: {
-                label: "Nomor Induk",
+                label: "Nomor Induk Santri",
                 "label-cols": "3",
                 "label-for": "nomorinduk"
               }
@@ -766,11 +987,11 @@ var render = function() {
                   "data-vv-as": "NomorInduk"
                 },
                 model: {
-                  value: _vm.muhaffizh.nomor_induk,
+                  value: _vm.santri.nomor_induk,
                   callback: function($$v) {
-                    _vm.$set(_vm.muhaffizh, "nomor_induk", $$v)
+                    _vm.$set(_vm.santri, "nomor_induk", $$v)
                   },
-                  expression: "muhaffizh.nomor_induk"
+                  expression: "santri.nomor_induk"
                 }
               }),
               _vm._v(" "),
@@ -785,9 +1006,9 @@ var render = function() {
             "b-form-group",
             {
               attrs: {
-                label: "Akun Login Muhaffizh",
+                label: "WaliSantri",
                 "label-cols": "3",
-                "label-for": "akunloginmuhaffizh"
+                "label-for": "walisantri"
               }
             },
             [
@@ -801,19 +1022,19 @@ var render = function() {
                   }
                 ],
                 attrs: {
-                  id: "akun-login-muhaffizh",
-                  options: _vm.muhaffizh_user,
-                  placeholder: "Pilih Akun Login",
+                  id: "wali-santri",
+                  options: _vm.santri_user,
+                  placeholder: "Pilih Wali Santri",
                   name: "user_id",
                   state: _vm.validateState("user_id"),
-                  "data-vv-as": "AkunLogin"
+                  "data-vv-as": "WaliSantri"
                 },
                 model: {
-                  value: _vm.muhaffizh.user_id,
+                  value: _vm.santri.user_id,
                   callback: function($$v) {
-                    _vm.$set(_vm.muhaffizh, "user_id", $$v)
+                    _vm.$set(_vm.santri, "user_id", $$v)
                   },
-                  expression: "muhaffizh.user_id"
+                  expression: "santri.user_id"
                 }
               }),
               _vm._v(" "),
@@ -828,7 +1049,7 @@ var render = function() {
             "b-form-group",
             {
               attrs: {
-                label: "Nama Muhaffizh",
+                label: "Nama Santri",
                 "label-cols": "3",
                 "label-for": "nama"
               }
@@ -851,16 +1072,59 @@ var render = function() {
                   "data-vv-as": "Nama"
                 },
                 model: {
-                  value: _vm.muhaffizh.nama,
+                  value: _vm.santri.nama,
                   callback: function($$v) {
-                    _vm.$set(_vm.muhaffizh, "nama", $$v)
+                    _vm.$set(_vm.santri, "nama", $$v)
                   },
-                  expression: "muhaffizh.nama"
+                  expression: "santri.nama"
                 }
               }),
               _vm._v(" "),
               _c("b-form-invalid-feedback", [
                 _vm._v(_vm._s(_vm.veeErrors.first("nama")))
+              ])
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "b-form-group",
+            {
+              attrs: {
+                label: "Gender",
+                "label-cols": "3",
+                "label-for": "gender"
+              }
+            },
+            [
+              _c("b-form-select", {
+                directives: [
+                  {
+                    name: "validate",
+                    rawName: "v-validate",
+                    value: { required: true },
+                    expression: "{ required: true }"
+                  }
+                ],
+                attrs: {
+                  id: "gender",
+                  options: _vm.santri_gender,
+                  placeholder: "Jenis Kelamin",
+                  name: "gender",
+                  state: _vm.validateState("gender"),
+                  "data-vv-as": "Gender"
+                },
+                model: {
+                  value: _vm.santri.gender,
+                  callback: function($$v) {
+                    _vm.$set(_vm.santri, "gender", $$v)
+                  },
+                  expression: "santri.gender"
+                }
+              }),
+              _vm._v(" "),
+              _c("b-form-invalid-feedback", [
+                _vm._v(_vm._s(_vm.veeErrors.first("level")))
               ])
             ],
             1
@@ -893,11 +1157,11 @@ var render = function() {
                   "data-vv-as": "Alamat"
                 },
                 model: {
-                  value: _vm.muhaffizh.alamat,
+                  value: _vm.santri.alamat,
                   callback: function($$v) {
-                    _vm.$set(_vm.muhaffizh, "alamat", $$v)
+                    _vm.$set(_vm.santri, "alamat", $$v)
                   },
-                  expression: "muhaffizh.alamat"
+                  expression: "santri.alamat"
                 }
               }),
               _vm._v(" "),
@@ -935,11 +1199,11 @@ var render = function() {
                   "data-vv-as": "TempatLahir"
                 },
                 model: {
-                  value: _vm.muhaffizh.tempat_lahir,
+                  value: _vm.santri.tempat_lahir,
                   callback: function($$v) {
-                    _vm.$set(_vm.muhaffizh, "tempat_lahir", $$v)
+                    _vm.$set(_vm.santri, "tempat_lahir", $$v)
                   },
-                  expression: "muhaffizh.tempat_lahir"
+                  expression: "santri.tempat_lahir"
                 }
               }),
               _vm._v(" "),
@@ -978,16 +1242,100 @@ var render = function() {
                   "data-vv-as": "TanggalLahir"
                 },
                 model: {
-                  value: _vm.muhaffizh.tanggal_lahir,
+                  value: _vm.santri.tanggal_lahir,
                   callback: function($$v) {
-                    _vm.$set(_vm.muhaffizh, "tanggal_lahir", $$v)
+                    _vm.$set(_vm.santri, "tanggal_lahir", $$v)
                   },
-                  expression: "muhaffizh.tanggal_lahir"
+                  expression: "santri.tanggal_lahir"
                 }
               }),
               _vm._v(" "),
               _c("b-form-invalid-feedback", [
                 _vm._v(_vm._s(_vm.veeErrors.first("tanggallahir")))
+              ])
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "b-form-group",
+            {
+              attrs: {
+                label: "Nama Ibu",
+                "label-cols": "3",
+                "label-for": "namaibu"
+              }
+            },
+            [
+              _c("b-form-input", {
+                directives: [
+                  {
+                    name: "validate",
+                    rawName: "v-validate",
+                    value: { required: true },
+                    expression: "{ required: true }"
+                  }
+                ],
+                attrs: {
+                  id: "namaibu",
+                  placeholder: "Masukan Nama Ibu",
+                  name: "namaibu",
+                  state: _vm.validateState("namaibu"),
+                  "data-vv-as": "NamaIbu"
+                },
+                model: {
+                  value: _vm.santri.nama_ibu,
+                  callback: function($$v) {
+                    _vm.$set(_vm.santri, "nama_ibu", $$v)
+                  },
+                  expression: "santri.nama_ibu"
+                }
+              }),
+              _vm._v(" "),
+              _c("b-form-invalid-feedback", [
+                _vm._v(_vm._s(_vm.veeErrors.first("nama")))
+              ])
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "b-form-group",
+            {
+              attrs: {
+                label: "Nama Ayah",
+                "label-cols": "3",
+                "label-for": "namaayah"
+              }
+            },
+            [
+              _c("b-form-input", {
+                directives: [
+                  {
+                    name: "validate",
+                    rawName: "v-validate",
+                    value: { required: true },
+                    expression: "{ required: true }"
+                  }
+                ],
+                attrs: {
+                  id: "namaayah",
+                  placeholder: "Masukan Nama Ayah",
+                  name: "namaayah",
+                  state: _vm.validateState("namaayah"),
+                  "data-vv-as": "NamaAyah"
+                },
+                model: {
+                  value: _vm.santri.nama_ayah,
+                  callback: function($$v) {
+                    _vm.$set(_vm.santri, "nama_ayah", $$v)
+                  },
+                  expression: "santri.nama_ayah"
+                }
+              }),
+              _vm._v(" "),
+              _c("b-form-invalid-feedback", [
+                _vm._v(_vm._s(_vm.veeErrors.first("namaayah")))
               ])
             ],
             1
@@ -1016,16 +1364,16 @@ var render = function() {
                   "data-vv-as": "NoHP"
                 },
                 model: {
-                  value: _vm.muhaffizh.no_hp,
+                  value: _vm.santri.no_hp,
                   callback: function($$v) {
-                    _vm.$set(_vm.muhaffizh, "no_hp", $$v)
+                    _vm.$set(_vm.santri, "no_hp", $$v)
                   },
-                  expression: "muhaffizh.no_hp"
+                  expression: "santri.no_hp"
                 }
               }),
               _vm._v(" "),
               _c("b-form-invalid-feedback", [
-                _vm._v(_vm._s(_vm.veeErrors.first("nohp")))
+                _vm._v(_vm._s(_vm.veeErrors.first("no_hp")))
               ])
             ],
             1
@@ -1035,9 +1383,9 @@ var render = function() {
             "b-form-group",
             {
               attrs: {
-                label: "Mulai Bertugas",
+                label: "Mulai Belajar",
                 "label-cols": "3",
-                "label-for": "mulaibertugas"
+                "label-for": "mulaibelajar"
               }
             },
             [
@@ -1051,114 +1399,24 @@ var render = function() {
                   }
                 ],
                 attrs: {
-                  id: "mulaibertugas",
-                  placeholder: "Masukan Tanggal Bertugas",
+                  id: "mulaibelajar",
+                  placeholder: "Masukan Tanggal Belajar",
                   type: "date",
-                  name: "mulaibertugas",
-                  state: _vm.validateState("mulaibertugas"),
-                  "data-vv-as": "MulaiBertugas"
+                  name: "mulaibelajar",
+                  state: _vm.validateState("mulaibelajar"),
+                  "data-vv-as": "MulaiBelajar"
                 },
                 model: {
-                  value: _vm.muhaffizh.mulai_bertugas,
+                  value: _vm.santri.mulai_belajar,
                   callback: function($$v) {
-                    _vm.$set(_vm.muhaffizh, "mulai_bertugas", $$v)
+                    _vm.$set(_vm.santri, "mulai_belajar", $$v)
                   },
-                  expression: "muhaffizh.mulai_bertugas"
+                  expression: "santri.mulai_belajar"
                 }
               }),
               _vm._v(" "),
               _c("b-form-invalid-feedback", [
-                _vm._v(_vm._s(_vm.veeErrors.first("mulaibertugas")))
-              ])
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "b-form-group",
-            {
-              attrs: {
-                label: "Pendidikan Terakhir",
-                "label-cols": "3",
-                "label-for": "pendidikanterakhir"
-              }
-            },
-            [
-              _c(
-                "b-form-select",
-                {
-                  directives: [
-                    {
-                      name: "validate",
-                      rawName: "v-validate",
-                      value: { required: true },
-                      expression: "{ required: true }"
-                    }
-                  ],
-                  attrs: {
-                    options: _vm.options_pendidikan,
-                    name: "pendidikanterakhir",
-                    state: _vm.validateState("pendidikanterakhir"),
-                    "data-vv-as": "PendidikanTerakhir"
-                  },
-                  model: {
-                    value: _vm.muhaffizh.pendidikan_terakhir,
-                    callback: function($$v) {
-                      _vm.$set(_vm.muhaffizh, "pendidikan_terakhir", $$v)
-                    },
-                    expression: "muhaffizh.pendidikan_terakhir"
-                  }
-                },
-                [_vm._v(_vm._s(_vm.selected_pendidikan) + "\n          ")]
-              ),
-              _vm._v(" "),
-              _c("b-form-invalid-feedback", [
-                _vm._v(_vm._s(_vm.veeErrors.first("pendidikanterakhir")))
-              ])
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "b-form-group",
-            {
-              attrs: {
-                label: "Status",
-                "label-cols": "3",
-                "label-for": "status"
-              }
-            },
-            [
-              _c(
-                "b-form-select",
-                {
-                  directives: [
-                    {
-                      name: "validate",
-                      rawName: "v-validate",
-                      value: { required: true },
-                      expression: "{ required: true }"
-                    }
-                  ],
-                  attrs: {
-                    options: _vm.options_status,
-                    name: "status",
-                    state: _vm.validateState("status"),
-                    "data-vv-as": "Status"
-                  },
-                  model: {
-                    value: _vm.muhaffizh.status,
-                    callback: function($$v) {
-                      _vm.$set(_vm.muhaffizh, "status", $$v)
-                    },
-                    expression: "muhaffizh.status"
-                  }
-                },
-                [_vm._v(_vm._s(_vm.selected_status) + "\n        ")]
-              ),
-              _vm._v(" "),
-              _c("b-form-invalid-feedback", [
-                _vm._v(_vm._s(_vm.veeErrors.first("status")))
+                _vm._v(_vm._s(_vm.veeErrors.first("mulaibelajar")))
               ])
             ],
             1
@@ -1191,16 +1449,141 @@ var render = function() {
                   "data-vv-as": "KelasAngkatan"
                 },
                 model: {
-                  value: _vm.muhaffizh.angkatan_kelas,
+                  value: _vm.santri.angkatan_kelas,
                   callback: function($$v) {
-                    _vm.$set(_vm.muhaffizh, "angkatan_kelas", $$v)
+                    _vm.$set(_vm.santri, "angkatan_kelas", $$v)
                   },
-                  expression: "muhaffizh.angkatan_kelas"
+                  expression: "santri.angkatan_kelas"
                 }
               }),
               _vm._v(" "),
               _c("b-form-invalid-feedback", [
                 _vm._v(_vm._s(_vm.veeErrors.first("kelasangkatan")))
+              ])
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "b-form-group",
+            {
+              attrs: { label: "Grade", "label-cols": "3", "label-for": "grade" }
+            },
+            [
+              _c("b-form-select", {
+                directives: [
+                  {
+                    name: "validate",
+                    rawName: "v-validate",
+                    value: { required: true },
+                    expression: "{ required: true }"
+                  }
+                ],
+                attrs: {
+                  id: "grade",
+                  options: _vm.santri_grade,
+                  placeholder: "Pilih Grade",
+                  name: "grade",
+                  state: _vm.validateState("grade"),
+                  "data-vv-as": "Grade"
+                },
+                model: {
+                  value: _vm.santri.grade_id,
+                  callback: function($$v) {
+                    _vm.$set(_vm.santri, "grade_id", $$v)
+                  },
+                  expression: "santri.grade_id"
+                }
+              }),
+              _vm._v(" "),
+              _c("b-form-invalid-feedback", [
+                _vm._v(_vm._s(_vm.veeErrors.first("grade")))
+              ])
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "b-form-group",
+            {
+              attrs: {
+                label: "Level Santri",
+                "label-cols": "3",
+                "label-for": "level"
+              }
+            },
+            [
+              _c("b-form-select", {
+                directives: [
+                  {
+                    name: "validate",
+                    rawName: "v-validate",
+                    value: { required: true },
+                    expression: "{ required: true }"
+                  }
+                ],
+                attrs: {
+                  id: "level",
+                  options: _vm.santri_level,
+                  placeholder: "Pilih Level",
+                  name: "level",
+                  state: _vm.validateState("level"),
+                  "data-vv-as": "Level"
+                },
+                model: {
+                  value: _vm.santri.levelsantri_id,
+                  callback: function($$v) {
+                    _vm.$set(_vm.santri, "levelsantri_id", $$v)
+                  },
+                  expression: "santri.levelsantri_id"
+                }
+              }),
+              _vm._v(" "),
+              _c("b-form-invalid-feedback", [
+                _vm._v(_vm._s(_vm.veeErrors.first("level")))
+              ])
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "b-form-group",
+            {
+              attrs: {
+                label: "Pas Foto",
+                "label-cols": "3",
+                "label-for": "file_foto"
+              }
+            },
+            [
+              _c("b-form-file", {
+                directives: [
+                  {
+                    name: "validate",
+                    rawName: "v-validate",
+                    value: { size: 1024, image: true },
+                    expression: "{ size: 1024, image: true }"
+                  }
+                ],
+                attrs: {
+                  id: "file_foto",
+                  name: "file_foto",
+                  state: _vm.validateState("file_foto"),
+                  accept: "image/jpeg",
+                  placeholder: "Upload foto...",
+                  "data-vv-as": "file"
+                },
+                model: {
+                  value: _vm.santri.file_foto,
+                  callback: function($$v) {
+                    _vm.$set(_vm.santri, "file_foto", $$v)
+                  },
+                  expression: "santri.file_foto"
+                }
+              }),
+              _vm._v(" "),
+              _c("b-form-invalid-feedback", [
+                _vm._v(_vm._s(_vm.veeErrors.first("file_foto")))
               ])
             ],
             1
@@ -1219,10 +1602,54 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/master/Muhaffizhs.vue?vue&type=template&id=40f68ccf&":
-/*!********************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/master/Muhaffizhs.vue?vue&type=template&id=40f68ccf& ***!
-  \********************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/master/PageTitle.vue?vue&type=template&id=68b36472&":
+/*!*******************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/master/PageTitle.vue?vue&type=template&id=68b36472& ***!
+  \*******************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c(
+        "CRow",
+        [
+          _c("CCol", { staticClass: "col-12" }, [
+            _c("span", { staticClass: "text-uppercase page-subtitle" }, [
+              _vm._v("Master Data")
+            ]),
+            _vm._v(" "),
+            _c("h3", { staticClass: "page-title" }, [
+              _vm._v(_vm._s(_vm.$route.meta.title))
+            ])
+          ])
+        ],
+        1
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/master/Santris.vue?vue&type=template&id=ad4b5274&":
+/*!*****************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/master/Santris.vue?vue&type=template&id=ad4b5274& ***!
+  \*****************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1258,12 +1685,66 @@ var render = function() {
                         }
                       }
                     },
-                    [_vm._v("+ Tambah Muhaffizh")]
+                    [_vm._v("+ Tambah Santri")]
                   )
                 : _vm._e()
             ],
             1
           ),
+          _vm._v(" "),
+          _c(
+            "b-row",
+            [
+              _c(
+                "b-col",
+                { attrs: { xl: "4", lg: "4", md: "4", sm: "12" } },
+                [
+                  _c(
+                    "b-input-group",
+                    [
+                      _c("b-form-input", {
+                        attrs: { placeholder: "Cari Santri", size: "sm" },
+                        model: {
+                          value: _vm.filterModel.santri_name,
+                          callback: function($$v) {
+                            _vm.$set(_vm.filterModel, "santri_name", $$v)
+                          },
+                          expression: "filterModel.santri_name"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "b-input-group-prepend",
+                        [
+                          _c(
+                            "b-button",
+                            { attrs: { size: "sm" } },
+                            [
+                              _c("b-icon", {
+                                attrs: { icon: "search" },
+                                on: {
+                                  click: function($event) {
+                                    return _vm.searchSantri(_vm.filterModel)
+                                  }
+                                }
+                              })
+                            ],
+                            1
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c("br"),
           _vm._v(" "),
           _c(
             "b-form",
@@ -1304,7 +1785,7 @@ var render = function() {
           _vm._v(" "),
           _c("b-table", {
             attrs: {
-              items: _vm.muhaffizhs.data,
+              items: _vm.santris.data,
               fields: _vm.header,
               "current-page": _vm.currentPage,
               "per-page": _vm.perPage,
@@ -1363,7 +1844,7 @@ var render = function() {
                             attrs: { variant: "danger", size: "sm" },
                             on: {
                               click: function($event) {
-                                return _vm.deleteMuhaffizh(row.item.id)
+                                return _vm.deleteSantri(row.item.id)
                               }
                             }
                           },
@@ -1400,7 +1881,7 @@ var render = function() {
             "b-modal",
             {
               attrs: {
-                title: "Tambah Data Muhaffizh",
+                title: "Tambah Data Santri",
                 "no-close-on-backdrop": "",
                 "no-close-on-esc": "",
                 centered: ""
@@ -1422,7 +1903,7 @@ var render = function() {
             "b-modal",
             {
               attrs: {
-                title: "Ubah Data Muhaffizh",
+                title: "Ubah Data Santri",
                 "no-close-on-backdrop": "",
                 "no-close-on-esc": "",
                 centered: ""
@@ -1444,7 +1925,7 @@ var render = function() {
             "b-modal",
             {
               attrs: {
-                title: "Lihat Data Muhaffizh",
+                title: "Lihat Data Santri",
                 "body-class": "form-view",
                 centered: ""
               },
@@ -1456,53 +1937,9 @@ var render = function() {
                 expression: "viewModal"
               }
             },
-            [_c("DataView", { attrs: { items: _vm.currentMuhaffizh } })],
+            [_c("DataView", { attrs: { items: _vm.currentSantri } })],
             1
           )
-        ],
-        1
-      )
-    ],
-    1
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-
-
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/master/PageTitle.vue?vue&type=template&id=68b36472&":
-/*!*******************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/master/PageTitle.vue?vue&type=template&id=68b36472& ***!
-  \*******************************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c(
-        "CRow",
-        [
-          _c("CCol", { staticClass: "col-12" }, [
-            _c("span", { staticClass: "text-uppercase page-subtitle" }, [
-              _vm._v("Master Data")
-            ]),
-            _vm._v(" "),
-            _c("h3", { staticClass: "page-title" }, [
-              _vm._v(_vm._s(_vm.$route.meta.title))
-            ])
-          ])
         ],
         1
       )
@@ -1588,17 +2025,17 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./resources/js/components/master/Forms/MuhaffizhForm.vue":
-/*!****************************************************************!*\
-  !*** ./resources/js/components/master/Forms/MuhaffizhForm.vue ***!
-  \****************************************************************/
+/***/ "./resources/js/components/master/Forms/SantriForm.vue":
+/*!*************************************************************!*\
+  !*** ./resources/js/components/master/Forms/SantriForm.vue ***!
+  \*************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _MuhaffizhForm_vue_vue_type_template_id_f1d76590___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MuhaffizhForm.vue?vue&type=template&id=f1d76590& */ "./resources/js/components/master/Forms/MuhaffizhForm.vue?vue&type=template&id=f1d76590&");
-/* harmony import */ var _MuhaffizhForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MuhaffizhForm.vue?vue&type=script&lang=js& */ "./resources/js/components/master/Forms/MuhaffizhForm.vue?vue&type=script&lang=js&");
+/* harmony import */ var _SantriForm_vue_vue_type_template_id_f3e77e3e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SantriForm.vue?vue&type=template&id=f3e77e3e& */ "./resources/js/components/master/Forms/SantriForm.vue?vue&type=template&id=f3e77e3e&");
+/* harmony import */ var _SantriForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SantriForm.vue?vue&type=script&lang=js& */ "./resources/js/components/master/Forms/SantriForm.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -1608,9 +2045,9 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _MuhaffizhForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _MuhaffizhForm_vue_vue_type_template_id_f1d76590___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _MuhaffizhForm_vue_vue_type_template_id_f1d76590___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _SantriForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _SantriForm_vue_vue_type_template_id_f3e77e3e___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _SantriForm_vue_vue_type_template_id_f3e77e3e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
   null,
@@ -1620,107 +2057,38 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/components/master/Forms/MuhaffizhForm.vue"
+component.options.__file = "resources/js/components/master/Forms/SantriForm.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/components/master/Forms/MuhaffizhForm.vue?vue&type=script&lang=js&":
-/*!*****************************************************************************************!*\
-  !*** ./resources/js/components/master/Forms/MuhaffizhForm.vue?vue&type=script&lang=js& ***!
-  \*****************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MuhaffizhForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./MuhaffizhForm.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/master/Forms/MuhaffizhForm.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MuhaffizhForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/components/master/Forms/MuhaffizhForm.vue?vue&type=template&id=f1d76590&":
-/*!***********************************************************************************************!*\
-  !*** ./resources/js/components/master/Forms/MuhaffizhForm.vue?vue&type=template&id=f1d76590& ***!
-  \***********************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MuhaffizhForm_vue_vue_type_template_id_f1d76590___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./MuhaffizhForm.vue?vue&type=template&id=f1d76590& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/master/Forms/MuhaffizhForm.vue?vue&type=template&id=f1d76590&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MuhaffizhForm_vue_vue_type_template_id_f1d76590___WEBPACK_IMPORTED_MODULE_0__["render"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MuhaffizhForm_vue_vue_type_template_id_f1d76590___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
-
-
-
-/***/ }),
-
-/***/ "./resources/js/components/master/Muhaffizhs.vue":
-/*!*******************************************************!*\
-  !*** ./resources/js/components/master/Muhaffizhs.vue ***!
-  \*******************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Muhaffizhs_vue_vue_type_template_id_40f68ccf___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Muhaffizhs.vue?vue&type=template&id=40f68ccf& */ "./resources/js/components/master/Muhaffizhs.vue?vue&type=template&id=40f68ccf&");
-/* harmony import */ var _Muhaffizhs_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Muhaffizhs.vue?vue&type=script&lang=js& */ "./resources/js/components/master/Muhaffizhs.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-/* normalize component */
-
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _Muhaffizhs_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _Muhaffizhs_vue_vue_type_template_id_40f68ccf___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _Muhaffizhs_vue_vue_type_template_id_40f68ccf___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/components/master/Muhaffizhs.vue"
-/* harmony default export */ __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/js/components/master/Muhaffizhs.vue?vue&type=script&lang=js&":
-/*!********************************************************************************!*\
-  !*** ./resources/js/components/master/Muhaffizhs.vue?vue&type=script&lang=js& ***!
-  \********************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Muhaffizhs_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./Muhaffizhs.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/master/Muhaffizhs.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Muhaffizhs_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/components/master/Muhaffizhs.vue?vue&type=template&id=40f68ccf&":
+/***/ "./resources/js/components/master/Forms/SantriForm.vue?vue&type=script&lang=js&":
 /*!**************************************************************************************!*\
-  !*** ./resources/js/components/master/Muhaffizhs.vue?vue&type=template&id=40f68ccf& ***!
+  !*** ./resources/js/components/master/Forms/SantriForm.vue?vue&type=script&lang=js& ***!
   \**************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SantriForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./SantriForm.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/master/Forms/SantriForm.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SantriForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/master/Forms/SantriForm.vue?vue&type=template&id=f3e77e3e&":
+/*!********************************************************************************************!*\
+  !*** ./resources/js/components/master/Forms/SantriForm.vue?vue&type=template&id=f3e77e3e& ***!
+  \********************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Muhaffizhs_vue_vue_type_template_id_40f68ccf___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./Muhaffizhs.vue?vue&type=template&id=40f68ccf& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/master/Muhaffizhs.vue?vue&type=template&id=40f68ccf&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Muhaffizhs_vue_vue_type_template_id_40f68ccf___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SantriForm_vue_vue_type_template_id_f3e77e3e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./SantriForm.vue?vue&type=template&id=f3e77e3e& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/master/Forms/SantriForm.vue?vue&type=template&id=f3e77e3e&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SantriForm_vue_vue_type_template_id_f3e77e3e___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Muhaffizhs_vue_vue_type_template_id_40f68ccf___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SantriForm_vue_vue_type_template_id_f3e77e3e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
@@ -1790,6 +2158,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PageTitle_vue_vue_type_template_id_68b36472___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PageTitle_vue_vue_type_template_id_68b36472___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/master/Santris.vue":
+/*!****************************************************!*\
+  !*** ./resources/js/components/master/Santris.vue ***!
+  \****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Santris_vue_vue_type_template_id_ad4b5274___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Santris.vue?vue&type=template&id=ad4b5274& */ "./resources/js/components/master/Santris.vue?vue&type=template&id=ad4b5274&");
+/* harmony import */ var _Santris_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Santris.vue?vue&type=script&lang=js& */ "./resources/js/components/master/Santris.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Santris_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Santris_vue_vue_type_template_id_ad4b5274___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Santris_vue_vue_type_template_id_ad4b5274___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/master/Santris.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/master/Santris.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************!*\
+  !*** ./resources/js/components/master/Santris.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Santris_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./Santris.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/master/Santris.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Santris_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/master/Santris.vue?vue&type=template&id=ad4b5274&":
+/*!***********************************************************************************!*\
+  !*** ./resources/js/components/master/Santris.vue?vue&type=template&id=ad4b5274& ***!
+  \***********************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Santris_vue_vue_type_template_id_ad4b5274___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./Santris.vue?vue&type=template&id=ad4b5274& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/master/Santris.vue?vue&type=template&id=ad4b5274&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Santris_vue_vue_type_template_id_ad4b5274___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Santris_vue_vue_type_template_id_ad4b5274___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

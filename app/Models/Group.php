@@ -19,7 +19,7 @@ class Group extends Model
     {
         $modelQuery = static::query();
 
-        if (($filter_name = Arr::get($params, 'nama', false))) {
+        if (($filter_name = Arr::get($params, 'group_name', false))) {
             $modelQuery->where('nama', 'LIKE', '%' . $filter_name . '%');
         }
         // DEFAULT ORDERING DATA

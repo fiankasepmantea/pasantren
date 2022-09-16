@@ -22,8 +22,8 @@ class Muhaffizh extends Model
     public static function getModel($params, $raw = false)
     {
         $modelQuery = static::query();
-
-        if (($filter_name = Arr::get($params, 'nama', false))) {
+        
+        if (($filter_name = Arr::get($params, 'muhaffizh_name', false))) {
             $modelQuery->where('nama', 'LIKE', '%' . $filter_name . '%');
         }
         // DEFAULT ORDERING DATA

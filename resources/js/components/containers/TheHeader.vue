@@ -20,7 +20,7 @@
     </CHeaderBrand>
     <CHeaderNav class="mr-auto">
       <CHeaderNavItem class="px-3 pt-2">
-        <h5 class="d-md-none d-lg-block"><span class="d-sm-down-none">Ahlan Wa Sahlan di Aplikasi Tahfizh Pesantren Pondok Quran <font-awesome-icon icon="mosque" /></span></h5>
+        <h5 class="d-none d-lg-inline"><span class="d-sm-down-none">Ahlan Wa Sahlan di Aplikasi Tahfizh Pesantren Pondok Quran <font-awesome-icon icon="mosque" /></span></h5>
       </CHeaderNavItem>
     </CHeaderNav>
     <CHeaderNav class="flex-end">
