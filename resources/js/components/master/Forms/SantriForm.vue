@@ -68,6 +68,7 @@
       <b-form-group label="Nama Santri" label-cols="3" label-for="nama">
         <b-form-input
           id="nama"
+          @keyup="getDeleteSantri(santri)"
           v-model="santri.nama"
           placeholder="Masukan Nama"
           name="nama"
@@ -281,10 +282,13 @@ export default {
   },
   methods: {
     ...mapMutations("santri", ["CLEAR_FORM"]),
-    ...mapActions("santri", ["getMuhaffizh","getGroup","getGrade","getLevel","getUser"]),
+    ...mapActions("santri", ["getMuhaffizh","getGroup","getGrade","getLevel","getUser","getSantri"]),
     getGroupName(id){
       this.santri.group_id = '',
       this.getGroup(id)
+    },
+    async getDeleteSantri(santri){
+      await this.getSantri(santri);
     },
     validateState(ref) {
       if(

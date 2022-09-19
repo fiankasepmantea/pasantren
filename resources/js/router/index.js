@@ -6,9 +6,8 @@ import Router from 'vue-router'
 const TheContainer = () => import('../components/containers/TheContainer')
 const TheNoSidebar = () => import('../components/containers/TheNoSidebar')
 
-// Views
-const DSales = () => import('../components/dashboards/DSales')
-const DProduction = () => import('../components/dashboards/DProduction')
+// Dashboard
+const Grafik = () => import('../components/dashboards/Grafik')
 
 const Charts = () => import('../components/charts/Charts')
 const Widgets = () => import('../components/widgets/Widgets')
@@ -144,7 +143,7 @@ function configRoutes() {
         {
           path: 'santri-grafik',
           name: 'Monitor Grafik Santri',
-          component: DSales,
+          component: Grafik,
           meta: {
             auth: true,
             title: ''

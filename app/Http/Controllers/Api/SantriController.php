@@ -88,11 +88,16 @@ class SantriController extends Controller
        
         if(isset($request->nama) && isset($request->user_id)){
             
-            $santri = Model::where('user_id',$request->user_id)
+            $countSantri = Model::where('user_id',$request->user_id)
                         ->where('nama',ucwords($request->nama))->count();
 
-            return response()->json(['status' => 'success', 'data' => ($santri == 0)]);
-        
+            if($countSantri > 0){
+                $santri = Model::where('user_id',$request->user_id)
+                            ->where('nama',ucwords($request->nama))->delete();   
+
+                return response()->json(['status' => 'success', 'data' => $santri]);
+            }
+
         }
 
     }

@@ -26,10 +26,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/laporan/Santri.vue?vue&type=script&lang=js&":
-/*!*************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/laporan/Santri.vue?vue&type=script&lang=js& ***!
-  \*************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/laporan/Setoran.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/laporan/Setoran.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -50,6 +50,22 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -57,12 +73,23 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     pagetitle: _PageTitle__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
+  data: function data() {
+    return {
+      tgl_from: new Date(new Date().getFullYear(), 0, 2).toISOString().substr(0, 10),
+      tgl_to: new Date().toISOString().substr(0, 10)
+    };
+  },
   methods: {
-    handleReport: function handleReport(jenis_laporan) {
+    handleReport: function handleReport() {
       var _this = this;
 
-      var url = '/api/laporan/santri/' + jenis_laporan;
+      var fd = new FormData();
+      fd.append("tgl_from", this.tgl_from);
+      fd.append("tgl_to", this.tgl_to);
+      var url = '/api/laporan/setoran';
       return fetch(url, {
+        method: 'POST',
+        body: fd,
         headers: {
           Authorization: 'Bearer ' + localStorage.getItem('token')
         }
@@ -71,7 +98,7 @@ __webpack_require__.r(__webpack_exports__);
       }).then(function (blob) {
         var a = document.createElement('a');
         a.href = URL.createObjectURL(blob);
-        a.setAttribute('download', 'laporan_santri_' + jenis_laporan + '.xlsx');
+        a.setAttribute('download', 'laporan_setoran.xlsx');
         a.click();
       })["catch"](function (err) {
         _this.$toasted.global.failed_toast({
@@ -128,10 +155,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/laporan/Santri.vue?vue&type=template&id=3abe6e9a&":
-/*!*****************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/laporan/Santri.vue?vue&type=template&id=3abe6e9a& ***!
-  \*****************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/laporan/Setoran.vue?vue&type=template&id=56284973&":
+/*!******************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/laporan/Setoran.vue?vue&type=template&id=56284973& ***!
+  \******************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -156,45 +183,77 @@ var render = function() {
             "CCard",
             [
               _c(
-                "CListGroup",
+                "CCardBody",
                 [
                   _c(
-                    "CListGroupItem",
+                    "b-form-group",
                     {
-                      attrs: { target: "_blank", href: "#" },
-                      on: {
-                        click: function($event) {
-                          return _vm.handleReport("detail")
-                        }
+                      attrs: {
+                        label: "Tanggal",
+                        "label-cols": "3",
+                        "label-for": "tgl_from"
                       }
                     },
-                    [_vm._v("Laporan Detil")]
+                    [
+                      _c("b-form-input", {
+                        attrs: {
+                          id: "tgl_from",
+                          type: "date",
+                          name: "tgl_from"
+                        },
+                        model: {
+                          value: _vm.tgl_from,
+                          callback: function($$v) {
+                            _vm.tgl_from = $$v
+                          },
+                          expression: "tgl_from"
+                        }
+                      })
+                    ],
+                    1
                   ),
                   _vm._v(" "),
                   _c(
-                    "CListGroupItem",
+                    "b-form-group",
                     {
-                      attrs: { target: "_blank", href: "#" },
-                      on: {
-                        click: function($event) {
-                          return _vm.handleReport("jml_per_unit")
-                        }
+                      attrs: {
+                        label: "s/d",
+                        "label-cols": "3",
+                        "label-for": "tgl_to"
                       }
                     },
-                    [_vm._v("Jumlah per Unit")]
+                    [
+                      _c("b-form-input", {
+                        attrs: { id: "tgl_to", type: "date", name: "tgl_to" },
+                        model: {
+                          value: _vm.tgl_to,
+                          callback: function($$v) {
+                            _vm.tgl_to = $$v
+                          },
+                          expression: "tgl_to"
+                        }
+                      })
+                    ],
+                    1
                   ),
                   _vm._v(" "),
                   _c(
-                    "CListGroupItem",
+                    "b-button",
                     {
-                      attrs: { target: "_blank", href: "#" },
+                      attrs: { size: "sm", variant: "primary" },
                       on: {
                         click: function($event) {
-                          return _vm.handleReport("jml_per_gender")
+                          return _vm.handleReport()
                         }
                       }
                     },
-                    [_vm._v("Jumlah per Gender")]
+                    [
+                      _c("font-awesome-icon", {
+                        attrs: { icon: "file-excel" }
+                      }),
+                      _vm._v(" Unduh Laporan")
+                    ],
+                    1
                   )
                 ],
                 1
@@ -285,17 +344,17 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/laporan/Santri.vue":
-/*!****************************************************!*\
-  !*** ./resources/js/components/laporan/Santri.vue ***!
-  \****************************************************/
+/***/ "./resources/js/components/laporan/Setoran.vue":
+/*!*****************************************************!*\
+  !*** ./resources/js/components/laporan/Setoran.vue ***!
+  \*****************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Santri_vue_vue_type_template_id_3abe6e9a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Santri.vue?vue&type=template&id=3abe6e9a& */ "./resources/js/components/laporan/Santri.vue?vue&type=template&id=3abe6e9a&");
-/* harmony import */ var _Santri_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Santri.vue?vue&type=script&lang=js& */ "./resources/js/components/laporan/Santri.vue?vue&type=script&lang=js&");
+/* harmony import */ var _Setoran_vue_vue_type_template_id_56284973___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Setoran.vue?vue&type=template&id=56284973& */ "./resources/js/components/laporan/Setoran.vue?vue&type=template&id=56284973&");
+/* harmony import */ var _Setoran_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Setoran.vue?vue&type=script&lang=js& */ "./resources/js/components/laporan/Setoran.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -305,9 +364,9 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _Santri_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _Santri_vue_vue_type_template_id_3abe6e9a___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _Santri_vue_vue_type_template_id_3abe6e9a___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _Setoran_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Setoran_vue_vue_type_template_id_56284973___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Setoran_vue_vue_type_template_id_56284973___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
   null,
@@ -317,38 +376,38 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/components/laporan/Santri.vue"
+component.options.__file = "resources/js/components/laporan/Setoran.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/components/laporan/Santri.vue?vue&type=script&lang=js&":
-/*!*****************************************************************************!*\
-  !*** ./resources/js/components/laporan/Santri.vue?vue&type=script&lang=js& ***!
-  \*****************************************************************************/
+/***/ "./resources/js/components/laporan/Setoran.vue?vue&type=script&lang=js&":
+/*!******************************************************************************!*\
+  !*** ./resources/js/components/laporan/Setoran.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Santri_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./Santri.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/laporan/Santri.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Santri_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Setoran_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./Setoran.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/laporan/Setoran.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Setoran_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
-/***/ "./resources/js/components/laporan/Santri.vue?vue&type=template&id=3abe6e9a&":
-/*!***********************************************************************************!*\
-  !*** ./resources/js/components/laporan/Santri.vue?vue&type=template&id=3abe6e9a& ***!
-  \***********************************************************************************/
+/***/ "./resources/js/components/laporan/Setoran.vue?vue&type=template&id=56284973&":
+/*!************************************************************************************!*\
+  !*** ./resources/js/components/laporan/Setoran.vue?vue&type=template&id=56284973& ***!
+  \************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Santri_vue_vue_type_template_id_3abe6e9a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./Santri.vue?vue&type=template&id=3abe6e9a& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/laporan/Santri.vue?vue&type=template&id=3abe6e9a&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Santri_vue_vue_type_template_id_3abe6e9a___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Setoran_vue_vue_type_template_id_56284973___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./Setoran.vue?vue&type=template&id=56284973& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/laporan/Setoran.vue?vue&type=template&id=56284973&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Setoran_vue_vue_type_template_id_56284973___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Santri_vue_vue_type_template_id_3abe6e9a___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Setoran_vue_vue_type_template_id_56284973___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
