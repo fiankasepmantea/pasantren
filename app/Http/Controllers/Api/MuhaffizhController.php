@@ -9,7 +9,9 @@ use App\Http\Requests\MuhaffizhRequest as ModelRequest;
 use App\Http\Resources\MuhaffizhResource as ModelResource;
 use App\Models\Unit;
 use App\Models\Group;
+use App\User;
 use XLSXWriter;
+use Aspera\Spreadsheet\XLSX\Reader;
 
 class MuhaffizhController extends Controller
 {
@@ -96,5 +98,92 @@ class MuhaffizhController extends Controller
             ->header('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
             ->header('Content-disposition', "attachment; filename=laporan_muhaffizh_$jenis.xlsx")
         ;
+    }
+
+    public function uploadMuhaffizh(Request $request, Model $muhaffizh) {
+        $request->validate(['file_muhaffizh'=>'mimes:xlsx']);
+        $result = array('success'=>false,'message'=>'','errors'=>array());
+        
+        $file = $request->file('file_muhaffizh');
+        // $result["FileRealPath"] = $file->getRealPath();
+        // Parse xlsx file
+        $xr = new Reader();
+        $xr->open($file->getRealPath());
+
+        if(!$xr->valid()) {
+            $result['message'] = "File kosong/tidak ada baris untuk diproses";
+            return response()->json($result);
+        }
+        
+        $mandatory = ['nomor_induk','nama','alamat','tempat_lahir','tanggal_lahir','no_hp','pendidikan_terakhir',
+                        'mulai_bertugas','angkatan_kelas','status',
+                        'unit','user_login_muhaffizh'];
+                        
+        $head = $xr->current();
+        foreach ($head as &$field) {
+            $field = strtolower($field);
+        }
+        $fields = $rec = array();
+        foreach ($mandatory as $field) {
+            $i = array_search($field, $head);
+            if($i === false) {
+                $result['message'] = "File Excel harus memiliki kolom: ".$field;
+                return response()->json($result);
+            }
+            $fields[$i] = $field;
+            $rec[$field] = '';
+        }
+
+        // Process parsed row, reverse lookup string to id, validate relations, insert to db..
+        $success = $with_error = $failed = 0; 
+        foreach($xr as $i => $row) {
+            if($i<=1) continue; // skip header
+            $newrec = array();
+            $errors = '';
+
+            foreach ($fields as $k => $f) {
+                $rec[$f] = trim($row[$k]);
+                // collect non id field values
+                if(!in_array($f, ['unit','user_login_muhaffizh'])) 
+                    $newrec[$f] = $row[$k];
+            }
+
+            $unit = Unit::where([
+                ['nama','LIKE',"%{$rec['unit']}%"],
+            ])->first();
+
+            if(!$unit) {
+                $newrec['unit_id'] = null;
+                $errors.= "WARNING: Unit {$rec['unit']}\r\n";
+            }
+            else $newrec['unit_id'] = $unit->id;
+
+            $loginMuhaffizh = User::where([
+                    ['name','LIKE',"%{$rec['user_login_muhaffizh']}%"],
+                    ['level_id',3]
+                ])->first();
+
+            if(!$loginMuhaffizh) {
+                $newrec['user_id'] = null;
+                $errors.= "WARNING: Login Salah {$rec['user_login_muhaffizh']}\r\n";
+            }
+            else $newrec['user_id'] = $loginMuhaffizh->id;
+         
+            if($muhaffizh->saveModel($newrec)) {
+                $success++;
+                if(!empty($errors)) {
+                    $result['errors'][$i] = $errors;
+                    $with_error++;
+                }
+            } else {
+                $failed++;
+            }
+
+            $result['debug'][] = $newrec;
+        }
+        $result['message'] = "Upload sukses: $success terimport ($with_error dgn error), $failed gagal";
+        $result['success'] = true;
+
+        return response()->json($result);
     }
 }

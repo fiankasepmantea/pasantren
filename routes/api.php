@@ -75,6 +75,7 @@ Route::group(['namespace' => 'Api'], function () {
 
         Route::post('/setoran/upload', 'SetoranController@uploadSetoran');
         Route::post('/santri/uploadsantri', 'SantriController@uploadSantri');
+        Route::post('/muhaffizh/uploadmuhaffizh', 'MuhaffizhController@uploadMuhaffizh');
         Route::post('/laporan/setoran', 'SetoranController@xlsSetoran');
         Route::post('/tahsin/upload', 'TahsinController@uploadTahsin');
     }); 

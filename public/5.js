@@ -420,6 +420,29 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -450,6 +473,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       filterModel: {
         muhaffizh_name: null
       },
+      file1: undefined,
+      uploadModal: false,
       header: [{
         key: "nama",
         label: "Nama"
@@ -630,6 +655,36 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         _this5.$toasted.global.failed_toast({
           message: 'Data Muhaffizh gagal untuk ditambahkan..'
         });
+      });
+    },
+    handleUpload: function handleUpload() {
+      var _this6 = this;
+
+      var formData = new FormData();
+      formData.append("file_muhaffizh", this.file1);
+      return fetch('/api/muhaffizh/uploadmuhaffizh', {
+        method: 'POST',
+        body: formData,
+        headers: {
+          Accept: 'application/json',
+          Authorization: 'Bearer ' + localStorage.getItem('token')
+        }
+      }).then(function (response) {
+        return response.json();
+      }).then(function (result) {
+        if (!result.success) {
+          _this6.$toasted.global.failed_toast(result);
+        } else {
+          _this6.$toasted.global.success_toast(result);
+
+          _this6.loadData();
+        }
+      })["catch"](function (err) {
+        _this6.$toasted.global.failed_toast({
+          message: 'Error upload file'
+        });
+
+        console.log(err);
       });
     }
   })
@@ -1331,7 +1386,25 @@ var render = function() {
                     },
                     [_vm._v("+ Tambah Muhaffizh")]
                   )
-                : _vm._e()
+                : _vm._e(),
+              _vm._v(" "),
+              _c(
+                "b-button",
+                {
+                  staticClass: "ml-2",
+                  attrs: { size: "sm", variant: "info" },
+                  on: {
+                    click: function($event) {
+                      _vm.uploadModal = true
+                    }
+                  }
+                },
+                [
+                  _c("font-awesome-icon", { attrs: { icon: "upload" } }),
+                  _vm._v(" Upload Muhaffizh")
+                ],
+                1
+              )
             ],
             1
           ),
@@ -1584,6 +1657,74 @@ var render = function() {
               }
             },
             [_c("DataView", { attrs: { items: _vm.currentMuhaffizh } })],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "b-modal",
+            {
+              attrs: {
+                title: "Unggah Data Muhaffizh",
+                "body-class": "form-view",
+                centered: ""
+              },
+              on: { ok: _vm.handleUpload },
+              model: {
+                value: _vm.uploadModal,
+                callback: function($$v) {
+                  _vm.uploadModal = $$v
+                },
+                expression: "uploadModal"
+              }
+            },
+            [
+              _c(
+                "b-form",
+                {
+                  on: {
+                    submit: function($event) {
+                      $event.stopPropagation()
+                      $event.preventDefault()
+                    }
+                  }
+                },
+                [
+                  _c(
+                    "div",
+                    [
+                      _c(
+                        "CLink",
+                        { attrs: { href: "/docs/template_muhaffizh.xlsx" } },
+                        [_vm._v("Download Template")]
+                      ),
+                      _vm._v(" "),
+                      _c("b-form-file", {
+                        attrs: {
+                          state: Boolean(_vm.file1),
+                          accept: ".xls, .xlsx, .csv",
+                          placeholder: "Pilih file/drag-n-drop...",
+                          "drop-placeholder": "Drop file kesini..."
+                        },
+                        model: {
+                          value: _vm.file1,
+                          callback: function($$v) {
+                            _vm.file1 = $$v
+                          },
+                          expression: "file1"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "mt-3" }, [
+                        _vm._v(
+                          "File: " + _vm._s(_vm.file1 ? _vm.file1.name : "")
+                        )
+                      ])
+                    ],
+                    1
+                  )
+                ]
+              )
+            ],
             1
           )
         ],

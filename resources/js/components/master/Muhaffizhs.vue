@@ -4,6 +4,7 @@
       <CCardBody style="padding-top:0px;">
       <div class="d-flex justify-content-end">
         <b-button v-if="showAction" size="sm" variant="success" @click="createModal = true">+ Tambah Muhaffizh</b-button>
+        <b-button size="sm" variant="info" class="ml-2" @click="uploadModal = true"><font-awesome-icon icon="upload" /> Upload Muhaffizh</b-button>
       </div>
       <br>
       <b-row>
@@ -117,6 +118,28 @@
       <DataView :items="currentMuhaffizh" />
       </b-modal>
       
+      <b-modal
+        title="Unggah Data Muhaffizh"
+        v-model="uploadModal"
+        @ok="handleUpload"
+        body-class="form-view"
+        centered
+        >
+        <b-form @submit.stop.prevent="">
+        <div>
+          <CLink href="/docs/template_muhaffizh.xlsx">Download Template</CLink>
+          <b-form-file
+            v-model="file1"
+            :state="Boolean(file1)"
+            accept=".xls, .xlsx, .csv"
+            placeholder="Pilih file/drag-n-drop..."
+            drop-placeholder="Drop file kesini..."
+          ></b-form-file>
+          <div class="mt-3">File: {{ file1 ? file1.name : '' }}</div>
+        </div>
+        </b-form>
+      </b-modal>
+
       </CCardBody>
   </div>
 </template>
@@ -155,6 +178,8 @@ export default {
       filterModel: {
         muhaffizh_name: null,
       },
+      file1 : undefined,
+      uploadModal : false,
       header: [
         {
           key: "nama",
@@ -285,6 +310,26 @@ export default {
         message: 'Data Muhaffizh gagal untuk ditambahkan..'
       })
       })
+    },
+    handleUpload() {
+      let formData = new FormData();
+      formData.append("file_muhaffizh", this.file1);
+      return fetch('/api/muhaffizh/uploadmuhaffizh', {
+        method: 'POST',
+        body: formData,
+        headers: { Accept: 'application/json', Authorization: 'Bearer ' + localStorage.getItem('token') }
+      }).then((response) => response.json())
+        .then((result) => {
+          if(!result.success) {
+            this.$toasted.global.failed_toast(result);
+          } else {
+            this.$toasted.global.success_toast(result);
+            this.loadData();
+          }
+        }).catch((err) => {
+          this.$toasted.global.failed_toast({message:'Error upload file'});
+          console.log(err);
+        });
     }
   }
 };
