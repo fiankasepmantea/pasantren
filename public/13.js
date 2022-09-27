@@ -418,6 +418,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -1119,6 +1123,14 @@ var render = function() {
                     [
                       _c("b-form-input", {
                         attrs: { placeholder: "Cari Santri", size: "sm" },
+                        on: {
+                          keyup: function($event) {
+                            return _vm.searchMuhaffizhSantri(_vm.filterModel)
+                          },
+                          change: function($event) {
+                            return _vm.searchMuhaffizhSantri(_vm.filterModel)
+                          }
+                        },
                         model: {
                           value: _vm.filterModel.santri_name,
                           callback: function($$v) {
@@ -1127,9 +1139,17 @@ var render = function() {
                           expression: "filterModel.santri_name"
                         }
                       }),
-                      _vm._v(" "),
+                      _vm._v("    \n            "),
                       _c("b-form-input", {
                         attrs: { placeholder: "Cari Muhaffizh ", size: "sm" },
+                        on: {
+                          keyup: function($event) {
+                            return _vm.searchMuhaffizhSantri(_vm.filterModel)
+                          },
+                          change: function($event) {
+                            return _vm.searchMuhaffizhSantri(_vm.filterModel)
+                          }
+                        },
                         model: {
                           value: _vm.filterModel.muhaffizh_name,
                           callback: function($$v) {
@@ -1137,31 +1157,7 @@ var render = function() {
                           },
                           expression: "filterModel.muhaffizh_name"
                         }
-                      }),
-                      _vm._v(" "),
-                      _c(
-                        "b-input-group-prepend",
-                        [
-                          _c(
-                            "b-button",
-                            { attrs: { size: "sm" } },
-                            [
-                              _c("b-icon", {
-                                attrs: { icon: "search" },
-                                on: {
-                                  click: function($event) {
-                                    return _vm.searchMuhaffizhSantri(
-                                      _vm.filterModel
-                                    )
-                                  }
-                                }
-                              })
-                            ],
-                            1
-                          )
-                        ],
-                        1
-                      )
+                      })
                     ],
                     1
                   )

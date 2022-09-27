@@ -15,15 +15,19 @@
                 placeholder="Cari Santri"
                 v-model="filterModel.santri_name"
                 size="sm"
-              ></b-form-input> 
+                @keyup="searchMuhaffizhSantri(filterModel)"
+                @change="searchMuhaffizhSantri(filterModel)"
+              ></b-form-input>&nbsp;&nbsp;  
               <b-form-input
                 placeholder="Cari Muhaffizh "
                 v-model="filterModel.muhaffizh_name"
                 size="sm"
+                @keyup="searchMuhaffizhSantri(filterModel)"
+                @change="searchMuhaffizhSantri(filterModel)"
               ></b-form-input> 
-                <b-input-group-prepend>
+                <!-- <b-input-group-prepend>
                 <b-button size="sm"> <b-icon icon="search" @click="searchMuhaffizhSantri(filterModel)"></b-icon></b-button>
-                </b-input-group-prepend>
+                </b-input-group-prepend> -->
               </b-input-group
           ></b-col>
       </b-row>
