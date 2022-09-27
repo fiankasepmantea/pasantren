@@ -14,10 +14,12 @@
                 placeholder="Cari Nama User"
                 v-model="filterModel.user_name"
                 size="sm"
+                @keyup="searchUser(filterModel)"
+                @change="searchUser(filterModel)"
               ></b-form-input> 
-                <b-input-group-prepend>
+                <!-- <b-input-group-prepend>
                 <b-button size="sm"> <b-icon icon="search" @click="searchUser(filterModel)"></b-icon></b-button>
-                </b-input-group-prepend>
+                </b-input-group-prepend> -->
               </b-input-group
           ></b-col>
       </b-row>

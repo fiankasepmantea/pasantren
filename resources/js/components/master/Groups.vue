@@ -14,10 +14,12 @@
                 placeholder="Cari Grup/Halaqoh"
                 v-model="filterModel.group_name"
                 size="sm"
+                @keyup="searchGroup(filterModel)"
+                @change="searchGroup(filterModel)"
               ></b-form-input> 
-                <b-input-group-prepend>
+                <!-- <b-input-group-prepend>
                 <b-button size="sm"> <b-icon icon="search" @click="searchGroup(filterModel)"></b-icon></b-button>
-                </b-input-group-prepend>
+                </b-input-group-prepend> -->
               </b-input-group
           ></b-col>
       </b-row>

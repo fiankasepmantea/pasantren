@@ -218,6 +218,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
 
 
 
@@ -615,6 +617,14 @@ var render = function() {
                     [
                       _c("b-form-input", {
                         attrs: { placeholder: "Cari Grup/Halaqoh", size: "sm" },
+                        on: {
+                          keyup: function($event) {
+                            return _vm.searchGroup(_vm.filterModel)
+                          },
+                          change: function($event) {
+                            return _vm.searchGroup(_vm.filterModel)
+                          }
+                        },
                         model: {
                           value: _vm.filterModel.group_name,
                           callback: function($$v) {
@@ -622,29 +632,7 @@ var render = function() {
                           },
                           expression: "filterModel.group_name"
                         }
-                      }),
-                      _vm._v(" "),
-                      _c(
-                        "b-input-group-prepend",
-                        [
-                          _c(
-                            "b-button",
-                            { attrs: { size: "sm" } },
-                            [
-                              _c("b-icon", {
-                                attrs: { icon: "search" },
-                                on: {
-                                  click: function($event) {
-                                    return _vm.searchGroup(_vm.filterModel)
-                                  }
-                                }
-                              })
-                            ],
-                            1
-                          )
-                        ],
-                        1
-                      )
+                      })
                     ],
                     1
                   )

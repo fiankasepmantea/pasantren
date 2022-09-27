@@ -14,10 +14,12 @@
                 placeholder="Cari Muhaffizh"
                 v-model="filterModel.muhaffizh_name"
                 size="sm"
+                @keyup="searchMuhaffizh(filterModel)"
+                @change="searchMuhaffizh(filterModel)"
               ></b-form-input> 
-                <b-input-group-prepend>
+                <!-- <b-input-group-prepend>
                 <b-button size="sm"> <b-icon icon="search" @click="searchMuhaffizh(filterModel)"></b-icon></b-button>
-                </b-input-group-prepend>
+                </b-input-group-prepend> -->
               </b-input-group
           ></b-col>
       </b-row>
