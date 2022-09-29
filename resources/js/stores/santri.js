@@ -137,6 +137,9 @@ const mutations = {
     state.santri_user = [];
   },
 
+  CLEAR_SANTRI_NAME(state) {
+    state.santri.nama = ''
+  },
 }
 
 const actions = {
@@ -311,7 +314,7 @@ const actions = {
         })
     })
   },
-  getSantri({ commit }, payload=null) {
+  getCheckSantri({ commit }, payload=null) {
     return new Promise((resolve, reject) => {
        
         if(payload){
@@ -322,6 +325,9 @@ const actions = {
               }
             })
             .then((response) => { 
+              if(response.data.data){
+                commit('CLEAR_SANTRI_NAME');
+              }
               
               resolve(response.data)
           })

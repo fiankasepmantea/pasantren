@@ -9,15 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
-
-
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -293,7 +285,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     this.getUser();
     this.$validator = this.validator;
   },
-  computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapState"])(["errors"])), Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapState"])("santri", {
+  computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(["errors"])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])("santri", {
     santri: function santri(state) {
       return state.santri;
     },
@@ -316,28 +308,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       return state.santri_user;
     }
   })),
-  methods: _objectSpread(_objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapMutations"])("santri", ["CLEAR_FORM"])), Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])("santri", ["getMuhaffizh", "getGroup", "getGrade", "getLevel", "getUser", "getSantri"])), {}, {
+  methods: _objectSpread(_objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapMutations"])("santri", ["CLEAR_FORM"])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])("santri", ["getMuhaffizh", "getGroup", "getGrade", "getLevel", "getUser", "getCheckSantri"])), {}, {
     getGroupName: function getGroupName(id) {
       this.santri.group_id = '', this.getGroup(id);
     },
-    getDeleteSantri: function getDeleteSantri(santri) {
-      var _this = this;
-
-      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                _context.next = 2;
-                return _this.getSantri(santri);
-
-              case 2:
-              case "end":
-                return _context.stop();
-            }
-          }
-        }, _callee);
-      }))();
+    handleSantri: function handleSantri(santri) {
+      this.getCheckSantri(santri);
     },
     validateState: function validateState(ref) {
       if (this.veeFields[ref] && (this.veeFields[ref].dirty || this.veeFields[ref].validated)) {
@@ -1158,8 +1134,8 @@ var render = function() {
                   "data-vv-as": "Nama"
                 },
                 on: {
-                  keyup: function($event) {
-                    return _vm.getDeleteSantri(_vm.santri)
+                  blur: function($event) {
+                    return _vm.handleSantri(_vm.santri)
                   }
                 },
                 model: {
