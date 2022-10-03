@@ -11,7 +11,7 @@
           <b-col xl="4" lg="4" md="4" sm="12"
             ><b-input-group>
                <b-form-input
-                placeholder="Cari Grup/Halaqoh"
+                placeholder="Ketik Grup/Halaqoh"
                 v-model="filterModel.group_name"
                 size="sm"
                 @keyup="searchGroup(filterModel)"

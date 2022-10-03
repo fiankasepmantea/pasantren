@@ -1001,7 +1001,7 @@ var render = function() {
                     "b-input-group",
                     [
                       _c("b-form-input", {
-                        attrs: { placeholder: "Cari Santri", size: "sm" },
+                        attrs: { placeholder: "Ketik Santri", size: "sm" },
                         on: {
                           keyup: function($event) {
                             return _vm.searchMuhaffizhSantri(_vm.filterModel)
@@ -1020,7 +1020,7 @@ var render = function() {
                       }),
                       _vm._v("    \n             "),
                       _c("b-form-input", {
-                        attrs: { placeholder: "Cari Muhaffizh", size: "sm" },
+                        attrs: { placeholder: "Ketik Muhaffizh", size: "sm" },
                         on: {
                           keyup: function($event) {
                             return _vm.searchMuhaffizhSantri(_vm.filterModel)

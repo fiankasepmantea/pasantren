@@ -93,9 +93,6 @@ class SantriController extends Controller
                         ->where('nama',ucwords($request->nama))->count();
 
             if($countSantri > 0){
-                // $santri = Model::where('user_id',$request->user_id)
-                //             ->where('nama',ucwords($request->nama))->delete();   
-
                 return response()->json(['status' => 'success', 'data' => true]);
             }else {
                 return response()->json(['status' => 'failed', 'data' => false]);

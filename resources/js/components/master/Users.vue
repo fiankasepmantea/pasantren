@@ -11,7 +11,7 @@
           <b-col xl="4" lg="4" md="4" sm="12"
             ><b-input-group>
                <b-form-input
-                placeholder="Cari Nama User"
+                placeholder="Ketik Nama User"
                 v-model="filterModel.user_name"
                 size="sm"
                 @keyup="searchUser(filterModel)"

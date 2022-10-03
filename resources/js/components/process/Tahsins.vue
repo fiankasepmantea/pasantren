@@ -12,14 +12,14 @@
           <b-col xl="4" lg="4" md="4" sm="12"
             ><b-input-group>
               <b-form-input
-                placeholder="Cari Santri"
+                placeholder="Ketik Santri"
                 v-model="filterModel.santri_name"
                 size="sm"
                 @keyup="searchMuhaffizhSantri(filterModel)"
                 @change="searchMuhaffizhSantri(filterModel)"
               ></b-form-input>&nbsp;&nbsp;   
               <b-form-input
-                placeholder="Cari Muhaffizh "
+                placeholder="Ketik Muhaffizh "
                 v-model="filterModel.muhaffizh_name"
                 size="sm"
                 @keyup="searchMuhaffizhSantri(filterModel)"
@@ -31,6 +31,7 @@
               </b-input-group
           ></b-col>
       </b-row>
+      <br>
       <b-form inline>
           <b-form-group
             label="Show :"

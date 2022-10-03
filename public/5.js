@@ -1424,7 +1424,7 @@ var render = function() {
                     "b-input-group",
                     [
                       _c("b-form-input", {
-                        attrs: { placeholder: "Cari Muhaffizh", size: "sm" },
+                        attrs: { placeholder: "Ketik Muhaffizh", size: "sm" },
                         on: {
                           keyup: function($event) {
                             return _vm.searchMuhaffizh(_vm.filterModel)

@@ -12,7 +12,7 @@
           <b-col xl="4" lg="4" md="4" sm="12"
             ><b-input-group>
                <b-form-input
-                placeholder="Cari Santri"
+                placeholder="Ketik Santri"
                 v-model="filterModel.santri_name"
                 size="sm"
                 @keyup="searchSantri(filterModel)"

@@ -616,7 +616,10 @@ var render = function() {
                     "b-input-group",
                     [
                       _c("b-form-input", {
-                        attrs: { placeholder: "Cari Grup/Halaqoh", size: "sm" },
+                        attrs: {
+                          placeholder: "Ketik Grup/Halaqoh",
+                          size: "sm"
+                        },
                         on: {
                           keyup: function($event) {
                             return _vm.searchGroup(_vm.filterModel)
