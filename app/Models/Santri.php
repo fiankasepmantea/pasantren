@@ -30,7 +30,7 @@ class Santri extends Model
         $user = Auth::user();
         $level = $user->userLevel;
         $userID = $user->id;
-       
+        // filter muhaffizh to santri
         if(strtolower($level->nama) == 'muhaffizh') {
             $muhaffizh = Muhaffizh::where('user_id',$userID)->first();
            
@@ -38,11 +38,11 @@ class Santri extends Model
                 $modelQuery->where('muhaffizh_id', $muhaffizh['id']);
             }    
         }
-        
+        // filter walisantri to santri
         if(strtolower($level->nama) == 'walisantri') {
             $modelQuery->where('user_id', $userID);
         }
-
+        // filter ketik santri
         if(($filter_name = Arr::get($params, 'santri_name', false))) {
             $modelQuery->where('nama', 'LIKE', '%' . $filter_name . '%');
         }
