@@ -155,6 +155,10 @@ class MuhaffizhController extends Controller
             if(!$unit) {
                 $newrec['unit_id'] = null;
                 $errors.= "WARNING: Unit {$rec['unit']}\r\n";
+
+                $failed++;
+                $result['errors'][$i] = $errors;
+                continue;
             }
             else $newrec['unit_id'] = $unit->id;
 
@@ -166,6 +170,10 @@ class MuhaffizhController extends Controller
             if(!$loginMuhaffizh) {
                 $newrec['user_id'] = null;
                 $errors.= "WARNING: Login Salah {$rec['user_login_muhaffizh']}\r\n";
+
+                $failed++;
+                $result['errors'][$i] = $errors;
+                continue;
             }
             else $newrec['user_id'] = $loginMuhaffizh->id;
          

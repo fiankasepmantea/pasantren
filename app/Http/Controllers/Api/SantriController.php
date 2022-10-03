@@ -197,20 +197,26 @@ class SantriController extends Controller
             $grade = Grade::where([
                 ['grade','LIKE',"%{$rec['grade']}%"],
             ])->first();
-
             if(!$grade) {
                 $newrec['grade_id'] = null;
                 $errors.= "WARNING: Grade {$rec['grade']}\r\n";
+
+                $failed++;
+                $result['errors'][$i] = $errors;
+                continue;
             }
             else $newrec['grade_id'] = $grade->id;
 
             $levelSantri = LevelSantri::where([
                 ['level',"{$rec['levelsantri']}"],
             ])->first();
-
             if(!$levelSantri) {
                 $newrec['levelsantri_id'] = null;
                 $errors.= "WARNING: Level Santri {$rec['levelsantri']}\r\n";
+
+                $failed++;
+                $result['errors'][$i] = $errors;
+                continue;
             }
             else $newrec['levelsantri_id'] = $levelSantri->id;
 
@@ -229,10 +235,13 @@ class SantriController extends Controller
                     ['name','LIKE',"%{$rec['walisantri']}%"],
                     ['level_id',4]
                 ])->first();
-
             if(!$walisantri) {
                 $newrec['user_id'] = null;
                 $errors.= "WARNING: Nama Walisantri {$rec['walisantri']}\r\n";
+
+                $failed++;
+                $result['errors'][$i] = $errors;
+                continue;
             }
             else $newrec['user_id'] = $walisantri->id;
 
@@ -240,11 +249,14 @@ class SantriController extends Controller
                 ['nama','LIKE',"%{$rec['group']}%"],
                 ['muhaffizh_id',$newrec['muhaffizh_id']]
             ])->first();
-
             if(!$group) {
                 $newrec['group_id'] = null;
                 $errors.= "WARNING: Nama group {$rec['group']}"
                     ." kelompok muhaffizh {$rec['muhaffizh']} tidak ditemukan.\r\n";
+
+                $failed++;
+                $result['errors'][$i] = $errors;
+                continue;
             }
             else $newrec['group_id'] = $group->id;
            
